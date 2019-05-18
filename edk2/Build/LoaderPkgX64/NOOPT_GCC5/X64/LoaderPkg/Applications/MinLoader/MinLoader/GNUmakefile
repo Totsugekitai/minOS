@@ -210,7 +210,6 @@ STATIC_LIBRARY_FILES =  \
     $(OUTPUT_DIR)/MinLoader.lib
 
 OBJECT_FILES =  \
-    $(OUTPUT_DIR)/kernel_jmp.obj \
     $(OUTPUT_DIR)/MinLoader.obj \
     $(OUTPUT_DIR)/kernel.obj \
     $(OUTPUT_DIR)/AutoGen.obj
@@ -361,43 +360,6 @@ $(OUTPUT_DIR)/MinLoader.efi : $(DEBUG_DIR)/MinLoader.dll
 	$(CP) /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.efi $(BIN_DIR)/$(MODULE_NAME_GUID).efi
 	-$(CP) $(DEBUG_DIR)/*.map $(OUTPUT_DIR)
 
-$(OUTPUT_DIR)/kernel_jmp.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi60.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiBaseType.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiPxe.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi51.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Protocol/DevicePath.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(DEBUG_DIR)/AutoGen.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Guid/WinCertificate.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiMultiPhase.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Protocol/SimpleTextIn.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Guid/PcAnsi.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi20.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi50.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiGpt.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/X64/ProcessorBind.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Protocol/SimpleTextInEx.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi10.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi30.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Base.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiSpec.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/AcpiAml.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Protocol/SimpleTextOut.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Bluetooth.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi40.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Guid/HiiFormMapMethodGuid.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/LoaderPkg/Applications/MinLoader/kernel_jmp.S
-	"$(PP)" $(PP_FLAGS) $(INC) /home/totsugekitai/workspace/mywork/minos/edk2/LoaderPkg/Applications/MinLoader/kernel_jmp.S > /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./kernel_jmp.i
-	Trim --trim-long --source-code -o /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./kernel_jmp.iii /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./kernel_jmp.i
-	"$(ASM)" $(ASM_FLAGS) -o /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./kernel_jmp.obj $(INC) /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./kernel_jmp.iii
-
-$(OUTPUT_DIR)/MinLoader.lib : $(OBJECT_FILES)
-$(OUTPUT_DIR)/MinLoader.lib : $(OBJECT_FILES_LIST)
-	$(RM) /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib
-	"$(SLINK)" cr /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib $(SLINK_FLAGS) @$(OBJECT_FILES_LIST)
-
 $(OUTPUT_DIR)/kernel.obj : $(MAKE_FILE)
 $(OUTPUT_DIR)/kernel.obj : $(COMMON_DEPS)
 $(OUTPUT_DIR)/kernel.obj : $(WORKSPACE)/LoaderPkg/Applications/MinLoader/kernel.c
@@ -415,6 +377,7 @@ $(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Library/BaseMemoryLib.
 $(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Library/BaseLib.h
 $(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Protocol/DriverConfiguration2.h
 $(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi63.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/LoaderPkg/Applications/MinLoader/MinLoader.h
 $(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Protocol/ComponentName.h
 $(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Protocol/DriverConfiguration.h
 $(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi61.h
@@ -460,6 +423,11 @@ $(OUTPUT_DIR)/AutoGen.obj : $(WORKSPACE)/MdePkg/Include/Guid/HiiFormMapMethodGui
 $(OUTPUT_DIR)/AutoGen.obj : $(WORKSPACE)/MdePkg/Include/Uefi.h
 $(OUTPUT_DIR)/AutoGen.obj : $(DEBUG_DIR)/AutoGen.c
 	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./AutoGen.obj $(INC) /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/DEBUG/AutoGen.c
+
+$(OUTPUT_DIR)/MinLoader.lib : $(OBJECT_FILES)
+$(OUTPUT_DIR)/MinLoader.lib : $(OBJECT_FILES_LIST)
+	$(RM) /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib
+	"$(SLINK)" cr /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib $(SLINK_FLAGS) @$(OBJECT_FILES_LIST)
 
 
 

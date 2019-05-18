@@ -7,7 +7,6 @@ VERSION_STRING          = 0.1
 ENTRY_POINT             = Uefi_main
 
 [Sources]
-kernel_jmp.S
 MinLoader.c
 kernel.h
 kernel.c

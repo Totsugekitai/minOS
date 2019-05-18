@@ -206,28 +206,28 @@ Archive member included to satisfy reference by file (symbol)
                               (--whole-archive)
 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiApplicationEntryPoint/UefiApplicationEntryPoint/OUTPUT/UefiApplicationEntryPoint.lib(ApplicationEntryPoint.obj)
                               (--whole-archive)
-/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(kernel_jmp.obj)
-                              (--whole-archive)
 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(MinLoader.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(kernel.obj)
                               (--whole-archive)
 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
                               (--whole-archive)
 
 破棄された入力セクション
 
- .comment       0x0000000000000000      0x678 /tmp/ccqX3A73debugobj
+ .comment       0x0000000000000000      0x68a /tmp/ccBP6h23debugobj
  .note.GNU-stack
-                0x0000000000000000        0x0 /tmp/ccqX3A73debugobj
- .text          0x0000000000000000        0x0 /tmp/ccuDsrOe.ltrans0.ltrans.o
- .data          0x0000000000000000        0x0 /tmp/ccuDsrOe.ltrans0.ltrans.o
- .bss           0x0000000000000000        0x0 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x0000000000000000        0x0 /tmp/ccBP6h23debugobj
+ .text          0x0000000000000000        0x0 /tmp/ccpwMguF.ltrans0.ltrans.o
+ .data          0x0000000000000000        0x0 /tmp/ccpwMguF.ltrans0.ltrans.o
+ .bss           0x0000000000000000        0x0 /tmp/ccpwMguF.ltrans0.ltrans.o
  .text.InternalAssertJumpBuffer
-                0x0000000000000000        0x1 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x0000000000000000        0x1 /tmp/ccpwMguF.ltrans0.ltrans.o
  .rodata._gPcd_FixedAtBuild_PcdControlFlowEnforcementPropertyMask
-                0x0000000000000000        0x4 /tmp/ccuDsrOe.ltrans0.ltrans.o
- .comment       0x0000000000000000       0x12 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x0000000000000000        0x4 /tmp/ccpwMguF.ltrans0.ltrans.o
+ .comment       0x0000000000000000       0x12 /tmp/ccpwMguF.ltrans0.ltrans.o
  .note.GNU-stack
-                0x0000000000000000        0x0 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x0000000000000000        0x0 /tmp/ccpwMguF.ltrans0.ltrans.o
  .text          0x0000000000000000      0x204 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(Thunk16.obj)
  .data          0x0000000000000000        0xa /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(Thunk16.obj)
  .text          0x0000000000000000       0x2f /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(CpuIdEx.obj)
@@ -242,9 +242,6 @@ Archive member included to satisfy reference by file (symbol)
  .text          0x0000000000000000        0x3 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(EnableDisableInterrupts.obj)
  .text          0x0000000000000000       0x61 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(DisablePaging64.obj)
  .text          0x0000000000000000       0x36 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(RdRand.obj)
- .text          0x0000000000000000        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(kernel_jmp.obj)
- .data          0x0000000000000000        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(kernel_jmp.obj)
- .bss           0x0000000000000000        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(kernel_jmp.obj)
 
 メモリ設定
 
@@ -253,8 +250,8 @@ Archive member included to satisfy reference by file (symbol)
 
 リンカスクリプトおよびメモリマップ
 
-LOAD /tmp/ccqX3A73debugobj
-LOAD /tmp/ccuDsrOe.ltrans0.ltrans.o
+LOAD /tmp/ccBP6h23debugobj
+LOAD /tmp/ccpwMguF.ltrans0.ltrans.o
 START GROUP
 LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib
 LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BasePcdLibNull/BasePcdLibNull/OUTPUT/BasePcdLibNull.lib
@@ -272,98 +269,95 @@ END GROUP
                 0x0000000000000228                PECOFF_HEADER_SIZE = 0x228
                 0x0000000000000228                . = PECOFF_HEADER_SIZE
 
-.text           0x0000000000000240     0x1654
+.text           0x0000000000000240     0x13a4
  *(.text .text.* .stub .gnu.linkonce.t.*)
- .text.safety_file_read
-                0x0000000000000240       0x80 /tmp/ccuDsrOe.ltrans0.ltrans.o
- .text.get_file_size
-                0x00000000000002c0       0x54 /tmp/ccuDsrOe.ltrans0.ltrans.o
  .text.BasePrintLibFillBuffer
-                0x0000000000000314       0x28 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x0000000000000240       0x28 /tmp/ccpwMguF.ltrans0.ltrans.o
  .text.AsciiStrnLenS
-                0x000000000000033c       0x24 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x0000000000000268       0x24 /tmp/ccpwMguF.ltrans0.ltrans.o
  .text.StrnLenS
-                0x0000000000000360       0x25 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x000000000000028c       0x25 /tmp/ccpwMguF.ltrans0.ltrans.o
  .text.BasePrintLibSPrint.constprop.0
-                0x0000000000000385       0xb8 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x00000000000002b1       0xb8 /tmp/ccpwMguF.ltrans0.ltrans.o
  .text.BasePrintLibSPrintMarker.constprop.1
-                0x000000000000043d      0xbc5 /tmp/ccuDsrOe.ltrans0.ltrans.o
- .text.Print    0x0000000000001002      0x158 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x0000000000000369      0xbc5 /tmp/ccpwMguF.ltrans0.ltrans.o
+ .text.Print    0x0000000000000f2e      0x158 /tmp/ccpwMguF.ltrans0.ltrans.o
  .text._ModuleEntryPoint
-                0x000000000000115a      0x30c /tmp/ccuDsrOe.ltrans0.ltrans.o
-                0x000000000000115a                _ModuleEntryPoint
+                0x0000000000001086      0x1b9 /tmp/ccpwMguF.ltrans0.ltrans.o
+                0x0000000000001086                _ModuleEntryPoint
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.BasePrintLibSPrintMarker.constprop.1.str1.1
-                0x0000000000001466       0x7b /tmp/ccuDsrOe.ltrans0.ltrans.o
- *fill*         0x00000000000014e1        0x1 
+                0x000000000000123f       0x7b /tmp/ccpwMguF.ltrans0.ltrans.o
  .rodata._ModuleEntryPoint.str2.2
-                0x00000000000014e2      0x172 /tmp/ccuDsrOe.ltrans0.ltrans.o
- *fill*         0x0000000000001654        0xc 
+                0x00000000000012ba       0xf2 /tmp/ccpwMguF.ltrans0.ltrans.o
+ *fill*         0x00000000000013ac        0x4 
  .rodata.mHexStr
-                0x0000000000001660       0x10 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x00000000000013b0       0x10 /tmp/ccpwMguF.ltrans0.ltrans.o
  .rodata.str1.1
-                0x0000000000001670      0x224 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x00000000000013c0      0x224 /tmp/ccpwMguF.ltrans0.ltrans.o
                                         0x235 (緩和前のサイズ)
  *(.got .got.*)
- .got           0x0000000000001894        0x0 SetMem.obj (symbol from plugin)
- .got.plt       0x0000000000001894        0x0 SetMem.obj (symbol from plugin)
+ .got           0x00000000000015e4        0x0 SetMem.obj (symbol from plugin)
+ .got.plt       0x00000000000015e4        0x0 SetMem.obj (symbol from plugin)
  *:AutoGen.obj(.data.g*Guid)
 
-.plt            0x00000000000018a0        0x0
- .plt           0x00000000000018a0        0x0 SetMem.obj (symbol from plugin)
+.plt            0x00000000000015f0        0x0
+ .plt           0x00000000000015f0        0x0 SetMem.obj (symbol from plugin)
 
-.plt.got        0x0000000000001898        0x0
- .plt.got       0x0000000000001898        0x0 SetMem.obj (symbol from plugin)
+.plt.got        0x00000000000015e8        0x0
+ .plt.got       0x00000000000015e8        0x0 SetMem.obj (symbol from plugin)
 
-.data           0x00000000000018c0      0x158
+.data           0x0000000000001600     0x1428
  *(.data .data.* .gnu.linkonce.d.*)
  .data.rel.ro.local.mStatusString
-                0x00000000000018c0      0x138 /tmp/ccuDsrOe.ltrans0.ltrans.o
- .data.rel.ro   0x00000000000019f8        0x0 SetMem.obj (symbol from plugin)
+                0x0000000000001600      0x138 /tmp/ccpwMguF.ltrans0.ltrans.o
+ .data.rel.ro   0x0000000000001738        0x0 SetMem.obj (symbol from plugin)
  *(.bss .bss.*)
- .bss.gST       0x00000000000019f8        0x8 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .bss.gST       0x0000000000001738        0x8 /tmp/ccpwMguF.ltrans0.ltrans.o
  .bss.gImageHandle
-                0x0000000000001a00        0x8 /tmp/ccuDsrOe.ltrans0.ltrans.o
- .bss.gRT       0x0000000000001a08        0x8 /tmp/ccuDsrOe.ltrans0.ltrans.o
- .bss.gBS       0x0000000000001a10        0x8 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x0000000000001740        0x8 /tmp/ccpwMguF.ltrans0.ltrans.o
+ .bss.gRT       0x0000000000001748        0x8 /tmp/ccpwMguF.ltrans0.ltrans.o
+ *fill*         0x0000000000001750       0x10 
+ .bss.mem_desc  0x0000000000001760     0x12c0 /tmp/ccpwMguF.ltrans0.ltrans.o
+ .bss.gBS       0x0000000000002a20        0x8 /tmp/ccpwMguF.ltrans0.ltrans.o
 
-.eh_frame       0x0000000000001a40        0x0
+.eh_frame       0x0000000000002a40        0x0
  *(.eh_frame)
- .eh_frame      0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
- .eh_frame      0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+ .eh_frame      0x0000000000002a40        0x0 SetMem.obj (symbol from plugin)
+ .eh_frame      0x0000000000002a40        0x0 SetMem.obj (symbol from plugin)
 
-.dynbss         0x0000000000001a40        0x0
- .dynbss        0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+.dynbss         0x0000000000002a40        0x0
+ .dynbss        0x0000000000002a40        0x0 SetMem.obj (symbol from plugin)
 
-.gnu.version_d  0x0000000000001a40        0x0
+.gnu.version_d  0x0000000000002a40        0x0
  .gnu.version_d
-                0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+                0x0000000000002a40        0x0 SetMem.obj (symbol from plugin)
 
-.gnu.version    0x0000000000001a40        0x0
- .gnu.version   0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+.gnu.version    0x0000000000002a40        0x0
+ .gnu.version   0x0000000000002a40        0x0 SetMem.obj (symbol from plugin)
 
-.gnu.version_r  0x0000000000001a40        0x0
+.gnu.version_r  0x0000000000002a40        0x0
  .gnu.version_r
-                0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+                0x0000000000002a40        0x0 SetMem.obj (symbol from plugin)
 
-.rela           0x0000000000001a40      0x3a8
+.rela           0x0000000000002a40      0x3a8
  *(.rela .rela.*)
- .rela.plt      0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
- .rela.got      0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
- .rela.bss      0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+ .rela.plt      0x0000000000002a40        0x0 SetMem.obj (symbol from plugin)
+ .rela.got      0x0000000000002a40        0x0 SetMem.obj (symbol from plugin)
+ .rela.bss      0x0000000000002a40        0x0 SetMem.obj (symbol from plugin)
  .rela.data.rel.ro
-                0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
- .rela.ifunc    0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+                0x0000000000002a40        0x0 SetMem.obj (symbol from plugin)
+ .rela.ifunc    0x0000000000002a40        0x0 SetMem.obj (symbol from plugin)
  .rela.data.rel.ro.local.mStatusString
-                0x0000000000001a40      0x3a8 SetMem.obj (symbol from plugin)
+                0x0000000000002a40      0x3a8 SetMem.obj (symbol from plugin)
 
 .hii
  *(.hii)
 
-.build-id       0x0000000000001de8       0x24
+.build-id       0x0000000000002de8       0x24
  *(.note.gnu.build-id)
  .note.gnu.build-id
-                0x0000000000001de8       0x24 SetMem.obj (symbol from plugin)
+                0x0000000000002de8       0x24 SetMem.obj (symbol from plugin)
 
 /DISCARD/
  *(.note.GNU-stack)
@@ -377,8 +371,8 @@ END GROUP
  *(COMMON)
 OUTPUT(/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/DEBUG/MinLoader.dll elf64-x86-64)
 
-.debug_info     0x0000000000000000    0x360f4
- .debug_info    0x0000000000000000    0x34d53 /tmp/ccqX3A73debugobj
+.debug_info     0x0000000000000000    0x361b0
+ .debug_info    0x0000000000000000    0x3506b /tmp/ccBP6h23debugobj
                 0x0000000000000000                SetMem.c.76584b82
                 0x000000000000028d                ScanMem64Wrapper.c.f27ff562
                 0x00000000000004d0                ScanMem32Wrapper.c.62b5f066
@@ -469,33 +463,34 @@ OUTPUT(/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE
                 0x000000000002a8e7                UefiLib.c.7a0f16c3
                 0x000000000002d148                Acpi.c.1159364f
                 0x000000000002f2c6                ApplicationEntryPoint.c.28264bc0
-                0x0000000000030ca0                MinLoader.c.b098b8e0
-                0x0000000000033087                AutoGen.c.80576595
- .debug_info    0x0000000000034d53     0x13a1 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x0000000000030ca0                MinLoader.c.67fa6572
+                0x0000000000032f72                kernel.c.c51bfef6
+                0x000000000003339f                AutoGen.c.80576595
+ .debug_info    0x000000000003506b     0x1145 /tmp/ccpwMguF.ltrans0.ltrans.o
 
-.debug_abbrev   0x0000000000000000     0x6739
- .debug_abbrev  0x0000000000000000     0x65b8 /tmp/ccqX3A73debugobj
- .debug_abbrev  0x00000000000065b8      0x181 /tmp/ccuDsrOe.ltrans0.ltrans.o
+.debug_abbrev   0x0000000000000000     0x6853
+ .debug_abbrev  0x0000000000000000     0x66ef /tmp/ccBP6h23debugobj
+ .debug_abbrev  0x00000000000066ef      0x164 /tmp/ccpwMguF.ltrans0.ltrans.o
 
-.debug_line     0x0000000000000000     0xd6d7
- .debug_line    0x0000000000000000     0xc736 /tmp/ccqX3A73debugobj
- .debug_line    0x000000000000c736      0xfa1 /tmp/ccuDsrOe.ltrans0.ltrans.o
+.debug_line     0x0000000000000000     0xd937
+ .debug_line    0x0000000000000000     0xcaa3 /tmp/ccBP6h23debugobj
+ .debug_line    0x000000000000caa3      0xe94 /tmp/ccpwMguF.ltrans0.ltrans.o
 
-.debug_str      0x0000000000000000     0x9ec3
- .debug_str     0x0000000000000000     0x9d52 /tmp/ccqX3A73debugobj
-                                      0x389cf (緩和前のサイズ)
- .debug_str     0x0000000000009d52      0x171 /tmp/ccuDsrOe.ltrans0.ltrans.o
+.debug_str      0x0000000000000000     0x9eca
+ .debug_str     0x0000000000000000     0x9d59 /tmp/ccBP6h23debugobj
+                                      0x390ce (緩和前のサイズ)
+ .debug_str     0x0000000000009d59      0x171 /tmp/ccpwMguF.ltrans0.ltrans.o
                                         0x1ef (緩和前のサイズ)
 
-.debug_loc      0x0000000000000000     0x1ff8
- .debug_loc     0x0000000000000000     0x1ff8 /tmp/ccuDsrOe.ltrans0.ltrans.o
+.debug_loc      0x0000000000000000     0x1e47
+ .debug_loc     0x0000000000000000     0x1e47 /tmp/ccpwMguF.ltrans0.ltrans.o
 
-.debug_aranges  0x0000000000000000       0xc0
+.debug_aranges  0x0000000000000000       0xa0
  .debug_aranges
-                0x0000000000000000       0xc0 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x0000000000000000       0xa0 /tmp/ccpwMguF.ltrans0.ltrans.o
 
-.debug_ranges   0x0000000000000000      0x510
- .debug_ranges  0x0000000000000000      0x510 /tmp/ccuDsrOe.ltrans0.ltrans.o
+.debug_ranges   0x0000000000000000      0x520
+ .debug_ranges  0x0000000000000000      0x520 /tmp/ccpwMguF.ltrans0.ltrans.o
 
-.debug_frame    0x0000000000000000      0x2e8
- .debug_frame   0x0000000000000000      0x2e8 /tmp/ccuDsrOe.ltrans0.ltrans.o
+.debug_frame    0x0000000000000000      0x268
+ .debug_frame   0x0000000000000000      0x268 /tmp/ccpwMguF.ltrans0.ltrans.o

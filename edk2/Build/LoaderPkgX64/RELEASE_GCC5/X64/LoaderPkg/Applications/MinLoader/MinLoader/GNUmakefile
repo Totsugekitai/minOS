@@ -210,8 +210,8 @@ STATIC_LIBRARY_FILES =  \
     $(OUTPUT_DIR)/MinLoader.lib
 
 OBJECT_FILES =  \
-    $(OUTPUT_DIR)/kernel_jmp.obj \
     $(OUTPUT_DIR)/MinLoader.obj \
+    $(OUTPUT_DIR)/kernel.obj \
     $(OUTPUT_DIR)/AutoGen.obj
 
 INC =  \
@@ -226,49 +226,31 @@ OBJECT_FILES_LIST = /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderP
 
 
 COMMON_DEPS = $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi60.h \
-              $(WORKSPACE)/MdePkg/Include/Guid/FileInfo.h \
               $(WORKSPACE)/MdePkg/Include/Uefi/UefiBaseType.h \
               $(WORKSPACE)/MdePkg/Include/Uefi/UefiPxe.h \
               $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi51.h \
-              $(WORKSPACE)/MdePkg/Include/Library/UefiBootServicesTableLib.h \
               $(WORKSPACE)/MdePkg/Include/Protocol/DevicePath.h \
-              $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi62.h \
               $(WORKSPACE)/MdePkg/Include/Guid/WinCertificate.h \
+              $(WORKSPACE)/LoaderPkg/Applications/MinLoader/kernel.h \
               $(WORKSPACE)/MdePkg/Include/Uefi/UefiMultiPhase.h \
               $(WORKSPACE)/MdePkg/Include/Protocol/SimpleTextIn.h \
               $(WORKSPACE)/MdePkg/Include/Guid/PcAnsi.h \
-              $(WORKSPACE)/MdePkg/Include/Protocol/GraphicsOutput.h \
-              $(WORKSPACE)/MdePkg/Include/Protocol/SimpleFileSystem.h \
               $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi20.h \
               $(WORKSPACE)/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h \
               $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi50.h \
               $(WORKSPACE)/MdePkg/Include/Uefi/UefiGpt.h \
               $(WORKSPACE)/MdePkg/Include/X64/ProcessorBind.h \
               $(WORKSPACE)/MdePkg/Include/Protocol/SimpleTextInEx.h \
-              $(WORKSPACE)/MdePkg/Include/Protocol/DriverDiagnostics.h \
-              $(WORKSPACE)/MdePkg/Include/Library/BaseMemoryLib.h \
-              $(WORKSPACE)/MdePkg/Include/Library/BaseLib.h \
-              $(WORKSPACE)/MdePkg/Include/Protocol/DriverConfiguration2.h \
-              $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi63.h \
               $(DEBUG_DIR)/AutoGen.h \
-              $(WORKSPACE)/MdePkg/Include/Protocol/ComponentName.h \
-              $(WORKSPACE)/MdePkg/Include/Protocol/DriverConfiguration.h \
-              $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi61.h \
               $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi10.h \
-              $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi.h \
               $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi30.h \
-              $(WORKSPACE)/MdePkg/Include/Protocol/ComponentName2.h \
-              $(WORKSPACE)/MdePkg/Include/Protocol/DriverDiagnostics2.h \
-              $(WORKSPACE)/MdePkg/Include/Library/UefiRuntimeServicesTableLib.h \
               $(WORKSPACE)/MdePkg/Include/Base.h \
               $(WORKSPACE)/MdePkg/Include/Uefi/UefiSpec.h \
-              $(WORKSPACE)/MdePkg/Include/Guid/HiiFormMapMethodGuid.h \
               $(WORKSPACE)/MdePkg/Include/IndustryStandard/AcpiAml.h \
               $(WORKSPACE)/MdePkg/Include/Protocol/SimpleTextOut.h \
               $(WORKSPACE)/MdePkg/Include/IndustryStandard/Bluetooth.h \
               $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi40.h \
-              $(WORKSPACE)/MdePkg/Include/Protocol/DriverBinding.h \
-              $(WORKSPACE)/MdePkg/Include/Library/UefiLib.h \
+              $(WORKSPACE)/MdePkg/Include/Guid/HiiFormMapMethodGuid.h \
               $(WORKSPACE)/MdePkg/Include/Uefi.h \
               
 
@@ -378,43 +360,6 @@ $(OUTPUT_DIR)/MinLoader.efi : $(DEBUG_DIR)/MinLoader.dll
 	$(CP) /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.efi $(BIN_DIR)/$(MODULE_NAME_GUID).efi
 	-$(CP) $(DEBUG_DIR)/*.map $(OUTPUT_DIR)
 
-$(OUTPUT_DIR)/kernel_jmp.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi60.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiBaseType.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiPxe.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi51.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Protocol/DevicePath.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Guid/WinCertificate.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiMultiPhase.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Protocol/SimpleTextIn.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Guid/PcAnsi.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi20.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi50.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiGpt.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/X64/ProcessorBind.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Protocol/SimpleTextInEx.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(DEBUG_DIR)/AutoGen.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi10.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi30.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Base.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiSpec.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/AcpiAml.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Protocol/SimpleTextOut.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Bluetooth.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi40.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Guid/HiiFormMapMethodGuid.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/MdePkg/Include/Uefi.h
-$(OUTPUT_DIR)/kernel_jmp.obj : $(WORKSPACE)/LoaderPkg/Applications/MinLoader/kernel_jmp.S
-	"$(PP)" $(PP_FLAGS) $(INC) /home/totsugekitai/workspace/mywork/minos/edk2/LoaderPkg/Applications/MinLoader/kernel_jmp.S > /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./kernel_jmp.i
-	Trim --trim-long --source-code -o /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./kernel_jmp.iii /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./kernel_jmp.i
-	"$(ASM)" $(ASM_FLAGS) -o /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./kernel_jmp.obj $(INC) /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./kernel_jmp.iii
-
-$(OUTPUT_DIR)/MinLoader.lib : $(OBJECT_FILES)
-$(OUTPUT_DIR)/MinLoader.lib : $(OBJECT_FILES_LIST)
-	$(RM) /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib
-	"$(SLINK)" cr /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib $(SLINK_FLAGS) @$(OBJECT_FILES_LIST)
-
 $(OUTPUT_DIR)/AutoGen.obj : $(MAKE_FILE)
 $(OUTPUT_DIR)/AutoGen.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi60.h
 $(OUTPUT_DIR)/AutoGen.obj : $(WORKSPACE)/MdePkg/Include/Uefi/UefiBaseType.h
@@ -451,8 +396,38 @@ $(OUTPUT_DIR)/AutoGen.obj : $(DEBUG_DIR)/AutoGen.c
 
 $(OUTPUT_DIR)/MinLoader.obj : $(MAKE_FILE)
 $(OUTPUT_DIR)/MinLoader.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Guid/FileInfo.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Library/UefiBootServicesTableLib.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi62.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Protocol/GraphicsOutput.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Protocol/SimpleFileSystem.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Protocol/DriverDiagnostics.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Library/BaseMemoryLib.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Library/BaseLib.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Protocol/DriverConfiguration2.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi63.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/LoaderPkg/Applications/MinLoader/MinLoader.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Protocol/ComponentName.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Protocol/DriverConfiguration.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi61.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Protocol/ComponentName2.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Protocol/DriverDiagnostics2.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Library/UefiRuntimeServicesTableLib.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Protocol/DriverBinding.h
+$(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/MdePkg/Include/Library/UefiLib.h
 $(OUTPUT_DIR)/MinLoader.obj : $(WORKSPACE)/LoaderPkg/Applications/MinLoader/MinLoader.c
 	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./MinLoader.obj $(INC) /home/totsugekitai/workspace/mywork/minos/edk2/LoaderPkg/Applications/MinLoader/MinLoader.c
+
+$(OUTPUT_DIR)/kernel.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/kernel.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/kernel.obj : $(WORKSPACE)/LoaderPkg/Applications/MinLoader/kernel.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./kernel.obj $(INC) /home/totsugekitai/workspace/mywork/minos/edk2/LoaderPkg/Applications/MinLoader/kernel.c
+
+$(OUTPUT_DIR)/MinLoader.lib : $(OBJECT_FILES)
+$(OUTPUT_DIR)/MinLoader.lib : $(OBJECT_FILES_LIST)
+	$(RM) /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib
+	"$(SLINK)" cr /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib $(SLINK_FLAGS) @$(OBJECT_FILES_LIST)
 
 
 
