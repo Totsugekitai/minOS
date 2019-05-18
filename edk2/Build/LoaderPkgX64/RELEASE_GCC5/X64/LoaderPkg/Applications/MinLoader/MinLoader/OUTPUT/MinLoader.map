@@ -1,0 +1,501 @@
+Archive member included to satisfy reference by file (symbol)
+
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(SetMem.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(ScanMem64Wrapper.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(ScanMem32Wrapper.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(ScanMem16Wrapper.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(ScanMem8Wrapper.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(ZeroMemWrapper.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(CompareMemWrapper.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(SetMem64Wrapper.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(SetMem32Wrapper.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(SetMem16Wrapper.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(SetMemWrapper.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(CopyMemWrapper.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(IsZeroBufferWrapper.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(MemLibGeneric.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(MemLibGuid.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(CopyMem.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BasePcdLibNull/BasePcdLibNull/OUTPUT/BasePcdLibNull.lib(PcdLib.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(CheckSum.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(SwitchStack.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(SwapBytes64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(SwapBytes32.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(SwapBytes16.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(LongJump.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(SetJump.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(RShiftU64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(RRotU64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(RRotU32.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(MultU64x64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(MultU64x32.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(MultS64x64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(ModU64x32.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(LShiftU64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(LRotU64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(LRotU32.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(LowBitSet64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(LowBitSet32.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(HighBitSet64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(HighBitSet32.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(GetPowerOfTwo64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(GetPowerOfTwo32.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(DivU64x64Remainder.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(DivU64x32Remainder.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(DivU64x32.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(DivS64x64Remainder.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(ARShiftU64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(BitField.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(CpuDeadLoop.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(Cpu.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(LinkedList.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(SafeString.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(String.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(FilePaths.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(Thunk16.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(CpuIdEx.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(CpuId.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(LongJump.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(SetJump.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(SwitchStack.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(EnableCache.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(DisableCache.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(WriteTr.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(Lfence.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(Non-existing.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(Math64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(Unaligned.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86WriteIdtr.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86WriteGdtr.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86Thunk.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86ReadIdtr.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86ReadGdtr.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86Msr.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86GetInterruptState.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86FxSave.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86FxRestore.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86EnablePaging64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86EnablePaging32.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86DisablePaging64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86DisablePaging32.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86RdRand.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86PatchInstruction.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(X86SpeculationBarrier.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(GccInline.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(EnableDisableInterrupts.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(DisablePaging64.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(RdRand.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(ChkStkGcc.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull/OUTPUT/BaseDebugLibNull.lib(DebugLib.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib/OUTPUT/UefiBootServicesTableLib.lib(UefiBootServicesTableLib.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib/OUTPUT/UefiMemoryAllocationLib.lib(MemoryAllocationLib.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BasePrintLib/BasePrintLib/OUTPUT/BasePrintLib.lib(PrintLibInternal.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BasePrintLib/BasePrintLib/OUTPUT/BasePrintLib.lib(PrintLib.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib/OUTPUT/UefiRuntimeServicesTableLib.lib(UefiRuntimeServicesTableLib.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib/OUTPUT/UefiDevicePathLib.lib(DevicePathUtilities.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib/OUTPUT/UefiDevicePathLib.lib(DevicePathToText.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib/OUTPUT/UefiDevicePathLib.lib(DevicePathFromText.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib/OUTPUT/UefiDevicePathLib.lib(UefiDevicePathLib.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiLib/UefiLib/OUTPUT/UefiLib.lib(UefiLibPrint.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiLib/UefiLib/OUTPUT/UefiLib.lib(UefiNotTiano.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiLib/UefiLib/OUTPUT/UefiLib.lib(UefiDriverModel.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiLib/UefiLib/OUTPUT/UefiLib.lib(Console.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiLib/UefiLib/OUTPUT/UefiLib.lib(UefiLib.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiLib/UefiLib/OUTPUT/UefiLib.lib(Acpi.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiApplicationEntryPoint/UefiApplicationEntryPoint/OUTPUT/UefiApplicationEntryPoint.lib(ApplicationEntryPoint.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(kernel_jmp.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(MinLoader.obj)
+                              (--whole-archive)
+/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
+                              (--whole-archive)
+
+破棄された入力セクション
+
+ .comment       0x0000000000000000      0x678 /tmp/ccqX3A73debugobj
+ .note.GNU-stack
+                0x0000000000000000        0x0 /tmp/ccqX3A73debugobj
+ .text          0x0000000000000000        0x0 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .data          0x0000000000000000        0x0 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .bss           0x0000000000000000        0x0 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .text.InternalAssertJumpBuffer
+                0x0000000000000000        0x1 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .rodata._gPcd_FixedAtBuild_PcdControlFlowEnforcementPropertyMask
+                0x0000000000000000        0x4 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .comment       0x0000000000000000       0x12 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .text          0x0000000000000000      0x204 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(Thunk16.obj)
+ .data          0x0000000000000000        0xa /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(Thunk16.obj)
+ .text          0x0000000000000000       0x2f /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(CpuIdEx.obj)
+ .text          0x0000000000000000       0x27 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(CpuId.obj)
+ .text          0x0000000000000000       0xac /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(LongJump.obj)
+ .text          0x0000000000000000       0xc2 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(SetJump.obj)
+ .text          0x0000000000000000        0xf /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(SwitchStack.obj)
+ .text          0x0000000000000000       0x13 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(EnableCache.obj)
+ .text          0x0000000000000000       0x13 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(DisableCache.obj)
+ .text          0x0000000000000000        0x6 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(WriteTr.obj)
+ .text          0x0000000000000000        0x4 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(Lfence.obj)
+ .text          0x0000000000000000        0x3 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(EnableDisableInterrupts.obj)
+ .text          0x0000000000000000       0x61 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(DisablePaging64.obj)
+ .text          0x0000000000000000       0x36 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib(RdRand.obj)
+ .text          0x0000000000000000        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(kernel_jmp.obj)
+ .data          0x0000000000000000        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(kernel_jmp.obj)
+ .bss           0x0000000000000000        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(kernel_jmp.obj)
+
+メモリ設定
+
+名前           原点             長さ             属性
+*default*        0x0000000000000000 0xffffffffffffffff
+
+リンカスクリプトおよびメモリマップ
+
+LOAD /tmp/ccqX3A73debugobj
+LOAD /tmp/ccuDsrOe.ltrans0.ltrans.o
+START GROUP
+LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib
+LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BasePcdLibNull/BasePcdLibNull/OUTPUT/BasePcdLibNull.lib
+LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/OUTPUT/BaseLib.lib
+LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull/OUTPUT/BaseDebugLibNull.lib
+LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib/OUTPUT/UefiBootServicesTableLib.lib
+LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib/OUTPUT/UefiMemoryAllocationLib.lib
+LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/BasePrintLib/BasePrintLib/OUTPUT/BasePrintLib.lib
+LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib/OUTPUT/UefiRuntimeServicesTableLib.lib
+LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib/OUTPUT/UefiDevicePathLib.lib
+LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiLib/UefiLib/OUTPUT/UefiLib.lib
+LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/MdePkg/Library/UefiApplicationEntryPoint/UefiApplicationEntryPoint/OUTPUT/UefiApplicationEntryPoint.lib
+LOAD /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib
+END GROUP
+                0x0000000000000228                PECOFF_HEADER_SIZE = 0x228
+                0x0000000000000228                . = PECOFF_HEADER_SIZE
+
+.text           0x0000000000000240     0x1654
+ *(.text .text.* .stub .gnu.linkonce.t.*)
+ .text.safety_file_read
+                0x0000000000000240       0x80 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .text.get_file_size
+                0x00000000000002c0       0x54 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .text.BasePrintLibFillBuffer
+                0x0000000000000314       0x28 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .text.AsciiStrnLenS
+                0x000000000000033c       0x24 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .text.StrnLenS
+                0x0000000000000360       0x25 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .text.BasePrintLibSPrint.constprop.0
+                0x0000000000000385       0xb8 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .text.BasePrintLibSPrintMarker.constprop.1
+                0x000000000000043d      0xbc5 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .text.Print    0x0000000000001002      0x158 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .text._ModuleEntryPoint
+                0x000000000000115a      0x30c /tmp/ccuDsrOe.ltrans0.ltrans.o
+                0x000000000000115a                _ModuleEntryPoint
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.BasePrintLibSPrintMarker.constprop.1.str1.1
+                0x0000000000001466       0x7b /tmp/ccuDsrOe.ltrans0.ltrans.o
+ *fill*         0x00000000000014e1        0x1 
+ .rodata._ModuleEntryPoint.str2.2
+                0x00000000000014e2      0x172 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ *fill*         0x0000000000001654        0xc 
+ .rodata.mHexStr
+                0x0000000000001660       0x10 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .rodata.str1.1
+                0x0000000000001670      0x224 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                                        0x235 (緩和前のサイズ)
+ *(.got .got.*)
+ .got           0x0000000000001894        0x0 SetMem.obj (symbol from plugin)
+ .got.plt       0x0000000000001894        0x0 SetMem.obj (symbol from plugin)
+ *:AutoGen.obj(.data.g*Guid)
+
+.plt            0x00000000000018a0        0x0
+ .plt           0x00000000000018a0        0x0 SetMem.obj (symbol from plugin)
+
+.plt.got        0x0000000000001898        0x0
+ .plt.got       0x0000000000001898        0x0 SetMem.obj (symbol from plugin)
+
+.data           0x00000000000018c0      0x158
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data.rel.ro.local.mStatusString
+                0x00000000000018c0      0x138 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .data.rel.ro   0x00000000000019f8        0x0 SetMem.obj (symbol from plugin)
+ *(.bss .bss.*)
+ .bss.gST       0x00000000000019f8        0x8 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .bss.gImageHandle
+                0x0000000000001a00        0x8 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .bss.gRT       0x0000000000001a08        0x8 /tmp/ccuDsrOe.ltrans0.ltrans.o
+ .bss.gBS       0x0000000000001a10        0x8 /tmp/ccuDsrOe.ltrans0.ltrans.o
+
+.eh_frame       0x0000000000001a40        0x0
+ *(.eh_frame)
+ .eh_frame      0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+ .eh_frame      0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+
+.dynbss         0x0000000000001a40        0x0
+ .dynbss        0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+
+.gnu.version_d  0x0000000000001a40        0x0
+ .gnu.version_d
+                0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+
+.gnu.version    0x0000000000001a40        0x0
+ .gnu.version   0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+
+.gnu.version_r  0x0000000000001a40        0x0
+ .gnu.version_r
+                0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+
+.rela           0x0000000000001a40      0x3a8
+ *(.rela .rela.*)
+ .rela.plt      0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+ .rela.got      0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+ .rela.bss      0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+ .rela.data.rel.ro
+                0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+ .rela.ifunc    0x0000000000001a40        0x0 SetMem.obj (symbol from plugin)
+ .rela.data.rel.ro.local.mStatusString
+                0x0000000000001a40      0x3a8 SetMem.obj (symbol from plugin)
+
+.hii
+ *(.hii)
+
+.build-id       0x0000000000001de8       0x24
+ *(.note.gnu.build-id)
+ .note.gnu.build-id
+                0x0000000000001de8       0x24 SetMem.obj (symbol from plugin)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.interp)
+ *(.dynsym)
+ *(.dynstr)
+ *(.dynamic)
+ *(.hash .gnu.hash)
+ *(.comment)
+ *(COMMON)
+OUTPUT(/home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/RELEASE_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/DEBUG/MinLoader.dll elf64-x86-64)
+
+.debug_info     0x0000000000000000    0x360f4
+ .debug_info    0x0000000000000000    0x34d53 /tmp/ccqX3A73debugobj
+                0x0000000000000000                SetMem.c.76584b82
+                0x000000000000028d                ScanMem64Wrapper.c.f27ff562
+                0x00000000000004d0                ScanMem32Wrapper.c.62b5f066
+                0x0000000000000713                ScanMem16Wrapper.c.4aae8dc8
+                0x0000000000000956                ScanMem8Wrapper.c.6a6b023c
+                0x0000000000000bca                ZeroMemWrapper.c.07160bdd
+                0x0000000000000df6                CompareMemWrapper.c.6f5e30a6
+                0x000000000000104f                SetMem64Wrapper.c.8ff2b20d
+                0x0000000000001287                SetMem32Wrapper.c.e52723d4
+                0x00000000000014bf                SetMem16Wrapper.c.a811c6af
+                0x00000000000016f7                SetMemWrapper.c.2d08eb53
+                0x0000000000001964                CopyMemWrapper.c.35f49611
+                0x0000000000001ba7                IsZeroBufferWrapper.c.d42c0754
+                0x0000000000001ddc                MemLibGeneric.c.cffb29a8
+                0x000000000000227d                MemLibGuid.c.4112a91b
+                0x0000000000002594                CopyMem.c.110633dd
+                0x0000000000002861                PcdLib.c.6048a933
+                0x000000000000349c                CheckSum.c.acaba9c9
+                0x00000000000039a5                SwitchStack.c.5895c5b1
+                0x0000000000003c8f                SwapBytes64.c.09fc0af2
+                0x0000000000003f04                SwapBytes32.c.b99202a9
+                0x0000000000004191                SwapBytes16.c.ee55b6e4
+                0x0000000000004406                LongJump.c.590f634e
+                0x0000000000004769                SetJump.c.19393f24
+                0x0000000000004ac0                RShiftU64.c.c7b6882b
+                0x0000000000004d4d                RRotU64.c.06634e01
+                0x0000000000004fda                RRotU32.c.4f3b1a07
+                0x0000000000005267                MultU64x64.c.bc345e50
+                0x00000000000054f4                MultU64x32.c.02eaca41
+                0x0000000000005781                MultS64x64.c.c52ab21f
+                0x0000000000005a0e                ModU64x32.c.c8cc0c20
+                0x0000000000005c8f                LShiftU64.c.040e2fd6
+                0x0000000000005f1c                LRotU64.c.fbd1fdec
+                0x00000000000061a9                LRotU32.c.6ee06883
+                0x0000000000006436                LowBitSet64.c.53e43663
+                0x00000000000066cf                LowBitSet32.c.e481fc8e
+                0x0000000000006968                HighBitSet64.c.4ff2084d
+                0x0000000000006bf5                HighBitSet32.c.24457251
+                0x0000000000006e9a                GetPowerOfTwo64.c.86bf0619
+                0x000000000000711b                GetPowerOfTwo32.c.b8070c66
+                0x0000000000007390                DivU64x64Remainder.c.6f842855
+                0x0000000000007627                DivU64x32Remainder.c.2ef64481
+                0x00000000000078be                DivU64x32.c.6c4a93af
+                0x0000000000007b3f                DivS64x64Remainder.c.20064822
+                0x0000000000007de2                ARShiftU64.c.a842f559
+                0x000000000000806f                BitField.c.c346ae3f
+                0x00000000000089c0                CpuDeadLoop.c.1ac7af76
+                0x0000000000008c42                Cpu.c.02fd9eae
+                0x0000000000008ed4                LinkedList.c.3449e571
+                0x00000000000093af                SafeString.c.0892cdcb
+                0x000000000000a22f                String.c.02dc7750
+                0x000000000000ad38                FilePaths.c.3173e72e
+                0x000000000000b000                Non_existing.c.20de4728
+                0x000000000000b33f                Math64.c.da1e981d
+                0x000000000000b82d                Unaligned.c.2f5cb93e
+                0x000000000000bbcf                X86WriteIdtr.c.1fa8435c
+                0x000000000000be8f                X86WriteGdtr.c.228ab1ee
+                0x000000000000c14f                X86Thunk.c.588eb21a
+                0x000000000000cab9                X86ReadIdtr.c.e3a22018
+                0x000000000000cd74                X86ReadGdtr.c.c2e35a37
+                0x000000000000d02f                X86Msr.c.1c79df6e
+                0x000000000000d6a3                X86GetInterruptState.c.f09335b4
+                0x000000000000dac9                X86FxSave.c.b3bea6bd
+                0x000000000000dd88                X86FxRestore.c.db265402
+                0x000000000000e04c                X86EnablePaging64.c.865d7725
+                0x000000000000e2ec                X86EnablePaging32.c.4548a77f
+                0x000000000000e5a6                X86DisablePaging64.c.86e88209
+                0x000000000000e846                X86DisablePaging32.c.0c2a52cc
+                0x000000000000eb00                X86RdRand.c.dd76c263
+                0x000000000000edc5                X86PatchInstruction.c.f7a57f3f
+                0x000000000000f072                X86SpeculationBarrier.c.6e08dfd9
+                0x000000000000f2d6                GccInline.c.0e54f7bf
+                0x000000000000fded                ChkStkGcc.c.888c7a96
+                0x0000000000010051                DebugLib.c.e53fdbf8
+                0x00000000000103bd                UefiBootServicesTableLib.c.14c2e8ec
+                0x0000000000011d4f                MemoryAllocationLib.c.15a06d33
+                0x0000000000013be0                PrintLibInternal.c.ba0752d9
+                0x00000000000143cd                PrintLib.c.34a8187e
+                0x0000000000014b63                UefiRuntimeServicesTableLib.c.58099866
+                0x00000000000164c6                DevicePathUtilities.c.a8845ab0
+                0x0000000000018345                DevicePathToText.c.d96f1d4d
+                0x000000000001c117                DevicePathFromText.c.74690496
+                0x00000000000207a2                UefiDevicePathLib.c.8f95245a
+                0x0000000000022351                UefiLibPrint.c.cfb7eee1
+                0x0000000000024b22                UefiNotTiano.c.18edaf05
+                0x00000000000267d9                UefiDriverModel.c.5d534281
+                0x0000000000028b91                Console.c.28311a24
+                0x000000000002a8e7                UefiLib.c.7a0f16c3
+                0x000000000002d148                Acpi.c.1159364f
+                0x000000000002f2c6                ApplicationEntryPoint.c.28264bc0
+                0x0000000000030ca0                MinLoader.c.b098b8e0
+                0x0000000000033087                AutoGen.c.80576595
+ .debug_info    0x0000000000034d53     0x13a1 /tmp/ccuDsrOe.ltrans0.ltrans.o
+
+.debug_abbrev   0x0000000000000000     0x6739
+ .debug_abbrev  0x0000000000000000     0x65b8 /tmp/ccqX3A73debugobj
+ .debug_abbrev  0x00000000000065b8      0x181 /tmp/ccuDsrOe.ltrans0.ltrans.o
+
+.debug_line     0x0000000000000000     0xd6d7
+ .debug_line    0x0000000000000000     0xc736 /tmp/ccqX3A73debugobj
+ .debug_line    0x000000000000c736      0xfa1 /tmp/ccuDsrOe.ltrans0.ltrans.o
+
+.debug_str      0x0000000000000000     0x9ec3
+ .debug_str     0x0000000000000000     0x9d52 /tmp/ccqX3A73debugobj
+                                      0x389cf (緩和前のサイズ)
+ .debug_str     0x0000000000009d52      0x171 /tmp/ccuDsrOe.ltrans0.ltrans.o
+                                        0x1ef (緩和前のサイズ)
+
+.debug_loc      0x0000000000000000     0x1ff8
+ .debug_loc     0x0000000000000000     0x1ff8 /tmp/ccuDsrOe.ltrans0.ltrans.o
+
+.debug_aranges  0x0000000000000000       0xc0
+ .debug_aranges
+                0x0000000000000000       0xc0 /tmp/ccuDsrOe.ltrans0.ltrans.o
+
+.debug_ranges   0x0000000000000000      0x510
+ .debug_ranges  0x0000000000000000      0x510 /tmp/ccuDsrOe.ltrans0.ltrans.o
+
+.debug_frame    0x0000000000000000      0x2e8
+ .debug_frame   0x0000000000000000      0x2e8 /tmp/ccuDsrOe.ltrans0.ltrans.o

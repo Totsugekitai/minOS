@@ -1,0 +1,3 @@
+gCommandLineDefines: {'ARCH': 'X64'}
+BuildOptionPcd: []
+Active Platform: /home/totsugekitai/workspace/mywork/minos/edk2/AppPkg/AppPkg.dsc

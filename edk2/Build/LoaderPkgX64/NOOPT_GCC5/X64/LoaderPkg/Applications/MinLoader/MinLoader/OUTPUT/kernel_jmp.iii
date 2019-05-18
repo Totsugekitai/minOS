@@ -1,0 +1,6 @@
+.global kernel_jmp
+
+kernel_jmp:
+    movq %rcx,%rbp
+    movq %rdx,%rsp
+    jmp *%rbp
