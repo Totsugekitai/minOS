@@ -3019,7 +3019,7 @@ END GROUP
                 0x0000000000000228                PECOFF_HEADER_SIZE = 0x228
                 0x0000000000000228                . = PECOFF_HEADER_SIZE
 
-.text           0x0000000000000240      0x7d8
+.text           0x0000000000000240      0x7e0
  *(.text .text.* .stub .gnu.linkonce.t.*)
  .text.DebugPrint
                 0x0000000000000240       0x17 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull/OUTPUT/BaseDebugLibNull.lib(DebugLib.obj)
@@ -3052,36 +3052,36 @@ END GROUP
                 0x0000000000000429      0x1d3 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(MinLoader.obj)
                 0x0000000000000429                Uefi_main
  .text.start_kernel
-                0x00000000000005fc       0x65 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(kernel.obj)
+                0x00000000000005fc       0x6a /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(kernel.obj)
                 0x00000000000005fc                start_kernel
  .text.ProcessLibraryConstructorList
-                0x0000000000000661      0x15a /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
-                0x0000000000000661                ProcessLibraryConstructorList
+                0x0000000000000666      0x15a /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
+                0x0000000000000666                ProcessLibraryConstructorList
  .text.ProcessLibraryDestructorList
-                0x00000000000007bb        0xf /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
-                0x00000000000007bb                ProcessLibraryDestructorList
+                0x00000000000007c0        0xf /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
+                0x00000000000007c0                ProcessLibraryDestructorList
  .text.ProcessModuleEntryPointList
-                0x00000000000007ca       0x22 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
-                0x00000000000007ca                ProcessModuleEntryPointList
+                0x00000000000007cf       0x22 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
+                0x00000000000007cf                ProcessModuleEntryPointList
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- *fill*         0x00000000000007ec        0x4 
- .rodata        0x00000000000007f0       0xba /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib/OUTPUT/UefiBootServicesTableLib.lib(UefiBootServicesTableLib.obj)
- *fill*         0x00000000000008aa        0x6 
- .rodata        0x00000000000008b0       0x90 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib/OUTPUT/UefiRuntimeServicesTableLib.lib(UefiRuntimeServicesTableLib.obj)
- .rodata        0x0000000000000940       0xd4 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
+ *fill*         0x00000000000007f1        0x7 
+ .rodata        0x00000000000007f8       0xba /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib/OUTPUT/UefiBootServicesTableLib.lib(UefiBootServicesTableLib.obj)
+ *fill*         0x00000000000008b2        0x6 
+ .rodata        0x00000000000008b8       0x90 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib/OUTPUT/UefiRuntimeServicesTableLib.lib(UefiRuntimeServicesTableLib.obj)
+ .rodata        0x0000000000000948       0xd4 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
  .rodata._gUefiDriverRevision
-                0x0000000000000a14        0x4 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
-                0x0000000000000a14                _gUefiDriverRevision
+                0x0000000000000a1c        0x4 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
+                0x0000000000000a1c                _gUefiDriverRevision
  *(.got .got.*)
- .got           0x0000000000000a18        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(SetMem.obj)
- .got.plt       0x0000000000000a18        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(SetMem.obj)
+ .got           0x0000000000000a20        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(SetMem.obj)
+ .got.plt       0x0000000000000a20        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(SetMem.obj)
  *:AutoGen.obj(.data.g*Guid)
 
 .plt            0x0000000000000a20        0x0
  .plt           0x0000000000000a20        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(SetMem.obj)
 
-.plt.got        0x0000000000000a18        0x0
- .plt.got       0x0000000000000a18        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(SetMem.obj)
+.plt.got        0x0000000000000a20        0x0
+ .plt.got       0x0000000000000a20        0x0 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib(SetMem.obj)
 
 .data           0x0000000000000a40     0x12e0
  *(.data .data.* .gnu.linkonce.d.*)

@@ -8,7 +8,7 @@ void start_kernel(struct bootinfo_t *binfo)
 
         unsigned long long i;
         for (i = 0; i < fbsize; i++) {
-                fbptr[i] = 0xffffffff;
+                fbptr[i] = 0x00FF000000FF0000;
         }
 
         while (1) {}
