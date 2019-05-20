@@ -1,5 +1,0 @@
-.global kernel_jmp
-
-kernel_jmp:
-# mov %rdx,%rsp
-# jmp *%rcx
