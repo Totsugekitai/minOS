@@ -1,5 +1,0 @@
-[Defines]
-  DEC_SPECIFICATION              = 0x00010005
-  PACKAGE_NAME                   = MyPkg
-  PACKAGE_GUID                   = d6a78c81-0d7f-4b46-af1d-e6ed44e5ffaa
-  PACKAGE_VERSION                = 0.1

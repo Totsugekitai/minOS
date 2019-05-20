@@ -8,9 +8,8 @@ MIN_LOADER	= $(EDKBUILD)LoaderPkgX64/NOOPT_GCC5/X64/
 
 loader:
 	cd $(EDKDIR)
-	-source ./edksetup.sh
+	-source edksetup.sh
 	build
-	cd ../
 	cp $(MIN_LOADER)MinLoader.efi $(FS)EFI/BOOT/BOOTX64.EFI
 
 install:
