@@ -1,32 +1,20 @@
-ARCH			= x86_64
+ROOTDIR		:= $(dir $(lastword $(MAKEFILE_LIST)))
+TOOLS		= $(ROOTDIR)tools/
+FS			= $(ROOTDIR)fs/
+EDKBUILD	= $(ROOTDIR)edk2/Build/
+MIN_LOADER	= $(EDKBUILD)LoaderPkgX64/NOOPT_GCC5/X64/
 
-OBJS			= main.o
-TARGET			= hello.efi
+loader:
+	cd edk2
+	-source ./edksetup.sh
+	build
+	cd ../
+	cp $(MIN_LOADER)MinLoader.efi $(FS)EFI/BOOT/BOOTX64.EFI
 
-PATH_BOOT
+install:
+	make loader
 
-EFIINC			= /usr/include/efi
-EFIINCS			= -I$(EFIINC) -I$(EFIINC)/$(ARCH) -I$(EFIINC)/protocol
-LIB				= /usr/lib
-EFILIB			= /usr/lib
-EFI_CRT_OBJS	= $(EFILIB)/crt0-efi-$(ARCH).o
-EFI_LDS			= $(EFILIB)/elf_$(ARCH)_efi.lds
-
-CFLAGS			= $(EFIINCS) -fno-stack-protector -fpic \
-				  -fshort-wchar -mno-red-zone -Wall
-ifeq ($(ARCH),x86_64)
-	CFLAGS += -DEFI_FUNCTION_WRAPPER
-endif
-
-LDFLAGS			= -nostdlib -znocombreloc -T $(EFI_LDS) -shared \
-				  -Bsymbolic -L $(EFILIB) -L $(LIB) $(EFI_CRT_OBJS)
-
-all: $(TARGET)
-
-hello.so: $(OBJS)
-	ld $(LDFLAGS) $(OBJS) -o $@ -lefi -lgnuefi
-
-%.efi: %.so
-	objcopy -j .text -j .sdata -j .data -j .dynamic \
-		-j .dynsym -j .rel -j .rela -j .reloc \
-		--target=efi-app-$(ARCH) $^ $@
+run:
+	make install
+	qemu-system-x86_64 -bios $(TOOLS)OVMF.fd -pflash $(TOOLS)bios.bin \
+		fat:rw:$(FS) -monitor telnet::1234,server,nowait
