@@ -1,16 +1,19 @@
 ROOTDIR		:= $(dir $(lastword $(MAKEFILE_LIST)))
 
-TOOLS		= $(ROOTDIR)tools/
-FS			= $(ROOTDIR)fs/
-EDKDIR		= $(ROOTDIR)edk2/
-EDKBUILD	= $(EDKDIR)Build/
-MIN_LOADER	= $(EDKBUILD)LoaderPkgX64/NOOPT_GCC5/X64/
+TOOLS			= $(ROOTDIR)tools/
+FS				= $(ROOTDIR)fs/
+EDKDIR			= $(ROOTDIR)edk2/
+EDKBUILD		= $(EDKDIR)Build/
+LOADERSRC		= $(EDKDIR)LoaderPkg/Applications/MinLoader/
+LOADERBUILD		= $(EDKBUILD)LoaderPkgX64/NOOPT_GCC5/X64/
 
 loader:
+	cp -r kernel $(LOADERSRC)
 	cd $(EDKDIR)
 	-source edksetup.sh
 	build
-	cp $(MIN_LOADER)MinLoader.efi $(FS)EFI/BOOT/BOOTX64.EFI
+	cp $(LOADERBUILD)MinLoader.efi $(FS)EFI/BOOT/BOOTX64.EFI
+	rm -r $(LOADERSRC)kernel
 
 install:
 	make loader

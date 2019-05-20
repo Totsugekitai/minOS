@@ -10,7 +10,7 @@
 #include <Uefi/UefiMultiPhase.h>
 #include <Uefi/UefiSpec.h>
 
-#include "kernel.h"
+#include "kernel/kernel.h"
 
 #define MEM_DESC_SIZE       4800
 

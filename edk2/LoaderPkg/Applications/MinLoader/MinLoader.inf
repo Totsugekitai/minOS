@@ -8,7 +8,7 @@ ENTRY_POINT             = Uefi_main
 
 [Sources]
 MinLoader.c
-kernel.c
+kernel/kernel.c
 
 [Packages]
 MdePkg/MdePkg.dec

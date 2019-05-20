@@ -211,10 +211,11 @@ STATIC_LIBRARY_FILES =  \
 
 OBJECT_FILES =  \
     $(OUTPUT_DIR)/MinLoader.obj \
-    $(OUTPUT_DIR)/kernel.obj \
+    $(OUTPUT_DIR)/kernel/kernel.obj \
     $(OUTPUT_DIR)/AutoGen.obj
 
 INC =  \
+    -I$(WORKSPACE)/LoaderPkg/Applications/MinLoader/kernel \
     -I$(WORKSPACE)/LoaderPkg/Applications/MinLoader \
     -I$(DEBUG_DIR) \
     -I$(WORKSPACE)/MdePkg \
@@ -232,7 +233,6 @@ COMMON_DEPS = $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi60.h \
               $(WORKSPACE)/MdePkg/Include/Protocol/DevicePath.h \
               $(DEBUG_DIR)/AutoGen.h \
               $(WORKSPACE)/MdePkg/Include/Guid/WinCertificate.h \
-              $(WORKSPACE)/LoaderPkg/Applications/MinLoader/kernel.h \
               $(WORKSPACE)/MdePkg/Include/Uefi/UefiMultiPhase.h \
               $(WORKSPACE)/MdePkg/Include/Protocol/SimpleTextIn.h \
               $(WORKSPACE)/MdePkg/Include/Guid/PcAnsi.h \
@@ -252,6 +252,7 @@ COMMON_DEPS = $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi60.h \
               $(WORKSPACE)/MdePkg/Include/IndustryStandard/Acpi40.h \
               $(WORKSPACE)/MdePkg/Include/Guid/HiiFormMapMethodGuid.h \
               $(WORKSPACE)/MdePkg/Include/Uefi.h \
+              $(WORKSPACE)/LoaderPkg/Applications/MinLoader/kernel/kernel.h \
               
 
 #
@@ -360,10 +361,10 @@ $(OUTPUT_DIR)/MinLoader.efi : $(DEBUG_DIR)/MinLoader.dll
 	$(CP) /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.efi $(BIN_DIR)/$(MODULE_NAME_GUID).efi
 	-$(CP) $(DEBUG_DIR)/*.map $(OUTPUT_DIR)
 
-$(OUTPUT_DIR)/kernel.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/kernel.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/kernel.obj : $(WORKSPACE)/LoaderPkg/Applications/MinLoader/kernel.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/./kernel.obj $(INC) /home/totsugekitai/workspace/mywork/minos/edk2/LoaderPkg/Applications/MinLoader/kernel.c
+$(OUTPUT_DIR)/kernel/kernel.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/kernel/kernel.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/kernel/kernel.obj : $(WORKSPACE)/LoaderPkg/Applications/MinLoader/kernel/kernel.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/kernel/kernel.obj $(INC) /home/totsugekitai/workspace/mywork/minos/edk2/LoaderPkg/Applications/MinLoader/kernel/kernel.c
 
 $(OUTPUT_DIR)/MinLoader.obj : $(MAKE_FILE)
 $(OUTPUT_DIR)/MinLoader.obj : $(COMMON_DEPS)

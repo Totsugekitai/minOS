@@ -9,7 +9,6 @@
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Protocol/DevicePath.h
 /home/totsugekitai/workspace/mywork/minos/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/DEBUG/AutoGen.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Guid/WinCertificate.h
-/home/totsugekitai/workspace/mywork/minos/edk2/LoaderPkg/Applications/MinLoader/kernel.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Protocol/SimpleTextIn.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Guid/PcAnsi.h
@@ -39,7 +38,6 @@
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Protocol/ComponentName.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Protocol/DriverConfiguration.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/IndustryStandard/Acpi61.h
-/home/totsugekitai/workspace/mywork/minos/edk2/LoaderPkg/Applications/MinLoader/kernel.c
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/IndustryStandard/Acpi10.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/IndustryStandard/Acpi.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/IndustryStandard/Acpi30.h
@@ -51,6 +49,7 @@
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Library/UefiRuntimeServicesTableLib.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Base.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Uefi/UefiSpec.h
+/home/totsugekitai/workspace/mywork/minos/edk2/LoaderPkg/Applications/MinLoader/kernel/kernel.c
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Library/BasePrintLib/BasePrintLib.inf
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/IndustryStandard/AcpiAml.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
@@ -61,3 +60,4 @@
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Guid/HiiFormMapMethodGuid.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Library/UefiLib.h
 /home/totsugekitai/workspace/mywork/minos/edk2/MdePkg/Include/Uefi.h
+/home/totsugekitai/workspace/mywork/minos/edk2/LoaderPkg/Applications/MinLoader/kernel/kernel.h
