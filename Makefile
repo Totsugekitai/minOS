@@ -1,11 +1,13 @@
 ROOTDIR		:= $(dir $(lastword $(MAKEFILE_LIST)))
+
 TOOLS		= $(ROOTDIR)tools/
 FS			= $(ROOTDIR)fs/
-EDKBUILD	= $(ROOTDIR)edk2/Build/
+EDKDIR		= $(ROOTDIR)edk2/
+EDKBUILD	= $(EDKDIR)Build/
 MIN_LOADER	= $(EDKBUILD)LoaderPkgX64/NOOPT_GCC5/X64/
 
 loader:
-	cd edk2
+	cd $(EDKDIR)
 	-source ./edksetup.sh
 	build
 	cd ../
