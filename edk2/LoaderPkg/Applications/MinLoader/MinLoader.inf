@@ -8,7 +8,6 @@ ENTRY_POINT             = Uefi_main
 
 [Sources]
 MinLoader.c
-kernel.h
 kernel.c
 
 [Packages]
