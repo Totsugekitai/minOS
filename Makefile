@@ -1,6 +1,7 @@
 ROOTDIR		:= $(dir $(lastword $(MAKEFILE_LIST)))
 
 TOOLS			= $(ROOTDIR)tools/
+QEMU			= $(TOOLS)qemu-system-x86_64
 FS				= $(ROOTDIR)fs/
 EDKDIR			= $(ROOTDIR)edk2/
 EDKBUILD		= $(EDKDIR)Build/
@@ -19,7 +20,7 @@ install:
 
 run:
 	make install
-	qemu-system-x86_64 -bios $(TOOLS)OVMF.fd -pflash $(TOOLS)bios.bin \
+	$(QEMU) -bios $(TOOLS)OVMF.fd -pflash $(TOOLS)bios.bin \
 		fat:rw:$(FS) -monitor telnet::1234,server,nowait
 
 clean:
