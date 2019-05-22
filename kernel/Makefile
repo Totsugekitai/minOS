@@ -8,8 +8,9 @@ $(TARGET): kernel.o
 %.o: %.c
 	gcc $(CFLAGS) -c -o $@ $<
 
-clean:
-	rm -f *~ *.o *.map $(TARGET)
+default:
+	make $(TARGET)
 
-.PHONY: clean
+clean:
+	-rm -f *~ *.o *.map $(TARGET)
 

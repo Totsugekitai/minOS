@@ -15,13 +15,19 @@ loader:
 	build
 	cp $(LOADERBUILD)MinLoader.efi $(FS)EFI/BOOT/BOOTX64.EFI
 
-install:
+kernel:
+	make -C $(ROOTDIR)kernel/
+#	cd "$(ROOTDIR)kernel/" && make install
+
+full:
+	make kernel
 	make loader
 
 run:
-	make install
+	make full
 	$(QEMU) -bios $(TOOLS)OVMF.fd -pflash $(TOOLS)bios.bin \
 		fat:rw:$(FS) -monitor telnet::1234,server,nowait
 
 clean:
 	-rm -r $(EDKBUILD)* $(FS)EFI/BOOT/BOOTX64.EFI $(LOADERSRC)kernel/
+	cd "$(ROOTDIR)kernel/" && make clean
