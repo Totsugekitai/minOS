@@ -1,5 +1,5 @@
 TARGET		= kernel.bin
-CFLAGS 		= -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common
+CFLAGS 		= -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0
 LDFLAGS		= -Map kernel.map -s -x -T kernel.ld
 
 $(TARGET): kernel.o

@@ -7,7 +7,7 @@ VERSION_STRING          = 0.1
 ENTRY_POINT             = Uefi_main
 
 [Sources]
-MinLoader.c
+boot/MinLoader.c
 kernel/kernel.c
 
 [Packages]
