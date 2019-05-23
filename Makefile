@@ -27,8 +27,11 @@ full:
 	make boot
 	make loader
 
-run:
+all:
 	make full
+	make run
+
+run:
 	$(QEMU) -bios $(TOOLS)OVMF.fd -pflash $(TOOLS)bios.bin \
 		fat:rw:$(FS) -monitor telnet::1234,server,nowait
 

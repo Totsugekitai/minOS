@@ -26,5 +26,12 @@ struct bootinfo_t {
     struct video_info_t vinfo;
 };
 
+struct header {
+    void *bss_address;
+    unsigned long long bss_size;
+};
+
 unsigned char mem_desc[MEM_DESC_SIZE];
+
+extern void kernel_jump(struct bootinfo_t *, unsigned long long *);
 
