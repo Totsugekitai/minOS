@@ -50,7 +50,11 @@ Uefi_Main(EFI_HANDLE image, EFI_SYSTEM_TABLE *st)
     UINT64 file_size = file_info->FileSize;
 
     // TODO: カーネルファイルをメモリに読み込む
-
+    void *kernel_program = NULL;
+    do {
+        status = kernel_file->Read(kernel_file,
+                BUF_16KB, kernel_program);
+    } while(EFI_ERROR(status));
 
     // ExitBootService()の処理を開始
     // メモリマップを取得
