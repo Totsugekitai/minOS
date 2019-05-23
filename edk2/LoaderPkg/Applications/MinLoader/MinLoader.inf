@@ -4,7 +4,7 @@ BASE_NAME               = MinLoader
 FILE_GUID               = dc89db21-066d-4e66-882b-a13bc4915236
 MODULE_TYPE             = UEFI_APPLICATION
 VERSION_STRING          = 0.1
-ENTRY_POINT             = Uefi_main
+ENTRY_POINT             = Uefi_Main
 
 [Sources]
 boot/MinLoader.c
