@@ -25,7 +25,7 @@ FORCE:
 
 full:
 	make boot
-	make loader
+	make kernel
 
 all:
 	make full
@@ -36,5 +36,9 @@ run:
 		fat:rw:$(FS) -monitor telnet::1234,server,nowait
 
 clean:
-	-rm -r $(EDKBUILD)* $(FS)EFI/BOOT/BOOTX64.EFI $(LOADERSRC)kernel
+	-rm -r $(EDKBUILD)* $(LOADERSRC)kernel
 	cd "$(ROOTDIR)kernel/" && make clean
+
+splash:
+	make clean
+	-rm -r $(FS)kernel.bin $(FS)EFI/BOOT/BOOTX64.EFI
