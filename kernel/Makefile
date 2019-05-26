@@ -1,16 +1,12 @@
-TARGET		= kernel.bin
-CFLAGS 		= -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0
-LDFLAGS		= -Map kernel.map -s -x -T kernel.ld
+CURRENT		:= $(dir $(lastword $(MAKEFILE_LIST)))
 
-$(TARGET): kernel.o
-	ld $(LDFLAGS) -o $@ $+
-
-%.o: %.c
-	gcc $(CFLAGS) -c -o $@ $<
+COREDIR		= $(CURRENT)core/
 
 default:
-	make $(TARGET)
+	make -C $(COREDIR)
+	cp $(COREDIR)kernel.bin .
 
 clean:
-	-rm -f *~ *.o *.map $(TARGET)
+	-rm -f kernel.bin
+	make -C $(COREDIR) clean
 

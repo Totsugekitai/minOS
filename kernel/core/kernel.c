@@ -1,4 +1,4 @@
-#include "kernel.h"
+#include <core/kernel.h>
 
 void start_kernel(struct bootinfo_t *binfo)
 {

@@ -35,9 +35,15 @@ run:
 	$(QEMU) -bios $(TOOLS)OVMF.fd -pflash $(TOOLS)bios.bin \
 		fat:rw:$(FS) -monitor telnet::1234,server,nowait
 
-clean:
+clean_boot:
 	-rm -r $(EDKBUILD)* $(LOADERSRC)kernel
-	cd "$(ROOTDIR)kernel/" && make clean
+#	cd "$(ROOTDIR)kernel/" && make clean
+
+clean_kernel:
+	make -C $(KERNELSRC) clean
+
+clean_full:
+	make clean_boot && make clean_kernel
 
 splash:
 	make clean
