@@ -17,6 +17,9 @@ Uefi_Main(EFI_HANDLE image, EFI_SYSTEM_TABLE *st)
     // カーネルに渡す引数を設定
     bootinfo.vinfo.fb = (unsigned long long)gop->Mode->FrameBufferBase;
     bootinfo.vinfo.fb_size = (unsigned long long)gop->Mode->FrameBufferSize;
+    bootinfo.vinfo.x_axis = (unsigned int)gop->Mode->Info->HorizontalResolution;
+    bootinfo.vinfo.y_axis = (unsigned int)gop->Mode->Info->VerticalResolution;
+    bootinfo.vinfo.ppsl = (unsigned int)gop->Mode->Info->PixelsPerScanLine;
 
     // SympleFileSystemProtocolを取得
     EFI_GUID sfsp_guid = EFI_SIMPLE_FILE_SYSTEM_PROTOCOL_GUID;
