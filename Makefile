@@ -13,7 +13,7 @@ LOADERBUILD		= $(EDKBUILD)LoaderPkgX64/NOOPT_GCC5/X64/
 boot: FORCE
 	cp -r kernel $(LOADERSRC) && cp -r $(BOOTSRC) $(LOADERSRC)
 	cd $(EDKDIR)
-	-source edksetup.sh
+#	-source edksetup.sh
 	build
 	cp $(LOADERBUILD)MinLoader.efi $(FS)EFI/BOOT/BOOTX64.EFI
 
