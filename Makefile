@@ -10,18 +10,19 @@ EDKBUILD		= $(EDKDIR)Build/
 LOADERSRC		= $(EDKDIR)LoaderPkg/Applications/MinLoader/
 LOADERBUILD		= $(EDKBUILD)LoaderPkgX64/NOOPT_GCC5/X64/
 
-boot: FORCE
-	cp -r kernel $(LOADERSRC) && cp -r $(BOOTSRC) $(LOADERSRC)
+boot: FORCE1
+	cp -r $(BOOTSRC) $(LOADERSRC)
 	cd $(EDKDIR)
-#	-source edksetup.sh
 	build
 	cp $(LOADERBUILD)MinLoader.efi $(FS)EFI/BOOT/BOOTX64.EFI
 
-kernel: FORCE
-	make -B -C $(KERNELSRC)
+kernel: FORCE2
+	make -C $(KERNELSRC)
 	cp $(KERNELSRC)kernel.bin $(FS)
 
-FORCE:
+FORCE1:
+
+FORCE2:
 
 full:
 	make boot
@@ -33,7 +34,11 @@ all:
 
 run:
 	$(QEMU) -bios $(TOOLS)OVMF.fd -pflash $(TOOLS)bios.bin \
-		fat:rw:$(FS) -monitor telnet::1234,server,nowait
+		fat:rw:$(FS) #-monitor telnet::1234,server,nowait
+
+debug_run:
+	$(QEMU) -bios $(TOOLS)OVMF.fd -pflash $(TOOLS)bios.bin \
+		fat:rw:$(FS) -S -s #-monitor telnet::1234,server,nowait
 
 clean_boot:
 	-rm -r $(EDKBUILD)* $(LOADERSRC)kernel

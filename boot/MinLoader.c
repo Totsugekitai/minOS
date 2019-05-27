@@ -4,7 +4,8 @@ EFI_STATUS
 EFIAPI
 Uefi_Main(EFI_HANDLE image, EFI_SYSTEM_TABLE *st)
 {
-    struct bootinfo_t bootinfo;
+    struct bootinfo_t binfo;
+    struct bootinfo_t *bootinfo = &binfo;
     EFI_STATUS status;
 
     // GraphicsOutputProtocolを取得
@@ -15,11 +16,11 @@ Uefi_Main(EFI_HANDLE image, EFI_SYSTEM_TABLE *st)
     } while (EFI_ERROR(status));
 
     // カーネルに渡す引数を設定
-    bootinfo.vinfo.fb = (unsigned long long)gop->Mode->FrameBufferBase;
-    bootinfo.vinfo.fb_size = (unsigned long long)gop->Mode->FrameBufferSize;
-    bootinfo.vinfo.x_axis = (unsigned int)gop->Mode->Info->HorizontalResolution;
-    bootinfo.vinfo.y_axis = (unsigned int)gop->Mode->Info->VerticalResolution;
-    bootinfo.vinfo.ppsl = (unsigned int)gop->Mode->Info->PixelsPerScanLine;
+    bootinfo->vinfo->fb = (unsigned long *)gop->Mode->FrameBufferBase;
+    bootinfo->vinfo->fb_size = (unsigned long)gop->Mode->FrameBufferSize;
+    bootinfo->vinfo->x_axis = (unsigned int)gop->Mode->Info->HorizontalResolution;
+    bootinfo->vinfo->y_axis = (unsigned int)gop->Mode->Info->VerticalResolution;
+    bootinfo->vinfo->ppsl = (unsigned int)gop->Mode->Info->PixelsPerScanLine;
 
     // SympleFileSystemProtocolを取得
     EFI_GUID sfsp_guid = EFI_SIMPLE_FILE_SYSTEM_PROTOCOL_GUID;
@@ -90,7 +91,7 @@ Uefi_Main(EFI_HANDLE image, EFI_SYSTEM_TABLE *st)
 
     // カーネルに渡す情報をレジスタに格納
     // スタックポインタを設定しカーネルへジャンプ
-    kernel_jump(&bootinfo, start_address);
+    kernel_jump(bootinfo, start_address);
 
     return EFI_SUCCESS;
 }

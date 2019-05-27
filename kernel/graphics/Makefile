@@ -1,11 +1,11 @@
 CURRENT		:= $(dir $(lastword $(MAKEFILE_LIST)))
 INCLUDE		= $(CURRENT)../include/
 
-TARGET		= kernel.o
+TARGET		= graphics.o
 CFLAGS 		= -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0 \
 			  -I $(INCLUDE)
 
-CFILES		= kernel.c
+CFILES		= disp_square.c
 
 $(TARGET): $(CFILES)
 	gcc $(CFLAGS) -c -o $@ $(CFILES)

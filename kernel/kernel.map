@@ -1,0 +1,66 @@
+
+メモリ設定
+
+名前           原点             長さ             属性
+EXEC             0x0000000000000000 0x0000000000100000 r
+RAM              0x0000000000110000 0x0000000000100000 xw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+リンカスクリプトおよびメモリマップ
+
+
+.header         0x0000000000000000       0x10
+                0x0000000000000000        0x8 QUAD 0x1101ad __bss_start
+                0x0000000000000008        0x8 QUAD 0x0 (__bss_end - __bss_start)
+
+.body           0x0000000000110000      0x240 ロードアドレス 0x0000000000000010
+ *(.text)
+ .text          0x0000000000110000       0x65 kernel.o
+                0x0000000000110000                start_kernel
+ .text          0x0000000000110065      0x148 disp_square.o
+                0x0000000000110065                disp_dot
+                0x0000000000110110                disp_square
+ *(.rodata)
+ *(.data)
+ .data          0x00000000001101ad        0x0 kernel.o
+ .data          0x00000000001101ad        0x0 disp_square.o
+                0x00000000001101ad                __bss_start = .
+ *(.bss)
+ .bss           0x00000000001101ad        0x0 kernel.o
+ .bss           0x00000000001101ad        0x0 disp_square.o
+                0x00000000001101ad                __bss_end = .
+ *(.eh_frame)
+ *fill*         0x00000000001101ad        0x3 
+ .eh_frame      0x00000000001101b0       0x38 kernel.o
+ .eh_frame      0x00000000001101e8       0x58 disp_square.o
+LOAD kernel.o
+LOAD disp_square.o
+OUTPUT(kernel.bin elf64-x86-64)
+
+.iplt           0x0000000000110240        0x0 ロードアドレス 0x0000000000000250
+ .iplt          0x0000000000110240        0x0 kernel.o
+
+.got            0x0000000000110240        0x0 ロードアドレス 0x0000000000000250
+ .got           0x0000000000110240        0x0 kernel.o
+
+.got.plt        0x0000000000000250        0x0 ロードアドレス 0x0000000000110240
+ .got.plt       0x0000000000000250        0x0 kernel.o
+
+.igot.plt       0x0000000000000250        0x0 ロードアドレス 0x0000000000220230
+ .igot.plt      0x0000000000000250        0x0 kernel.o
+
+.rela.dyn       0x0000000000110240        0x0 ロードアドレス 0x0000000000000250
+ .rela.got      0x0000000000110240        0x0 kernel.o
+ .rela.iplt     0x0000000000110240        0x0 kernel.o
+
+.comment        0x0000000000000000       0x11
+ .comment       0x0000000000000000       0x11 kernel.o
+                                         0x12 (緩和前のサイズ)
+ .comment       0x0000000000000011       0x12 disp_square.o
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 kernel.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 disp_square.o

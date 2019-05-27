@@ -18,15 +18,15 @@
 #define BIN_HEADER_SIZE     16
 
 struct video_info_t {
-    unsigned long long fb;
-    unsigned long long fb_size;
+    unsigned long *fb;
+    unsigned long fb_size;
     unsigned int x_axis;
     unsigned int y_axis;
     unsigned int ppsl;
 };
 
 struct bootinfo_t {
-    struct video_info_t vinfo;
+    struct video_info_t *vinfo;
 };
 
 struct header {

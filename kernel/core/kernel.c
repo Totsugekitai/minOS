@@ -1,20 +1,13 @@
+#include <types/typedef.h>
 #include <core/kernel.h>
+#include <graphics/graphics.h>
 
-void start_kernel(struct bootinfo_t *binfo)
+void start_kernel(struct bootinfo *binfo)
 {
-    struct video_info_t vinfo = binfo->vinfo;
-    unsigned long long *fbptr = (unsigned long long *)vinfo.fb;
-    unsigned long long fb_size = vinfo.fb_size;
-    unsigned int x_axis = vinfo.x_axis;
-    unsigned int y_axis = vinfo.y_axis;
-    unsigned int ppsl = vinfo.ppsl;
+    struct video_info *vinfo = binfo->vinfo;
 
-    unsigned long long i, j;
-    for (i = 0; i < y_axis; i++) {
-        for (j = 0; j < x_axis; j++) {
-            fbptr[i * ppsl + j] = 0x00FF000000FF0000;
-        }
-    }
+    disp_square(50, 50, 0xff0000, 50, 50, vinfo);
+    disp_square(30, 30, 0x008000, 50, 50, vinfo);
 
     while (1) {}
 
