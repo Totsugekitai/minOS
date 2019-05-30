@@ -33,15 +33,15 @@ all:
 	make run
 
 run:
-	$(QEMU) -bios $(TOOLS)OVMF.fd -pflash $(TOOLS)bios.bin \
-		fat:rw:$(FS) #-monitor telnet::1234,server,nowait
+	$(QEMU) -bios $(TOOLS)OVMF.fd fat:rw:$(FS) -m 4G -pflash $(TOOLS)bios.bin \
+		
 
 debug_run:
-	$(QEMU) -bios $(TOOLS)OVMF.fd -pflash $(TOOLS)bios.bin \
-		fat:rw:$(FS) -S -s #-monitor telnet::1234,server,nowait
+	$(QEMU) -bios $(TOOLS)OVMF.fd fat:rw:$(FS) -m 4G -pflash $(TOOLS)bios.bin \
+		-monitor telnet::1234,server,nowait
 
 clean_boot:
-	-rm -r $(EDKBUILD)* $(LOADERSRC)kernel
+	-rm -r $(EDKBUILD)* $(LOADERSRC)boot
 #	cd "$(ROOTDIR)kernel/" && make clean
 
 clean_kernel:
@@ -51,5 +51,5 @@ clean_full:
 	make clean_boot && make clean_kernel
 
 splash:
-	make clean
+	make clean_full
 	-rm -r $(FS)kernel.bin $(FS)EFI/BOOT/BOOTX64.EFI

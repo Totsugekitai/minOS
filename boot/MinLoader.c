@@ -2,10 +2,9 @@
 
 EFI_STATUS
 EFIAPI
-Uefi_Main(EFI_HANDLE image, EFI_SYSTEM_TABLE *st)
+Uefi_Main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *st)
 {
-    struct bootinfo_t binfo;
-    struct bootinfo_t *bootinfo = &binfo;
+    struct bootinfo_t bootinfo;
     EFI_STATUS status;
 
     // GraphicsOutputProtocolを取得
@@ -16,11 +15,11 @@ Uefi_Main(EFI_HANDLE image, EFI_SYSTEM_TABLE *st)
     } while (EFI_ERROR(status));
 
     // カーネルに渡す引数を設定
-    bootinfo->vinfo->fb = (unsigned long *)gop->Mode->FrameBufferBase;
-    bootinfo->vinfo->fb_size = (unsigned long)gop->Mode->FrameBufferSize;
-    bootinfo->vinfo->x_axis = (unsigned int)gop->Mode->Info->HorizontalResolution;
-    bootinfo->vinfo->y_axis = (unsigned int)gop->Mode->Info->VerticalResolution;
-    bootinfo->vinfo->ppsl = (unsigned int)gop->Mode->Info->PixelsPerScanLine;
+    bootinfo.vinfo.fb = (unsigned long *)gop->Mode->FrameBufferBase;
+    bootinfo.vinfo.fb_size = (unsigned long)gop->Mode->FrameBufferSize;
+    bootinfo.vinfo.x_axis = (unsigned int)gop->Mode->Info->HorizontalResolution;
+    bootinfo.vinfo.y_axis = (unsigned int)gop->Mode->Info->VerticalResolution;
+    bootinfo.vinfo.ppsl = (unsigned int)gop->Mode->Info->PixelsPerScanLine;
 
     // SympleFileSystemProtocolを取得
     EFI_GUID sfsp_guid = EFI_SIMPLE_FILE_SYSTEM_PROTOCOL_GUID;
@@ -53,45 +52,63 @@ Uefi_Main(EFI_HANDLE image, EFI_SYSTEM_TABLE *st)
         status = kernel_file->GetInfo(kernel_file,
                 &fi_guid, &buf_size, file_info);
     } while(EFI_ERROR(status));
-    UINT64 file_size = file_info->FileSize;
+    UINTN file_size = file_info->FileSize;
 
     // カーネルファイルをメモリに読み込む
     // ここではカーネルのファイルサイズを16KB以下とする
     unsigned long long *kernel_program = NULL;
     unsigned long long *start_address =
         (unsigned long long *)KERNEL_START_QEMU;
-    unsigned long long i;
     buf_size = (UINTN)BUF_16KB;
     do {
         status = kernel_file->Read(kernel_file,
                 &buf_size, kernel_program);
     } while(EFI_ERROR(status));
+
     // bssセクションをゼロクリア
-    struct header *head = (struct header *)0x00000000;
-    head->bss_address = 0;
-    head->bss_size = 0;
-    file_size -= sizeof(head);
+//    struct header *head = NULL;
+//    UINTN head_size = sizeof(head);
+//    kernel_file->Read(kernel_file, (UINTN *)head, &head_size);
+//    gBS->SetMem(head->bss_address, head->bss_size, 0);
+//    file_size -= sizeof(head);
     // bodyをメモリに書き込む
+//    gBS->CopyMem(start_address, kernel_program, file_size);
+    unsigned long long i;
     for (i = 0; i * 8 < file_size; i++) {
         start_address[i] = kernel_program[i];
     }
 
+    UINTN mmapsize = 0, mapkey, descsize;
+    UINT32 descver;
+    EFI_MEMORY_DESCRIPTOR *mmap = NULL;
     // ExitBootService()の処理を開始
-    // メモリマップを取得
-    UINTN mmapsize = MEM_DESC_SIZE;
-    // GetMemoryMapで返ってくる値を格納する変数たち
-    UINTN mapkey, descriptorsize;
-    UINT32 descriptorversion;
     do {
-        // メモリマップ取得
-        gBS->GetMemoryMap(&mmapsize, (EFI_MEMORY_DESCRIPTOR *)mem_desc,
-                        &mapkey, &descriptorsize, &descriptorversion);
-        status = gBS->ExitBootServices(image, mapkey);
+        status = gBS->GetMemoryMap(&mmapsize, mmap, &mapkey,
+                                        &descsize, &descver);
+        Print(L"GetMemoryMap.     status: %d, mapkey: %d, mmapsize: %d\n",
+            status, mapkey, mmapsize);
+        while (status == EFI_BUFFER_TOO_SMALL) {
+            if (mmap) {
+                gBS->FreePool(mmap);
+            }
+            // メモリマップの領域を確保
+            status = gBS->AllocatePool(EfiLoaderData, mmapsize, (void **)&mmap);
+            Print(L"AllocatePool.     status: %d, mmap:   %p, mmapsize: %d\n",
+                    status, mmap, mmapsize);
+            // メモリマップを取得
+            status = gBS->GetMemoryMap(&mmapsize, mmap, &mapkey,
+                                        &descsize, &descver);
+            Print(L"GetMemoryMap.     status: %d, mapkey: %d, mmapsize: %d\n",
+                status, mapkey, mmapsize);
+        }
+        // ExitBootServices
+        status = gBS->ExitBootServices(ImageHandle, mapkey);
+        Print(L"ExitBootServices. status: %d, mapkey: %d\n", status, mapkey);
     } while (EFI_ERROR(status));
 
     // カーネルに渡す情報をレジスタに格納
     // スタックポインタを設定しカーネルへジャンプ
-    kernel_jump(bootinfo, start_address);
+    kernel_jump(&bootinfo, start_address);
 
     return EFI_SUCCESS;
 }

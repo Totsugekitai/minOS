@@ -4,11 +4,11 @@ INCLUDE		= $(CURRENT)include/
 
 TARGET		= kernel.bin
 CFLAGS 		= -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0 \
-			  -I$(INCLUDE) #-T $(SCRIPT)kernel.ld -Xlinker -Map=kernel.map
+			  -I$(INCLUDE)
 LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
-CFILES		= kernel.c disp_square.c
-OBJFILES	= kernel.o disp_square.o
+CFILES		= kernel.c
+OBJFILES	= kernel.o
 
 $(TARGET): $(OBJFILES)
 	ld $(LDFLAGS) -o $@ $+

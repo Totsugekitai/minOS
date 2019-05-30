@@ -10,7 +10,7 @@
 #include <Uefi/UefiMultiPhase.h>
 #include <Uefi/UefiSpec.h>
 
-#define MEM_DESC_SIZE       4800
+#define MEM_DESC_SIZE       0xffff
 #define KERNEL_FILE_NAME    L"kernel.bin"
 #define BUF_16KB            16384
 #define BUF_256B            256
@@ -26,15 +26,13 @@ struct video_info_t {
 };
 
 struct bootinfo_t {
-    struct video_info_t *vinfo;
+    struct video_info_t vinfo;
 };
 
 struct header {
-    void *bss_address;
+    void *bss_start;
     unsigned long long bss_size;
 };
-
-unsigned char mem_desc[MEM_DESC_SIZE];
 
 extern void kernel_jump(struct bootinfo_t *, unsigned long long *);
 
