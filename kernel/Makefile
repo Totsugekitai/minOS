@@ -7,8 +7,9 @@ CFLAGS 		= -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0 \
 			  -I$(INCLUDE)
 LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
-CFILES		= kernel.c graphics.c
-OBJFILES	= kernel.o graphics.o
+OBJFILES	= kernel.o \
+			  graphics.o \
+			  init.o bss.o
 
 $(TARGET): $(OBJFILES)
 	ld $(LDFLAGS) -o $@ $+
@@ -21,7 +22,6 @@ $(TARGET): $(OBJFILES)
 
 install:
 	make $(TARGET)
-	rm -f $(CFILES) $(OBJFILES)
 
 default:
 	make install
@@ -30,4 +30,5 @@ clean:
 	-rm -f kernel.bin *.o *.c *.map
 	make -C $(CURRENT)core/ clean
 	make -C $(CURRENT)graphics/ clean
+	make -C $(CURRENT)init/ clean
 
