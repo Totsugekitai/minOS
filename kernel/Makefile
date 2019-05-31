@@ -1,16 +1,33 @@
-TARGET		= kernel.bin
-CFLAGS 		= -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0
-LDFLAGS		= -Map kernel.map -s -x -T kernel.ld
+CURRENT		:= $(dir $(lastword $(MAKEFILE_LIST)))
+SCRIPT		= $(CURRENT)scripts/
+INCLUDE		= $(CURRENT)include/
 
-$(TARGET): kernel.o
+TARGET		= kernel.bin
+CFLAGS 		= -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0 \
+			  -I$(INCLUDE)
+LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
+
+CFILES		= kernel.c graphics.c
+OBJFILES	= kernel.o graphics.o
+
+$(TARGET): $(OBJFILES)
 	ld $(LDFLAGS) -o $@ $+
 
 %.o: %.c
 	gcc $(CFLAGS) -c -o $@ $<
 
-default:
+%.c:
+	cp $(CURRENT)*/*.c $(CURRENT)
+
+install:
 	make $(TARGET)
+	rm -f $(CFILES) $(OBJFILES)
+
+default:
+	make install
 
 clean:
-	-rm -f *~ *.o *.map $(TARGET)
+	-rm -f kernel.bin *.o *.c *.map
+	make -C $(CURRENT)core/ clean
+	make -C $(CURRENT)graphics/ clean
 
