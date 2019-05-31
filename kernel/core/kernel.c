@@ -1,13 +1,11 @@
 #include <types/typedef.h>
 #include <core/kernel.h>
+#include <init/init.h>
 #include <graphics/graphics.h>
 
 void start_kernel(struct bootinfo *binfo)
 {
-    int k, bss_size = (int)(__bss_end - __bss_start);
-    for (k = 0; k < bss_size; k++) {
-        __bss_start[k] = 0;
-    }
+    init();
 
     struct video_info vinfo = binfo->vinfo;
     unsigned int i, j;
@@ -38,7 +36,7 @@ void start_kernel(struct bootinfo *binfo)
     putchar(108, 100, white, black, &vinfo, 'B');
     putchar(116, 100, white, black, &vinfo, 'C');
 
-    putstr(100, 132, white, blue, &vinfo,
+    putstr(100, 132, white, black, &vinfo,
             "minOS - A Minimal Operating System.");
 
     while (1) {}
