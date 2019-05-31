@@ -7,8 +7,8 @@ CFLAGS 		= -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0 \
 			  -I$(INCLUDE)
 LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
-CFILES		= kernel.c
-OBJFILES	= kernel.o
+CFILES		= kernel.c graphics.c
+OBJFILES	= kernel.o graphics.o
 
 $(TARGET): $(OBJFILES)
 	ld $(LDFLAGS) -o $@ $+

@@ -72,12 +72,9 @@ Uefi_Main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *st)
 //    gBS->SetMem(head->bss_address, head->bss_size, 0);
 //    file_size -= sizeof(head);
     // bodyをメモリに書き込む
-//    gBS->CopyMem(start_address, kernel_program, file_size);
-    unsigned long long i;
-    for (i = 0; i * 8 < file_size; i++) {
-        start_address[i] = kernel_program[i];
-    }
+    gBS->CopyMem(start_address, kernel_program, file_size);
 
+    // メモリマップ取得のための変数
     UINTN mmapsize = 0, mapkey, descsize;
     UINT32 descver;
     EFI_MEMORY_DESCRIPTOR *mmap = NULL;
@@ -85,25 +82,19 @@ Uefi_Main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *st)
     do {
         status = gBS->GetMemoryMap(&mmapsize, mmap, &mapkey,
                                         &descsize, &descver);
-        Print(L"GetMemoryMap.     status: %d, mapkey: %d, mmapsize: %d\n",
-            status, mapkey, mmapsize);
         while (status == EFI_BUFFER_TOO_SMALL) {
             if (mmap) {
                 gBS->FreePool(mmap);
             }
+            mmapsize += 0x1000;
             // メモリマップの領域を確保
             status = gBS->AllocatePool(EfiLoaderData, mmapsize, (void **)&mmap);
-            Print(L"AllocatePool.     status: %d, mmap:   %p, mmapsize: %d\n",
-                    status, mmap, mmapsize);
             // メモリマップを取得
             status = gBS->GetMemoryMap(&mmapsize, mmap, &mapkey,
                                         &descsize, &descver);
-            Print(L"GetMemoryMap.     status: %d, mapkey: %d, mmapsize: %d\n",
-                status, mapkey, mmapsize);
         }
         // ExitBootServices
         status = gBS->ExitBootServices(ImageHandle, mapkey);
-        Print(L"ExitBootServices. status: %d, mapkey: %d\n", status, mapkey);
     } while (EFI_ERROR(status));
 
     // カーネルに渡す情報をレジスタに格納

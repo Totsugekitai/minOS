@@ -10,17 +10,13 @@ MEMORY
 
 SECTIONS
 {
-    /* .head : {
-        *(.bss)
-    }
-    */
     .body : {
-        . = ALIGN(8);
-
         *(.text)
         *(.rodata*)
         *(.data*)
+        __bss_start = .;
         *(.bss)
+        __bss_end = .;
     } > BODY
 
     /DISCARD/ : {*(.eh_frame)}

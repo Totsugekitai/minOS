@@ -14,6 +14,6 @@ struct video_info {
 };
 
 struct bootinfo {
-    struct video_info *vinfo;
+    struct video_info vinfo;
 };
 
