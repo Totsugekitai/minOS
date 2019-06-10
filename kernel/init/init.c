@@ -1,6 +1,7 @@
-#include <init/bss.h>
+#include <init/initfunc.h>
 
 void init(void)
 {
-    bss();
+    init_bss();
+    init_gdt();
 }

@@ -1,3 +1,3 @@
+/* init.c */
 void init(void);
-void bss(void);
 

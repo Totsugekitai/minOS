@@ -1,3 +1,4 @@
+/* graphics.h */
 // ulはupper leftの略
 void draw_square(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
         unsigned int x_len, unsigned int y_len, struct video_info *vinfo);

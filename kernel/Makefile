@@ -9,7 +9,7 @@ LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
 OBJFILES	= kernel.o \
 			  graphics.o \
-			  init.o bss.o
+			  init.o bss.o gdt.o segmentation.o
 
 $(TARGET): $(OBJFILES)
 	ld $(LDFLAGS) -o $@ $+

@@ -1,5 +1,4 @@
-#include <types/typedef.h>
-#include <core/kernel.h>
+#include <types/boottypes.h>
 #include <init/init.h>
 #include <graphics/graphics.h>
 
@@ -36,8 +35,10 @@ void start_kernel(struct bootinfo *binfo)
     putchar(108, 100, white, black, &vinfo, 'B');
     putchar(116, 100, white, black, &vinfo, 'C');
 
-    putstr(100, 132, white, black, &vinfo,
+    putstr(400, 400, black, white, &vinfo,
             "minOS - A Minimal Operating System.");
+    putstr(400, 420, black, white, &vinfo,
+            "Developer : Totsugekitai(@totsugeki8)");
 
     while (1) {}
 

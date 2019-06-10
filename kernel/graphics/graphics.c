@@ -1,5 +1,5 @@
 #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
-#include <types/typedef.h>
+#include <types/boottypes.h>
 #include <graphics/fonts_bin.h>
 
 void _draw_dot(unsigned int x, unsigned int y,
