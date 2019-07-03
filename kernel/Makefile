@@ -18,7 +18,7 @@ $(TARGET): $(OBJFILES)
 	gcc $(CFLAGS) -c -o $@ $<
 
 %.c:
-	cp $(CURRENT)*/*.c $(CURRENT)
+	cp $(CURRENT)*/*.c $(CURRENT) # && cp $(CURRENT)*/*.S $(CURRENT)
 
 install:
 	make $(TARGET)
