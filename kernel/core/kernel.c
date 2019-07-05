@@ -17,9 +17,11 @@ void start_kernel(struct bootinfo *binfo)
         struct segm_descriptor *gdt = (struct segm_descriptor *)0x00000000;
         // 1つ目のdescriptorはメモリ全体
         set_segm_descriptor(gdt + 1, 0x00000000, 0x40000000, 3, 0, 0, 1);
-        // ここいらないかも？とりあえずコメントしとく
-        // // 2つ目のdescriptorはkernel.binがマップされるアドレス
-        // set_segm_descriptor(gdt + 2, 0x00110000, 0x00710000, 3, 0, 0, 1);
+        /* ここいらないかも？とりあえずコメントしとく
+        // 2つ目のdescriptorはkernel.binがマップされるアドレス
+        set_segm_descriptor(gdt + 2, 0x00110000, 0x00710000, 3, 0, 0, 1); */
+        // lgdtでセットする(アセンブラで書く)
+        load_gdt(0x00000000);
     }
 
     /* 画面描画ここから */

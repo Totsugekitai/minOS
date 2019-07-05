@@ -1,7 +1,7 @@
 .intel_syntax   noprefix
-.global         _start
+.global         _load_gdt
 
-_start:
+_load_gdt:
     lgdt    rdi         ; 第1引数に与えられたGDTのアドレスをロード
     ret
 
