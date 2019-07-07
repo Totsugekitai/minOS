@@ -15,6 +15,8 @@ void start_kernel(struct bootinfo *binfo)
         init();
         // GDTは0x00000000~0x0009FFFF
         struct segm_descriptor *gdt = (struct segm_descriptor *)0x00000000;
+        // 0こ目のdescriptorはNULL descriptor
+        set_segm_descriptor(gdt + 0, 0x00000000, 0x00000000, 0, 0, 0, 0);
         // 1つ目のdescriptorはメモリ全体
         set_segm_descriptor(gdt + 1, 0x00000000, 0x40000000, 3, 0, 0, 1);
         /* ここいらないかも？とりあえずコメントしとく
