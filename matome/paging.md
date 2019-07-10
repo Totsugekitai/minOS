@@ -127,4 +127,106 @@ P flagが0のときはリニアアドレスの変換は行われず、アドレ�
 
 上の例で、あるページング構造のエントリがリニアアドレスに12bitしか残っていない場合に、pageを4KBのpageにマップする。以前に識別されたエントリは常に他のページング構造を参照する。
 
+■ページングモード別のページング構造
+
+- PML4
+    - Entry name: PML4E
+    - Physical address of structure: CR3
+    - bits selecting entry: 47:39
+    - page mapping: N/A(PS must be 1)
+- PDP
+    - entry name: PDPTE
+    - physical address of structure: PML4E
+    - bits selecting entry: 38:30
+    - 1GB page if PS = 1
+- PD
+    - entry name: PDE
+    - physical address of structure: PDPTE
+    - bits selecting entry: 29:21
+    - page mapping: 2MB page if PS = 1
+- PT
+    - entry name: PTE
+    - physical address of structure: PDE
+    - bits selecting entry: 20:12
+    - page mapping: 4KB page
+
+## 4-level paging
+
+CR0.PG = 1, CR4.PAE = 1, IA32_EFER.LME = 1で論理プロセッサは4-levelページングになる。
+CR3レジスタを用いてメモリ上に配置されたページング構造階層を用いてリニアアドレスが変換される。
+48-bitリニアアドレスを52-bit物理アドレスに変換する。
+256TBのリニアアドレスまで理論上はアクセスできる。
+
+4-levelページングはリニアアドレスの変換を生成するページング構造階層(PML4)を用いる。
+4-levelページングでのCR3レジスタの使用はPCIDsがCR4.PCIDEによって設定されているかどうかによる。
+
+CR4.PCIDE = 1の場合:
+
+    - PCID(bit 11:0)
+    - Physical address of the 4KB aligned PML4 table used for linear-address translation(bit M-1:12)
+    - Reserved(must be 0)(bit 63:M)
+
+Section 4.10.4.1でCR3レジスタに渡すソースオペランドの63bitの使い方を説明している。
+CR4.PCIDEを修正した後、論理プロセッサはすぐにCR3レジスタを指定通りに使い始める。
+例: CR4.PCIDEを1から0に変更すると、現在のPCIDはすぐにCR3[11:0]から000Hに変更される。加えて、論理プロセッサはPCIDのbit 4:3のCR3.PCDやCR3.PWTを用いているPML4にアクセスするメモリタイプを特定する。
+
+4-levelページングはリニアアドレスを4KB,2MB,1GBのページにマップする。
+以下が2MBのページ機構の図である。
+
+![図](pictures/translation_to_2MB_page.png)
+
+CR4.PKE = 1のとき、4-levelページングは各リニアアドレスとprotection keyを関連付ける。
+Section 4.6でプロセッサがprotection keyを用いて各リニアアドレスのアクセス権を特定する方法を説明している。
+
+- 4KBにアラインメントされるPML4テーブルはCR3の51:14bitで特定される物理アドレスに配置される。PML4テーブルは64-bitのエントリが512個から構成される(PML4Es)。PML4Eは以下で定義される物理アドレスを用いて選ばれる。
+  
+    - 51:12bitはCR3から定義される
+    - 11:3bitはリニアアドレスの47:39bitで定義される
+    - 2:0bitは0である
+
+リニアアドレスの47:39bitを用いてPML4Eは識別されるので、PML4Eはリニアアドレス空間の512GBの領域のアクセスをコントロールできる。
+
+- 4KBにアラインメントされるPDPテーブルはPML4Eの51:12bitで特定される物理アドレスに配置される。PDPテーブルｈｓ64-bitのエントリが512個から構成される(PDPTEs)。PDPTEは以下で定義される物理アドレスを用いて選ばれる。
+
+    - 51:12bitはPML4Eから定義される
+    - 11:3bitはリニアアドレスの38:30から定義される
+    - 2:0bitは0である
+
+リニアアドレスの47:30bitを用いてPDPTEは識別されるので、PDPTEはリニアアドレス空間の1GBの領域のアクセスをコントロールできる。PDPTEの使用はPSフラグに依存する。
+
+- PDPTEのPSフラグが1のとき、PDPTEは1GBのページをマップする。最終的な物理アドレスは以下で算出される。
+
+    - 51:30bitはPDPTEから定義される
+    - 29:0bitはもとのリニアアドレスから定義される
+
+CR4.PKE = 1のとき、リニアアドレスのprotection keyはPDPTEの62:59bitの値である。
+
+- PDPTEのPSフラグが0のとき、4KBでアラインメントされたページディレクトリはPDPTEの51:12bitで表された物理アドレスに配置される。ページディレクトリは64-bitのエントリが512個から構成される(PDEs)。PDEは以下で定義される物理アドレスを用いて選ばれる。
+
+    - 51:12bitはPDPTEから定義される
+    - 11:3bitはリニアアドレスの29:21bitで定義される
+    - 2:0は0である
+
+リニアアドレスの47:21bitを用いてPDEは識別されるので、リニアアドレス空間の2MBの領域のアクセスをコントロールできる。PDEの使用はPSフラグに依存する。
+
+- PDEのPSフラグが1のとき、PDEは2MBのページをマップする。最終的な物理アドレスは以下で算出される。
+
+    - 51:21bitはPDEから定義される
+    - 20:0bitはもとのリニアアドレスから定義される
+
+CR4.PKE = 1のとき、リニアアドレスのprotection keyはPDEの62:59bitの値である。
+
+- PDEのPSフラグが0のとき、4KBにアラインメントされたページテーブルはPDEの51:12bitで指定される物理アドレスに配置される。ページテーブルは64-bitのエントリが512個から構成される(PTEs)。PTEは以下で定義される物理アドレスを用いて選ばれる。
+
+    - 51:12bitはPDEから定義される
+    - 11:3bitはリニアアドレスの20:12bitから定義される
+    - 2:0bitは0である
+
+- PTEはリニアアドレスの47:12bitを用いて識別されるので、全てのPTEは4KBページをマップする。最終的な物理アドレスは以下で算出される。
+
+    - 51:12bitはPTEから定義される
+    - 11:0bitはもとのリニアアドレスから定義される
+
+CR4.PKE = 1のとき、リニアアドレスのprotection keyはPTEの62:59bitの値である。
+
 
