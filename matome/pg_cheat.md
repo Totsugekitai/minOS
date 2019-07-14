@@ -26,16 +26,35 @@
 
 リニアアドレスから物理アドレスの流れとしては、
 
+```
               Linear  Address
         ↓       ↓      ↓           ↓
 CR3 -> PML4 -> PDP -> PD -> Physical Address
+```
 
 である。
 
 ### Initialization of Paging-Tables
 
 以下は各テーブルの初期化パラメータである。
-なお物理アドレス空間のサイズは4GBとする。
+なお物理アドレス空間のサイズは4GB、リニアアドレス空間のサイズも4GBとする。
 
-- PML4 Table
-    - size: 
+- 共通
+    - size: 8byte(64bit) × 512エントリ = 4096byte = 4KB
+
+- PML4 Entry Table
+    - エントリ数は1個と決める(OSの設計次第)
+    - エントリはPDPテーブルの先頭アドレスを格納
+
+- PDP Entry Table
+    - エントリ数は4個と決める(OSの設計次第)
+    - エントリは各PDテーブルの先頭アドレスを格納
+
+- Page Directory
+    - エントリ数は512個
+    - 各エントリに物理アドレスを2MBずつインクリメントしながら格納(ページサイズが2MBということ)
+
+### Address width
+
+- Physical Address: だいたいは36bit
+- Linear Address: だいたいは48bit
