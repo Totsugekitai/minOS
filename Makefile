@@ -1,7 +1,7 @@
 ROOTDIR			:= $(dir $(lastword $(MAKEFILE_LIST)))
 
 TOOLS			= $(ROOTDIR)tools/
-QEMU			= $(TOOLS)qemu-system-x86_64
+QEMU			= qemu-system-x86_64
 FS				= $(ROOTDIR)fs/
 KERNELSRC		= $(ROOTDIR)kernel/
 BOOTSRC			= $(ROOTDIR)boot/

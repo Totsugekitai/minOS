@@ -56,5 +56,9 @@ CR3 -> PML4 -> PDP -> PD -> Physical Address
 
 ### Address width
 
-- Physical Address: だいたいは36bit
+- Physical Address: 52bitぶん確保されているが、だいたいは36bitまで
 - Linear Address: だいたいは48bit
+
+多分余りは0が入る。
+
+

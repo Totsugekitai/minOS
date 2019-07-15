@@ -1,6 +1,13 @@
 #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+
+#ifndef MY_HEADER_H_
+#define MY_HEADER_H_
+
 #include <types/boottypes.h>
 #include <graphics/fonts_bin.h>
+
+#endif
+
 
 void _draw_dot(unsigned int x, unsigned int y,
         struct pix_format color, struct video_info *vinfo)

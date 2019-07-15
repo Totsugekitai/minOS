@@ -3,8 +3,10 @@
 
 #include <types/boottypes.h>
 #include <types/mmtypes.h>
-#include <init/init.h>
+#include <init/initfunc.h>
 #include <mm/segmentation.h>
+#include <graphics/graphics.h>
+extern void load_gdt(long *);
 
 #endif
 
@@ -12,16 +14,14 @@ void start_kernel(struct bootinfo *binfo)
 {
     /* GDT初期化 */
     {
-        init();
+        init_bss();
+        init_gdt();
         // GDTは0x00000000~0x0009FFFF
         struct segm_descriptor *gdt = (struct segm_descriptor *)0x00000000;
         // 0こ目のdescriptorはNULL descriptor
         set_segm_descriptor(gdt + 0, 0x00000000, 0x00000000, 0, 0, 0, 0);
         // 1つ目のdescriptorはメモリ全体
         set_segm_descriptor(gdt + 1, 0x00000000, 0x40000000, 3, 0, 0, 1);
-        /* ここいらないかも？とりあえずコメントしとく
-        // 2つ目のdescriptorはkernel.binがマップされるアドレス
-        set_segm_descriptor(gdt + 2, 0x00110000, 0x00710000, 3, 0, 0, 1); */
         // lgdtでセットする(アセンブラで書く)
         load_gdt(0x00000000);
     }

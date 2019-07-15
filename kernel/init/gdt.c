@@ -1,4 +1,10 @@
+#ifndef MY_HEADER_H_
+#define MY_HEADER_H_
+
 #include <mm/segmentation.h>
+#include <types/mmtypes.h>
+
+#endif
 
 #define TABLE_LIMIT         (struct segm_descriptor *)0x9FFFF
 

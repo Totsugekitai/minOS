@@ -18,22 +18,26 @@ void init_pgtable(void) {
     }
 
     // PDのエントリをフォーマット
-    long *k = PAGE_START;
+    long *pg_start = PAGE_START;
+    long pg_size = PAGE_SIZE;
     for (i = 0; i < PD_NUM; i++) {
         for (j = 0; j < TABLE_SIZE; j++) {
-            // bit[35:21]に物理アドレスを登録
-            pd[i][j] ||= (k << 21);
-            k += (long *)PAGE_SIZE;
-            // その他のbitを設定
-            pd[i][j] ||= ;
+            pd[i][j] = (pg_start + (long *)PAGE_SIZE | 0x083);
+            pg_size += pg_size;
         }
     }
 
     // PDPのエントリにPDを登録
+    // pdp[0]に&pd[0]を、pdp[1]に&pd[1]を...
     for (i = 0; i < PD_NUM; i++) {
-        pdp[i] = &pd[i];
+        pdp[i] = ((&pd[i] << 12) | 0x003);
     }
-    // 残りは0
+    
+    // PML4のエントリにPDPを登録
+    // pml4[0]に&pdp[0]を登録するだけ
+    pml4[0] = &pdp[0];
+
+    init_cr3(&pml4[0]);
 
     return;
 }

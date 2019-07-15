@@ -1,4 +1,9 @@
+#ifndef MY_HEADER_H_
+#define MY_HEADER_H_
+
 #include <types/mmtypes.h>
+
+#endif
 
 struct segm_selector ret_segm_selector(short index, char ti_flag, char rpl)
 {

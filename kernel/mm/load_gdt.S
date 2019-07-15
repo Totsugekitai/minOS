@@ -1,7 +1,8 @@
 .intel_syntax   noprefix
-.global         _load_gdt
+.global         load_gdt
 
-_load_gdt:
-    lgdt    rdi         ; 第1引数に与えられたGDTのアドレスをロード
+load_gdt:
+    mov     rax,rdi
+    lgdt    [rax]
     ret
 
