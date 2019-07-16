@@ -1,15 +1,24 @@
 /* segmentation */
-struct segm_selector {
-    char low;
-    char high;
-};
+// struct segm_selector {
+//     unsigned short index : 13;
+//     unsigned short tl_flag : 1;
+//     unsigned short rpl : 2;
+// };
 
 struct segm_descriptor {
-    char low_low;
-    char low_high;
-    char high_low;
-    char high_high;
-
+    unsigned long limit_low : 16;
+    unsigned long base_low : 16;
+    unsigned long base_mid : 8;
+    unsigned long type : 4;
+    unsigned long s_flag : 1;
+    unsigned long dpl_field : 2;
+    unsigned long p_flag : 1;
+    unsigned long limit_high : 4;
+    unsigned long avl_bit : 1;
+    unsigned long l_flag : 1;
+    unsigned long db_flag : 1;
+    unsigned long g_flag : 1;
+    unsigned long base_high : 8;
 };
 
 /* paging */

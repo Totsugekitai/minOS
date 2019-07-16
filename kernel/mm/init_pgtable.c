@@ -2,11 +2,11 @@
 #define MY_HEADE_H_
 
 #include <init/init_pgtable.h>
+extern void init_cr3(long *);
 
 #endif
 
 void init_pgtable(void) {
-    long *pml4[TABLE_SIZE], *pdp[TABLE_SIZE], *pd[PD_NUM][TABLE_SIZE];
     int i, j;
     // ゼロフィル
     for (i = 0; i < TABLE_SIZE; i++) {
@@ -18,26 +18,23 @@ void init_pgtable(void) {
     }
 
     // PDのエントリをフォーマット
-    long *pg_start = PAGE_START;
-    long pg_size = PAGE_SIZE;
     for (i = 0; i < PD_NUM; i++) {
         for (j = 0; j < TABLE_SIZE; j++) {
-            pd[i][j] = (pg_start + (long *)PAGE_SIZE | 0x083);
-            pg_size += pg_size;
+            pd[i][j] = ((i * PAGE_SIZE_1G + j * PAGE_SIZE_2M) | 0x083);
         }
     }
 
     // PDPのエントリにPDを登録
     // pdp[0]に&pd[0]を、pdp[1]に&pd[1]を...
     for (i = 0; i < PD_NUM; i++) {
-        pdp[i] = ((&pd[i] << 12) | 0x003);
+        pdp[i] = (((long)(&pd[i]) << 12) | 0x003);
     }
     
     // PML4のエントリにPDPを登録
     // pml4[0]に&pdp[0]を登録するだけ
-    pml4[0] = &pdp[0];
+    pml4[0] = ((long)(&pdp[0]) | 0x003);
 
-    init_cr3(&pml4[0]);
+    init_cr3(pml4);
 
     return;
 }
