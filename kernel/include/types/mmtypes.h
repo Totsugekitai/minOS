@@ -1,9 +1,4 @@
 /* segmentation */
-// struct segm_selector {
-//     unsigned short index : 13;
-//     unsigned short tl_flag : 1;
-//     unsigned short rpl : 2;
-// };
 
 struct segm_descriptor {
     unsigned long limit_low : 16;

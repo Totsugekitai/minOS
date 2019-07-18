@@ -9,9 +9,8 @@ LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
 OBJS		= core/kernel.o \
 			  graphics/graphics.o \
-			  init/gdt.o init/bss.o \
-			  mm/segmentation.o mm/load_gdt.o mm/init_pgtable.o mm/init_cr3.o mm/change_4lv_pg.o 
-
+			  init/bss.o \
+			  mm/segmentation.o mm/load_gdt.o mm/set_segment_register.o
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+
