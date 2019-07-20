@@ -4,13 +4,17 @@ INCLUDE		= $(CURRENT)include/
 
 TARGET		= kernel.bin
 CFLAGS 		= -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0 \
-			  -I$(INCLUDE)
+			  -I$(INCLUDE) -fno-stack-protector
 LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
 OBJS		= core/kernel.o \
 			  graphics/graphics.o \
 			  init/bss.o \
-			  mm/segmentation.o mm/load_gdt.o mm/set_segment_register.o
+			  mm/segmentation.o \
+			  mm/load_gdt.o \
+			  mm/set_segment_register.o \
+			  mm/load_pgtable.o \
+			  mm/paging.o
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+
