@@ -7,6 +7,7 @@
 #include <mm/segmentation.h>
 #include <mm/paging.h>
 #include <graphics/graphics.h>
+#include <debug/debug.h>
 
 #endif
 
@@ -24,27 +25,31 @@ void start_kernel(struct bootinfo *binfo)
     struct video_info vinfo = binfo->vinfo;
     unsigned int i, j;
 
+    // デバッグ用(1)
+    //unsigned long *addr = (unsigned long *)&vinfo;
+    //insert_to_reg(addr);
+    //while (1) {}
+
     /* フレームバッファの初期化作業 */
-    {
-        unsigned int x_axis = vinfo.x_axis;
-        unsigned int y_axis = vinfo.y_axis;
-        unsigned int ppsl = vinfo.ppsl;
-        struct pix_format *fb = vinfo.fb;
-        struct pix_format white = {0xFF, 0xFF, 0xFF, 0x00};
-        for (i = 0; i < y_axis; i++)
-        {
-            for (j = 0; j < x_axis; j++)
-            {
-                fb[i * ppsl + j] = white;
-            }
+    unsigned int x_axis = vinfo.x_axis;
+    unsigned int y_axis = vinfo.y_axis;
+    unsigned int ppsl = vinfo.ppsl;
+    struct pix_format *fb = vinfo.fb;
+    for (i = 0; i < y_axis; i++) {
+        for (j = 0; j < x_axis; j++) {
+            fb[i * ppsl + j] = white;
         }
     }
+    /* 初期の画面描画ここまで */
     putstr(400, 400, black, white, &vinfo,
            "minOS - A Minimal Operating System.");
     putstr(400, 420, black, white, &vinfo,
            "Developer : Totsugekitai(@totsugeki8)");
 
-    /* 初期の画面描画ここまで */
+    // デバッグ用(2)
+    //unsigned long *addr = (unsigned long *)&vinfo;
+    //insert_to_reg(addr);
+    //while (1) {}
 
     /* GDTなどの初期化 */
     init_bss();
@@ -67,14 +72,32 @@ void start_kernel(struct bootinfo *binfo)
 
 void main_routine(struct video_info *vinfo)
 {
-    draw_square(50, 50, red, 50, 50, vinfo);
+    // デバッグ用(3)
+    //unsigned long *addr = (unsigned long *)&vinfo;
+    //insert_to_reg(addr);
+    //while (1) {}
+    
+    draw_square(0, 0, red, 50, 50, vinfo);
+
+    // デバッグ用(4)
+    //unsigned long *addr = (unsigned long *)&vinfo;
+    //insert_to_reg(addr);
+    //while (1) {}
 
     /* ページングの初期化 */
-    long *PML4 = create_pgtable();
+    unsigned long *PML4 = (unsigned long *)0x1000;
+    unsigned long *PDP = (unsigned long *)0x2000;
+    unsigned long *PD = (unsigned long *)0x10000;
+    create_pgtable(PML4, PDP, PD);
     load_pgtable(PML4);
 
-    draw_square(100, 100, green, 50, 50, vinfo);
+    // デバッグ用(5)
+    //unsigned long *addr = (unsigned long *)&vinfo;
+    //insert_to_reg(addr);
+    //while (1) {}
 
+    draw_square(100, 100, green, 50, 50, vinfo);
+    
     while (1) {}
     
     return;

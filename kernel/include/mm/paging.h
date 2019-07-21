@@ -1,3 +1,4 @@
-long *create_pgtable(void);
-extern void load_pgtable(long *pml4_addr);
+void create_pgtable(unsigned long *pml4_addr,
+        unsigned long *pdp_addr, unsigned long *pd_addr);
+extern void load_pgtable(unsigned long *pml4_addr);
 
