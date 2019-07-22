@@ -26,7 +26,7 @@ void start_kernel(struct bootinfo *binfo)
     unsigned int i, j;
 
     // デバッグ用(1)
-    //unsigned long *addr = (unsigned long *)&vinfo;
+    //unsigned long *addr = (unsigned long *)vinfo.fb;
     //insert_to_reg(addr);
     //while (1) {}
 
@@ -47,7 +47,7 @@ void start_kernel(struct bootinfo *binfo)
            "Developer : Totsugekitai(@totsugeki8)");
 
     // デバッグ用(2)
-    //unsigned long *addr = (unsigned long *)&vinfo;
+    //unsigned long *addr = (unsigned long *)vinfo.fb;
     //insert_to_reg(addr);
     //while (1) {}
 
@@ -73,14 +73,14 @@ void start_kernel(struct bootinfo *binfo)
 void main_routine(struct video_info *vinfo)
 {
     // デバッグ用(3)
-    //unsigned long *addr = (unsigned long *)&vinfo;
+    //unsigned long *addr = (unsigned long *)(vinfo->fb);
     //insert_to_reg(addr);
     //while (1) {}
     
     draw_square(0, 0, red, 50, 50, vinfo);
 
     // デバッグ用(4)
-    //unsigned long *addr = (unsigned long *)&vinfo;
+    //unsigned long *addr = (unsigned long *)(vinfo->fb);
     //insert_to_reg(addr);
     //while (1) {}
 
@@ -92,7 +92,7 @@ void main_routine(struct video_info *vinfo)
     load_pgtable(PML4);
 
     // デバッグ用(5)
-    //unsigned long *addr = (unsigned long *)&vinfo;
+    //unsigned long *addr = (unsigned long *)(vinfo->fb);
     //insert_to_reg(addr);
     //while (1) {}
 

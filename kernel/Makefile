@@ -33,7 +33,7 @@ default:
 	make install
 
 clean:
-	-rm -f kernel.bin kernel.map
+	-rm -f kernel.bin
 	make -C $(CURRENT)core/ clean
 	make -C $(CURRENT)graphics/ clean
 	make -C $(CURRENT)init/ clean
