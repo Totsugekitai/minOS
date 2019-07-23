@@ -1,17 +1,19 @@
+#pragma once
+#include <stdint.h>
 /* types */
 struct pix_format {
-    unsigned char bl;
-    unsigned char gr;
-    unsigned char re;
-    unsigned char _reserved;
+    uint8_t bl;
+    uint8_t gr;
+    uint8_t re;
+    uint8_t _reserved;
 };
 
 struct video_info {
     struct pix_format *fb;
-    unsigned long fb_size;
-    unsigned int x_axis;
-    unsigned int y_axis;
-    unsigned int ppsl;
+    uint64_t fb_size;
+    uint32_t x_axis;
+    uint32_t y_axis;
+    uint32_t ppsl;
 };
 
 struct bootinfo {
@@ -20,10 +22,10 @@ struct bootinfo {
 
 /* graphics */
 // ulはupper leftの略
-void draw_square(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
-        unsigned int x_len, unsigned int y_len, struct video_info *vinfo);
-void putchar(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
+void draw_square(uint32_t ul_x, uint32_t ul_y, struct pix_format color,
+        uint32_t x_len, uint32_t y_len, struct video_info *vinfo);
+void putchar(uint32_t ul_x, uint32_t ul_y, struct pix_format color,
         struct pix_format bcolor, struct video_info *vinfo, char c);
-void putstr(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
+void putstr(uint32_t ul_x, uint32_t ul_y, struct pix_format color,
         struct pix_format bcolor, struct video_info *vinfo, char *s);
 

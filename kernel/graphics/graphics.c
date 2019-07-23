@@ -1,22 +1,15 @@
-#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
-
-#ifndef MY_HEADER_H_
-#define MY_HEADER_H_
-
+#include <stdint.h>
 #include <types/boottypes.h>
 #include <graphics/fonts_bin.h>
 #include <util/util.h>
 
-#endif
-
-
-void _draw_dot(unsigned int x, unsigned int y,
+void _draw_dot(uint32_t x, uint32_t y,
         struct pix_format color, struct video_info *vinfo)
 {
     struct pix_format *fb = vinfo->fb;
-    unsigned int x_axis = vinfo->x_axis;
-    unsigned int y_axis = vinfo->y_axis;
-    unsigned int ppsl = vinfo->ppsl;
+    uint32_t x_axis = vinfo->x_axis;
+    uint32_t y_axis = vinfo->y_axis;
+    uint32_t ppsl = vinfo->ppsl;
 
     if (!(x < x_axis) || !(y < y_axis)) {
         return;
@@ -27,12 +20,12 @@ void _draw_dot(unsigned int x, unsigned int y,
     return;
 }
 
-void draw_square(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
-        unsigned int x_len, unsigned int y_len, struct video_info *vinfo)
+void draw_square(uint32_t ul_x, uint32_t ul_y, struct pix_format color,
+        uint32_t x_len, uint32_t y_len, struct video_info *vinfo)
 {
-    unsigned int i, j;
-    unsigned int x_axis = vinfo->x_axis;
-    unsigned int y_axis = vinfo->y_axis;
+    uint32_t i, j;
+    uint32_t x_axis = vinfo->x_axis;
+    uint32_t y_axis = vinfo->y_axis;
 
     if (!(ul_x + x_len < x_axis) || !(ul_y + y_len < y_axis)) {
         return;
@@ -47,7 +40,7 @@ void draw_square(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
     return;
 }
 
-void putchar(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
+void putchar(uint32_t ul_x, uint32_t ul_y, struct pix_format color,
         struct pix_format bcolor, struct video_info *vinfo, char c)
 {
     char d, c_num = c - 0x20;
@@ -76,7 +69,7 @@ void putchar(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
     return;
 }
 
-void putstr(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
+void putstr(uint32_t ul_x, uint32_t ul_y, struct pix_format color,
         struct pix_format bcolor, struct video_info *vinfo, char *s)
 {
     int i = 0;
@@ -88,11 +81,11 @@ void putstr(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
     return;
 }
 
-void putnum(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
-        struct pix_format bcolor, struct video_info *vinfo, unsigned long num)
+void putnum(uint32_t ul_x, uint32_t ul_y, struct pix_format color,
+        struct pix_format bcolor, struct video_info *vinfo, uint64_t num)
 {
-    unsigned long i;
-    unsigned long numarr[16];
+    uint64_t i;
+    uint64_t numarr[16];
     char numchararr[19];
     for (i = 0; i < 16; i++) {
         numarr[i] = (num & (pow(2, 0 + i * 4) + pow(2, 1 + i * 4) + pow(2, 2 + i * 4) + pow(2, 3 + i * 4))) >> i * 4;

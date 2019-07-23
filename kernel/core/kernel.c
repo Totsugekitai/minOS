@@ -1,15 +1,11 @@
-#ifndef MY_HEADER_H_
-#define MY_HEADER_H_
-
+#include <stdint.h>
 #include <types/boottypes.h>
-#include <types/mmtypes.h>
 #include <init/initfunc.h>
 #include <mm/segmentation.h>
+#include <interrupt/interrupt.h>
 #include <mm/paging.h>
 #include <graphics/graphics.h>
 #include <debug/debug.h>
-
-#endif
 
 void main_routine(struct video_info *vinfo);
 
@@ -23,17 +19,12 @@ void start_kernel(struct bootinfo *binfo)
 {
     /* 画面描画 */
     struct video_info vinfo = binfo->vinfo;
-    unsigned int i, j;
-
-    // デバッグ用(1)
-    //unsigned long *addr = (unsigned long *)vinfo.fb;
-    //insert_to_reg(addr);
-    //while (1) {}
+    uint32_t i, j;
 
     /* フレームバッファの初期化作業 */
-    unsigned int x_axis = vinfo.x_axis;
-    unsigned int y_axis = vinfo.y_axis;
-    unsigned int ppsl = vinfo.ppsl;
+    uint32_t x_axis = vinfo.x_axis;
+    uint32_t y_axis = vinfo.y_axis;
+    uint32_t ppsl = vinfo.ppsl;
     struct pix_format *fb = vinfo.fb;
     for (i = 0; i < y_axis; i++) {
         for (j = 0; j < x_axis; j++) {
@@ -41,69 +32,57 @@ void start_kernel(struct bootinfo *binfo)
         }
     }
     /* 初期の画面描画ここまで */
-    putstr(400, 400, black, white, &vinfo,
-           "minOS - A Minimal Operating System.");
-    putstr(400, 420, black, white, &vinfo,
-           "Developer : Totsugekitai(@totsugeki8)");
-
-    // デバッグ用(2)
-    //unsigned long *addr = (unsigned long *)vinfo.fb;
-    //insert_to_reg(addr);
-    //while (1) {}
 
     /* GDTなどの初期化 */
+    // BSSセクションの初期化
     init_bss();
-    
-    unsigned long *GDT = (unsigned long *)0x80;
-    
+
+    // GDTの先頭アドレスは0x80
+    uint64_t *GDT = (uint64_t *)0x80;
     // 空, KERNEL_CS, USER_CSの3つを用意
     GDT[0] = make_segment_descriptor(0, 0, 1);
     GDT[1] = make_segment_descriptor(5, 0, 0);
     GDT[2] = make_segment_descriptor(5, 3, 0);
-    
     // lgdtでGDTをセットする
     load_gdt(GDT, 0x17);
-
-    // セグメントレジスタの設定
+    // セグメントレジスタの設定をやってmain_routineへとぶ
     set_segment_register(0x8, &vinfo);
-
-    return;
 }
 
+/* GDTの設定が終わった後のルーチン */
 void main_routine(struct video_info *vinfo)
 {
-    // デバッグ用(3)
-    //unsigned long *addr = (unsigned long *)(vinfo->fb);
-    //insert_to_reg(addr);
-    //while (1) {}
-    
-    draw_square(0, 0, red, 50, 50, vinfo);
-
-    // デバッグ用(4)
-    //unsigned long *addr = (unsigned long *)(vinfo->fb);
-    //insert_to_reg(addr);
-    //while (1) {}
-
+    // uint32_t i;
     /* ページングの初期化 */
-    unsigned long *PML4 = (unsigned long *)0x1000;
-    unsigned long *PDP = (unsigned long *)0x2000;
-    unsigned long *PD = (unsigned long *)0x10000;
+    uint64_t *PML4 = (uint64_t *)0x1000;
+    uint64_t *PDP = (uint64_t *)0x2000;
+    uint64_t *PD = (uint64_t *)0x10000;
     create_pgtable(PML4, PDP, PD);
     load_pgtable(PML4);
 
-    // デバッグ用(5)
-    //unsigned long *addr = (unsigned long *)(vinfo->fb);
-    //insert_to_reg(addr);
-    //while (1) {}
+    /* IDTの初期化 */
+    // IDTの先頭アドレスは0x100
+    // struct gate_descriptor *IDT = (struct gate_descriptor *)0x100;
+    // for (i = 0; i < 32; i++) {
+    //     // IDT[i] = make_gate_descriptor();
+    // }
 
-    draw_square(100, 100, green, 50, 50, vinfo);
+    /* いろんなレジスタとかメモリとかの表示 */
+    // EFER
+    putstr(600, 10, black, white, vinfo, "CR3: ");
+    putnum(650, 10, black, white, vinfo, get_cr3());
+    // EFER
+    putstr(600, 30, black, white, vinfo, "CR4: ");
+    putnum(650, 30, black, white, vinfo, get_cr4());
+    // EFER
+    putstr(600, 50, black, white, vinfo, "EFER: ");
+    putnum(650, 50, black, white, vinfo, get_efer());
 
-    putnum(200, 200, black, white, vinfo, 0x0123456789abcdef);
-
-    putnum(250, 250, black, white, vinfo, get_efer());
+    /* 名前 */
+    putstr(515, 560, black, white, vinfo,
+           "minOS - A Minimal Operating System.");
+    putstr(500, 580, black, white, vinfo,
+           "Developer : Totsugekitai(@totsugeki8)");
 
     while (1) {}
-    
-    return;
 }
-

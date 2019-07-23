@@ -1,6 +1,8 @@
-unsigned long pow(unsigned long num, unsigned long pow)
+#include <stdint.h>
+
+uint64_t pow(uint64_t num, uint64_t pow)
 {
-    unsigned long i, ans = 1;
+    uint64_t i, ans = 1;
     for (i = 0; i < pow; i++) {
         ans *= num;
     }

@@ -1,3 +1,4 @@
+#pragma once
 // OSASKの半角フォントを流用
 
 char fonts[1520] = {

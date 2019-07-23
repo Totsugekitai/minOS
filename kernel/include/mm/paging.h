@@ -1,4 +1,5 @@
-void create_pgtable(unsigned long *pml4_addr,
-        unsigned long *pdp_addr, unsigned long *pd_addr);
-extern void load_pgtable(unsigned long *pml4_addr);
-
+#pragma once
+#include <stdint.h>
+void create_pgtable(uint64_t *pml4_addr,
+        uint64_t *pdp_addr, uint64_t *pd_addr);
+extern void load_pgtable(uint64_t *pml4_addr);

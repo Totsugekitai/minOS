@@ -1,4 +1,6 @@
-extern void insert_to_reg(unsigned long *addr);
-extern unsigned long get_cr3(void);
-extern unsigned long get_cr4(void);
-extern unsigned long get_efer(void);
+#pragma once
+#include <stdint.h>
+extern void insert_to_reg(uint64_t *addr);
+extern uint64_t get_cr3(void);
+extern uint64_t get_cr4(void);
+extern uint64_t get_efer(void);
