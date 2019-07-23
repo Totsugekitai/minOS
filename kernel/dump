@@ -1,0 +1,33 @@
+
+mm/set_segment_register.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <set_segment_register>:
+   0:	fa                   	cli    
+   1:	66 b8 00 00          	mov    $0x0,%ax
+   5:	8e d8                	mov    %eax,%ds
+   7:	8e c0                	mov    %eax,%es
+   9:	8e d0                	mov    %eax,%ss
+   b:	8e e8                	mov    %eax,%gs
+   d:	8e e0                	mov    %eax,%fs
+   f:	9c                   	pushfq 
+  10:	59                   	pop    %rcx
+  11:	48 81 e1 ff bf ff ff 	and    $0xffffffffffffbfff,%rcx
+  18:	51                   	push   %rcx
+  19:	9d                   	popfq  
+  1a:	6a 00                	pushq  $0x0
+  1c:	54                   	push   %rsp
+  1d:	9c                   	pushfq 
+  1e:	57                   	push   %rdi
+  1f:	48 8d 0c 25 00 00 00 	lea    0x0,%rcx
+  26:	00 
+  27:	51                   	push   %rcx
+  28:	48 cf                	iretq  
+  2a:	f4                   	hlt    
+
+000000000000002b <main_label>:
+  2b:	fb                   	sti    
+  2c:	48 89 f7             	mov    %rsi,%rdi
+  2f:	e8 00 00 00 00       	callq  34 <main_label+0x9>

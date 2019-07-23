@@ -97,7 +97,11 @@ void main_routine(struct video_info *vinfo)
     //while (1) {}
 
     draw_square(100, 100, green, 50, 50, vinfo);
-    
+
+    putnum(200, 200, black, white, vinfo, 0x0123456789abcdef);
+
+    putnum(250, 250, black, white, vinfo, get_efer());
+
     while (1) {}
     
     return;

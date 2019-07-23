@@ -1,79 +1,88 @@
 
-破棄された入力セクション
+Discarded input sections
 
  .eh_frame      0x0000000000000000       0x58 core/kernel.o
- .eh_frame      0x0000000000000000       0x98 graphics/graphics.o
+ .eh_frame      0x0000000000000000       0xc0 graphics/graphics.o
  .eh_frame      0x0000000000000000       0x38 init/bss.o
  .eh_frame      0x0000000000000000       0x38 mm/segmentation.o
  .eh_frame      0x0000000000000000       0x38 mm/paging.o
+ .eh_frame      0x0000000000000000       0x38 util/util.o
 
-メモリ設定
+Memory Configuration
 
-名前           原点             長さ             属性
+Name             Origin             Length             Attributes
 HEAD             0x0000000000000000 0x00000000000e1000 xrw
 BODY             0x0000000000110000 0x0000000000100000 xrw
 *default*        0x0000000000000000 0xffffffffffffffff
 
-リンカスクリプトおよびメモリマップ
+Linker script and memory map
 
 
-.body           0x0000000000110000      0xe34
+.body           0x0000000000110000     0x1254
  *(.text)
- .text          0x0000000000110000      0x220 core/kernel.o
+ .text          0x0000000000110000      0x284 core/kernel.o
                 0x0000000000110000                start_kernel
-                0x0000000000110185                main_routine
- .text          0x0000000000110220      0x384 graphics/graphics.o
-                0x0000000000110220                _draw_dot
-                0x0000000000110293                draw_square
-                0x000000000011032f                putchar
-                0x0000000000110528                putstr
- .text          0x00000000001105a4       0x51 init/bss.o
-                0x00000000001105a4                init_bss
- .text          0x00000000001105f5       0x4f mm/segmentation.o
-                0x00000000001105f5                make_segment_descriptor
- .text          0x0000000000110644       0x11 mm/load_gdt.o
-                0x0000000000110644                load_gdt
- .text          0x0000000000110655       0x34 mm/set_segment_register.o
-                0x0000000000110655                set_segment_register
-                0x0000000000110680                main_label
- .text          0x0000000000110689        0xb mm/load_pgtable.o
-                0x0000000000110689                load_pgtable
- .text          0x0000000000110694      0x12c mm/paging.o
-                0x0000000000110694                create_pgtable
- .text          0x00000000001107c0        0x4 debug/debug.o
-                0x00000000001107c0                insert_to_reg
+                0x0000000000110188                main_routine
+ .text          0x0000000000110284      0x703 graphics/graphics.o
+                0x0000000000110284                _draw_dot
+                0x00000000001102f8                draw_square
+                0x0000000000110395                putchar
+                0x000000000011058f                putstr
+                0x000000000011060b                putnum
+ .text          0x0000000000110987       0x54 init/bss.o
+                0x0000000000110987                init_bss
+ .text          0x00000000001109db       0x4f mm/segmentation.o
+                0x00000000001109db                make_segment_descriptor
+ .text          0x0000000000110a2a       0x11 mm/load_gdt.o
+                0x0000000000110a2a                load_gdt
+ .text          0x0000000000110a3b       0x34 mm/set_segment_register.o
+                0x0000000000110a3b                set_segment_register
+                0x0000000000110a66                main_label
+ .text          0x0000000000110a6f        0xb mm/load_pgtable.o
+                0x0000000000110a6f                load_pgtable
+ .text          0x0000000000110a7a      0x128 mm/paging.o
+                0x0000000000110a7a                create_pgtable
+ .text          0x0000000000110ba2       0x14 debug/debug.o
+                0x0000000000110ba2                insert_to_reg
+                0x0000000000110ba6                get_cr3
+                0x0000000000110baa                get_cr4
+                0x0000000000110bae                get_efer
+ .text          0x0000000000110bb6       0x40 util/util.o
+                0x0000000000110bb6                pow
  *(.rodata*)
- *fill*         0x00000000001107c4        0x4 
- .rodata        0x00000000001107c8       0x4e core/kernel.o
+ *fill*         0x0000000000110bf6        0x2 
+ .rodata        0x0000000000110bf8       0x4e core/kernel.o
  *(.data*)
- .data          0x0000000000110816       0x10 core/kernel.o
-                0x0000000000110816                white
-                0x000000000011081a                red
-                0x000000000011081e                green
-                0x0000000000110822                blue
- *fill*         0x0000000000110826       0x1a 
- .data          0x0000000000110840      0x5f0 graphics/graphics.o
-                0x0000000000110840                fonts
- .data          0x0000000000110e30        0x0 init/bss.o
- .data          0x0000000000110e30        0x0 mm/segmentation.o
- .data          0x0000000000110e30        0x0 mm/load_gdt.o
- .data          0x0000000000110e30        0x0 mm/set_segment_register.o
- .data          0x0000000000110e30        0x0 mm/load_pgtable.o
- .data          0x0000000000110e30        0x0 mm/paging.o
- .data          0x0000000000110e30        0x0 debug/debug.o
-                0x0000000000110e30                __bss_start = .
+ .data          0x0000000000110c46       0x10 core/kernel.o
+                0x0000000000110c46                white
+                0x0000000000110c4a                red
+                0x0000000000110c4e                green
+                0x0000000000110c52                blue
+ *fill*         0x0000000000110c56        0xa 
+ .data          0x0000000000110c60      0x5f0 graphics/graphics.o
+                0x0000000000110c60                fonts
+ .data          0x0000000000111250        0x0 init/bss.o
+ .data          0x0000000000111250        0x0 mm/segmentation.o
+ .data          0x0000000000111250        0x0 mm/load_gdt.o
+ .data          0x0000000000111250        0x0 mm/set_segment_register.o
+ .data          0x0000000000111250        0x0 mm/load_pgtable.o
+ .data          0x0000000000111250        0x0 mm/paging.o
+ .data          0x0000000000111250        0x0 debug/debug.o
+ .data          0x0000000000111250        0x0 util/util.o
+                0x0000000000111250                __bss_start = .
  *(.bss)
- .bss           0x0000000000110e30        0x4 core/kernel.o
-                0x0000000000110e30                black
- .bss           0x0000000000110e34        0x0 graphics/graphics.o
- .bss           0x0000000000110e34        0x0 init/bss.o
- .bss           0x0000000000110e34        0x0 mm/segmentation.o
- .bss           0x0000000000110e34        0x0 mm/load_gdt.o
- .bss           0x0000000000110e34        0x0 mm/set_segment_register.o
- .bss           0x0000000000110e34        0x0 mm/load_pgtable.o
- .bss           0x0000000000110e34        0x0 mm/paging.o
- .bss           0x0000000000110e34        0x0 debug/debug.o
-                0x0000000000110e34                __bss_end = .
+ .bss           0x0000000000111250        0x4 core/kernel.o
+                0x0000000000111250                black
+ .bss           0x0000000000111254        0x0 graphics/graphics.o
+ .bss           0x0000000000111254        0x0 init/bss.o
+ .bss           0x0000000000111254        0x0 mm/segmentation.o
+ .bss           0x0000000000111254        0x0 mm/load_gdt.o
+ .bss           0x0000000000111254        0x0 mm/set_segment_register.o
+ .bss           0x0000000000111254        0x0 mm/load_pgtable.o
+ .bss           0x0000000000111254        0x0 mm/paging.o
+ .bss           0x0000000000111254        0x0 debug/debug.o
+ .bss           0x0000000000111254        0x0 util/util.o
+                0x0000000000111254                __bss_end = .
 
 /DISCARD/
  *(.eh_frame)
@@ -86,14 +95,16 @@ LOAD mm/set_segment_register.o
 LOAD mm/load_pgtable.o
 LOAD mm/paging.o
 LOAD debug/debug.o
+LOAD util/util.o
 OUTPUT(kernel.bin binary)
 
-.comment        0x0000000000000000       0x5a
- .comment       0x0000000000000000       0x12 core/kernel.o
- .comment       0x0000000000000012       0x12 graphics/graphics.o
- .comment       0x0000000000000024       0x12 init/bss.o
- .comment       0x0000000000000036       0x12 mm/segmentation.o
- .comment       0x0000000000000048       0x12 mm/paging.o
+.comment        0x0000000000000000      0x108
+ .comment       0x0000000000000000       0x2c core/kernel.o
+ .comment       0x000000000000002c       0x2c graphics/graphics.o
+ .comment       0x0000000000000058       0x2c init/bss.o
+ .comment       0x0000000000000084       0x2c mm/segmentation.o
+ .comment       0x00000000000000b0       0x2c mm/paging.o
+ .comment       0x00000000000000dc       0x2c util/util.o
 
 .note.GNU-stack
                 0x0000000000000000        0x0
@@ -107,3 +118,5 @@ OUTPUT(kernel.bin binary)
                 0x0000000000000000        0x0 mm/segmentation.o
  .note.GNU-stack
                 0x0000000000000000        0x0 mm/paging.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 util/util.o

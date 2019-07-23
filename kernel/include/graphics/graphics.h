@@ -12,4 +12,5 @@ void putchar(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
         struct pix_format bcolor, struct video_info *vinfo, char c);
 void putstr(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
         struct pix_format bcolor, struct video_info *vinfo, char *s);
-
+void putnum(unsigned int ul_x, unsigned int ul_y, struct pix_format color,
+        struct pix_format bcolor, struct video_info *vinfo, unsigned long num);

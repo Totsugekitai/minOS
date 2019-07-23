@@ -15,7 +15,8 @@ OBJS		= core/kernel.o \
 			  mm/set_segment_register.o \
 			  mm/load_pgtable.o \
 			  mm/paging.o \
-			  debug/debug.o
+			  debug/debug.o \
+			  util/util.o
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+
@@ -39,3 +40,4 @@ clean:
 	make -C $(CURRENT)init/ clean
 	make -C $(CURRENT)mm/ clean
 	make -C $(CURRENT)debug/ clean
+	make -C $(CURRENT)util/ clean
