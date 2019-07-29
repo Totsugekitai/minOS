@@ -18,46 +18,47 @@ BODY             0x0000000000110000 0x0000000000100000 xrw
 リンカスクリプトおよびメモリマップ
 
 
-.body           0x0000000000110000     0x12d4
+.body           0x0000000000110000     0x12e0
  *(.text)
- .text          0x0000000000110000      0x2e8 core/kernel.o
+ .text          0x0000000000110000      0x2f3 core/kernel.o
                 0x0000000000110000                start_kernel
                 0x000000000011012b                main_routine
- .text          0x00000000001102e8      0x700 graphics/graphics.o
-                0x00000000001102e8                _draw_dot
-                0x000000000011035b                draw_square
-                0x00000000001103f7                putchar
-                0x00000000001105f0                putstr
-                0x000000000011066c                putnum
- .text          0x00000000001109e8       0x40 util/util.o
-                0x00000000001109e8                pow
- .text          0x0000000000110a28       0x51 init/bss.o
-                0x0000000000110a28                init_bss
- .text          0x0000000000110a79       0x4f mm/segmentation.o
-                0x0000000000110a79                make_segment_descriptor
- .text          0x0000000000110ac8       0x11 mm/load_gdt.o
-                0x0000000000110ac8                load_gdt
- .text          0x0000000000110ad9       0x34 mm/set_segment_register.o
-                0x0000000000110ad9                set_segment_register
-                0x0000000000110b04                main_label
- .text          0x0000000000110b0d        0xb mm/load_pgtable.o
-                0x0000000000110b0d                load_pgtable
- .text          0x0000000000110b18      0x12c mm/paging.o
-                0x0000000000110b18                create_pgtable
- .text          0x0000000000110c44       0x14 debug/debug.o
-                0x0000000000110c44                insert_to_reg
-                0x0000000000110c48                get_cr3
-                0x0000000000110c4c                get_cr4
-                0x0000000000110c50                get_efer
+ .text          0x00000000001102f3      0x700 graphics/graphics.o
+                0x00000000001102f3                _draw_dot
+                0x0000000000110366                draw_square
+                0x0000000000110402                putchar
+                0x00000000001105fb                putstr
+                0x0000000000110677                putnum
+ .text          0x00000000001109f3       0x40 util/util.o
+                0x00000000001109f3                pow
+ .text          0x0000000000110a33       0x51 init/bss.o
+                0x0000000000110a33                init_bss
+ .text          0x0000000000110a84       0x4f mm/segmentation.o
+                0x0000000000110a84                make_segment_descriptor
+ .text          0x0000000000110ad3       0x11 mm/load_gdt.o
+                0x0000000000110ad3                load_gdt
+ .text          0x0000000000110ae4       0x34 mm/set_segment_register.o
+                0x0000000000110ae4                set_segment_register
+                0x0000000000110b0f                main_label
+ .text          0x0000000000110b18        0xb mm/load_pgtable.o
+                0x0000000000110b18                load_pgtable
+ .text          0x0000000000110b23      0x12c mm/paging.o
+                0x0000000000110b23                create_pgtable
+ .text          0x0000000000110c4f       0x14 debug/debug.o
+                0x0000000000110c4f                insert_to_reg
+                0x0000000000110c53                get_cr3
+                0x0000000000110c57                get_cr4
+                0x0000000000110c5b                get_efer
  *(.rodata*)
- .rodata        0x0000000000110c58       0x66 core/kernel.o
+ *fill*         0x0000000000110c63        0x5 
+ .rodata        0x0000000000110c68       0x66 core/kernel.o
  *(.data*)
- .data          0x0000000000110cbe       0x10 core/kernel.o
-                0x0000000000110cbe                white
-                0x0000000000110cc2                red
-                0x0000000000110cc6                green
-                0x0000000000110cca                blue
- *fill*         0x0000000000110cce       0x12 
+ .data          0x0000000000110cce       0x10 core/kernel.o
+                0x0000000000110cce                white
+                0x0000000000110cd2                red
+                0x0000000000110cd6                green
+                0x0000000000110cda                blue
+ *fill*         0x0000000000110cde        0x2 
  .data          0x0000000000110ce0      0x5f0 graphics/graphics.o
                 0x0000000000110ce0                fonts
  .data          0x00000000001112d0        0x0 util/util.o
@@ -70,18 +71,19 @@ BODY             0x0000000000110000 0x0000000000100000 xrw
  .data          0x00000000001112d0        0x0 debug/debug.o
                 0x00000000001112d0                __bss_start = .
  *(.bss)
- .bss           0x00000000001112d0        0x4 core/kernel.o
+ .bss           0x00000000001112d0       0x10 core/kernel.o
                 0x00000000001112d0                black
- .bss           0x00000000001112d4        0x0 graphics/graphics.o
- .bss           0x00000000001112d4        0x0 util/util.o
- .bss           0x00000000001112d4        0x0 init/bss.o
- .bss           0x00000000001112d4        0x0 mm/segmentation.o
- .bss           0x00000000001112d4        0x0 mm/load_gdt.o
- .bss           0x00000000001112d4        0x0 mm/set_segment_register.o
- .bss           0x00000000001112d4        0x0 mm/load_pgtable.o
- .bss           0x00000000001112d4        0x0 mm/paging.o
- .bss           0x00000000001112d4        0x0 debug/debug.o
-                0x00000000001112d4                __bss_end = .
+                0x00000000001112d8                vinfo_global
+ .bss           0x00000000001112e0        0x0 graphics/graphics.o
+ .bss           0x00000000001112e0        0x0 util/util.o
+ .bss           0x00000000001112e0        0x0 init/bss.o
+ .bss           0x00000000001112e0        0x0 mm/segmentation.o
+ .bss           0x00000000001112e0        0x0 mm/load_gdt.o
+ .bss           0x00000000001112e0        0x0 mm/set_segment_register.o
+ .bss           0x00000000001112e0        0x0 mm/load_pgtable.o
+ .bss           0x00000000001112e0        0x0 mm/paging.o
+ .bss           0x00000000001112e0        0x0 debug/debug.o
+                0x00000000001112e0                __bss_end = .
 
 /DISCARD/
  *(.eh_frame)

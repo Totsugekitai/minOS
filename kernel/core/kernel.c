@@ -3,6 +3,7 @@
 #include <init/initfunc.h>
 #include <mm/segmentation.h>
 #include <interrupt/interrupt.h>
+#include <interrupt/int_handler.h>
 #include <mm/paging.h>
 #include <graphics/graphics.h>
 #include <debug/debug.h>
@@ -14,6 +15,8 @@ struct pix_format white = {0xFF, 0xFF, 0xFF, 0x00};
 struct pix_format red = {0x00, 0x00, 0xFF, 0x00};
 struct pix_format green = {0x00, 0xFF, 0x00, 0x00};
 struct pix_format blue = {0xFF, 0x00, 0x00, 0x00};
+
+struct video_info *vinfo_global;
 
 void start_kernel(struct bootinfo *binfo)
 {
@@ -52,6 +55,7 @@ void start_kernel(struct bootinfo *binfo)
 /* GDTの設定が終わった後のルーチン */
 void main_routine(struct video_info *vinfo)
 {
+    vinfo_global = vinfo; // 割り込みハンドラ用
     // uint32_t i;
     /* ページングの初期化 */
     uint64_t *PML4 = (uint64_t *)0x1000;
@@ -62,10 +66,8 @@ void main_routine(struct video_info *vinfo)
 
     /* IDTの初期化 */
     // IDTの先頭アドレスは0x100
-    // struct gate_descriptor *IDT = (struct gate_descriptor *)0x100;
-    // for (i = 0; i < 32; i++) {
-    //     // IDT[i] = make_gate_descriptor();
-    // }
+    //struct gate_descriptor *IDT = (struct gate_descriptor *)0x100;
+    //IDT[13] = make_gate_descriptor(global_protection, 0, );
 
     /* いろんなレジスタとかメモリとかの表示 */
     // EFER
