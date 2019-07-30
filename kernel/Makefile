@@ -21,6 +21,7 @@ OBJS		= core/kernel.o \
 			  interrupt/interrupt.o \
 			  interrupt/fault_handler.o \
 			  interrupt/handler_caller.o \
+			  device/keyboard.o \
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+

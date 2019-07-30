@@ -7,6 +7,7 @@
 #include <mm/paging.h>
 #include <graphics/graphics.h>
 #include <debug/debug.h>
+#include <device/device.h>
 
 void main_routine(struct video_info *vinfo);
 
@@ -16,7 +17,7 @@ struct pix_format red = {0x00, 0x00, 0xFF, 0x00};
 struct pix_format green = {0x00, 0xFF, 0x00, 0x00};
 struct pix_format blue = {0xFF, 0x00, 0x00, 0x00};
 
-struct video_info *vinfo_global = (struct video_info *)0;
+struct video_info *vinfo_global = (struct video_info *)0; // とりあえず0入れとく
 
 void start_kernel(struct bootinfo *binfo)
 {
@@ -89,7 +90,7 @@ void main_routine(struct video_info *vinfo)
     putnum(650, 50, black, white, vinfo, get_efer());
     // 自由欄
     putstr(10, 10, black, white, vinfo, "func: ");
-    putnum(60, 10, black, white, vinfo, (uint64_t)make_segment_descriptor);
+    putnum(60, 10, black, white, vinfo, (uint64_t)putstr);
 
     /* 名前 */
     putstr(515, 560, black, white, vinfo,
@@ -98,8 +99,19 @@ void main_routine(struct video_info *vinfo)
            "Developer : Totsugekitai(@totsugeki8)");
 
     // デバッグ用
-    general_protection();
+    insert_to_reg((uint64_t *)general_protection);
+    while (1) {}
+    // general_protection();
     // generate_gp();
 
-    while (1) {}
+    uint8_t keycode, oldkeycode = 0;
+    uint32_t i = 0;
+    while (1) {
+        keycode = read_kbd_signal();
+        if (keycode != oldkeycode) {
+            putnum(250, i, white, black, vinfo, keycode);
+            oldkeycode = keycode;
+            i += 20;
+        }
+    }
 }
