@@ -47,3 +47,4 @@ clean:
 	make -C $(CURRENT)debug/ clean
 	make -C $(CURRENT)util/ clean
 	make -C $(CURRENT)interrupt/ clean
+	make -C $(CURRENT)device/ clean

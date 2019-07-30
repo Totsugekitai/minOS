@@ -90,7 +90,7 @@ void main_routine(struct video_info *vinfo)
     putnum(650, 50, black, white, vinfo, get_efer());
     // 自由欄
     putstr(10, 10, black, white, vinfo, "func: ");
-    putnum(60, 10, black, white, vinfo, (uint64_t)putstr);
+    putnum(60, 10, black, white, vinfo, (uint64_t)main_routine);
 
     /* 名前 */
     putstr(515, 560, black, white, vinfo,
@@ -99,7 +99,7 @@ void main_routine(struct video_info *vinfo)
            "Developer : Totsugekitai(@totsugeki8)");
 
     // デバッグ用
-    insert_to_reg((uint64_t *)general_protection);
+    insert_to_reg((uint64_t *)main_routine);
     while (1) {}
     // general_protection();
     // generate_gp();

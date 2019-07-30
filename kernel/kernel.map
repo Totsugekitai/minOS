@@ -22,57 +22,57 @@ Linker script and memory map
 
 .body           0x0000000000110000     0x1540
  *(.text)
- .text          0x0000000000110000      0x444 core/kernel.o
+ .text          0x0000000000110000      0x43e core/kernel.o
                 0x0000000000110000                start_kernel
                 0x000000000011012e                main_routine
- .text          0x0000000000110444      0x703 graphics/graphics.o
-                0x0000000000110444                _draw_dot
-                0x00000000001104b8                draw_square
-                0x0000000000110555                putchar
-                0x000000000011074f                putstr
-                0x00000000001107cb                putnum
- .text          0x0000000000110b47       0x40 util/util.o
-                0x0000000000110b47                pow
- .text          0x0000000000110b87       0x54 init/bss.o
-                0x0000000000110b87                init_bss
- .text          0x0000000000110bdb       0x4f mm/segmentation.o
-                0x0000000000110bdb                make_segment_descriptor
- .text          0x0000000000110c2a       0x18 mm/load_gdt.o
-                0x0000000000110c2a                load_gdt
- .text          0x0000000000110c42       0x34 mm/set_segment_register.o
-                0x0000000000110c42                set_segment_register
-                0x0000000000110c6d                main_label
- .text          0x0000000000110c76        0xb mm/load_pgtable.o
-                0x0000000000110c76                load_pgtable
- .text          0x0000000000110c81      0x128 mm/paging.o
-                0x0000000000110c81                create_pgtable
- .text          0x0000000000110da9       0x1f debug/debug.o
-                0x0000000000110da9                insert_to_reg
-                0x0000000000110dad                get_cr3
-                0x0000000000110db1                get_cr4
-                0x0000000000110db5                get_efer
-                0x0000000000110dbd                generate_gp
- .text          0x0000000000110dc8       0x18 interrupt/load_idt.o
-                0x0000000000110dc8                load_idt
- .text          0x0000000000110de0       0x59 interrupt/interrupt.o
-                0x0000000000110de0                make_gate_descriptor
- .text          0x0000000000110e39       0x3a interrupt/fault_handler.o
-                0x0000000000110e39                gp_handler
- .text          0x0000000000110e73       0x35 interrupt/handler_caller.o
-                0x0000000000110e73                general_protection
- .text          0x0000000000110ea8        0x3 device/keyboard.o
-                0x0000000000110ea8                read_kbd_signal
+ .text          0x000000000011043e      0x703 graphics/graphics.o
+                0x000000000011043e                _draw_dot
+                0x00000000001104b2                draw_square
+                0x000000000011054f                putchar
+                0x0000000000110749                putstr
+                0x00000000001107c5                putnum
+ .text          0x0000000000110b41       0x40 util/util.o
+                0x0000000000110b41                pow
+ .text          0x0000000000110b81       0x54 init/bss.o
+                0x0000000000110b81                init_bss
+ .text          0x0000000000110bd5       0x4f mm/segmentation.o
+                0x0000000000110bd5                make_segment_descriptor
+ .text          0x0000000000110c24       0x18 mm/load_gdt.o
+                0x0000000000110c24                load_gdt
+ .text          0x0000000000110c3c       0x34 mm/set_segment_register.o
+                0x0000000000110c3c                set_segment_register
+                0x0000000000110c67                main_label
+ .text          0x0000000000110c70        0xb mm/load_pgtable.o
+                0x0000000000110c70                load_pgtable
+ .text          0x0000000000110c7b      0x128 mm/paging.o
+                0x0000000000110c7b                create_pgtable
+ .text          0x0000000000110da3       0x1f debug/debug.o
+                0x0000000000110da3                insert_to_reg
+                0x0000000000110da7                get_cr3
+                0x0000000000110dab                get_cr4
+                0x0000000000110daf                get_efer
+                0x0000000000110db7                generate_gp
+ .text          0x0000000000110dc2       0x18 interrupt/load_idt.o
+                0x0000000000110dc2                load_idt
+ .text          0x0000000000110dda       0x59 interrupt/interrupt.o
+                0x0000000000110dda                make_gate_descriptor
+ .text          0x0000000000110e33       0x3a interrupt/fault_handler.o
+                0x0000000000110e33                gp_handler
+ .text          0x0000000000110e6d       0x35 interrupt/handler_caller.o
+                0x0000000000110e6d                general_protection
+ .text          0x0000000000110ea2        0x3 device/keyboard.o
+                0x0000000000110ea2                read_kbd_signal
  *(.rodata*)
- *fill*         0x0000000000110eab        0x5 
- .rodata        0x0000000000110eb0       0x6e core/kernel.o
- .rodata        0x0000000000110f1e        0x4 interrupt/fault_handler.o
+ *fill*         0x0000000000110ea5        0x3 
+ .rodata        0x0000000000110ea8       0x6e core/kernel.o
+ .rodata        0x0000000000110f16        0x4 interrupt/fault_handler.o
  *(.data*)
- .data          0x0000000000110f22       0x10 core/kernel.o
-                0x0000000000110f22                white
-                0x0000000000110f26                red
-                0x0000000000110f2a                green
-                0x0000000000110f2e                blue
- *fill*         0x0000000000110f32        0xe 
+ .data          0x0000000000110f1a       0x10 core/kernel.o
+                0x0000000000110f1a                white
+                0x0000000000110f1e                red
+                0x0000000000110f22                green
+                0x0000000000110f26                blue
+ *fill*         0x0000000000110f2a       0x16 
  .data          0x0000000000110f40      0x5f0 graphics/graphics.o
                 0x0000000000110f40                fonts
  .data          0x0000000000111530        0x0 util/util.o
