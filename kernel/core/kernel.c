@@ -16,7 +16,7 @@ struct pix_format red = {0x00, 0x00, 0xFF, 0x00};
 struct pix_format green = {0x00, 0xFF, 0x00, 0x00};
 struct pix_format blue = {0xFF, 0x00, 0x00, 0x00};
 
-struct video_info *vinfo_global;
+struct video_info *vinfo_global = (struct video_info *)0;
 
 void start_kernel(struct bootinfo *binfo)
 {
@@ -55,7 +55,7 @@ void start_kernel(struct bootinfo *binfo)
 /* GDTの設定が終わった後のルーチン */
 void main_routine(struct video_info *vinfo)
 {
-    vinfo_global = vinfo; // 割り込みハンドラ用
+    vinfo_global = vinfo; // 割り込みハンドラ用のグローバル変数
     // uint32_t i;
     /* ページングの初期化 */
     uint64_t *PML4 = (uint64_t *)0x1000;
@@ -65,9 +65,17 @@ void main_routine(struct video_info *vinfo)
     load_pgtable(PML4);
 
     /* IDTの初期化 */
-    // IDTの先頭アドレスは0x100
-    //struct gate_descriptor *IDT = (struct gate_descriptor *)0x100;
-    //IDT[13] = make_gate_descriptor(global_protection, 0, );
+    // IDTの先頭アドレスは0x20000
+    struct gate_descriptor *IDT = (struct gate_descriptor *)0x20000;
+    struct gate_descriptor zero_gate = make_gate_descriptor((uint64_t)general_protection, 0, 0, 0);
+    for (int i = 0; i < 13; i++) {
+        IDT[i] = zero_gate;
+    }
+    IDT[13] = make_gate_descriptor((uint64_t)general_protection, 0, 0, 0);
+    for (int i = 14; i < 256; i++) {
+        IDT[i] = zero_gate;
+    }
+    load_idt((uint64_t)IDT, 256);
 
     /* いろんなレジスタとかメモリとかの表示 */
     // EFER
@@ -79,12 +87,19 @@ void main_routine(struct video_info *vinfo)
     // EFER
     putstr(600, 50, black, white, vinfo, "EFER: ");
     putnum(650, 50, black, white, vinfo, get_efer());
+    // 自由欄
+    putstr(10, 10, black, white, vinfo, "func: ");
+    putnum(60, 10, black, white, vinfo, (uint64_t)make_segment_descriptor);
 
     /* 名前 */
     putstr(515, 560, black, white, vinfo,
            "minOS - A Minimal Operating System.");
     putstr(500, 580, black, white, vinfo,
            "Developer : Totsugekitai(@totsugeki8)");
+
+    // デバッグ用
+    general_protection();
+    // generate_gp();
 
     while (1) {}
 }

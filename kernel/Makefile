@@ -17,7 +17,10 @@ OBJS		= core/kernel.o \
 			  mm/load_pgtable.o \
 			  mm/paging.o \
 			  debug/debug.o \
-
+			  interrupt/load_idt.o \
+			  interrupt/interrupt.o \
+			  interrupt/fault_handler.o \
+			  interrupt/handler_caller.o \
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+
@@ -42,3 +45,4 @@ clean:
 	make -C $(CURRENT)mm/ clean
 	make -C $(CURRENT)debug/ clean
 	make -C $(CURRENT)util/ clean
+	make -C $(CURRENT)interrupt/ clean

@@ -1,2 +1,2 @@
-void global_protection(void);
-
+#pragma once
+extern void general_protection(void);
