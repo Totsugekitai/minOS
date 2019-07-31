@@ -68,7 +68,7 @@ void main_routine(struct video_info *vinfo)
     /* IDTの初期化 */
     // IDTの先頭アドレスは0x20000
     struct gate_descriptor *IDT = (struct gate_descriptor *)0x20000;
-    struct gate_descriptor zero_gate = make_gate_descriptor((uint64_t)general_protection, 0, 0, 0);
+    struct gate_descriptor zero_gate = make_gate_descriptor(0, 0, 0, 0);
     for (int i = 0; i < 13; i++) {
         IDT[i] = zero_gate;
     }
