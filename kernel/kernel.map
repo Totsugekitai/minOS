@@ -1,113 +1,116 @@
 
-Discarded input sections
+破棄された入力セクション
 
  .eh_frame      0x0000000000000000       0x58 core/kernel.o
- .eh_frame      0x0000000000000000       0xc0 graphics/graphics.o
+ .llvm_addrsig  0x0000000000000000       0x13 core/kernel.o
+ .eh_frame      0x0000000000000000       0xb8 graphics/graphics.o
+ .llvm_addrsig  0x0000000000000000        0x5 graphics/graphics.o
  .eh_frame      0x0000000000000000       0x38 util/util.o
+ .llvm_addrsig  0x0000000000000000        0x0 util/util.o
  .eh_frame      0x0000000000000000       0x38 init/bss.o
+ .llvm_addrsig  0x0000000000000000        0x2 init/bss.o
  .eh_frame      0x0000000000000000       0x38 mm/segmentation.o
+ .llvm_addrsig  0x0000000000000000        0x0 mm/segmentation.o
  .eh_frame      0x0000000000000000       0x38 mm/paging.o
+ .llvm_addrsig  0x0000000000000000        0x0 mm/paging.o
  .eh_frame      0x0000000000000000       0x38 interrupt/interrupt.o
+ .llvm_addrsig  0x0000000000000000        0x0 interrupt/interrupt.o
  .eh_frame      0x0000000000000000       0x38 interrupt/fault_handler.o
+ .llvm_addrsig  0x0000000000000000        0x4 interrupt/fault_handler.o
 
-Memory Configuration
+メモリ設定
 
-Name             Origin             Length             Attributes
+名前           原点             長さ             属性
 HEAD             0x0000000000000000 0x00000000000e1000 xrw
 BODY             0x0000000000110000 0x0000000000100000 xrw
 *default*        0x0000000000000000 0xffffffffffffffff
 
-Linker script and memory map
+リンカスクリプトおよびメモリマップ
 
 
-.body           0x0000000000110000     0x1540
+.body           0x0000000000110000     0x1730
  *(.text)
- .text          0x0000000000110000      0x43e core/kernel.o
+ .text          0x0000000000110000      0x495 core/kernel.o
                 0x0000000000110000                start_kernel
-                0x000000000011012e                main_routine
- .text          0x000000000011043e      0x703 graphics/graphics.o
-                0x000000000011043e                _draw_dot
-                0x00000000001104b2                draw_square
-                0x000000000011054f                putchar
-                0x0000000000110749                putstr
-                0x00000000001107c5                putnum
- .text          0x0000000000110b41       0x40 util/util.o
-                0x0000000000110b41                pow
- .text          0x0000000000110b81       0x54 init/bss.o
-                0x0000000000110b81                init_bss
- .text          0x0000000000110bd5       0x4f mm/segmentation.o
-                0x0000000000110bd5                make_segment_descriptor
- .text          0x0000000000110c24       0x18 mm/load_gdt.o
-                0x0000000000110c24                load_gdt
- .text          0x0000000000110c3c       0x34 mm/set_segment_register.o
-                0x0000000000110c3c                set_segment_register
-                0x0000000000110c67                main_label
- .text          0x0000000000110c70        0xb mm/load_pgtable.o
-                0x0000000000110c70                load_pgtable
- .text          0x0000000000110c7b      0x128 mm/paging.o
-                0x0000000000110c7b                create_pgtable
- .text          0x0000000000110da3       0x1f debug/debug.o
-                0x0000000000110da3                insert_to_reg
-                0x0000000000110da7                get_cr3
-                0x0000000000110dab                get_cr4
-                0x0000000000110daf                get_efer
-                0x0000000000110db7                generate_gp
- .text          0x0000000000110dc2       0x18 interrupt/load_idt.o
-                0x0000000000110dc2                load_idt
- .text          0x0000000000110dda       0x59 interrupt/interrupt.o
-                0x0000000000110dda                make_gate_descriptor
- .text          0x0000000000110e33       0x3a interrupt/fault_handler.o
-                0x0000000000110e33                gp_handler
- .text          0x0000000000110e6d       0x35 interrupt/handler_caller.o
-                0x0000000000110e6d                general_protection
- .text          0x0000000000110ea2        0x3 device/keyboard.o
-                0x0000000000110ea2                read_kbd_signal
+                0x0000000000110130                main_routine
+ *fill*         0x0000000000110495        0xb 
+ .text          0x00000000001104a0      0x879 graphics/graphics.o
+                0x00000000001104a0                _draw_dot
+                0x0000000000110520                draw_square
+                0x0000000000110600                putchar
+                0x00000000001108f0                putstr
+                0x0000000000110970                putnum
+ *fill*         0x0000000000110d19        0x7 
+ .text          0x0000000000110d20       0x4e util/util.o
+                0x0000000000110d20                pow
+ *fill*         0x0000000000110d6e        0x2 
+ .text          0x0000000000110d70       0x56 init/bss.o
+                0x0000000000110d70                init_bss
+ *fill*         0x0000000000110dc6        0xa 
+ .text          0x0000000000110dd0       0x66 mm/segmentation.o
+                0x0000000000110dd0                make_segment_descriptor
+ .text          0x0000000000110e36       0x18 mm/load_gdt.o
+                0x0000000000110e36                load_gdt
+ .text          0x0000000000110e4e       0x34 mm/set_segment_register.o
+                0x0000000000110e4e                set_segment_register
+                0x0000000000110e79                main_label
+ .text          0x0000000000110e82        0xb mm/load_pgtable.o
+                0x0000000000110e82                load_pgtable
+ *fill*         0x0000000000110e8d        0x3 
+ .text          0x0000000000110e90      0x114 mm/paging.o
+                0x0000000000110e90                create_pgtable
+ .text          0x0000000000110fa4       0x17 debug/debug.o
+                0x0000000000110fa4                insert_to_reg
+                0x0000000000110fa8                get_cr3
+                0x0000000000110fac                get_cr4
+                0x0000000000110fb0                get_efer
+                0x0000000000110fb8                generate_gp
+ .text          0x0000000000110fbb       0x18 interrupt/load_idt.o
+                0x0000000000110fbb                load_idt
+ *fill*         0x0000000000110fd3        0xd 
+ .text          0x0000000000110fe0       0x56 interrupt/interrupt.o
+                0x0000000000110fe0                make_gate_descriptor
+ *fill*         0x0000000000111036        0xa 
+ .text          0x0000000000111040       0x3b interrupt/fault_handler.o
+                0x0000000000111040                gp_handler
+ .text          0x000000000011107b       0x35 interrupt/handler_caller.o
+                0x000000000011107b                general_protection
+ .text          0x00000000001110b0        0x3 device/keyboard.o
+                0x00000000001110b0                read_kbd_signal
  *(.rodata*)
- *fill*         0x0000000000110ea5        0x3 
- .rodata        0x0000000000110ea8       0x6e core/kernel.o
- .rodata        0x0000000000110f16        0x4 interrupt/fault_handler.o
+ .rodata.str1.1
+                0x00000000001110b3       0x64 core/kernel.o
+ .rodata.str1.1
+                0x0000000000111117        0x4 interrupt/fault_handler.o
  *(.data*)
- .data          0x0000000000110f1a       0x10 core/kernel.o
-                0x0000000000110f1a                white
-                0x0000000000110f1e                red
-                0x0000000000110f22                green
-                0x0000000000110f26                blue
- *fill*         0x0000000000110f2a       0x16 
- .data          0x0000000000110f40      0x5f0 graphics/graphics.o
-                0x0000000000110f40                fonts
- .data          0x0000000000111530        0x0 util/util.o
- .data          0x0000000000111530        0x0 init/bss.o
- .data          0x0000000000111530        0x0 mm/segmentation.o
- .data          0x0000000000111530        0x0 mm/load_gdt.o
- .data          0x0000000000111530        0x0 mm/set_segment_register.o
- .data          0x0000000000111530        0x0 mm/load_pgtable.o
- .data          0x0000000000111530        0x0 mm/paging.o
- .data          0x0000000000111530        0x0 debug/debug.o
- .data          0x0000000000111530        0x0 interrupt/load_idt.o
- .data          0x0000000000111530        0x0 interrupt/interrupt.o
- .data          0x0000000000111530        0x0 interrupt/fault_handler.o
- .data          0x0000000000111530        0x0 interrupt/handler_caller.o
- .data          0x0000000000111530        0x0 device/keyboard.o
-                0x0000000000111530                __bss_start = .
+ .data          0x000000000011111b       0x10 core/kernel.o
+                0x000000000011111b                white
+                0x000000000011111f                red
+                0x0000000000111123                green
+                0x0000000000111127                blue
+ *fill*         0x000000000011112b        0x5 
+ .data          0x0000000000111130      0x5f0 graphics/graphics.o
+                0x0000000000111130                fonts
+ .data          0x0000000000111720        0x0 mm/load_gdt.o
+ .data          0x0000000000111720        0x0 mm/set_segment_register.o
+ .data          0x0000000000111720        0x0 mm/load_pgtable.o
+ .data          0x0000000000111720        0x0 debug/debug.o
+ .data          0x0000000000111720        0x0 interrupt/load_idt.o
+ .data          0x0000000000111720        0x0 interrupt/handler_caller.o
+ .data          0x0000000000111720        0x0 device/keyboard.o
+                0x0000000000111720                __bss_start = .
  *(.bss)
- .bss           0x0000000000111530       0x10 core/kernel.o
-                0x0000000000111530                black
-                0x0000000000111538                vinfo_global
- .bss           0x0000000000111540        0x0 graphics/graphics.o
- .bss           0x0000000000111540        0x0 util/util.o
- .bss           0x0000000000111540        0x0 init/bss.o
- .bss           0x0000000000111540        0x0 mm/segmentation.o
- .bss           0x0000000000111540        0x0 mm/load_gdt.o
- .bss           0x0000000000111540        0x0 mm/set_segment_register.o
- .bss           0x0000000000111540        0x0 mm/load_pgtable.o
- .bss           0x0000000000111540        0x0 mm/paging.o
- .bss           0x0000000000111540        0x0 debug/debug.o
- .bss           0x0000000000111540        0x0 interrupt/load_idt.o
- .bss           0x0000000000111540        0x0 interrupt/interrupt.o
- .bss           0x0000000000111540        0x0 interrupt/fault_handler.o
- .bss           0x0000000000111540        0x0 interrupt/handler_caller.o
- .bss           0x0000000000111540        0x0 device/keyboard.o
-                0x0000000000111540                __bss_end = .
+ .bss           0x0000000000111720       0x10 core/kernel.o
+                0x0000000000111720                black
+                0x0000000000111728                vinfo_global
+ .bss           0x0000000000111730        0x0 mm/load_gdt.o
+ .bss           0x0000000000111730        0x0 mm/set_segment_register.o
+ .bss           0x0000000000111730        0x0 mm/load_pgtable.o
+ .bss           0x0000000000111730        0x0 debug/debug.o
+ .bss           0x0000000000111730        0x0 interrupt/load_idt.o
+ .bss           0x0000000000111730        0x0 interrupt/handler_caller.o
+ .bss           0x0000000000111730        0x0 device/keyboard.o
+                0x0000000000111730                __bss_end = .
 
 /DISCARD/
  *(.eh_frame)
@@ -128,15 +131,15 @@ LOAD interrupt/handler_caller.o
 LOAD device/keyboard.o
 OUTPUT(kernel.bin binary)
 
-.comment        0x0000000000000000      0x160
- .comment       0x0000000000000000       0x2c core/kernel.o
- .comment       0x000000000000002c       0x2c graphics/graphics.o
- .comment       0x0000000000000058       0x2c util/util.o
- .comment       0x0000000000000084       0x2c init/bss.o
- .comment       0x00000000000000b0       0x2c mm/segmentation.o
- .comment       0x00000000000000dc       0x2c mm/paging.o
- .comment       0x0000000000000108       0x2c interrupt/interrupt.o
- .comment       0x0000000000000134       0x2c interrupt/fault_handler.o
+.comment        0x0000000000000000      0x170
+ .comment       0x0000000000000000       0x2e core/kernel.o
+ .comment       0x000000000000002e       0x2e graphics/graphics.o
+ .comment       0x000000000000005c       0x2e util/util.o
+ .comment       0x000000000000008a       0x2e init/bss.o
+ .comment       0x00000000000000b8       0x2e mm/segmentation.o
+ .comment       0x00000000000000e6       0x2e mm/paging.o
+ .comment       0x0000000000000114       0x2e interrupt/interrupt.o
+ .comment       0x0000000000000142       0x2e interrupt/fault_handler.o
 
 .note.GNU-stack
                 0x0000000000000000        0x0

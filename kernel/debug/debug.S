@@ -23,7 +23,9 @@ get_efer:
 
 .global     generate_gp
 generate_gp:
-    mov     rcx,cr4
-    and     cx,0xffdf
-    mov     cr4,rcx
+#    mov     rcx,cr4
+#    and     cx,0xffdf
+#    mov     cr4,rcx
+#    ret
+    int     13
     ret

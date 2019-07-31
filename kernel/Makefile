@@ -4,7 +4,7 @@ INCLUDE		= $(CURRENT)include/
 
 TARGET		= kernel.bin
 CFLAGS 		= -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0 \
-			  -I /usr/include -I $(INCLUDE) -fno-stack-protector
+			  -I /usr/include -I $(INCLUDE) -fno-stack-protector -fno-pic
 LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
 OBJS		= core/kernel.o \
@@ -27,7 +27,7 @@ $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+
 
 %.o: %.c
-	gcc $(CFLAGS) -c -o $@ $<
+	clang $(CFLAGS) -c -o $@ $<
 
 %.o: %.S
 	as -o $@ $<
