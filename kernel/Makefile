@@ -22,12 +22,13 @@ OBJS		= core/kernel.o \
 			  interrupt/fault_handler.o \
 			  interrupt/handler_caller.o \
 			  device/keyboard.o \
+			  device/keyinput.o \
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+
 
 %.o: %.c
-	clang $(CFLAGS) -c -o $@ $<
+	gcc $(CFLAGS) -c -o $@ $<
 
 %.o: %.S
 	as -o $@ $<

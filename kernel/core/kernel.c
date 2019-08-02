@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <types/boottypes.h>
+#include <util/util.h>
 #include <init/initfunc.h>
 #include <mm/segmentation.h>
 #include <interrupt/interrupt.h>
@@ -89,8 +90,8 @@ void main_routine(struct video_info *vinfo)
     putstr(600, 50, black, white, vinfo, "EFER: ");
     putnum(650, 50, black, white, vinfo, get_efer());
     // 自由欄
-    putstr(10, 10, black, white, vinfo, "func: ");
-    putnum(60, 10, black, white, vinfo, (uint64_t)general_protection);
+    //putstr(10, 10, black, white, vinfo, "func: ");
+    //putnum(60, 10, black, white, vinfo, (uint64_t)general_protection);
 
     /* 名前 */
     putstr(515, 560, black, white, vinfo,
@@ -98,20 +99,29 @@ void main_routine(struct video_info *vinfo)
     putstr(500, 580, black, white, vinfo,
            "Developer : Totsugekitai(@totsugeki8)");
 
-    // デバッグ用
-    //insert_to_reg((uint64_t *)general_protection);
-    //while (1) asm("hlt");
-    //general_protection();
-    generate_gp();
-
-    uint8_t keycode, oldkeycode = 0;
-    uint32_t i = 0;
+    uint8_t keycode, oldkeycode = 0, shift = 0;
+    char c;
+    struct ring_buffer buf = gen_ring_buf();
+    uint64_t dst, i = 0, j = 0, k = 0;
     while (1) {
         keycode = read_kbd_signal();
         if (keycode != oldkeycode) {
             putnum(250, i, white, black, vinfo, keycode);
             oldkeycode = keycode;
-            i += 20;
+            i += 16;
+            if (enqueue(&buf, (uint64_t)keycode)) {
+                if (dequeue(&buf, &dst)) {
+                    c = map_scan_to_ascii(dst, shift);
+                    if (c == 0x0a) {
+                        k += 16;
+                        j = 0;
+                    }
+                    else if (c != 0x00) {
+                        putchar(j, k, white, black, vinfo, c);
+                        j += 8;
+                    }
+                }
+            }
         }
     }
 }
