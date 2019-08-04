@@ -101,17 +101,19 @@ void main_routine(struct video_info *vinfo)
 
     uint8_t keycode, oldkeycode = 0, shift = 0;
     char c;
-    struct ring_buffer buf = gen_ring_buf();
+    struct ring_buf_u64 scan_buf = gen_buf_u64();
+    struct ring_buf_char text_buf = gen_buf_char();
     uint64_t dst, i = 0, j = 0, k = 0;
     while (1) {
         keycode = read_kbd_signal();
         if (keycode != oldkeycode) {
-            putnum(250, i, white, black, vinfo, keycode);
+            putnum(300, i, white, black, vinfo, keycode);
             oldkeycode = keycode;
             i += 16;
-            if (enqueue(&buf, (uint64_t)keycode)) {
-                if (dequeue(&buf, &dst)) {
+            if (enqueue_u64(&scan_buf, (uint64_t)keycode)) {
+                if (dequeue_u64(&scan_buf, &dst)) {
                     c = map_scan_to_ascii(dst, shift);
+                    enqueue_char(&text_buf, c);
                     if (c == 0x0a) {
                         k += 16;
                         j = 0;
