@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <types/boottypes.h>
+#include <acpi/acpi.h>
 #include <util/util.h>
 #include <init/initfunc.h>
 #include <mm/segmentation.h>
@@ -10,8 +11,6 @@
 #include <debug/debug.h>
 #include <device/device.h>
 
-void main_routine(struct video_info *vinfo);
-
 struct pix_format black = {0x00, 0x00, 0x00, 0x00};
 struct pix_format white = {0xFF, 0xFF, 0xFF, 0x00};
 struct pix_format red = {0x00, 0x00, 0xFF, 0x00};
@@ -19,9 +18,16 @@ struct pix_format green = {0x00, 0xFF, 0x00, 0x00};
 struct pix_format blue = {0xFF, 0x00, 0x00, 0x00};
 
 struct video_info *vinfo_global = (struct video_info *)0; // とりあえず0入れとく
+struct acpi_table *acpi_info;
+struct xsd_table *xsdt;
+uint64_t num_sdts;
+uint32_t *ioapic_base;
+
+void main_routine(struct video_info *vinfo);
 
 void start_kernel(struct bootinfo *binfo)
 {
+    acpi_info = binfo->acpi_info;
     /* 画面描画 */
     struct video_info vinfo = binfo->vinfo;
     uint32_t i, j;
@@ -58,7 +64,7 @@ void start_kernel(struct bootinfo *binfo)
 void main_routine(struct video_info *vinfo)
 {
     vinfo_global = vinfo; // 割り込みハンドラ用のグローバル変数
-    // uint32_t i;
+
     /* ページングの初期化 */
     uint64_t *PML4 = (uint64_t *)0x1000;
     uint64_t *PDP = (uint64_t *)0x2000;
@@ -79,6 +85,34 @@ void main_routine(struct video_info *vinfo)
     }
     load_idt((uint64_t)IDT, 256);
 
+    // ACPI関係
+    xsdt = (struct xsd_table *)(acpi_info->xsdtaddr);
+    num_sdts = (xsdt->header.length - sizeof(struct sdt_header)) / sizeof(struct sdt_header *);
+    struct madt *madt = (struct madt *)get_sdt("APIC"); // Multiple APIC Description Table
+    // レガシーPICを無効化
+    if (madt->flags & PCAT_COMPAT) {
+        disabling_PIC();
+    }
+    // Local APICのsetup
+    uint64_t msr_lapic = io_rdmsr(0x1b) | 0x800;
+    io_wrmsr(0x1b, msr_lapic);
+    // madt->structureの解析
+    uint8_t max_len = madt->sdth.length - 44;
+    uint8_t *madt_struct = madt->structure;
+    for (uint8_t location = 0; location < max_len;) {
+        uint8_t len = madt_struct[location + 1];
+        switch (madt_struct[location]) {
+        case 0x01:
+            ioapic_base = *((uint32_t *)(madt_struct + location + 2));
+            break;
+        default:
+            break;
+        }
+        location += len;
+    }
+    // I/O APICのsetup
+    
+
     /* いろんなレジスタとかメモリとかの表示 */
     // EFER
     putstr(600, 10, black, white, vinfo, "CR3: ");
@@ -90,8 +124,15 @@ void main_routine(struct video_info *vinfo)
     putstr(600, 50, black, white, vinfo, "EFER: ");
     putnum(650, 50, black, white, vinfo, get_efer());
     // 自由欄
-    //putstr(10, 10, black, white, vinfo, "func: ");
-    //putnum(60, 10, black, white, vinfo, (uint64_t)general_protection);
+    putstr(200, 10, black, white, vinfo, "xsdt: ");
+    for (int i = 0; i < 4; i++) {
+        putchar(250 + 8 * i, 10, black, white, vinfo, xsdt->header.signature[i]);
+    }
+    for (uint32_t i = 0; i < num_sdts; i++) {
+        for (uint32_t j = 0; j < 4; j++) {
+            putchar(200 + 8 * j, 30 + 16 * i, black, white, vinfo, xsdt->entry[i]->signature[j]);
+        }
+    }
 
     /* 名前 */
     putstr(515, 560, black, white, vinfo,
@@ -103,13 +144,11 @@ void main_routine(struct video_info *vinfo)
     char c;
     struct ring_buf_u64 scan_buf = gen_buf_u64();
     struct ring_buf_char text_buf = gen_buf_char();
-    uint64_t dst, i = 0, j = 0, k = 0;
+    uint64_t dst, j = 0, k = 0;
     while (1) {
         keycode = read_kbd_signal();
         if (keycode != oldkeycode) {
-            putnum(300, i, white, black, vinfo, keycode);
             oldkeycode = keycode;
-            i += 16;
             if (enqueue_u64(&scan_buf, (uint64_t)keycode)) {
                 if (dequeue_u64(&scan_buf, &dst)) {
                     c = map_scan_to_ascii(dst, shift);

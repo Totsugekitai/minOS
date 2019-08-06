@@ -10,6 +10,7 @@ LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 OBJS		= core/kernel.o \
 			  graphics/graphics.o \
 			  util/util.o \
+			  util/util_asm.o \
 			  init/bss.o \
 			  mm/segmentation.o \
 			  mm/load_gdt.o \
@@ -23,6 +24,8 @@ OBJS		= core/kernel.o \
 			  interrupt/handler_caller.o \
 			  device/keyboard.o \
 			  device/keyinput.o \
+			  acpi/acpi.o \
+			  acpi/acpi_asm.o
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+

@@ -15,6 +15,19 @@ struct video_info {
     uint32_t ppsl;
 };
 
+struct acpi_table {
+    char signature[8];
+    uint8_t checksum;
+    char oemid[6];
+    uint8_t revision;
+    uint32_t rsdtaddr;
+    uint32_t length;
+    uint64_t xsdtaddr;
+    uint8_t checksum2;
+    uint8_t reserved[3];
+} __attribute__((packed));
+
 struct bootinfo {
     struct video_info vinfo;
+    struct acpi_table *acpi_info;
 };

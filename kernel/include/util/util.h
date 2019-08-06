@@ -15,7 +15,6 @@ struct ring_buf_char {
 
 uint64_t pow(uint64_t num, uint64_t pow);
 
-
 struct ring_buf_u64 gen_buf_u64(void);
 uint8_t buf_u64_isempty(struct ring_buf_u64 *buf);
 uint8_t buf_u64_isfull(struct ring_buf_u64 *buf);
@@ -31,4 +30,7 @@ uint8_t dequeue_char(struct ring_buf_char *buf, char *dst);
 void flush_buf_char(struct ring_buf_char *buf);
 
 uint8_t comptext(char *text, char *pat);
+uint8_t strncmp(char *str1, char *str2, int num);
 
+uint64_t io_rdmsr(uint32_t msr);
+void io_wrmsr(uint32_t edx, uint32_t eax);

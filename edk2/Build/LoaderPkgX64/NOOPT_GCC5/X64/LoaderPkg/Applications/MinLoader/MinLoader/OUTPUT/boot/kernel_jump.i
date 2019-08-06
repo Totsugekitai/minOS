@@ -1,19 +1,19 @@
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/LoaderPkg/Applications/MinLoader/boot/kernel_jump.S"
-# 1 "<組み込み>"
-# 1 "<コマンドライン>"
-# 31 "<コマンドライン>"
+# 1 "/home/totsugekitai/minOS/edk2/LoaderPkg/Applications/MinLoader/boot/kernel_jump.S"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 31 "<command-line>"
 # 1 "/usr/include/stdc-predef.h" 1 3 4
-# 32 "<コマンドライン>" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/DEBUG/AutoGen.h" 1
-# 16 "/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/DEBUG/AutoGen.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi.h" 1
-# 17 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiBaseType.h" 1
-# 14 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiBaseType.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h" 1
-# 22 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/X64/ProcessorBind.h" 1
-# 182 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/X64/ProcessorBind.h"
+# 32 "<command-line>" 2
+# 1 "/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/DEBUG/AutoGen.h" 1
+# 16 "/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/DEBUG/AutoGen.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi.h" 1
+# 17 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiBaseType.h" 1
+# 14 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiBaseType.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h" 1
+# 22 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/X64/ProcessorBind.h" 1
+# 182 "/home/totsugekitai/minOS/edk2/MdePkg/Include/X64/ProcessorBind.h"
   typedef unsigned long long UINT64;
 
 
@@ -69,8 +69,8 @@ typedef UINT64 UINTN;
 
 
 typedef INT64 INTN;
-# 23 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h" 2
-# 48 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 23 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h" 2
+# 48 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 extern UINT8 _VerifySizeofBOOLEAN[(sizeof(BOOLEAN) == (1)) / (sizeof(BOOLEAN) == (1))];
 extern UINT8 _VerifySizeofINT8[(sizeof(INT8) == (1)) / (sizeof(INT8) == (1))];
 extern UINT8 _VerifySizeofUINT8[(sizeof(UINT8) == (1)) / (sizeof(UINT8) == (1))];
@@ -82,7 +82,7 @@ extern UINT8 _VerifySizeofINT64[(sizeof(INT64) == (8)) / (sizeof(INT64) == (8))]
 extern UINT8 _VerifySizeofUINT64[(sizeof(UINT64) == (8)) / (sizeof(UINT64) == (8))];
 extern UINT8 _VerifySizeofCHAR8[(sizeof(CHAR8) == (1)) / (sizeof(CHAR8) == (1))];
 extern UINT8 _VerifySizeofCHAR16[(sizeof(CHAR16) == (2)) / (sizeof(CHAR16) == (2))];
-# 67 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 67 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef enum {
   __VerifyUint8EnumValue = 0xff
 } __VERIFY_UINT8_ENUM_SIZE;
@@ -98,7 +98,7 @@ typedef enum {
 extern UINT8 _VerifySizeof__VERIFY_UINT8_ENUM_SIZE[(sizeof(__VERIFY_UINT8_ENUM_SIZE) == (4)) / (sizeof(__VERIFY_UINT8_ENUM_SIZE) == (4))];
 extern UINT8 _VerifySizeof__VERIFY_UINT16_ENUM_SIZE[(sizeof(__VERIFY_UINT16_ENUM_SIZE) == (4)) / (sizeof(__VERIFY_UINT16_ENUM_SIZE) == (4))];
 extern UINT8 _VerifySizeof__VERIFY_UINT32_ENUM_SIZE[(sizeof(__VERIFY_UINT32_ENUM_SIZE) == (4)) / (sizeof(__VERIFY_UINT32_ENUM_SIZE) == (4))];
-# 274 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 274 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef struct {
   UINT32 Data1;
   UINT16 Data2;
@@ -137,16 +137,16 @@ struct _LIST_ENTRY {
   LIST_ENTRY *ForwardLink;
   LIST_ENTRY *BackLink;
 };
-# 690 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 690 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef __builtin_ms_va_list VA_LIST;
-# 794 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 794 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef UINTN *BASE_LIST;
-# 958 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 958 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef UINTN RETURN_STATUS;
-# 1274 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 1274 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
   void * __builtin_return_address (unsigned int level);
-# 15 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiBaseType.h" 2
-# 23 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiBaseType.h"
+# 15 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiBaseType.h" 2
+# 23 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiBaseType.h"
 typedef GUID EFI_GUID;
 
 
@@ -178,7 +178,7 @@ typedef UINT64 EFI_PHYSICAL_ADDRESS;
 
 
 typedef UINT64 EFI_VIRTUAL_ADDRESS;
-# 66 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiBaseType.h"
+# 66 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiBaseType.h"
 typedef struct {
   UINT16 Year;
   UINT8 Month;
@@ -220,13 +220,13 @@ typedef union {
   EFI_IPv4_ADDRESS v4;
   EFI_IPv6_ADDRESS v6;
 } EFI_IP_ADDRESS;
-# 18 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi.h" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 1
-# 16 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h" 1
-# 34 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Guid/WinCertificate.h" 1
-# 24 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Guid/WinCertificate.h"
+# 18 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi.h" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 1
+# 16 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h" 1
+# 34 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Guid/WinCertificate.h" 1
+# 24 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Guid/WinCertificate.h"
 typedef struct {
 
 
@@ -251,7 +251,7 @@ typedef struct {
 
 
 } WIN_CERTIFICATE;
-# 58 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Guid/WinCertificate.h"
+# 58 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Guid/WinCertificate.h"
 typedef struct {
   EFI_GUID HashType;
   UINT8 PublicKey[256];
@@ -281,7 +281,7 @@ typedef struct {
 
   UINT8 CertData[1];
 } WIN_CERTIFICATE_UEFI_GUID;
-# 97 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Guid/WinCertificate.h"
+# 97 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Guid/WinCertificate.h"
 typedef struct {
 
 
@@ -293,11 +293,11 @@ typedef struct {
 
 
   EFI_GUID HashAlgorithm;
-# 118 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Guid/WinCertificate.h"
+# 118 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Guid/WinCertificate.h"
 } WIN_CERTIFICATE_EFI_PKCS1_15;
 
 extern EFI_GUID gEfiCertTypeRsa2048Sha256Guid;
-# 35 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h" 2
+# 35 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h" 2
 
 
 
@@ -436,7 +436,7 @@ typedef struct {
 
   UINT32 Reserved;
 } EFI_TABLE_HEADER;
-# 189 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h"
+# 189 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h"
 typedef struct {
 
 
@@ -445,10 +445,10 @@ typedef struct {
 
 
   UINT64 MonotonicCount;
-# 205 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h"
+# 205 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h"
   WIN_CERTIFICATE_UEFI_GUID AuthInfo;
 } EFI_VARIABLE_AUTHENTICATION;
-# 216 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h"
+# 216 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiMultiPhase.h"
 typedef struct {
 
 
@@ -460,21 +460,21 @@ typedef struct {
 
   WIN_CERTIFICATE_UEFI_GUID AuthInfo;
  } EFI_VARIABLE_AUTHENTICATION_2;
-# 17 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
+# 17 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
 
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h" 1
-# 16 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Guid/PcAnsi.h" 1
-# 45 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Guid/PcAnsi.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h" 1
+# 16 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Guid/PcAnsi.h" 1
+# 45 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Guid/PcAnsi.h"
 extern EFI_GUID gEfiPcAnsiGuid;
 extern EFI_GUID gEfiVT100Guid;
 extern EFI_GUID gEfiVT100PlusGuid;
 extern EFI_GUID gEfiVTUTF8Guid;
 extern EFI_GUID gEfiUartDevicePathGuid;
 extern EFI_GUID gEfiSasDevicePathGuid;
-# 17 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Bluetooth.h" 1
-# 18 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Bluetooth.h"
+# 17 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Bluetooth.h" 1
+# 18 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Bluetooth.h"
 typedef struct {
 
 
@@ -506,23 +506,23 @@ typedef struct {
 
   UINT8 Type;
 } BLUETOOTH_LE_ADDRESS;
-# 18 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h" 1
-# 12 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h" 1
-# 13 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h" 1
-# 12 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h" 1
-# 11 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h" 1
-# 11 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h" 1
-# 11 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h" 1
-# 11 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/AcpiAml.h" 1
-# 12 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h" 2
+# 18 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h" 1
+# 12 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h" 1
+# 13 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h" 1
+# 12 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h" 1
+# 11 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h" 1
+# 11 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h" 1
+# 11 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h" 1
+# 11 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/AcpiAml.h" 1
+# 12 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h" 2
 
 
 
@@ -548,7 +548,7 @@ typedef struct {
   UINT32 CreatorId;
   UINT32 CreatorRevision;
 } EFI_ACPI_DESCRIPTION_HEADER;
-# 115 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
+# 115 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
 typedef struct {
   UINT8 Desc;
   UINT16 Len;
@@ -727,7 +727,7 @@ typedef struct {
   UINT8 Desc;
   UINT8 Checksum;
 } EFI_ACPI_END_TAG_DESCRIPTOR;
-# 390 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
+# 390 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
 typedef struct {
   UINT64 Signature;
   UINT8 Checksum;
@@ -735,7 +735,7 @@ typedef struct {
   UINT8 Reserved;
   UINT32 RsdtAddress;
 } EFI_ACPI_1_0_ROOT_SYSTEM_DESCRIPTION_POINTER;
-# 412 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
+# 412 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 FirmwareCtrl;
@@ -778,7 +778,7 @@ typedef struct {
   UINT8 Reserved6;
   UINT32 Flags;
 } EFI_ACPI_1_0_FIXED_ACPI_DESCRIPTION_TABLE;
-# 481 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
+# 481 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
@@ -788,13 +788,13 @@ typedef struct {
   UINT32 Flags;
   UINT8 Reserved[40];
 } EFI_ACPI_1_0_FIRMWARE_ACPI_CONTROL_STRUCTURE;
-# 501 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
+# 501 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 LocalApicAddress;
   UINT32 Flags;
 } EFI_ACPI_1_0_MULTIPLE_APIC_DESCRIPTION_TABLE_HEADER;
-# 536 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
+# 536 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -802,7 +802,7 @@ typedef struct {
   UINT8 ApicId;
   UINT32 Flags;
 } EFI_ACPI_1_0_PROCESSOR_LOCAL_APIC_STRUCTURE;
-# 552 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
+# 552 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi10.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -854,8 +854,8 @@ typedef struct {
   UINT32 LowEnergyLevel;
   UINT32 CriticalEnergyLevel;
 } EFI_ACPI_1_0_SMART_BATTERY_DESCRIPTION_TABLE;
-# 12 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h" 2
-# 28 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
+# 12 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h" 2
+# 28 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
 typedef struct {
   ACPI_LARGE_RESOURCE_HEADER Header;
   UINT8 AddressSpaceId;
@@ -864,7 +864,7 @@ typedef struct {
   UINT8 AddressSize;
   UINT64 RegisterAddress;
 } EFI_ACPI_GENERIC_REGISTER_DESCRIPTOR;
-# 47 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
+# 47 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
 typedef struct {
   UINT8 AddressSpaceId;
   UINT8 RegisterBitWidth;
@@ -872,7 +872,7 @@ typedef struct {
   UINT8 Reserved;
   UINT64 Address;
 } EFI_ACPI_2_0_GENERIC_ADDRESS_STRUCTURE;
-# 72 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
+# 72 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
 typedef struct {
   UINT64 Signature;
   UINT8 Checksum;
@@ -884,12 +884,12 @@ typedef struct {
   UINT8 ExtendedChecksum;
   UINT8 Reserved[3];
 } EFI_ACPI_2_0_ROOT_SYSTEM_DESCRIPTION_POINTER;
-# 93 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
+# 93 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
 } EFI_ACPI_2_0_COMMON_HEADER;
-# 123 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
+# 123 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 FirmwareCtrl;
@@ -944,7 +944,7 @@ typedef struct {
   EFI_ACPI_2_0_GENERIC_ADDRESS_STRUCTURE XGpe0Blk;
   EFI_ACPI_2_0_GENERIC_ADDRESS_STRUCTURE XGpe1Blk;
 } EFI_ACPI_2_0_FIXED_ACPI_DESCRIPTION_TABLE;
-# 223 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
+# 223 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
@@ -956,13 +956,13 @@ typedef struct {
   UINT8 Version;
   UINT8 Reserved[31];
 } EFI_ACPI_2_0_FIRMWARE_ACPI_CONTROL_STRUCTURE;
-# 250 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
+# 250 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 LocalApicAddress;
   UINT32 Flags;
 } EFI_ACPI_2_0_MULTIPLE_APIC_DESCRIPTION_TABLE_HEADER;
-# 289 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
+# 289 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -970,7 +970,7 @@ typedef struct {
   UINT8 ApicId;
   UINT32 Flags;
 } EFI_ACPI_2_0_PROCESSOR_LOCAL_APIC_STRUCTURE;
-# 305 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
+# 305 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1072,7 +1072,7 @@ typedef struct {
   UINT32 LowEnergyLevel;
   UINT32 CriticalEnergyLevel;
 } EFI_ACPI_2_0_SMART_BATTERY_DESCRIPTION_TABLE;
-# 417 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
+# 417 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi20.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   EFI_ACPI_2_0_GENERIC_ADDRESS_STRUCTURE EcControl;
@@ -1080,8 +1080,8 @@ typedef struct {
   UINT32 Uid;
   UINT8 GpeBit;
 } EFI_ACPI_2_0_EMBEDDED_CONTROLLER_BOOT_RESOURCES_TABLE;
-# 12 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h" 2
-# 28 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 12 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h" 2
+# 28 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   ACPI_LARGE_RESOURCE_HEADER Header;
   UINT8 ResType;
@@ -1096,7 +1096,7 @@ typedef struct {
   UINT64 AddrLen;
   UINT64 TypeSpecificAttribute;
 } EFI_ACPI_EXTENDED_ADDRESS_SPACE_DESCRIPTOR;
-# 63 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 63 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   UINT8 AddressSpaceId;
   UINT8 RegisterBitWidth;
@@ -1104,7 +1104,7 @@ typedef struct {
   UINT8 AccessSize;
   UINT64 Address;
 } EFI_ACPI_3_0_GENERIC_ADDRESS_STRUCTURE;
-# 97 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 97 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   UINT64 Signature;
   UINT8 Checksum;
@@ -1116,12 +1116,12 @@ typedef struct {
   UINT8 ExtendedChecksum;
   UINT8 Reserved[3];
 } EFI_ACPI_3_0_ROOT_SYSTEM_DESCRIPTION_POINTER;
-# 118 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 118 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
 } EFI_ACPI_3_0_COMMON_HEADER;
-# 148 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 148 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 FirmwareCtrl;
@@ -1176,7 +1176,7 @@ typedef struct {
   EFI_ACPI_3_0_GENERIC_ADDRESS_STRUCTURE XGpe0Blk;
   EFI_ACPI_3_0_GENERIC_ADDRESS_STRUCTURE XGpe1Blk;
 } EFI_ACPI_3_0_FIXED_ACPI_DESCRIPTION_TABLE;
-# 258 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 258 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
@@ -1188,13 +1188,13 @@ typedef struct {
   UINT8 Version;
   UINT8 Reserved[31];
 } EFI_ACPI_3_0_FIRMWARE_ACPI_CONTROL_STRUCTURE;
-# 295 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 295 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 LocalApicAddress;
   UINT32 Flags;
 } EFI_ACPI_3_0_MULTIPLE_APIC_DESCRIPTION_TABLE_HEADER;
-# 334 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 334 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1202,7 +1202,7 @@ typedef struct {
   UINT8 ApicId;
   UINT32 Flags;
 } EFI_ACPI_3_0_PROCESSOR_LOCAL_APIC_STRUCTURE;
-# 350 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 350 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1240,7 +1240,7 @@ typedef struct {
   UINT8 CpeiProcessorOverride;
   UINT8 Reserved[31];
 } EFI_ACPI_3_0_PLATFORM_INTERRUPT_APIC_STRUCTURE;
-# 398 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 398 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1310,14 +1310,14 @@ typedef struct {
   UINT32 GlobalSystemInterrupt;
   UINT32 PlatformInterruptSourceFlags;
 } EFI_ACPI_3_0_PLATFORM_INTERRUPT_SOURCES_STRUCTURE;
-# 477 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 477 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 WarningEnergyLevel;
   UINT32 LowEnergyLevel;
   UINT32 CriticalEnergyLevel;
 } EFI_ACPI_3_0_SMART_BATTERY_DESCRIPTION_TABLE;
-# 494 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 494 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   EFI_ACPI_3_0_GENERIC_ADDRESS_STRUCTURE EcControl;
@@ -1325,13 +1325,13 @@ typedef struct {
   UINT32 Uid;
   UINT8 GpeBit;
 } EFI_ACPI_3_0_EMBEDDED_CONTROLLER_BOOT_RESOURCES_TABLE;
-# 511 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 511 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 Reserved1;
   UINT64 Reserved2;
 } EFI_ACPI_3_0_SYSTEM_RESOURCE_AFFINITY_TABLE_HEADER;
-# 533 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 533 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1342,7 +1342,7 @@ typedef struct {
   UINT8 ProximityDomain31To8[3];
   UINT8 Reserved[4];
 } EFI_ACPI_3_0_PROCESSOR_LOCAL_APIC_SAPIC_AFFINITY_STRUCTURE;
-# 552 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 552 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1356,13 +1356,13 @@ typedef struct {
   UINT32 Flags;
   UINT64 Reserved3;
 } EFI_ACPI_3_0_MEMORY_AFFINITY_STRUCTURE;
-# 577 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
+# 577 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi30.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT64 NumberOfSystemLocalities;
 } EFI_ACPI_3_0_SYSTEM_LOCALITY_DISTANCE_INFORMATION_TABLE_HEADER;
-# 12 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h" 2
-# 21 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 12 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h" 2
+# 21 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 AddressSpaceId;
   UINT8 RegisterBitWidth;
@@ -1370,7 +1370,7 @@ typedef struct {
   UINT8 AccessSize;
   UINT64 Address;
 } EFI_ACPI_4_0_GENERIC_ADDRESS_STRUCTURE;
-# 55 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 55 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT64 Signature;
   UINT8 Checksum;
@@ -1382,12 +1382,12 @@ typedef struct {
   UINT8 ExtendedChecksum;
   UINT8 Reserved[3];
 } EFI_ACPI_4_0_ROOT_SYSTEM_DESCRIPTION_POINTER;
-# 76 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 76 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
 } EFI_ACPI_4_0_COMMON_HEADER;
-# 106 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 106 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 FirmwareCtrl;
@@ -1442,7 +1442,7 @@ typedef struct {
   EFI_ACPI_4_0_GENERIC_ADDRESS_STRUCTURE XGpe0Blk;
   EFI_ACPI_4_0_GENERIC_ADDRESS_STRUCTURE XGpe1Blk;
 } EFI_ACPI_4_0_FIXED_ACPI_DESCRIPTION_TABLE;
-# 216 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 216 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
@@ -1456,13 +1456,13 @@ typedef struct {
   UINT32 OspmFlags;
   UINT8 Reserved1[24];
 } EFI_ACPI_4_0_FIRMWARE_ACPI_CONTROL_STRUCTURE;
-# 262 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 262 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 LocalApicAddress;
   UINT32 Flags;
 } EFI_ACPI_4_0_MULTIPLE_APIC_DESCRIPTION_TABLE_HEADER;
-# 303 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 303 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1470,7 +1470,7 @@ typedef struct {
   UINT8 ApicId;
   UINT32 Flags;
 } EFI_ACPI_4_0_PROCESSOR_LOCAL_APIC_STRUCTURE;
-# 319 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 319 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1508,7 +1508,7 @@ typedef struct {
   UINT8 CpeiProcessorOverride;
   UINT8 Reserved[31];
 } EFI_ACPI_4_0_PLATFORM_INTERRUPT_APIC_STRUCTURE;
-# 367 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 367 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1578,7 +1578,7 @@ typedef struct {
   UINT32 GlobalSystemInterrupt;
   UINT32 PlatformInterruptSourceFlags;
 } EFI_ACPI_4_0_PLATFORM_INTERRUPT_SOURCES_STRUCTURE;
-# 446 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 446 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1609,7 +1609,7 @@ typedef struct {
   UINT32 LowEnergyLevel;
   UINT32 CriticalEnergyLevel;
 } EFI_ACPI_4_0_SMART_BATTERY_DESCRIPTION_TABLE;
-# 487 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 487 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   EFI_ACPI_4_0_GENERIC_ADDRESS_STRUCTURE EcControl;
@@ -1617,13 +1617,13 @@ typedef struct {
   UINT32 Uid;
   UINT8 GpeBit;
 } EFI_ACPI_4_0_EMBEDDED_CONTROLLER_BOOT_RESOURCES_TABLE;
-# 504 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 504 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 Reserved1;
   UINT64 Reserved2;
 } EFI_ACPI_4_0_SYSTEM_RESOURCE_AFFINITY_TABLE_HEADER;
-# 527 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 527 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1634,7 +1634,7 @@ typedef struct {
   UINT8 ProximityDomain31To8[3];
   UINT32 ClockDomain;
 } EFI_ACPI_4_0_PROCESSOR_LOCAL_APIC_SAPIC_AFFINITY_STRUCTURE;
-# 546 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 546 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1648,7 +1648,7 @@ typedef struct {
   UINT32 Flags;
   UINT64 Reserved3;
 } EFI_ACPI_4_0_MEMORY_AFFINITY_STRUCTURE;
-# 570 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 570 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1668,12 +1668,12 @@ typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT64 NumberOfSystemLocalities;
 } EFI_ACPI_4_0_SYSTEM_LOCALITY_DISTANCE_INFORMATION_TABLE_HEADER;
-# 598 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 598 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT8 Reserved[8];
 } EFI_ACPI_4_0_CORRECTED_PLATFORM_ERROR_POLLING_TABLE_HEADER;
-# 616 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 616 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -1692,7 +1692,7 @@ typedef struct {
   UINT32 MaximumNumberOfClockDomains;
   UINT64 MaximumPhysicalAddress;
 } EFI_ACPI_4_0_MAXIMUM_SYSTEM_CHARACTERISTICS_TABLE_HEADER;
-# 643 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 643 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 Revision;
   UINT8 Length;
@@ -1710,7 +1710,7 @@ typedef struct {
   UINT32 BootErrorRegionLength;
   UINT64 BootErrorRegion;
 } EFI_ACPI_4_0_BOOT_ERROR_RECORD_TABLE_HEADER;
-# 669 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 669 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT32 UncorrectableErrorValid:1;
   UINT32 CorrectableErrorValid:1;
@@ -1730,7 +1730,7 @@ typedef struct {
   UINT32 DataLength;
   UINT32 ErrorSeverity;
 } EFI_ACPI_4_0_BOOT_ERROR_REGION_STRUCTURE;
-# 700 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 700 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 SectionType[16];
   UINT32 ErrorSeverity;
@@ -1741,12 +1741,12 @@ typedef struct {
   UINT8 FruId[16];
   UINT8 FruText[20];
 } EFI_ACPI_4_0_GENERIC_ERROR_DATA_ENTRY_STRUCTURE;
-# 719 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 719 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 ErrorSourceCount;
 } EFI_ACPI_4_0_HARDWARE_ERROR_SOURCE_TABLE_HEADER;
-# 749 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 749 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT16 Type;
   UINT16 SourceId;
@@ -1775,7 +1775,7 @@ typedef struct {
   UINT32 AddressRegisterMsrAddress;
   UINT32 MiscRegisterMsrAddress;
 } EFI_ACPI_4_0_IA32_ARCHITECTURE_MACHINE_CHECK_ERROR_BANK_STRUCTURE;
-# 797 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 797 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT16 Type:1;
   UINT16 PollInterval:1;
@@ -1936,7 +1936,7 @@ typedef struct {
   UINT8 Reserved0[4];
   UINT32 InstructionEntryCount;
 } EFI_ACPI_4_0_ERROR_RECORD_SERIALIZATION_TABLE_HEADER;
-# 1023 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 1023 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 SerializationAction;
   UINT8 Instruction;
@@ -1957,7 +1957,7 @@ typedef struct {
   UINT8 Reserved0[3];
   UINT32 InjectionEntryCount;
 } EFI_ACPI_4_0_ERROR_INJECTION_TABLE_HEADER;
-# 1102 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
+# 1102 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi40.h"
 typedef struct {
   UINT8 InjectionAction;
   UINT8 Instruction;
@@ -1977,8 +1977,8 @@ typedef struct {
   UINT32 TableSize;
   UINT32 EntryCount;
 } EFI_ACPI_4_0_EINJ_TRIGGER_ACTION_TABLE;
-# 13 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h" 2
-# 30 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 13 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h" 2
+# 30 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   ACPI_SMALL_RESOURCE_HEADER Header;
   UINT16 DmaRequestLine;
@@ -2022,7 +2022,7 @@ typedef struct {
   UINT16 TypeDataLength;
 
 } EFI_ACPI_SERIAL_BUS_RESOURCE_DESCRIPTOR;
-# 81 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 81 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   ACPI_LARGE_RESOURCE_HEADER Header;
   UINT8 RevisionId;
@@ -2073,7 +2073,7 @@ typedef struct {
   UINT8 Parity;
   UINT8 SerialLinesEnabled;
 } EFI_ACPI_SERIAL_BUS_RESOURCE_UART_DESCRIPTOR;
-# 142 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 142 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 AddressSpaceId;
   UINT8 RegisterBitWidth;
@@ -2081,7 +2081,7 @@ typedef struct {
   UINT8 AccessSize;
   UINT64 Address;
 } EFI_ACPI_5_0_GENERIC_ADDRESS_STRUCTURE;
-# 177 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 177 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT64 Signature;
   UINT8 Checksum;
@@ -2093,12 +2093,12 @@ typedef struct {
   UINT8 ExtendedChecksum;
   UINT8 Reserved[3];
 } EFI_ACPI_5_0_ROOT_SYSTEM_DESCRIPTION_POINTER;
-# 198 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 198 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
 } EFI_ACPI_5_0_COMMON_HEADER;
-# 228 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 228 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 FirmwareCtrl;
@@ -2155,7 +2155,7 @@ typedef struct {
   EFI_ACPI_5_0_GENERIC_ADDRESS_STRUCTURE SleepControlReg;
   EFI_ACPI_5_0_GENERIC_ADDRESS_STRUCTURE SleepStatusReg;
 } EFI_ACPI_5_0_FIXED_ACPI_DESCRIPTION_TABLE;
-# 344 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 344 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
@@ -2169,13 +2169,13 @@ typedef struct {
   UINT32 OspmFlags;
   UINT8 Reserved1[24];
 } EFI_ACPI_5_0_FIRMWARE_ACPI_CONTROL_STRUCTURE;
-# 390 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 390 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 LocalApicAddress;
   UINT32 Flags;
 } EFI_ACPI_5_0_MULTIPLE_APIC_DESCRIPTION_TABLE_HEADER;
-# 433 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 433 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -2183,7 +2183,7 @@ typedef struct {
   UINT8 ApicId;
   UINT32 Flags;
 } EFI_ACPI_5_0_PROCESSOR_LOCAL_APIC_STRUCTURE;
-# 449 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 449 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -2221,7 +2221,7 @@ typedef struct {
   UINT8 CpeiProcessorOverride;
   UINT8 Reserved[31];
 } EFI_ACPI_5_0_PLATFORM_INTERRUPT_APIC_STRUCTURE;
-# 497 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 497 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -2291,7 +2291,7 @@ typedef struct {
   UINT32 GlobalSystemInterrupt;
   UINT32 PlatformInterruptSourceFlags;
 } EFI_ACPI_5_0_PLATFORM_INTERRUPT_SOURCES_STRUCTURE;
-# 576 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 576 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -2328,7 +2328,7 @@ typedef struct {
   UINT64 ParkedAddress;
   UINT64 PhysicalBaseAddress;
 } EFI_ACPI_5_0_GIC_STRUCTURE;
-# 622 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 622 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -2348,7 +2348,7 @@ typedef struct {
   UINT32 LowEnergyLevel;
   UINT32 CriticalEnergyLevel;
 } EFI_ACPI_5_0_SMART_BATTERY_DESCRIPTION_TABLE;
-# 652 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 652 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   EFI_ACPI_5_0_GENERIC_ADDRESS_STRUCTURE EcControl;
@@ -2356,13 +2356,13 @@ typedef struct {
   UINT32 Uid;
   UINT8 GpeBit;
 } EFI_ACPI_5_0_EMBEDDED_CONTROLLER_BOOT_RESOURCES_TABLE;
-# 669 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 669 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 Reserved1;
   UINT64 Reserved2;
 } EFI_ACPI_5_0_SYSTEM_RESOURCE_AFFINITY_TABLE_HEADER;
-# 692 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 692 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -2373,7 +2373,7 @@ typedef struct {
   UINT8 ProximityDomain31To8[3];
   UINT32 ClockDomain;
 } EFI_ACPI_5_0_PROCESSOR_LOCAL_APIC_SAPIC_AFFINITY_STRUCTURE;
-# 711 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 711 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -2387,7 +2387,7 @@ typedef struct {
   UINT32 Flags;
   UINT64 Reserved3;
 } EFI_ACPI_5_0_MEMORY_AFFINITY_STRUCTURE;
-# 735 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 735 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -2407,12 +2407,12 @@ typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT64 NumberOfSystemLocalities;
 } EFI_ACPI_5_0_SYSTEM_LOCALITY_DISTANCE_INFORMATION_TABLE_HEADER;
-# 763 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 763 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT8 Reserved[8];
 } EFI_ACPI_5_0_CORRECTED_PLATFORM_ERROR_POLLING_TABLE_HEADER;
-# 781 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 781 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -2431,7 +2431,7 @@ typedef struct {
   UINT32 MaximumNumberOfClockDomains;
   UINT64 MaximumPhysicalAddress;
 } EFI_ACPI_5_0_MAXIMUM_SYSTEM_CHARACTERISTICS_TABLE_HEADER;
-# 808 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 808 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 Revision;
   UINT8 Length;
@@ -2448,7 +2448,7 @@ typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT8 PlatformCommunicationChannelIdentifier[12];
 } EFI_ACPI_5_0_RAS_FEATURE_TABLE;
-# 833 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 833 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT32 Signature;
   UINT16 Command;
@@ -2459,7 +2459,7 @@ typedef struct {
   UINT16 NumberOfRASFParameterBlocks;
   UINT32 SetRASCapabilitiesStatus;
 } EFI_ACPI_5_0_RASF_PLATFORM_COMMUNICATION_CHANNEL_SHARED_MEMORY_REGION;
-# 858 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 858 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT16 Type;
   UINT16 Version;
@@ -2470,7 +2470,7 @@ typedef struct {
   UINT16 Flags;
   UINT8 RequestedSpeed;
 } EFI_ACPI_5_0_RASF_PATROL_SCRUB_PLATFORM_BLOCK_STRUCTURE;
-# 879 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 879 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT8 PlatformCommunicationChannelIdentifier;
@@ -2478,7 +2478,7 @@ typedef struct {
 
 
 } EFI_ACPI_5_0_MEMORY_POWER_STATUS_TABLE;
-# 895 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 895 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT32 Signature;
   UINT16 Command;
@@ -2490,7 +2490,7 @@ typedef struct {
   UINT64 MemoryEnergyConsumed;
   UINT64 ExpectedAveragePowerComsuned;
 } EFI_ACPI_5_0_MPST_PLATFORM_COMMUNICATION_CHANNEL_SHARED_MEMORY_REGION;
-# 923 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 923 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 PowerStateValue;
   UINT8 PowerStateInformationIndex;
@@ -2546,7 +2546,7 @@ typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 Reserved;
 } EFI_ACPI_5_0_MEMORY_TOPOLOGY_TABLE;
-# 987 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 987 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 Type;
   UINT8 Reserved;
@@ -2554,7 +2554,7 @@ typedef struct {
   UINT16 Flags;
   UINT16 Reserved1;
 } EFI_ACPI_5_0_PMMT_COMMON_MEMORY_AGGREGATOR_DEVICE_STRUCTURE;
-# 1005 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1005 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   EFI_ACPI_5_0_PMMT_COMMON_MEMORY_AGGREGATOR_DEVICE_STRUCTURE Header;
   UINT16 SocketIdentifier;
@@ -2629,7 +2629,7 @@ typedef struct {
 
   UINT32 ImageOffsetY;
 } EFI_ACPI_5_0_BOOT_GRAPHICS_RESOURCE_TABLE;
-# 1137 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1137 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT16 Type;
   UINT8 Length;
@@ -2703,14 +2703,14 @@ typedef struct {
 
   UINT64 ExitBootServicesExit;
 } EFI_ACPI_5_0_FPDT_FIRMWARE_BASIC_BOOT_RECORD;
-# 1219 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1219 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   EFI_ACPI_5_0_FPDT_PERFORMANCE_TABLE_HEADER Header;
 
 
 
 } EFI_ACPI_5_0_FPDT_FIRMWARE_BASIC_BOOT_TABLE;
-# 1234 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1234 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   EFI_ACPI_5_0_FPDT_PERFORMANCE_TABLE_HEADER Header;
 
@@ -2781,13 +2781,13 @@ typedef struct {
   UINT32 NonSecurePL2TimerGSIV;
   UINT32 NonSecurePL2TimerFlags;
 } EFI_ACPI_5_0_GENERIC_TIMER_DESCRIPTION_TABLE;
-# 1325 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1325 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 BootErrorRegionLength;
   UINT64 BootErrorRegion;
 } EFI_ACPI_5_0_BOOT_ERROR_RECORD_TABLE_HEADER;
-# 1339 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1339 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT32 UncorrectableErrorValid:1;
   UINT32 CorrectableErrorValid:1;
@@ -2807,7 +2807,7 @@ typedef struct {
   UINT32 DataLength;
   UINT32 ErrorSeverity;
 } EFI_ACPI_5_0_BOOT_ERROR_REGION_STRUCTURE;
-# 1370 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1370 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 SectionType[16];
   UINT32 ErrorSeverity;
@@ -2818,12 +2818,12 @@ typedef struct {
   UINT8 FruId[16];
   UINT8 FruText[20];
 } EFI_ACPI_5_0_GENERIC_ERROR_DATA_ENTRY_STRUCTURE;
-# 1389 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1389 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 ErrorSourceCount;
 } EFI_ACPI_5_0_HARDWARE_ERROR_SOURCE_TABLE_HEADER;
-# 1419 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1419 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT16 Type;
   UINT16 SourceId;
@@ -2852,7 +2852,7 @@ typedef struct {
   UINT32 AddressRegisterMsrAddress;
   UINT32 MiscRegisterMsrAddress;
 } EFI_ACPI_5_0_IA32_ARCHITECTURE_MACHINE_CHECK_ERROR_BANK_STRUCTURE;
-# 1467 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1467 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT16 Type:1;
   UINT16 PollInterval:1;
@@ -3013,7 +3013,7 @@ typedef struct {
   UINT8 Reserved0[4];
   UINT32 InstructionEntryCount;
 } EFI_ACPI_5_0_ERROR_RECORD_SERIALIZATION_TABLE_HEADER;
-# 1693 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1693 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 SerializationAction;
   UINT8 Instruction;
@@ -3034,7 +3034,7 @@ typedef struct {
   UINT8 Reserved0[3];
   UINT32 InjectionEntryCount;
 } EFI_ACPI_5_0_ERROR_INJECTION_TABLE_HEADER;
-# 1772 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1772 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 InjectionAction;
   UINT8 Instruction;
@@ -3063,7 +3063,7 @@ typedef struct {
   UINT32 Flags;
   UINT64 Reserved;
 } EFI_ACPI_5_0_PLATFORM_COMMUNICATION_CHANNEL_TABLE_HEADER;
-# 1819 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
+# 1819 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi50.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -3110,8 +3110,8 @@ typedef struct {
   EFI_ACPI_5_0_PCCT_GENERIC_SHARED_MEMORY_REGION_COMMAND Command;
   EFI_ACPI_5_0_PCCT_GENERIC_SHARED_MEMORY_REGION_STATUS Status;
 } EFI_ACPI_5_0_PCCT_GENERIC_SHARED_MEMORY_REGION_HEADER;
-# 14 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h" 2
-# 23 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 14 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h" 2
+# 23 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 AddressSpaceId;
   UINT8 RegisterBitWidth;
@@ -3119,7 +3119,7 @@ typedef struct {
   UINT8 AccessSize;
   UINT64 Address;
 } EFI_ACPI_5_1_GENERIC_ADDRESS_STRUCTURE;
-# 58 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 58 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT64 Signature;
   UINT8 Checksum;
@@ -3131,12 +3131,12 @@ typedef struct {
   UINT8 ExtendedChecksum;
   UINT8 Reserved[3];
 } EFI_ACPI_5_1_ROOT_SYSTEM_DESCRIPTION_POINTER;
-# 79 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 79 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
 } EFI_ACPI_5_1_COMMON_HEADER;
-# 109 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 109 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 FirmwareCtrl;
@@ -3194,7 +3194,7 @@ typedef struct {
   EFI_ACPI_5_1_GENERIC_ADDRESS_STRUCTURE SleepControlReg;
   EFI_ACPI_5_1_GENERIC_ADDRESS_STRUCTURE SleepStatusReg;
 } EFI_ACPI_5_1_FIXED_ACPI_DESCRIPTION_TABLE;
-# 234 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 234 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
@@ -3208,13 +3208,13 @@ typedef struct {
   UINT32 OspmFlags;
   UINT8 Reserved1[24];
 } EFI_ACPI_5_1_FIRMWARE_ACPI_CONTROL_STRUCTURE;
-# 280 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 280 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 LocalApicAddress;
   UINT32 Flags;
 } EFI_ACPI_5_1_MULTIPLE_APIC_DESCRIPTION_TABLE_HEADER;
-# 325 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 325 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -3222,7 +3222,7 @@ typedef struct {
   UINT8 ApicId;
   UINT32 Flags;
 } EFI_ACPI_5_1_PROCESSOR_LOCAL_APIC_STRUCTURE;
-# 341 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 341 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -3260,7 +3260,7 @@ typedef struct {
   UINT8 CpeiProcessorOverride;
   UINT8 Reserved[31];
 } EFI_ACPI_5_1_PLATFORM_INTERRUPT_APIC_STRUCTURE;
-# 389 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 389 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -3330,7 +3330,7 @@ typedef struct {
   UINT32 GlobalSystemInterrupt;
   UINT32 PlatformInterruptSourceFlags;
 } EFI_ACPI_5_1_PLATFORM_INTERRUPT_SOURCES_STRUCTURE;
-# 468 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 468 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -3372,7 +3372,7 @@ typedef struct {
   UINT64 GICRBaseAddress;
   UINT64 MPIDR;
 } EFI_ACPI_5_1_GIC_STRUCTURE;
-# 520 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 520 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -3383,7 +3383,7 @@ typedef struct {
   UINT8 GicVersion;
   UINT8 Reserved2[3];
 } EFI_ACPI_5_1_GIC_DISTRIBUTOR_STRUCTURE;
-# 542 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 542 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -3394,7 +3394,7 @@ typedef struct {
   UINT16 SPICount;
   UINT16 SPIBase;
 } EFI_ACPI_5_1_GIC_MSI_FRAME_STRUCTURE;
-# 561 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 561 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -3412,7 +3412,7 @@ typedef struct {
   UINT32 LowEnergyLevel;
   UINT32 CriticalEnergyLevel;
 } EFI_ACPI_5_1_SMART_BATTERY_DESCRIPTION_TABLE;
-# 589 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 589 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   EFI_ACPI_5_1_GENERIC_ADDRESS_STRUCTURE EcControl;
@@ -3420,13 +3420,13 @@ typedef struct {
   UINT32 Uid;
   UINT8 GpeBit;
 } EFI_ACPI_5_1_EMBEDDED_CONTROLLER_BOOT_RESOURCES_TABLE;
-# 606 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 606 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 Reserved1;
   UINT64 Reserved2;
 } EFI_ACPI_5_1_SYSTEM_RESOURCE_AFFINITY_TABLE_HEADER;
-# 630 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 630 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -3437,7 +3437,7 @@ typedef struct {
   UINT8 ProximityDomain31To8[3];
   UINT32 ClockDomain;
 } EFI_ACPI_5_1_PROCESSOR_LOCAL_APIC_SAPIC_AFFINITY_STRUCTURE;
-# 649 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 649 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -3451,7 +3451,7 @@ typedef struct {
   UINT32 Flags;
   UINT64 Reserved3;
 } EFI_ACPI_5_1_MEMORY_AFFINITY_STRUCTURE;
-# 673 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 673 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -3474,17 +3474,17 @@ typedef struct {
   UINT32 Flags;
   UINT32 ClockDomain;
 } EFI_ACPI_5_1_GICC_AFFINITY_STRUCTURE;
-# 705 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 705 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT64 NumberOfSystemLocalities;
 } EFI_ACPI_5_1_SYSTEM_LOCALITY_DISTANCE_INFORMATION_TABLE_HEADER;
-# 718 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 718 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT8 Reserved[8];
 } EFI_ACPI_5_1_CORRECTED_PLATFORM_ERROR_POLLING_TABLE_HEADER;
-# 736 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 736 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -3503,7 +3503,7 @@ typedef struct {
   UINT32 MaximumNumberOfClockDomains;
   UINT64 MaximumPhysicalAddress;
 } EFI_ACPI_5_1_MAXIMUM_SYSTEM_CHARACTERISTICS_TABLE_HEADER;
-# 763 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 763 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Revision;
   UINT8 Length;
@@ -3520,7 +3520,7 @@ typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT8 PlatformCommunicationChannelIdentifier[12];
 } EFI_ACPI_5_1_RAS_FEATURE_TABLE;
-# 788 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 788 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT32 Signature;
   UINT16 Command;
@@ -3531,7 +3531,7 @@ typedef struct {
   UINT16 NumberOfRASFParameterBlocks;
   UINT32 SetRASCapabilitiesStatus;
 } EFI_ACPI_5_1_RASF_PLATFORM_COMMUNICATION_CHANNEL_SHARED_MEMORY_REGION;
-# 813 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 813 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT16 Type;
   UINT16 Version;
@@ -3542,7 +3542,7 @@ typedef struct {
   UINT16 Flags;
   UINT8 RequestedSpeed;
 } EFI_ACPI_5_1_RASF_PATROL_SCRUB_PLATFORM_BLOCK_STRUCTURE;
-# 834 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 834 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT8 PlatformCommunicationChannelIdentifier;
@@ -3550,7 +3550,7 @@ typedef struct {
 
 
 } EFI_ACPI_5_1_MEMORY_POWER_STATUS_TABLE;
-# 850 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 850 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT32 Signature;
   UINT16 Command;
@@ -3562,7 +3562,7 @@ typedef struct {
   UINT64 MemoryEnergyConsumed;
   UINT64 ExpectedAveragePowerComsuned;
 } EFI_ACPI_5_1_MPST_PLATFORM_COMMUNICATION_CHANNEL_SHARED_MEMORY_REGION;
-# 878 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 878 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 PowerStateValue;
   UINT8 PowerStateInformationIndex;
@@ -3618,7 +3618,7 @@ typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 Reserved;
 } EFI_ACPI_5_1_MEMORY_TOPOLOGY_TABLE;
-# 942 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 942 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Reserved;
@@ -3626,7 +3626,7 @@ typedef struct {
   UINT16 Flags;
   UINT16 Reserved1;
 } EFI_ACPI_5_1_PMMT_COMMON_MEMORY_AGGREGATOR_DEVICE_STRUCTURE;
-# 960 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 960 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   EFI_ACPI_5_1_PMMT_COMMON_MEMORY_AGGREGATOR_DEVICE_STRUCTURE Header;
   UINT16 SocketIdentifier;
@@ -3701,7 +3701,7 @@ typedef struct {
 
   UINT32 ImageOffsetY;
 } EFI_ACPI_5_1_BOOT_GRAPHICS_RESOURCE_TABLE;
-# 1090 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1090 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT16 Type;
   UINT8 Length;
@@ -3775,14 +3775,14 @@ typedef struct {
 
   UINT64 ExitBootServicesExit;
 } EFI_ACPI_5_1_FPDT_FIRMWARE_BASIC_BOOT_RECORD;
-# 1172 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1172 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   EFI_ACPI_5_1_FPDT_PERFORMANCE_TABLE_HEADER Header;
 
 
 
 } EFI_ACPI_5_1_FPDT_FIRMWARE_BASIC_BOOT_TABLE;
-# 1187 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1187 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   EFI_ACPI_5_1_FPDT_PERFORMANCE_TABLE_HEADER Header;
 
@@ -3856,7 +3856,7 @@ typedef struct {
   UINT32 PlatformTimerCount;
   UINT32 PlatformTimerOffset;
 } EFI_ACPI_5_1_GENERIC_TIMER_DESCRIPTION_TABLE;
-# 1282 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1282 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT16 Length;
@@ -3880,7 +3880,7 @@ typedef struct {
   UINT32 GTxVirtualTimerFlags;
   UINT32 GTxCommonFlags;
 } EFI_ACPI_5_1_GTDT_GT_BLOCK_TIMER_STRUCTURE;
-# 1321 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1321 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT16 Length;
@@ -3890,13 +3890,13 @@ typedef struct {
   UINT32 WatchdogTimerGSIV;
   UINT32 WatchdogTimerFlags;
 } EFI_ACPI_5_1_GTDT_SBSA_GENERIC_WATCHDOG_STRUCTURE;
-# 1341 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1341 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 BootErrorRegionLength;
   UINT64 BootErrorRegion;
 } EFI_ACPI_5_1_BOOT_ERROR_RECORD_TABLE_HEADER;
-# 1355 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1355 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT32 UncorrectableErrorValid:1;
   UINT32 CorrectableErrorValid:1;
@@ -3916,7 +3916,7 @@ typedef struct {
   UINT32 DataLength;
   UINT32 ErrorSeverity;
 } EFI_ACPI_5_1_BOOT_ERROR_REGION_STRUCTURE;
-# 1386 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1386 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 SectionType[16];
   UINT32 ErrorSeverity;
@@ -3927,12 +3927,12 @@ typedef struct {
   UINT8 FruId[16];
   UINT8 FruText[20];
 } EFI_ACPI_5_1_GENERIC_ERROR_DATA_ENTRY_STRUCTURE;
-# 1405 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1405 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 ErrorSourceCount;
 } EFI_ACPI_5_1_HARDWARE_ERROR_SOURCE_TABLE_HEADER;
-# 1435 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1435 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT16 Type;
   UINT16 SourceId;
@@ -3961,7 +3961,7 @@ typedef struct {
   UINT32 AddressRegisterMsrAddress;
   UINT32 MiscRegisterMsrAddress;
 } EFI_ACPI_5_1_IA32_ARCHITECTURE_MACHINE_CHECK_ERROR_BANK_STRUCTURE;
-# 1483 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1483 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT16 Type:1;
   UINT16 PollInterval:1;
@@ -4122,7 +4122,7 @@ typedef struct {
   UINT8 Reserved0[4];
   UINT32 InstructionEntryCount;
 } EFI_ACPI_5_1_ERROR_RECORD_SERIALIZATION_TABLE_HEADER;
-# 1709 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1709 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 SerializationAction;
   UINT8 Instruction;
@@ -4143,7 +4143,7 @@ typedef struct {
   UINT8 Reserved0[3];
   UINT32 InjectionEntryCount;
 } EFI_ACPI_5_1_ERROR_INJECTION_TABLE_HEADER;
-# 1788 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1788 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 InjectionAction;
   UINT8 Instruction;
@@ -4172,7 +4172,7 @@ typedef struct {
   UINT32 Flags;
   UINT64 Reserved;
 } EFI_ACPI_5_1_PLATFORM_COMMUNICATION_CHANNEL_TABLE_HEADER;
-# 1835 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
+# 1835 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi51.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -4219,8 +4219,8 @@ typedef struct {
   EFI_ACPI_5_1_PCCT_GENERIC_SHARED_MEMORY_REGION_COMMAND Command;
   EFI_ACPI_5_1_PCCT_GENERIC_SHARED_MEMORY_REGION_STATUS Status;
 } EFI_ACPI_5_1_PCCT_GENERIC_SHARED_MEMORY_REGION_HEADER;
-# 13 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h" 2
-# 22 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 13 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h" 2
+# 22 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 AddressSpaceId;
   UINT8 RegisterBitWidth;
@@ -4228,7 +4228,7 @@ typedef struct {
   UINT8 AccessSize;
   UINT64 Address;
 } EFI_ACPI_6_0_GENERIC_ADDRESS_STRUCTURE;
-# 57 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 57 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT64 Signature;
   UINT8 Checksum;
@@ -4240,12 +4240,12 @@ typedef struct {
   UINT8 ExtendedChecksum;
   UINT8 Reserved[3];
 } EFI_ACPI_6_0_ROOT_SYSTEM_DESCRIPTION_POINTER;
-# 78 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 78 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
 } EFI_ACPI_6_0_COMMON_HEADER;
-# 108 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 108 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 FirmwareCtrl;
@@ -4304,7 +4304,7 @@ typedef struct {
   EFI_ACPI_6_0_GENERIC_ADDRESS_STRUCTURE SleepStatusReg;
   UINT64 HypervisorVendorIdentity;
 } EFI_ACPI_6_0_FIXED_ACPI_DESCRIPTION_TABLE;
-# 234 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 234 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT32 Signature;
   UINT32 Length;
@@ -4318,13 +4318,13 @@ typedef struct {
   UINT32 OspmFlags;
   UINT8 Reserved1[24];
 } EFI_ACPI_6_0_FIRMWARE_ACPI_CONTROL_STRUCTURE;
-# 280 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 280 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 LocalApicAddress;
   UINT32 Flags;
 } EFI_ACPI_6_0_MULTIPLE_APIC_DESCRIPTION_TABLE_HEADER;
-# 326 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 326 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -4332,7 +4332,7 @@ typedef struct {
   UINT8 ApicId;
   UINT32 Flags;
 } EFI_ACPI_6_0_PROCESSOR_LOCAL_APIC_STRUCTURE;
-# 342 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 342 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -4370,7 +4370,7 @@ typedef struct {
   UINT8 CpeiProcessorOverride;
   UINT8 Reserved[31];
 } EFI_ACPI_6_0_PLATFORM_INTERRUPT_APIC_STRUCTURE;
-# 390 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 390 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -4440,7 +4440,7 @@ typedef struct {
   UINT32 GlobalSystemInterrupt;
   UINT32 PlatformInterruptSourceFlags;
 } EFI_ACPI_6_0_PLATFORM_INTERRUPT_SOURCES_STRUCTURE;
-# 469 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 469 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -4484,7 +4484,7 @@ typedef struct {
   UINT8 ProcessorPowerEfficiencyClass;
   UINT8 Reserved2[3];
 } EFI_ACPI_6_0_GIC_STRUCTURE;
-# 523 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 523 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -4495,7 +4495,7 @@ typedef struct {
   UINT8 GicVersion;
   UINT8 Reserved2[3];
 } EFI_ACPI_6_0_GIC_DISTRIBUTOR_STRUCTURE;
-# 545 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 545 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -4506,7 +4506,7 @@ typedef struct {
   UINT16 SPICount;
   UINT16 SPIBase;
 } EFI_ACPI_6_0_GIC_MSI_FRAME_STRUCTURE;
-# 564 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 564 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -4536,7 +4536,7 @@ typedef struct {
   UINT32 LowEnergyLevel;
   UINT32 CriticalEnergyLevel;
 } EFI_ACPI_6_0_SMART_BATTERY_DESCRIPTION_TABLE;
-# 604 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 604 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   EFI_ACPI_6_0_GENERIC_ADDRESS_STRUCTURE EcControl;
@@ -4544,13 +4544,13 @@ typedef struct {
   UINT32 Uid;
   UINT8 GpeBit;
 } EFI_ACPI_6_0_EMBEDDED_CONTROLLER_BOOT_RESOURCES_TABLE;
-# 621 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 621 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 Reserved1;
   UINT64 Reserved2;
 } EFI_ACPI_6_0_SYSTEM_RESOURCE_AFFINITY_TABLE_HEADER;
-# 645 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 645 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -4561,7 +4561,7 @@ typedef struct {
   UINT8 ProximityDomain31To8[3];
   UINT32 ClockDomain;
 } EFI_ACPI_6_0_PROCESSOR_LOCAL_APIC_SAPIC_AFFINITY_STRUCTURE;
-# 664 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 664 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -4575,7 +4575,7 @@ typedef struct {
   UINT32 Flags;
   UINT64 Reserved3;
 } EFI_ACPI_6_0_MEMORY_AFFINITY_STRUCTURE;
-# 688 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 688 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -4598,17 +4598,17 @@ typedef struct {
   UINT32 Flags;
   UINT32 ClockDomain;
 } EFI_ACPI_6_0_GICC_AFFINITY_STRUCTURE;
-# 720 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 720 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT64 NumberOfSystemLocalities;
 } EFI_ACPI_6_0_SYSTEM_LOCALITY_DISTANCE_INFORMATION_TABLE_HEADER;
-# 733 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 733 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT8 Reserved[8];
 } EFI_ACPI_6_0_CORRECTED_PLATFORM_ERROR_POLLING_TABLE_HEADER;
-# 751 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 751 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -4627,7 +4627,7 @@ typedef struct {
   UINT32 MaximumNumberOfClockDomains;
   UINT64 MaximumPhysicalAddress;
 } EFI_ACPI_6_0_MAXIMUM_SYSTEM_CHARACTERISTICS_TABLE_HEADER;
-# 778 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 778 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Revision;
   UINT8 Length;
@@ -4644,7 +4644,7 @@ typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT8 PlatformCommunicationChannelIdentifier[12];
 } EFI_ACPI_6_0_RAS_FEATURE_TABLE;
-# 803 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 803 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT32 Signature;
   UINT16 Command;
@@ -4655,7 +4655,7 @@ typedef struct {
   UINT16 NumberOfRASFParameterBlocks;
   UINT32 SetRASCapabilitiesStatus;
 } EFI_ACPI_6_0_RASF_PLATFORM_COMMUNICATION_CHANNEL_SHARED_MEMORY_REGION;
-# 828 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 828 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT16 Type;
   UINT16 Version;
@@ -4666,7 +4666,7 @@ typedef struct {
   UINT16 Flags;
   UINT8 RequestedSpeed;
 } EFI_ACPI_6_0_RASF_PATROL_SCRUB_PLATFORM_BLOCK_STRUCTURE;
-# 849 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 849 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT8 PlatformCommunicationChannelIdentifier;
@@ -4674,7 +4674,7 @@ typedef struct {
 
 
 } EFI_ACPI_6_0_MEMORY_POWER_STATUS_TABLE;
-# 865 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 865 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT32 Signature;
   UINT16 Command;
@@ -4686,7 +4686,7 @@ typedef struct {
   UINT64 MemoryEnergyConsumed;
   UINT64 ExpectedAveragePowerComsuned;
 } EFI_ACPI_6_0_MPST_PLATFORM_COMMUNICATION_CHANNEL_SHARED_MEMORY_REGION;
-# 893 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 893 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 PowerStateValue;
   UINT8 PowerStateInformationIndex;
@@ -4742,7 +4742,7 @@ typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 Reserved;
 } EFI_ACPI_6_0_MEMORY_TOPOLOGY_TABLE;
-# 957 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 957 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Reserved;
@@ -4750,7 +4750,7 @@ typedef struct {
   UINT16 Flags;
   UINT16 Reserved1;
 } EFI_ACPI_6_0_PMMT_COMMON_MEMORY_AGGREGATOR_DEVICE_STRUCTURE;
-# 975 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 975 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   EFI_ACPI_6_0_PMMT_COMMON_MEMORY_AGGREGATOR_DEVICE_STRUCTURE Header;
   UINT16 SocketIdentifier;
@@ -4825,7 +4825,7 @@ typedef struct {
 
   UINT32 ImageOffsetY;
 } EFI_ACPI_6_0_BOOT_GRAPHICS_RESOURCE_TABLE;
-# 1105 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1105 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT16 Type;
   UINT8 Length;
@@ -4899,14 +4899,14 @@ typedef struct {
 
   UINT64 ExitBootServicesExit;
 } EFI_ACPI_6_0_FPDT_FIRMWARE_BASIC_BOOT_RECORD;
-# 1187 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1187 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   EFI_ACPI_6_0_FPDT_PERFORMANCE_TABLE_HEADER Header;
 
 
 
 } EFI_ACPI_6_0_FPDT_FIRMWARE_BASIC_BOOT_TABLE;
-# 1202 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1202 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   EFI_ACPI_6_0_FPDT_PERFORMANCE_TABLE_HEADER Header;
 
@@ -4980,7 +4980,7 @@ typedef struct {
   UINT32 PlatformTimerCount;
   UINT32 PlatformTimerOffset;
 } EFI_ACPI_6_0_GENERIC_TIMER_DESCRIPTION_TABLE;
-# 1297 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1297 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT16 Length;
@@ -5004,7 +5004,7 @@ typedef struct {
   UINT32 GTxVirtualTimerFlags;
   UINT32 GTxCommonFlags;
 } EFI_ACPI_6_0_GTDT_GT_BLOCK_TIMER_STRUCTURE;
-# 1336 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1336 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT16 Length;
@@ -5014,17 +5014,17 @@ typedef struct {
   UINT32 WatchdogTimerGSIV;
   UINT32 WatchdogTimerFlags;
 } EFI_ACPI_6_0_GTDT_SBSA_GENERIC_WATCHDOG_STRUCTURE;
-# 1356 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1356 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 Reserved;
 } EFI_ACPI_6_0_NVDIMM_FIRMWARE_INTERFACE_TABLE;
-# 1380 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1380 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT16 Type;
   UINT16 Length;
 } EFI_ACPI_6_0_NFIT_STRUCTURE_HEADER;
-# 1398 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1398 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT16 Type;
   UINT16 Length;
@@ -5157,7 +5157,7 @@ typedef struct {
   UINT32 BootErrorRegionLength;
   UINT64 BootErrorRegion;
 } EFI_ACPI_6_0_BOOT_ERROR_RECORD_TABLE_HEADER;
-# 1539 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1539 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT32 UncorrectableErrorValid:1;
   UINT32 CorrectableErrorValid:1;
@@ -5177,7 +5177,7 @@ typedef struct {
   UINT32 DataLength;
   UINT32 ErrorSeverity;
 } EFI_ACPI_6_0_BOOT_ERROR_REGION_STRUCTURE;
-# 1570 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1570 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 SectionType[16];
   UINT32 ErrorSeverity;
@@ -5188,12 +5188,12 @@ typedef struct {
   UINT8 FruId[16];
   UINT8 FruText[20];
 } EFI_ACPI_6_0_GENERIC_ERROR_DATA_ENTRY_STRUCTURE;
-# 1589 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1589 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   EFI_ACPI_DESCRIPTION_HEADER Header;
   UINT32 ErrorSourceCount;
 } EFI_ACPI_6_0_HARDWARE_ERROR_SOURCE_TABLE_HEADER;
-# 1619 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1619 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT16 Type;
   UINT16 SourceId;
@@ -5222,7 +5222,7 @@ typedef struct {
   UINT32 AddressRegisterMsrAddress;
   UINT32 MiscRegisterMsrAddress;
 } EFI_ACPI_6_0_IA32_ARCHITECTURE_MACHINE_CHECK_ERROR_BANK_STRUCTURE;
-# 1670 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1670 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT16 Type:1;
   UINT16 PollInterval:1;
@@ -5383,7 +5383,7 @@ typedef struct {
   UINT8 Reserved0[4];
   UINT32 InstructionEntryCount;
 } EFI_ACPI_6_0_ERROR_RECORD_SERIALIZATION_TABLE_HEADER;
-# 1896 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1896 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 SerializationAction;
   UINT8 Instruction;
@@ -5404,7 +5404,7 @@ typedef struct {
   UINT8 Reserved0[3];
   UINT32 InjectionEntryCount;
 } EFI_ACPI_6_0_ERROR_INJECTION_TABLE_HEADER;
-# 1975 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 1975 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 InjectionAction;
   UINT8 Instruction;
@@ -5433,7 +5433,7 @@ typedef struct {
   UINT32 Flags;
   UINT64 Reserved;
 } EFI_ACPI_6_0_PLATFORM_COMMUNICATION_CHANNEL_TABLE_HEADER;
-# 2024 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
+# 2024 "/home/totsugekitai/minOS/edk2/MdePkg/Include/IndustryStandard/Acpi60.h"
 typedef struct {
   UINT8 Type;
   UINT8 Length;
@@ -5524,8 +5524,8 @@ typedef struct {
   UINT64 DoorbellAckPreserve;
   UINT64 DoorbellAckWrite;
 } EFI_ACPI_6_0_PCCT_SUBSPACE_2_HW_REDUCED_COMMUNICATIONS;
-# 19 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h" 2
-# 43 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 19 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h" 2
+# 43 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   UINT8 Type;
 
@@ -5548,7 +5548,7 @@ typedef struct {
 
 
 typedef EFI_DEVICE_PATH_PROTOCOL EFI_DEVICE_PATH;
-# 79 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 79 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -5560,7 +5560,7 @@ typedef struct {
 
   UINT8 Device;
 } PCI_DEVICE_PATH;
-# 99 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 99 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -5568,7 +5568,7 @@ typedef struct {
 
   UINT8 FunctionNumber;
 } PCCARD_DEVICE_PATH;
-# 115 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 115 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -5584,7 +5584,7 @@ typedef struct {
 
   EFI_PHYSICAL_ADDRESS EndingAddress;
 } MEMMAP_DEVICE_PATH;
-# 141 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 141 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -5595,7 +5595,7 @@ typedef struct {
 
 
 } VENDOR_DEVICE_PATH;
-# 160 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 160 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -5603,7 +5603,7 @@ typedef struct {
 
   UINT32 ControllerNumber;
 } CONTROLLER_DEVICE_PATH;
-# 176 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 176 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -5615,7 +5615,7 @@ typedef struct {
 
   UINT8 BaseAddress[8];
 } BMC_DEVICE_PATH;
-# 197 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 197 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -5665,7 +5665,7 @@ typedef struct {
 
 
 } ACPI_EXTENDED_HID_DEVICE_PATH;
-# 272 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 272 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -5678,7 +5678,7 @@ typedef struct {
 
 
 } ACPI_ADR_DEVICE_PATH;
-# 313 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 313 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -5815,7 +5815,7 @@ typedef struct {
 
   UINT8 DeviceProtocol;
 } USB_CLASS_DEVICE_PATH;
-# 458 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 458 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -5873,7 +5873,7 @@ typedef struct {
 
   UINT16 Lun;
 } SATA_DEVICE_PATH;
-# 525 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 525 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -5989,7 +5989,7 @@ typedef struct {
 
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
-# 649 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 649 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
   UINT32 ResourceFlags;
 
 
@@ -6009,7 +6009,7 @@ typedef struct {
 
   UINT64 DeviceId;
 } INFINIBAND_DEVICE_PATH;
-# 679 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 679 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -6026,7 +6026,7 @@ typedef struct {
 
 
   UINT8 DataBits;
-# 704 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 704 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
   UINT8 Parity;
 
 
@@ -6043,7 +6043,7 @@ typedef struct {
 
 
 typedef VENDOR_DEVICE_PATH VENDOR_DEFINED_DEVICE_PATH;
-# 730 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 730 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -6058,7 +6058,7 @@ typedef struct {
 
   UINT32 FlowControlMap;
 } UART_FLOW_CONTROL_DEVICE_PATH;
-# 752 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 752 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -6212,7 +6212,7 @@ typedef struct {
 
 
 } ISCSI_DEVICE_PATH;
-# 919 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 919 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -6253,7 +6253,7 @@ typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
   BLUETOOTH_LE_ADDRESS Address;
 } BLUETOOTH_LE_DEVICE_PATH;
-# 973 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 973 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -6293,7 +6293,7 @@ typedef struct {
 
   UINT8 SignatureType;
 } HARDDRIVE_DEVICE_PATH;
-# 1028 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 1028 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -6309,7 +6309,7 @@ typedef struct {
 
   UINT64 PartitionSize;
 } CDROM_DEVICE_PATH;
-# 1053 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 1053 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -6317,7 +6317,7 @@ typedef struct {
 
   CHAR16 PathName[1];
 } FILEPATH_DEVICE_PATH;
-# 1073 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 1073 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -6325,7 +6325,7 @@ typedef struct {
 
   EFI_GUID Protocol;
 } MEDIA_PROTOCOL_DEVICE_PATH;
-# 1089 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 1089 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -6333,7 +6333,7 @@ typedef struct {
 
   EFI_GUID FvFileName;
 } MEDIA_FW_VOL_FILEPATH_DEVICE_PATH;
-# 1105 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 1105 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -6341,7 +6341,7 @@ typedef struct {
 
   EFI_GUID FvName;
 } MEDIA_FW_VOL_DEVICE_PATH;
-# 1121 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 1121 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
   UINT32 Reserved;
@@ -6376,7 +6376,7 @@ extern EFI_GUID gEfiPersistentVirtualDiskGuid;
 
 
 extern EFI_GUID gEfiPersistentVirtualCdGuid;
-# 1164 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 1164 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -6396,7 +6396,7 @@ typedef struct {
 
   UINT16 Instance;
 } MEDIA_RAM_DISK_DEVICE_PATH;
-# 1197 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 1197 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef struct {
   EFI_DEVICE_PATH_PROTOCOL Header;
 
@@ -6412,7 +6412,7 @@ typedef struct {
 
   CHAR8 String[1];
 } BBS_BBS_DEVICE_PATH;
-# 1229 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
+# 1229 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/DevicePath.h"
 typedef union {
   EFI_DEVICE_PATH_PROTOCOL DevPath;
   PCI_DEVICE_PATH Pci;
@@ -6535,11 +6535,11 @@ typedef union {
 
 
 extern EFI_GUID gEfiDevicePathProtocolGuid;
-# 19 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextIn.h" 1
-# 20 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextIn.h"
+# 19 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextIn.h" 1
+# 20 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextIn.h"
 typedef struct _EFI_SIMPLE_TEXT_INPUT_PROTOCOL EFI_SIMPLE_TEXT_INPUT_PROTOCOL;
-# 30 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextIn.h"
+# 30 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextIn.h"
 typedef struct _EFI_SIMPLE_TEXT_INPUT_PROTOCOL SIMPLE_INPUT_INTERFACE;
 
 
@@ -6549,14 +6549,14 @@ typedef struct {
   UINT16 ScanCode;
   CHAR16 UnicodeChar;
 } EFI_INPUT_KEY;
-# 84 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextIn.h"
+# 84 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextIn.h"
 typedef
 EFI_STATUS
 ( *EFI_INPUT_RESET)(
   EFI_SIMPLE_TEXT_INPUT_PROTOCOL *This,
   BOOLEAN ExtendedVerification
   );
-# 105 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextIn.h"
+# 105 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextIn.h"
 typedef
 EFI_STATUS
 ( *EFI_INPUT_READ_KEY)(
@@ -6578,11 +6578,11 @@ struct _EFI_SIMPLE_TEXT_INPUT_PROTOCOL {
 };
 
 extern EFI_GUID gEfiSimpleTextInProtocolGuid;
-# 20 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h" 1
-# 22 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
+# 20 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h" 1
+# 22 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
 typedef struct _EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL;
-# 49 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
+# 49 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
 typedef
 EFI_STATUS
 ( *EFI_INPUT_RESET_EX)(
@@ -6625,14 +6625,14 @@ typedef struct {
 
   EFI_KEY_STATE KeyState;
 } EFI_KEY_DATA;
-# 194 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
+# 194 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
 typedef
 EFI_STATUS
 ( *EFI_INPUT_READ_KEY_EX)(
   EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL *This,
   EFI_KEY_DATA *KeyData
 );
-# 221 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
+# 221 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
 typedef
 EFI_STATUS
 ( *EFI_SET_STATE)(
@@ -6648,7 +6648,7 @@ EFI_STATUS
 ( *EFI_KEY_NOTIFY_FUNCTION)(
   EFI_KEY_DATA *KeyData
 );
-# 263 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
+# 263 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
 typedef
 EFI_STATUS
 ( *EFI_REGISTER_KEYSTROKE_NOTIFY)(
@@ -6657,14 +6657,14 @@ EFI_STATUS
   EFI_KEY_NOTIFY_FUNCTION KeyNotificationFunction,
   void **NotifyHandle
 );
-# 287 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
+# 287 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
 typedef
 EFI_STATUS
 ( *EFI_UNREGISTER_KEYSTROKE_NOTIFY)(
   EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL *This,
   void *NotificationHandle
 );
-# 301 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
+# 301 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextInEx.h"
 struct _EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL{
   EFI_INPUT_RESET_EX Reset;
   EFI_INPUT_READ_KEY_EX ReadKeyStrokeEx;
@@ -6679,37 +6679,37 @@ struct _EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL{
 
 
 extern EFI_GUID gEfiSimpleTextInputExProtocolGuid;
-# 21 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h" 1
-# 27 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
+# 21 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h" 1
+# 27 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
 typedef struct _EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL;
 
 
 
 
 typedef EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL SIMPLE_TEXT_OUTPUT_INTERFACE;
-# 165 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
+# 165 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
 typedef
 EFI_STATUS
 ( *EFI_TEXT_RESET)(
   EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *This,
   BOOLEAN ExtendedVerification
   );
-# 190 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
+# 190 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
 typedef
 EFI_STATUS
 ( *EFI_TEXT_STRING)(
   EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *This,
   CHAR16 *String
   );
-# 211 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
+# 211 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
 typedef
 EFI_STATUS
 ( *EFI_TEXT_TEST_STRING)(
   EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *This,
   CHAR16 *String
   );
-# 234 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
+# 234 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
 typedef
 EFI_STATUS
 ( *EFI_TEXT_QUERY_MODE)(
@@ -6718,27 +6718,27 @@ EFI_STATUS
   UINTN *Columns,
   UINTN *Rows
   );
-# 254 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
+# 254 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
 typedef
 EFI_STATUS
 ( *EFI_TEXT_SET_MODE)(
   EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *This,
   UINTN ModeNumber
   );
-# 275 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
+# 275 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
 typedef
 EFI_STATUS
 ( *EFI_TEXT_SET_ATTRIBUTE)(
   EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *This,
   UINTN Attribute
   );
-# 293 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
+# 293 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
 typedef
 EFI_STATUS
 ( *EFI_TEXT_CLEAR_SCREEN)(
   EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL *This
   );
-# 316 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
+# 316 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
 typedef
 EFI_STATUS
 ( *EFI_TEXT_SET_CURSOR_POSITION)(
@@ -6746,7 +6746,7 @@ EFI_STATUS
   UINTN Column,
   UINTN Row
   );
-# 338 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
+# 338 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
 typedef
 EFI_STATUS
 ( *EFI_TEXT_ENABLE_CURSOR)(
@@ -6763,7 +6763,7 @@ typedef struct {
 
 
   INT32 MaxMode;
-# 362 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
+# 362 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Protocol/SimpleTextOut.h"
   INT32 Mode;
 
 
@@ -6810,7 +6810,7 @@ struct _EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL {
 };
 
 extern EFI_GUID gEfiSimpleTextOutProtocolGuid;
-# 22 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
+# 22 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
 
 
 
@@ -6834,7 +6834,7 @@ typedef enum {
 
   MaxAllocateType
 } EFI_ALLOCATE_TYPE;
-# 98 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 98 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef struct {
 
 
@@ -6868,7 +6868,7 @@ typedef struct {
 
   UINT64 Attribute;
 } EFI_MEMORY_DESCRIPTOR;
-# 156 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 156 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_ALLOCATE_PAGES)(
@@ -6877,14 +6877,14 @@ EFI_STATUS
   UINTN Pages,
   EFI_PHYSICAL_ADDRESS *Memory
   );
-# 177 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 177 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_FREE_PAGES)(
   EFI_PHYSICAL_ADDRESS Memory,
   UINTN Pages
   );
-# 209 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 209 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_GET_MEMORY_MAP)(
@@ -6894,7 +6894,7 @@ EFI_STATUS
   UINTN *DescriptorSize,
   UINT32 *DescriptorVersion
   );
-# 238 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 238 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_ALLOCATE_POOL)(
@@ -6902,13 +6902,13 @@ EFI_STATUS
   UINTN Size,
   void **Buffer
   );
-# 255 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 255 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_FREE_POOL)(
   void *Buffer
   );
-# 280 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 280 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_SET_VIRTUAL_ADDRESS_MAP)(
@@ -6917,7 +6917,7 @@ EFI_STATUS
   UINT32 DescriptorVersion,
   EFI_MEMORY_DESCRIPTOR *VirtualMap
   );
-# 314 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 314 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_CONNECT_CONTROLLER)(
@@ -6926,7 +6926,7 @@ EFI_STATUS
   EFI_DEVICE_PATH_PROTOCOL *RemainingDevicePath,
   BOOLEAN Recursive
   );
-# 347 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 347 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_DISCONNECT_CONTROLLER)(
@@ -6934,21 +6934,21 @@ EFI_STATUS
   EFI_HANDLE DriverImageHandle,
   EFI_HANDLE ChildHandle
   );
-# 377 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 377 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_CONVERT_POINTER)(
   UINTN DebugDisposition,
   void **Address
   );
-# 414 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 414 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 void
 ( *EFI_EVENT_NOTIFY)(
   EFI_EVENT Event,
   void *Context
   );
-# 437 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 437 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_CREATE_EVENT)(
@@ -6958,7 +6958,7 @@ EFI_STATUS
   void *NotifyContext,
   EFI_EVENT *Event
   );
-# 466 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 466 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_CREATE_EVENT_EX)(
@@ -6987,7 +6987,7 @@ typedef enum {
 
   TimerRelative
 } EFI_TIMER_DELAY;
-# 511 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 511 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_SET_TIMER)(
@@ -6995,13 +6995,13 @@ EFI_STATUS
   EFI_TIMER_DELAY Type,
   UINT64 TriggerTime
   );
-# 527 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 527 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_SIGNAL_EVENT)(
   EFI_EVENT Event
   );
-# 547 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 547 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_WAIT_FOR_EVENT)(
@@ -7009,19 +7009,19 @@ EFI_STATUS
   EFI_EVENT *Event,
   UINTN *Index
   );
-# 563 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 563 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_CLOSE_EVENT)(
   EFI_EVENT Event
   );
-# 579 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 579 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_CHECK_EVENT)(
   EFI_EVENT Event
   );
-# 603 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 603 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_TPL
 ( *EFI_RAISE_TPL)(
@@ -7039,7 +7039,7 @@ void
 ( *EFI_RESTORE_TPL)(
   EFI_TPL OldTpl
   );
-# 645 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 645 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_GET_VARIABLE)(
@@ -7049,7 +7049,7 @@ EFI_STATUS
   UINTN *DataSize,
   void *Data
   );
-# 681 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 681 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_GET_NEXT_VARIABLE_NAME)(
@@ -7057,7 +7057,7 @@ EFI_STATUS
   CHAR16 *VariableName,
   EFI_GUID *VendorGuid
   );
-# 723 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 723 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_SET_VARIABLE)(
@@ -7097,20 +7097,20 @@ typedef struct {
 
   BOOLEAN SetsToZero;
 } EFI_TIME_CAPABILITIES;
-# 776 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 776 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_GET_TIME)(
   EFI_TIME *Time,
   EFI_TIME_CAPABILITIES *Capabilities
   );
-# 793 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 793 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_SET_TIME)(
   EFI_TIME *Time
   );
-# 814 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 814 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_GET_WAKEUP_TIME)(
@@ -7118,14 +7118,14 @@ EFI_STATUS
   BOOLEAN *Pending,
   EFI_TIME *Time
   );
-# 836 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 836 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_SET_WAKEUP_TIME)(
   BOOLEAN Enable,
   EFI_TIME *Time
   );
-# 873 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 873 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_IMAGE_LOAD)(
@@ -7136,7 +7136,7 @@ EFI_STATUS
   UINTN SourceSize,
   EFI_HANDLE *ImageHandle
   );
-# 898 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 898 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_IMAGE_START)(
@@ -7144,7 +7144,7 @@ EFI_STATUS
   UINTN *ExitDataSize,
   CHAR16 **ExitData
   );
-# 926 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 926 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_EXIT)(
@@ -7153,26 +7153,26 @@ EFI_STATUS
   UINTN ExitDataSize,
   CHAR16 *ExitData
   );
-# 944 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 944 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_IMAGE_UNLOAD)(
   EFI_HANDLE ImageHandle
   );
-# 960 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 960 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_EXIT_BOOT_SERVICES)(
   EFI_HANDLE ImageHandle,
   UINTN MapKey
   );
-# 976 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 976 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_STALL)(
   UINTN Microseconds
   );
-# 998 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 998 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_SET_WATCHDOG_TIMER)(
@@ -7181,7 +7181,7 @@ EFI_STATUS
   UINTN DataSize,
   CHAR16 *WatchdogData
   );
-# 1022 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1022 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 void
 ( *EFI_RESET_SYSTEM)(
@@ -7190,19 +7190,19 @@ void
   UINTN DataSize,
   void *ResetData
   );
-# 1041 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1041 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_GET_NEXT_MONOTONIC_COUNT)(
   UINT64 *Count
   );
-# 1057 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1057 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_GET_NEXT_HIGH_MONO_COUNT)(
   UINT32 *HighCount
   );
-# 1078 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1078 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_CALCULATE_CRC32)(
@@ -7210,7 +7210,7 @@ EFI_STATUS
   UINTN DataSize,
   UINT32 *Crc32
   );
-# 1094 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1094 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 void
 ( *EFI_COPY_MEM)(
@@ -7218,7 +7218,7 @@ void
   void *Source,
   UINTN Length
   );
-# 1110 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1110 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 void
 ( *EFI_SET_MEM)(
@@ -7236,7 +7236,7 @@ typedef enum {
 
   EFI_NATIVE_INTERFACE
 } EFI_INTERFACE_TYPE;
-# 1148 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1148 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_INSTALL_PROTOCOL_INTERFACE)(
@@ -7245,14 +7245,14 @@ EFI_STATUS
   EFI_INTERFACE_TYPE InterfaceType,
   void *Interface
   );
-# 1173 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1173 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_INSTALL_MULTIPLE_PROTOCOL_INTERFACES)(
   EFI_HANDLE *Handle,
   ...
   );
-# 1198 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1198 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_REINSTALL_PROTOCOL_INTERFACE)(
@@ -7261,7 +7261,7 @@ EFI_STATUS
   void *OldInterface,
   void *NewInterface
   );
-# 1224 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1224 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_UNINSTALL_PROTOCOL_INTERFACE)(
@@ -7269,14 +7269,14 @@ EFI_STATUS
   EFI_GUID *Protocol,
   void *Interface
   );
-# 1243 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1243 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_UNINSTALL_MULTIPLE_PROTOCOL_INTERFACES)(
   EFI_HANDLE Handle,
   ...
   );
-# 1265 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1265 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_HANDLE_PROTOCOL)(
@@ -7284,7 +7284,7 @@ EFI_STATUS
   EFI_GUID *Protocol,
   void **Interface
   );
-# 1307 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1307 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_OPEN_PROTOCOL)(
@@ -7295,7 +7295,7 @@ EFI_STATUS
   EFI_HANDLE ControllerHandle,
   UINT32 Attributes
   );
-# 1340 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1340 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_CLOSE_PROTOCOL)(
@@ -7314,7 +7314,7 @@ typedef struct {
   UINT32 Attributes;
   UINT32 OpenCount;
 } EFI_OPEN_PROTOCOL_INFORMATION_ENTRY;
-# 1374 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1374 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_OPEN_PROTOCOL_INFORMATION)(
@@ -7323,7 +7323,7 @@ EFI_STATUS
   EFI_OPEN_PROTOCOL_INFORMATION_ENTRY **EntryBuffer,
   UINTN *EntryCount
   );
-# 1404 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1404 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_PROTOCOLS_PER_HANDLE)(
@@ -7331,7 +7331,7 @@ EFI_STATUS
   EFI_GUID ***ProtocolBuffer,
   UINTN *ProtocolBufferCount
   );
-# 1427 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1427 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_REGISTER_PROTOCOL_NOTIFY)(
@@ -7358,7 +7358,7 @@ typedef enum {
 
   ByProtocol
 } EFI_LOCATE_SEARCH_TYPE;
-# 1476 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1476 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_LOCATE_HANDLE)(
@@ -7368,7 +7368,7 @@ EFI_STATUS
   UINTN *BufferSize,
   EFI_HANDLE *Buffer
   );
-# 1502 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1502 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_LOCATE_DEVICE_PATH)(
@@ -7376,14 +7376,14 @@ EFI_STATUS
   EFI_DEVICE_PATH_PROTOCOL **DevicePath,
   EFI_HANDLE *Device
   );
-# 1523 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1523 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_INSTALL_CONFIGURATION_TABLE)(
   EFI_GUID *Guid,
   void *Table
   );
-# 1549 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1549 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_LOCATE_HANDLE_BUFFER)(
@@ -7393,7 +7393,7 @@ EFI_STATUS
   UINTN *NoHandles,
   EFI_HANDLE **Buffer
   );
-# 1576 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1576 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_LOCATE_PROTOCOL)(
@@ -7467,7 +7467,7 @@ typedef struct {
 
   void* CapsulePtr[1];
 } EFI_CAPSULE_TABLE;
-# 1684 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1684 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_UPDATE_CAPSULE)(
@@ -7475,7 +7475,7 @@ EFI_STATUS
   UINTN CapsuleCount,
   EFI_PHYSICAL_ADDRESS ScatterGatherList
   );
-# 1715 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1715 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_QUERY_CAPSULE_CAPABILITIES)(
@@ -7484,7 +7484,7 @@ EFI_STATUS
   UINT64 *MaximumCapsuleSize,
   EFI_RESET_TYPE *ResetType
   );
-# 1746 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1746 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_QUERY_VARIABLE_INFO)(
@@ -7493,7 +7493,7 @@ EFI_STATUS
   UINT64 *RemainingVariableStorageSize,
   UINT64 *MaximumVariableSize
   );
-# 1789 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1789 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef struct {
 
 
@@ -7538,7 +7538,7 @@ typedef struct {
 
   EFI_QUERY_VARIABLE_INFO QueryVariableInfo;
 } EFI_RUNTIME_SERVICES;
-# 1841 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1841 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef struct {
 
 
@@ -7714,14 +7714,14 @@ typedef struct {
 
   EFI_CONFIGURATION_TABLE *ConfigurationTable;
 } EFI_SYSTEM_TABLE;
-# 2028 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 2028 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef
 EFI_STATUS
 ( *EFI_IMAGE_ENTRY_POINT)(
   EFI_HANDLE ImageHandle,
   EFI_SYSTEM_TABLE *SystemTable
   );
-# 2044 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 2044 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef struct _EFI_LOAD_OPTION {
 
 
@@ -7734,9 +7734,9 @@ typedef struct _EFI_LOAD_OPTION {
 
 
   UINT16 FilePathListLength;
-# 2081 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 2081 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 } EFI_LOAD_OPTION;
-# 2103 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 2103 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
 typedef union {
   struct {
 
@@ -7805,9 +7805,9 @@ typedef struct {
 
 
 } EFI_KEY_OPTION;
-# 2200 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h" 1
-# 66 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 2200 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h" 1
+# 66 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef void PXE_VOID;
 typedef UINT8 PXE_UINT8;
 typedef UINT16 PXE_UINT16;
@@ -7824,19 +7824,19 @@ typedef PXE_UINT8 PXE_BOOL;
 
 
 typedef PXE_UINT16 PXE_OPCODE;
-# 178 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 178 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef PXE_UINT16 PXE_OPFLAGS;
-# 402 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 402 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef PXE_UINT16 PXE_STATFLAGS;
-# 595 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 595 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef PXE_UINT16 PXE_STATCODE;
-# 625 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 625 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef PXE_UINT16 PXE_IFNUM;
-# 638 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 638 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef PXE_UINT16 PXE_CONTROL;
-# 659 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 659 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef PXE_UINT8 PXE_FRAME_TYPE;
-# 670 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 670 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef PXE_UINT32 PXE_IPV4;
 
 typedef PXE_UINT32 PXE_IPV6[4];
@@ -7846,7 +7846,7 @@ typedef PXE_UINT8 PXE_MAC_ADDR[32];
 
 typedef PXE_UINT8 PXE_IFTYPE;
 typedef UINT16 PXE_MEDIA_PROTOCOL;
-# 711 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 711 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef struct s_pxe_hw_undi {
   PXE_UINT32 Signature;
   PXE_UINT8 Len;
@@ -7864,7 +7864,7 @@ typedef struct s_pxe_hw_undi {
 
 
 } PXE_HW_UNDI;
-# 808 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 808 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef struct s_pxe_sw_undi {
   PXE_UINT32 Signature;
   PXE_UINT8 Len;
@@ -7886,7 +7886,7 @@ typedef union u_pxe_undi {
   PXE_HW_UNDI hw;
   PXE_SW_UNDI sw;
 } PXE_UNDI;
-# 874 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 874 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef struct s_pxe_cdb {
   PXE_OPCODE OpCode;
   PXE_OPFLAGS OpFlags;
@@ -7929,32 +7929,32 @@ typedef union pxe_device {
   PCI, PCC;
 
 } PXE_DEVICE;
-# 925 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 925 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef struct s_pxe_cpb_start_30 {
-# 936 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 936 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   UINT64 Delay;
-# 952 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 952 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   UINT64 Block;
-# 966 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 966 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   UINT64 Virt2Phys;
-# 977 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 977 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   UINT64 Mem_IO;
 } PXE_CPB_START_30;
 
 typedef struct s_pxe_cpb_start_31 {
-# 991 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 991 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   UINT64 Delay;
-# 1007 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1007 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   UINT64 Block;
-# 1021 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1021 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   UINT64 Virt2Phys;
-# 1032 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1032 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   UINT64 Mem_IO;
-# 1049 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1049 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   UINT64 Map_Mem;
-# 1060 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1060 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   UINT64 UnMap_Mem;
-# 1072 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1072 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   UINT64 Sync_Mem;
 
 
@@ -7965,9 +7965,9 @@ typedef struct s_pxe_cpb_start_31 {
 
   UINT64 Unique_ID;
 } PXE_CPB_START_31;
-# 1094 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1094 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef struct s_pxe_db_get_init_info {
-# 1103 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1103 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   PXE_UINT32 MemoryRequired;
 
 
@@ -8009,7 +8009,7 @@ typedef struct s_pxe_db_get_init_info {
 
 
   PXE_UINT16 MCastFilterCnt;
-# 1152 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1152 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   PXE_UINT16 TxBufCnt;
   PXE_UINT16 TxBufSize;
   PXE_UINT16 RxBufCnt;
@@ -8032,7 +8032,7 @@ typedef struct s_pxe_db_get_init_info {
 
   PXE_UINT8 SupportedLoopBackModes;
 } PXE_DB_GET_INIT_INFO;
-# 1186 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1186 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef struct s_pxe_pci_config_info {
 
 
@@ -8110,7 +8110,7 @@ typedef struct s_pxe_cpb_initialize {
 
 
   PXE_UINT32 LinkSpeed;
-# 1274 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1274 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   PXE_UINT16 TxBufCnt;
   PXE_UINT16 TxBufSize;
   PXE_UINT16 RxBufCnt;
@@ -8124,9 +8124,9 @@ typedef struct s_pxe_cpb_initialize {
 
   PXE_UINT8 LoopBackMode;
 } PXE_CPB_INITIALIZE;
-# 1298 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1298 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef struct s_pxe_db_initialize {
-# 1307 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1307 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   PXE_UINT32 MemoryUsed;
 
 
@@ -8180,7 +8180,7 @@ typedef struct s_pxe_dpb_station_address {
 } PXE_DB_STATION_ADDRESS;
 
 typedef struct s_pxe_db_statistics {
-# 1369 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1369 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
   PXE_UINT64 Supported;
 
 
@@ -8188,7 +8188,7 @@ typedef struct s_pxe_db_statistics {
 
   PXE_UINT64 Data[64];
 } PXE_DB_STATISTICS;
-# 1475 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
+# 1475 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiPxe.h"
 typedef struct s_pxe_cpb_mcast_ip_to_mac {
 
 
@@ -8497,9 +8497,9 @@ typedef struct s_pxe_db_receive {
   PXE_UINT8 reserved[7];
 
 } PXE_DB_RECEIVE;
-# 2201 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiGpt.h" 1
-# 31 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiGpt.h"
+# 2201 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiGpt.h" 1
+# 31 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiGpt.h"
 typedef struct {
 
 
@@ -8575,20 +8575,20 @@ typedef struct {
 
 
   EFI_LBA EndingLBA;
-# 129 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiGpt.h"
+# 129 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiGpt.h"
   UINT64 Attributes;
 
 
 
   CHAR16 PartitionName[36];
 } EFI_PARTITION_ENTRY;
-# 2202 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h" 1
-# 18 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Guid/HiiFormMapMethodGuid.h" 1
-# 17 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Guid/HiiFormMapMethodGuid.h"
+# 2202 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h" 1
+# 18 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Guid/HiiFormMapMethodGuid.h" 1
+# 17 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Guid/HiiFormMapMethodGuid.h"
 extern EFI_GUID gEfiHiiStandardFormGuid;
-# 19 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h" 2
+# 19 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h" 2
 
 
 
@@ -8605,7 +8605,7 @@ typedef UINT16 EFI_ANIMATION_ID;
 typedef UINT16 EFI_DEFAULT_ID;
 
 typedef UINT32 EFI_HII_FONT_STYLE;
-# 48 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 48 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct {
   EFI_GUID PackageListGuid;
   UINT32 PackageLength;
@@ -8619,7 +8619,7 @@ typedef struct {
   UINT32 Type:8;
 
 } EFI_HII_PACKAGE_HEADER;
-# 95 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 95 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct {
 
 
@@ -8683,7 +8683,7 @@ typedef struct _EFI_HII_SIMPLE_FONT_PACKAGE_HDR {
 
 
 } EFI_HII_SIMPLE_FONT_PACKAGE_HDR;
-# 176 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 176 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_HII_GLYPH_INFO {
   UINT16 Width;
   UINT16 Height;
@@ -8706,7 +8706,7 @@ typedef struct _EFI_HII_FONT_PACKAGE_HDR {
   EFI_HII_FONT_STYLE FontStyle;
   CHAR16 FontFamily[1];
 } EFI_HII_FONT_PACKAGE_HDR;
-# 216 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 216 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_HII_GLYPH_BLOCK {
   UINT8 BlockType;
 } EFI_HII_GLYPH_BLOCK;
@@ -8787,18 +8787,18 @@ typedef struct _EFI_HII_GIBT_SKIP2_BLOCK {
   EFI_HII_GLYPH_BLOCK Header;
   UINT16 SkipCount;
 } EFI_HII_GIBT_SKIP2_BLOCK;
-# 306 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 306 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_HII_DEVICE_PATH_PACKAGE_HDR {
   EFI_HII_PACKAGE_HEADER Header;
 
 } EFI_HII_DEVICE_PATH_PACKAGE_HDR;
-# 319 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 319 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_HII_GUID_PACKAGE_HDR {
   EFI_HII_PACKAGE_HEADER Header;
   EFI_GUID Guid;
 
 } EFI_HII_GUID_PACKAGE_HDR;
-# 337 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 337 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_HII_STRING_PACKAGE_HDR {
   EFI_HII_PACKAGE_HEADER Header;
   UINT32 HdrSize;
@@ -8811,7 +8811,7 @@ typedef struct _EFI_HII_STRING_PACKAGE_HDR {
 typedef struct {
   UINT8 BlockType;
 } EFI_HII_STRING_BLOCK;
-# 374 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 374 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_HII_SIBT_DUPLICATE_BLOCK {
   EFI_HII_STRING_BLOCK Header;
   EFI_STRING_ID StringId;
@@ -8919,7 +8919,7 @@ typedef struct _EFI_HII_IMAGE_PACKAGE_HDR {
 typedef struct _EFI_HII_IMAGE_BLOCK {
   UINT8 BlockType;
 } EFI_HII_IMAGE_BLOCK;
-# 507 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 507 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_HII_IIBT_END_BLOCK {
   EFI_HII_IMAGE_BLOCK Header;
 } EFI_HII_IIBT_END_BLOCK;
@@ -9057,7 +9057,7 @@ typedef struct _EFI_HII_IMAGE_PALETTE_INFO {
   UINT16 PaletteSize;
   EFI_HII_RGB_PIXEL PaletteValue[1];
 } EFI_HII_IMAGE_PALETTE_INFO;
-# 653 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 653 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_HII_FORM_PACKAGE_HDR {
   EFI_HII_PACKAGE_HEADER Header;
 
@@ -9095,7 +9095,7 @@ typedef union {
   EFI_HII_REF ref;
 
 } EFI_IFR_TYPE_VALUE;
-# 800 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 800 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_IFR_OP_HEADER {
   UINT8 OpCode;
   UINT8 Length:7;
@@ -9117,13 +9117,13 @@ typedef struct _EFI_IFR_QUESTION_HEADER {
   } VarStoreInfo;
   UINT8 Flags;
 } EFI_IFR_QUESTION_HEADER;
-# 835 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 835 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_IFR_DEFAULTSTORE {
   EFI_IFR_OP_HEADER Header;
   EFI_STRING_ID DefaultName;
   UINT16 DefaultId;
 } EFI_IFR_DEFAULTSTORE;
-# 854 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 854 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_IFR_VARSTORE {
   EFI_IFR_OP_HEADER Header;
   EFI_GUID Guid;
@@ -9281,7 +9281,7 @@ typedef struct _EFI_IFR_DATE {
   EFI_IFR_QUESTION_HEADER Question;
   UINT8 Flags;
 } EFI_IFR_DATE;
-# 1024 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1024 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef union {
   struct {
     UINT8 MinValue;
@@ -9311,7 +9311,7 @@ typedef struct _EFI_IFR_NUMERIC {
   UINT8 Flags;
   MINMAXSTEP_DATA data;
 } EFI_IFR_NUMERIC;
-# 1068 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1068 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_IFR_ONE_OF {
   EFI_IFR_OP_HEADER Header;
   EFI_IFR_QUESTION_HEADER Question;
@@ -9351,7 +9351,7 @@ typedef struct _EFI_IFR_TIME {
   EFI_IFR_QUESTION_HEADER Question;
   UINT8 Flags;
 } EFI_IFR_TIME;
-# 1120 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1120 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_IFR_DISABLE_IF {
   EFI_IFR_OP_HEADER Header;
 } EFI_IFR_DISABLE_IF;
@@ -9397,7 +9397,7 @@ typedef struct _EFI_IFR_ONE_OF_OPTION {
   UINT8 Type;
   EFI_IFR_TYPE_VALUE Value;
 } EFI_IFR_ONE_OF_OPTION;
-# 1186 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1186 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_IFR_GUID {
   EFI_IFR_OP_HEADER Header;
   EFI_GUID Guid;
@@ -9537,7 +9537,7 @@ typedef struct _EFI_IFR_BITWISE_NOT {
 typedef struct _EFI_IFR_TO_BOOLEAN {
   EFI_IFR_OP_HEADER Header;
 } EFI_IFR_TO_BOOLEAN;
-# 1349 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1349 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_IFR_TO_STRING {
   EFI_IFR_OP_HEADER Header;
   UINT8 Format;
@@ -9658,7 +9658,7 @@ typedef struct _EFI_IFR_MID {
 typedef struct _EFI_IFR_TOKEN {
   EFI_IFR_OP_HEADER Header;
 } EFI_IFR_TOKEN;
-# 1477 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1477 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_IFR_SPAN {
   EFI_IFR_OP_HEADER Header;
   UINT8 Flags;
@@ -9769,7 +9769,7 @@ typedef struct _EFI_IFR_WRITE {
 typedef struct _EFI_IFR_MAP {
   EFI_IFR_OP_HEADER Header;
 } EFI_IFR_MAP;
-# 1595 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1595 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef enum {
   EfiKeyLCtrl,
   EfiKeyA0,
@@ -9907,7 +9907,7 @@ typedef struct {
   UINT16 Modifier;
   UINT16 AffectedAttribute;
 } EFI_KEY_DESCRIPTOR;
-# 1753 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1753 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct {
   UINT16 LayoutLength;
   EFI_GUID Guid;
@@ -9921,7 +9921,7 @@ typedef struct {
   UINT16 LayoutCount;
 
 } EFI_HII_KEYBOARD_PACKAGE_HDR;
-# 1825 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1825 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_IFR_ANIMATION {
 
 
@@ -9957,7 +9957,7 @@ typedef struct _EFI_HII_ANIMATION_BLOCK {
   UINT8 BlockType;
 
 } EFI_HII_ANIMATION_BLOCK;
-# 1883 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1883 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
 typedef struct _EFI_HII_AIBT_EXT1_BLOCK {
 
 
@@ -10032,7 +10032,7 @@ typedef struct _EFI_HII_ANIMATION_CELL {
 
 
 typedef struct _EFI_HII_AIBT_OVERLAY_IMAGES_BLOCK {
-# 1965 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1965 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
   EFI_IMAGE_ID DftImageId;
 
 
@@ -10059,7 +10059,7 @@ typedef struct _EFI_HII_AIBT_OVERLAY_IMAGES_BLOCK {
 
 
 typedef struct _EFI_HII_AIBT_CLEAR_IMAGES_BLOCK {
-# 1999 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 1999 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
   EFI_IMAGE_ID DftImageId;
 
 
@@ -10091,7 +10091,7 @@ typedef struct _EFI_HII_AIBT_CLEAR_IMAGES_BLOCK {
 
 
 typedef struct _EFI_HII_AIBT_RESTORE_SCRN_BLOCK {
-# 2038 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
+# 2038 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiInternalFormRepresentation.h"
   EFI_IMAGE_ID DftImageId;
 
 
@@ -10162,9 +10162,9 @@ typedef struct _EFI_HII_AIBT_SKIP2_BLOCK {
 
   UINT16 SkipCount;
 } EFI_HII_AIBT_SKIP2_BLOCK;
-# 2203 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
-# 19 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Uefi.h" 2
-# 17 "/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/DEBUG/AutoGen.h" 2
+# 2203 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi/UefiSpec.h" 2
+# 19 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Uefi.h" 2
+# 17 "/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/DEBUG/AutoGen.h" 2
 
 extern GUID gEfiCallerIdGuid;
 extern CHAR8 *gEfiCallerBaseName;
@@ -10218,8 +10218,8 @@ Uefi_Main (
   EFI_HANDLE ImageHandle,
   EFI_SYSTEM_TABLE *SystemTable
   );
-# 32 "<コマンドライン>" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/LoaderPkg/Applications/MinLoader/boot/kernel_jump.S"
+# 32 "<command-line>" 2
+# 1 "/home/totsugekitai/minOS/edk2/LoaderPkg/Applications/MinLoader/boot/kernel_jump.S"
 .global kernel_jump
 
 kernel_jump:

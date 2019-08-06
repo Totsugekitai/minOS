@@ -112,7 +112,7 @@ void flush_buf_char(struct ring_buf_char *buf)
     buf->tail = 0;
 }
 
-/* アルゴリズム */
+/* 文字列照合 */
 uint8_t comptext(char *text, char *pat)
 {
     // textとpatの長さを比較して等しかったら続ける
@@ -138,3 +138,12 @@ uint8_t comptext(char *text, char *pat)
     return 1;
 }
 
+uint8_t strncmp(char *str1, char *str2, int num)
+{
+    for (int i = 0; i < num; i++) {
+        if (str1[i] != str2[i]) {
+            return 0;
+        }
+    }
+    return 1;
+}
