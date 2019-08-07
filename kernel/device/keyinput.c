@@ -1,4 +1,30 @@
 #include <stdint.h>
+#include <util/util.h>
+
+#define PORT    0x3f8
+
+// シリアル通信
+void init_serial(void)
+{
+    io_outb(PORT + 1, 0x00);
+    io_outb(PORT + 3, 0x80);
+    io_outb(PORT + 0, 0x03);
+    io_outb(PORT + 1, 0x00);
+    io_outb(PORT + 3, 0x03);
+    io_outb(PORT + 2, 0xC7);
+    io_outb(PORT + 4, 0x0B);
+}
+
+uint32_t serial_received(void)
+{
+    return io_inb(PORT + 5) & 1;
+}
+
+uint8_t read_serial(void)
+{
+    while (serial_received() == 0) {}
+    return io_inb(PORT);
+}
 
 // JISキーボード対応
 char map_scan_to_ascii(uint64_t scan, uint8_t *shift)

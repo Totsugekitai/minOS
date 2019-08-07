@@ -112,11 +112,11 @@ void flush_buf_char(struct ring_buf_char *buf)
     buf->tail = 0;
 }
 
-/* 文字列照合 */
+/* 文字列 */
 uint8_t comptext(char *text, char *pat)
 {
     // textとpatの長さを比較して等しかったら続ける
-    int i, j;
+    int i = 0, j = 0;
     while (text[i] != 0x00) {
         i++;
     }
@@ -146,4 +146,14 @@ uint8_t strncmp(char *str1, char *str2, int num)
         }
     }
     return 1;
+}
+
+void sprintf(char *src, char *dst)
+{
+    uint8_t i = 0;
+    while (src[i] != 0x00) {
+        dst[i] = src[i];
+        i++;
+    }
+    dst[i] = src[i];
 }

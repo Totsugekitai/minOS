@@ -35,7 +35,10 @@ all:
 run:
 	$(QEMU) -drive if=pflash,format=raw,readonly,file=$(TOOLS)OVMF_CODE.fd \
 		-drive if=pflash,format=raw,file=$(TOOLS)OVMF_VARS.fd \
-		fat:rw:$(FS) -m 4G 
+		fat:rw:$(FS) -m 4G \
+		-chardev stdio,mux=on,id=com1 \
+		-serial chardev:com1
+
 
 debug_run:
 	$(QEMU) -drive if=pflash,format=raw,readonly,file=$(TOOLS)OVMF_CODE.fd \

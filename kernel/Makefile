@@ -24,8 +24,9 @@ OBJS		= core/kernel.o \
 			  interrupt/handler_caller.o \
 			  device/keyboard.o \
 			  device/keyinput.o \
-			  acpi/acpi.o \
-			  acpi/acpi_asm.o
+			  app/console.o \
+			#   acpi/acpi.o \
+			#   acpi/acpi_asm.o
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+
@@ -52,3 +53,4 @@ clean:
 	make -C $(CURRENT)util/ clean
 	make -C $(CURRENT)interrupt/ clean
 	make -C $(CURRENT)device/ clean
+	make -C $(CURRENT)app/ clean
