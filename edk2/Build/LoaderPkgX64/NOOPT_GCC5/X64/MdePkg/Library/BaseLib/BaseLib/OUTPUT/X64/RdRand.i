@@ -1,15 +1,15 @@
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/X64/RdRand.nasm"
-# 1 "<組み込み>"
-# 1 "<コマンドライン>"
-# 31 "<コマンドライン>"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/X64/RdRand.nasm"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 31 "<command-line>"
 # 1 "/usr/include/stdc-predef.h" 1 3 4
-# 32 "<コマンドライン>" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h" 1
-# 16 "/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h" 1
-# 22 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/X64/ProcessorBind.h" 1
-# 182 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/X64/ProcessorBind.h"
+# 32 "<command-line>" 2
+# 1 "/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h" 1
+# 16 "/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h" 1
+# 22 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/X64/ProcessorBind.h" 1
+# 182 "/home/totsugekitai/minOS/edk2/MdePkg/Include/X64/ProcessorBind.h"
   typedef unsigned long long UINT64;
 
 
@@ -65,8 +65,8 @@ typedef UINT64 UINTN;
 
 
 typedef INT64 INTN;
-# 23 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h" 2
-# 48 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 23 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h" 2
+# 48 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 extern UINT8 _VerifySizeofBOOLEAN[(sizeof(BOOLEAN) == (1)) / (sizeof(BOOLEAN) == (1))];
 extern UINT8 _VerifySizeofINT8[(sizeof(INT8) == (1)) / (sizeof(INT8) == (1))];
 extern UINT8 _VerifySizeofUINT8[(sizeof(UINT8) == (1)) / (sizeof(UINT8) == (1))];
@@ -78,7 +78,7 @@ extern UINT8 _VerifySizeofINT64[(sizeof(INT64) == (8)) / (sizeof(INT64) == (8))]
 extern UINT8 _VerifySizeofUINT64[(sizeof(UINT64) == (8)) / (sizeof(UINT64) == (8))];
 extern UINT8 _VerifySizeofCHAR8[(sizeof(CHAR8) == (1)) / (sizeof(CHAR8) == (1))];
 extern UINT8 _VerifySizeofCHAR16[(sizeof(CHAR16) == (2)) / (sizeof(CHAR16) == (2))];
-# 67 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 67 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef enum {
   __VerifyUint8EnumValue = 0xff
 } __VERIFY_UINT8_ENUM_SIZE;
@@ -94,7 +94,7 @@ typedef enum {
 extern UINT8 _VerifySizeof__VERIFY_UINT8_ENUM_SIZE[(sizeof(__VERIFY_UINT8_ENUM_SIZE) == (4)) / (sizeof(__VERIFY_UINT8_ENUM_SIZE) == (4))];
 extern UINT8 _VerifySizeof__VERIFY_UINT16_ENUM_SIZE[(sizeof(__VERIFY_UINT16_ENUM_SIZE) == (4)) / (sizeof(__VERIFY_UINT16_ENUM_SIZE) == (4))];
 extern UINT8 _VerifySizeof__VERIFY_UINT32_ENUM_SIZE[(sizeof(__VERIFY_UINT32_ENUM_SIZE) == (4)) / (sizeof(__VERIFY_UINT32_ENUM_SIZE) == (4))];
-# 274 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 274 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef struct {
   UINT32 Data1;
   UINT16 Data2;
@@ -133,142 +133,142 @@ struct _LIST_ENTRY {
   LIST_ENTRY *ForwardLink;
   LIST_ENTRY *BackLink;
 };
-# 690 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 690 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef __builtin_ms_va_list VA_LIST;
-# 794 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 794 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef UINTN *BASE_LIST;
-# 958 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 958 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef UINTN RETURN_STATUS;
-# 1274 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 1274 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
   void * __builtin_return_address (unsigned int level);
-# 17 "/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h" 1
-# 1076 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 17 "/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h" 1
+# 1076 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINTN
 
 LibPcdSetSku (
   UINTN SkuId
   );
-# 1093 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1093 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT8
 
 LibPcdGet8 (
   UINTN TokenNumber
   );
-# 1110 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1110 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT16
 
 LibPcdGet16 (
   UINTN TokenNumber
   );
-# 1127 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1127 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT32
 
 LibPcdGet32 (
   UINTN TokenNumber
   );
-# 1144 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1144 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT64
 
 LibPcdGet64 (
   UINTN TokenNumber
   );
-# 1161 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1161 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void *
 
 LibPcdGetPtr (
   UINTN TokenNumber
   );
-# 1178 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1178 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 BOOLEAN
 
 LibPcdGetBool (
   UINTN TokenNumber
   );
-# 1193 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1193 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINTN
 
 LibPcdGetSize (
   UINTN TokenNumber
   );
-# 1214 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1214 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT8
 
 LibPcdGetEx8 (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1236 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1236 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT16
 
 LibPcdGetEx16 (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1255 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1255 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT32
 
 LibPcdGetEx32 (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1277 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1277 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT64
 
 LibPcdGetEx64 (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1299 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1299 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void *
 
 LibPcdGetExPtr (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1321 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1321 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 BOOLEAN
 
 LibPcdGetExBool (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1343 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1343 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINTN
 
 LibPcdGetExSize (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1364 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1364 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT8
 
 LibPcdSet8 (
   UINTN TokenNumber,
   UINT8 Value
   );
-# 1384 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1384 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT16
 
 LibPcdSet16 (
   UINTN TokenNumber,
   UINT16 Value
   );
-# 1404 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1404 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT32
 
 LibPcdSet32 (
   UINTN TokenNumber,
   UINT32 Value
   );
-# 1424 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1424 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT64
 
 LibPcdSet64 (
   UINTN TokenNumber,
   UINT64 Value
   );
-# 1454 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1454 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void *
 
 LibPcdSetPtr (
@@ -276,14 +276,14 @@ LibPcdSetPtr (
   UINTN *SizeOfBuffer,
   const void *Buffer
   );
-# 1475 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1475 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 BOOLEAN
 
 LibPcdSetBool (
   UINTN TokenNumber,
   BOOLEAN Value
   );
-# 1499 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1499 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT8
 
 LibPcdSetEx8 (
@@ -291,7 +291,7 @@ LibPcdSetEx8 (
   UINTN TokenNumber,
   UINT8 Value
   );
-# 1524 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1524 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT16
 
 LibPcdSetEx16 (
@@ -299,7 +299,7 @@ LibPcdSetEx16 (
   UINTN TokenNumber,
   UINT16 Value
   );
-# 1549 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1549 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT32
 
 LibPcdSetEx32 (
@@ -307,7 +307,7 @@ LibPcdSetEx32 (
   UINTN TokenNumber,
   UINT32 Value
   );
-# 1574 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1574 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT64
 
 LibPcdSetEx64 (
@@ -315,7 +315,7 @@ LibPcdSetEx64 (
   UINTN TokenNumber,
   UINT64 Value
   );
-# 1605 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1605 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void *
 
 LibPcdSetExPtr (
@@ -324,7 +324,7 @@ LibPcdSetExPtr (
   UINTN *SizeOfBuffer,
   void *Buffer
   );
-# 1631 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1631 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 BOOLEAN
 
 LibPcdSetExBool (
@@ -332,35 +332,35 @@ LibPcdSetExBool (
   UINTN TokenNumber,
   BOOLEAN Value
   );
-# 1652 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1652 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSet8S (
   UINTN TokenNumber,
   UINT8 Value
   );
-# 1671 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1671 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSet16S (
   UINTN TokenNumber,
   UINT16 Value
   );
-# 1690 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1690 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSet32S (
   UINTN TokenNumber,
   UINT32 Value
   );
-# 1709 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1709 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSet64S (
   UINTN TokenNumber,
   UINT64 Value
   );
-# 1738 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1738 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetPtrS (
@@ -368,14 +368,14 @@ LibPcdSetPtrS (
   UINTN *SizeOfBuffer,
   const void *Buffer
   );
-# 1758 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1758 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetBoolS (
   UINTN TokenNumber,
   BOOLEAN Value
   );
-# 1781 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1781 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetEx8S (
@@ -383,7 +383,7 @@ LibPcdSetEx8S (
   UINTN TokenNumber,
   UINT8 Value
   );
-# 1805 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1805 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetEx16S (
@@ -391,7 +391,7 @@ LibPcdSetEx16S (
   UINTN TokenNumber,
   UINT16 Value
   );
-# 1829 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1829 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetEx32S (
@@ -399,7 +399,7 @@ LibPcdSetEx32S (
   UINTN TokenNumber,
   UINT32 Value
   );
-# 1853 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1853 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetEx64S (
@@ -407,7 +407,7 @@ LibPcdSetEx64S (
   UINTN TokenNumber,
   UINT64 Value
   );
-# 1883 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1883 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetExPtrS (
@@ -416,7 +416,7 @@ LibPcdSetExPtrS (
   UINTN *SizeOfBuffer,
   void *Buffer
   );
-# 1908 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1908 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetExBoolS (
@@ -424,7 +424,7 @@ LibPcdSetExBoolS (
   UINTN TokenNumber,
   BOOLEAN Value
   );
-# 1932 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1932 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 typedef
 void
 ( *PCD_CALLBACK)(
@@ -433,7 +433,7 @@ void
   void *TokenData,
   UINTN TokenDataSize
   );
-# 1958 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1958 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void
 
 LibPcdCallbackOnSet (
@@ -441,7 +441,7 @@ LibPcdCallbackOnSet (
   UINTN TokenNumber,
   PCD_CALLBACK NotificationFunction
   );
-# 1980 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1980 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void
 
 LibPcdCancelCallback (
@@ -449,20 +449,20 @@ LibPcdCancelCallback (
   UINTN TokenNumber,
   PCD_CALLBACK NotificationFunction
   );
-# 2008 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2008 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINTN
 
 LibPcdGetNextToken (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 2030 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2030 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 GUID *
 
 LibPcdGetNextTokenSpace (
   const GUID *TokenSpaceGuid
   );
-# 2060 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2060 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void *
 
 LibPatchPcdSetPtr (
@@ -471,7 +471,7 @@ LibPatchPcdSetPtr (
   UINTN *SizeOfBuffer,
   const void *Buffer
   );
-# 2092 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2092 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPatchPcdSetPtrS (
@@ -480,7 +480,7 @@ LibPatchPcdSetPtrS (
   UINTN *SizeOfBuffer,
   const void *Buffer
   );
-# 2126 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2126 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void *
 
 LibPatchPcdSetPtrAndSize (
@@ -490,7 +490,7 @@ LibPatchPcdSetPtrAndSize (
   UINTN *SizeOfBuffer,
   const void *Buffer
   );
-# 2161 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2161 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPatchPcdSetPtrAndSizeS (
@@ -529,14 +529,14 @@ typedef struct {
 
   CHAR8 *PcdName;
 } PCD_INFO;
-# 2213 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2213 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void
 
 LibPcdGetInfo (
   UINTN TokenNumber,
   PCD_INFO *PcdInfo
   );
-# 2233 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2233 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void
 
 LibPcdGetInfoEx (
@@ -544,13 +544,13 @@ LibPcdGetInfoEx (
   UINTN TokenNumber,
   PCD_INFO *PcdInfo
   );
-# 2248 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2248 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINTN
 
 LibPcdGetSku (
   void
   );
-# 18 "/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h" 2
+# 18 "/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h" 2
 
 extern GUID gEfiCallerIdGuid;
 extern CHAR8 *gEfiCallerBaseName;
@@ -597,8 +597,8 @@ extern const UINT32 _gPcd_FixedAtBuild_PcdControlFlowEnforcementPropertyMask;
 
 
 extern const UINT8 _gPcd_FixedAtBuild_PcdSpeculationBarrierType;
-# 32 "<コマンドライン>" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/X64/RdRand.nasm"
+# 32 "<command-line>" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/X64/RdRand.nasm"
 ;------------------------------------------------------------------------------
 ;
 ; Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.<BR>

@@ -1,5 +1,7 @@
 #include "MinLoader.h"
 
+int IsEqualGUID(EFI_GUID *guid1, EFI_GUID *guid2);
+
 EFI_STATUS
 EFIAPI
 Uefi_Main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *st)
@@ -14,12 +16,27 @@ Uefi_Main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *st)
         status = gBS->LocateProtocol(&gop_guid, NULL, (void **)&gop);
     } while (EFI_ERROR(status));
 
+    // EfiConfigrationTable中のAcpiを取得
+    EFI_GUID at_guid = EFI_ACPI_20_TABLE_GUID;
+    void *acpi_table;
+    for (int i = 0; i < gST->NumberOfTableEntries; i++) {
+        EFI_CONFIGURATION_TABLE *config_table = gST->ConfigurationTable + i;
+        if (IsEqualGUID(&config_table->VendorGuid, &at_guid)) {
+            acpi_table = config_table->VendorTable;
+            break;
+        }
+        acpi_table = NULL;
+    }
+
     // カーネルに渡す引数を設定
-    bootinfo.vinfo.fb = (unsigned long *)gop->Mode->FrameBufferBase;
-    bootinfo.vinfo.fb_size = (unsigned long)gop->Mode->FrameBufferSize;
-    bootinfo.vinfo.x_axis = (unsigned int)gop->Mode->Info->HorizontalResolution;
-    bootinfo.vinfo.y_axis = (unsigned int)gop->Mode->Info->VerticalResolution;
-    bootinfo.vinfo.ppsl = (unsigned int)gop->Mode->Info->PixelsPerScanLine;
+    // video_infoを詰める
+    bootinfo.vinfo.fb = (uint64_t *)gop->Mode->FrameBufferBase;
+    bootinfo.vinfo.fb_size = (uint64_t)gop->Mode->FrameBufferSize;
+    bootinfo.vinfo.x_axis = (uint32_t)gop->Mode->Info->HorizontalResolution;
+    bootinfo.vinfo.y_axis = (uint32_t)gop->Mode->Info->VerticalResolution;
+    bootinfo.vinfo.ppsl = (uint32_t)gop->Mode->Info->PixelsPerScanLine;
+    // acpi_infoを詰める
+    bootinfo.acpi_info = (struct acpi_table *)acpi_table;
 
     // SympleFileSystemProtocolを取得
     EFI_GUID sfsp_guid = EFI_SIMPLE_FILE_SYSTEM_PROTOCOL_GUID;
@@ -56,21 +73,15 @@ Uefi_Main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *st)
 
     // カーネルファイルをメモリに読み込む
     // ここではカーネルのファイルサイズを16KB以下とする
-    unsigned long long *kernel_program = NULL;
-    unsigned long long *start_address =
-        (unsigned long long *)KERNEL_START_QEMU;
+    uint64_t *kernel_program = NULL;
+    uint64_t *start_address =
+        (uint64_t *)KERNEL_START_QEMU;
     buf_size = (UINTN)BUF_16KB;
     do {
         status = kernel_file->Read(kernel_file,
                 &buf_size, kernel_program);
     } while(EFI_ERROR(status));
 
-    // bssセクションをゼロクリア
-//    struct header *head = NULL;
-//    UINTN head_size = sizeof(head);
-//    kernel_file->Read(kernel_file, (UINTN *)head, &head_size);
-//    gBS->SetMem(head->bss_address, head->bss_size, 0);
-//    file_size -= sizeof(head);
     // bodyをメモリに書き込む
     gBS->CopyMem(start_address, kernel_program, file_size);
 
@@ -102,4 +113,12 @@ Uefi_Main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *st)
     kernel_jump(&bootinfo, start_address);
 
     return EFI_SUCCESS;
+}
+
+// GUIDの比較
+int IsEqualGUID(EFI_GUID *guid1, EFI_GUID *guid2)
+{
+    uint64_t *s = (uint64_t *)guid1;
+    uint64_t *t = (uint64_t *)guid2;
+    return (s[0] == t[0]) && (s[1] == t[1]);
 }

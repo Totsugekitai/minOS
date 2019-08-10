@@ -1,15 +1,15 @@
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/X64/Thunk16.nasm"
-# 1 "<組み込み>"
-# 1 "<コマンドライン>"
-# 31 "<コマンドライン>"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/X64/Thunk16.nasm"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 31 "<command-line>"
 # 1 "/usr/include/stdc-predef.h" 1 3 4
-# 32 "<コマンドライン>" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h" 1
-# 16 "/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h" 1
-# 22 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/X64/ProcessorBind.h" 1
-# 182 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/X64/ProcessorBind.h"
+# 32 "<command-line>" 2
+# 1 "/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h" 1
+# 16 "/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h" 1
+# 22 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/X64/ProcessorBind.h" 1
+# 182 "/home/totsugekitai/minOS/edk2/MdePkg/Include/X64/ProcessorBind.h"
   typedef unsigned long long UINT64;
 
 
@@ -65,8 +65,8 @@ typedef UINT64 UINTN;
 
 
 typedef INT64 INTN;
-# 23 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h" 2
-# 48 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 23 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h" 2
+# 48 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 extern UINT8 _VerifySizeofBOOLEAN[(sizeof(BOOLEAN) == (1)) / (sizeof(BOOLEAN) == (1))];
 extern UINT8 _VerifySizeofINT8[(sizeof(INT8) == (1)) / (sizeof(INT8) == (1))];
 extern UINT8 _VerifySizeofUINT8[(sizeof(UINT8) == (1)) / (sizeof(UINT8) == (1))];
@@ -78,7 +78,7 @@ extern UINT8 _VerifySizeofINT64[(sizeof(INT64) == (8)) / (sizeof(INT64) == (8))]
 extern UINT8 _VerifySizeofUINT64[(sizeof(UINT64) == (8)) / (sizeof(UINT64) == (8))];
 extern UINT8 _VerifySizeofCHAR8[(sizeof(CHAR8) == (1)) / (sizeof(CHAR8) == (1))];
 extern UINT8 _VerifySizeofCHAR16[(sizeof(CHAR16) == (2)) / (sizeof(CHAR16) == (2))];
-# 67 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 67 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef enum {
   __VerifyUint8EnumValue = 0xff
 } __VERIFY_UINT8_ENUM_SIZE;
@@ -94,7 +94,7 @@ typedef enum {
 extern UINT8 _VerifySizeof__VERIFY_UINT8_ENUM_SIZE[(sizeof(__VERIFY_UINT8_ENUM_SIZE) == (4)) / (sizeof(__VERIFY_UINT8_ENUM_SIZE) == (4))];
 extern UINT8 _VerifySizeof__VERIFY_UINT16_ENUM_SIZE[(sizeof(__VERIFY_UINT16_ENUM_SIZE) == (4)) / (sizeof(__VERIFY_UINT16_ENUM_SIZE) == (4))];
 extern UINT8 _VerifySizeof__VERIFY_UINT32_ENUM_SIZE[(sizeof(__VERIFY_UINT32_ENUM_SIZE) == (4)) / (sizeof(__VERIFY_UINT32_ENUM_SIZE) == (4))];
-# 274 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 274 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef struct {
   UINT32 Data1;
   UINT16 Data2;
@@ -133,142 +133,142 @@ struct _LIST_ENTRY {
   LIST_ENTRY *ForwardLink;
   LIST_ENTRY *BackLink;
 };
-# 690 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 690 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef __builtin_ms_va_list VA_LIST;
-# 794 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 794 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef UINTN *BASE_LIST;
-# 958 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 958 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
 typedef UINTN RETURN_STATUS;
-# 1274 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Base.h"
+# 1274 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Base.h"
   void * __builtin_return_address (unsigned int level);
-# 17 "/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h" 1
-# 1076 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 17 "/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h" 1
+# 1076 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINTN
 
 LibPcdSetSku (
   UINTN SkuId
   );
-# 1093 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1093 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT8
 
 LibPcdGet8 (
   UINTN TokenNumber
   );
-# 1110 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1110 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT16
 
 LibPcdGet16 (
   UINTN TokenNumber
   );
-# 1127 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1127 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT32
 
 LibPcdGet32 (
   UINTN TokenNumber
   );
-# 1144 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1144 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT64
 
 LibPcdGet64 (
   UINTN TokenNumber
   );
-# 1161 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1161 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void *
 
 LibPcdGetPtr (
   UINTN TokenNumber
   );
-# 1178 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1178 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 BOOLEAN
 
 LibPcdGetBool (
   UINTN TokenNumber
   );
-# 1193 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1193 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINTN
 
 LibPcdGetSize (
   UINTN TokenNumber
   );
-# 1214 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1214 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT8
 
 LibPcdGetEx8 (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1236 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1236 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT16
 
 LibPcdGetEx16 (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1255 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1255 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT32
 
 LibPcdGetEx32 (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1277 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1277 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT64
 
 LibPcdGetEx64 (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1299 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1299 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void *
 
 LibPcdGetExPtr (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1321 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1321 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 BOOLEAN
 
 LibPcdGetExBool (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1343 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1343 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINTN
 
 LibPcdGetExSize (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 1364 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1364 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT8
 
 LibPcdSet8 (
   UINTN TokenNumber,
   UINT8 Value
   );
-# 1384 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1384 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT16
 
 LibPcdSet16 (
   UINTN TokenNumber,
   UINT16 Value
   );
-# 1404 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1404 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT32
 
 LibPcdSet32 (
   UINTN TokenNumber,
   UINT32 Value
   );
-# 1424 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1424 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT64
 
 LibPcdSet64 (
   UINTN TokenNumber,
   UINT64 Value
   );
-# 1454 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1454 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void *
 
 LibPcdSetPtr (
@@ -276,14 +276,14 @@ LibPcdSetPtr (
   UINTN *SizeOfBuffer,
   const void *Buffer
   );
-# 1475 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1475 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 BOOLEAN
 
 LibPcdSetBool (
   UINTN TokenNumber,
   BOOLEAN Value
   );
-# 1499 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1499 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT8
 
 LibPcdSetEx8 (
@@ -291,7 +291,7 @@ LibPcdSetEx8 (
   UINTN TokenNumber,
   UINT8 Value
   );
-# 1524 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1524 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT16
 
 LibPcdSetEx16 (
@@ -299,7 +299,7 @@ LibPcdSetEx16 (
   UINTN TokenNumber,
   UINT16 Value
   );
-# 1549 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1549 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT32
 
 LibPcdSetEx32 (
@@ -307,7 +307,7 @@ LibPcdSetEx32 (
   UINTN TokenNumber,
   UINT32 Value
   );
-# 1574 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1574 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINT64
 
 LibPcdSetEx64 (
@@ -315,7 +315,7 @@ LibPcdSetEx64 (
   UINTN TokenNumber,
   UINT64 Value
   );
-# 1605 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1605 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void *
 
 LibPcdSetExPtr (
@@ -324,7 +324,7 @@ LibPcdSetExPtr (
   UINTN *SizeOfBuffer,
   void *Buffer
   );
-# 1631 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1631 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 BOOLEAN
 
 LibPcdSetExBool (
@@ -332,35 +332,35 @@ LibPcdSetExBool (
   UINTN TokenNumber,
   BOOLEAN Value
   );
-# 1652 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1652 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSet8S (
   UINTN TokenNumber,
   UINT8 Value
   );
-# 1671 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1671 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSet16S (
   UINTN TokenNumber,
   UINT16 Value
   );
-# 1690 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1690 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSet32S (
   UINTN TokenNumber,
   UINT32 Value
   );
-# 1709 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1709 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSet64S (
   UINTN TokenNumber,
   UINT64 Value
   );
-# 1738 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1738 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetPtrS (
@@ -368,14 +368,14 @@ LibPcdSetPtrS (
   UINTN *SizeOfBuffer,
   const void *Buffer
   );
-# 1758 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1758 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetBoolS (
   UINTN TokenNumber,
   BOOLEAN Value
   );
-# 1781 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1781 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetEx8S (
@@ -383,7 +383,7 @@ LibPcdSetEx8S (
   UINTN TokenNumber,
   UINT8 Value
   );
-# 1805 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1805 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetEx16S (
@@ -391,7 +391,7 @@ LibPcdSetEx16S (
   UINTN TokenNumber,
   UINT16 Value
   );
-# 1829 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1829 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetEx32S (
@@ -399,7 +399,7 @@ LibPcdSetEx32S (
   UINTN TokenNumber,
   UINT32 Value
   );
-# 1853 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1853 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetEx64S (
@@ -407,7 +407,7 @@ LibPcdSetEx64S (
   UINTN TokenNumber,
   UINT64 Value
   );
-# 1883 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1883 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetExPtrS (
@@ -416,7 +416,7 @@ LibPcdSetExPtrS (
   UINTN *SizeOfBuffer,
   void *Buffer
   );
-# 1908 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1908 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPcdSetExBoolS (
@@ -424,7 +424,7 @@ LibPcdSetExBoolS (
   UINTN TokenNumber,
   BOOLEAN Value
   );
-# 1932 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1932 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 typedef
 void
 ( *PCD_CALLBACK)(
@@ -433,7 +433,7 @@ void
   void *TokenData,
   UINTN TokenDataSize
   );
-# 1958 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1958 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void
 
 LibPcdCallbackOnSet (
@@ -441,7 +441,7 @@ LibPcdCallbackOnSet (
   UINTN TokenNumber,
   PCD_CALLBACK NotificationFunction
   );
-# 1980 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 1980 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void
 
 LibPcdCancelCallback (
@@ -449,20 +449,20 @@ LibPcdCancelCallback (
   UINTN TokenNumber,
   PCD_CALLBACK NotificationFunction
   );
-# 2008 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2008 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINTN
 
 LibPcdGetNextToken (
   const GUID *Guid,
   UINTN TokenNumber
   );
-# 2030 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2030 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 GUID *
 
 LibPcdGetNextTokenSpace (
   const GUID *TokenSpaceGuid
   );
-# 2060 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2060 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void *
 
 LibPatchPcdSetPtr (
@@ -471,7 +471,7 @@ LibPatchPcdSetPtr (
   UINTN *SizeOfBuffer,
   const void *Buffer
   );
-# 2092 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2092 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPatchPcdSetPtrS (
@@ -480,7 +480,7 @@ LibPatchPcdSetPtrS (
   UINTN *SizeOfBuffer,
   const void *Buffer
   );
-# 2126 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2126 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void *
 
 LibPatchPcdSetPtrAndSize (
@@ -490,7 +490,7 @@ LibPatchPcdSetPtrAndSize (
   UINTN *SizeOfBuffer,
   const void *Buffer
   );
-# 2161 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2161 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 RETURN_STATUS
 
 LibPatchPcdSetPtrAndSizeS (
@@ -529,14 +529,14 @@ typedef struct {
 
   CHAR8 *PcdName;
 } PCD_INFO;
-# 2213 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2213 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void
 
 LibPcdGetInfo (
   UINTN TokenNumber,
   PCD_INFO *PcdInfo
   );
-# 2233 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2233 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 void
 
 LibPcdGetInfoEx (
@@ -544,13 +544,13 @@ LibPcdGetInfoEx (
   UINTN TokenNumber,
   PCD_INFO *PcdInfo
   );
-# 2248 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
+# 2248 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/PcdLib.h"
 UINTN
 
 LibPcdGetSku (
   void
   );
-# 18 "/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h" 2
+# 18 "/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseLib/BaseLib/DEBUG/AutoGen.h" 2
 
 extern GUID gEfiCallerIdGuid;
 extern CHAR8 *gEfiCallerBaseName;
@@ -597,13 +597,13 @@ extern const UINT32 _gPcd_FixedAtBuild_PcdControlFlowEnforcementPropertyMask;
 
 
 extern const UINT8 _gPcd_FixedAtBuild_PcdSpeculationBarrierType;
-# 32 "<コマンドライン>" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/X64/Thunk16.nasm"
+# 32 "<command-line>" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/X64/Thunk16.nasm"
 
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h" 1
-# 13 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h" 1
-# 39 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h" 1
+# 13 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h" 1
+# 39 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 typedef struct {
   UINT64 Rbx;
   UINT64 Rsp;
@@ -619,21 +619,21 @@ typedef struct {
   UINT8 XmmBuffer[160];
   UINT64 Ssp;
 } BASE_LIBRARY_JUMP_BUFFER;
-# 149 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 149 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 StrnLenS (
   const CHAR16 *String,
   UINTN MaxSize
   );
-# 177 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 177 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 StrnSizeS (
   const CHAR16 *String,
   UINTN MaxSize
   );
-# 211 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 211 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 StrCpyS (
@@ -641,7 +641,7 @@ StrCpyS (
   UINTN DestMax,
   const CHAR16 *Source
   );
-# 249 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 249 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 StrnCpyS (
@@ -650,7 +650,7 @@ StrnCpyS (
   const CHAR16 *Source,
   UINTN Length
   );
-# 288 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 288 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 StrCatS (
@@ -658,7 +658,7 @@ StrCatS (
   UINTN DestMax,
   const CHAR16 *Source
   );
-# 329 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 329 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 StrnCatS (
@@ -667,7 +667,7 @@ StrnCatS (
   const CHAR16 *Source,
   UINTN Length
   );
-# 386 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 386 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 StrDecimalToUintnS (
@@ -675,7 +675,7 @@ StrDecimalToUintnS (
   CHAR16 **EndPointer,
   UINTN *Data
   );
-# 442 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 442 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 StrDecimalToUint64S (
@@ -683,7 +683,7 @@ StrDecimalToUint64S (
   CHAR16 **EndPointer,
   UINT64 *Data
   );
-# 503 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 503 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 StrHexToUintnS (
@@ -691,7 +691,7 @@ StrHexToUintnS (
   CHAR16 **EndPointer,
   UINTN *Data
   );
-# 564 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 564 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 StrHexToUint64S (
@@ -699,21 +699,21 @@ StrHexToUint64S (
   CHAR16 **EndPointer,
   UINT64 *Data
   );
-# 586 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 586 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsciiStrnLenS (
   const CHAR8 *String,
   UINTN MaxSize
   );
-# 612 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 612 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsciiStrnSizeS (
   const CHAR8 *String,
   UINTN MaxSize
   );
-# 644 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 644 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrCpyS (
@@ -721,7 +721,7 @@ AsciiStrCpyS (
   UINTN DestMax,
   const CHAR8 *Source
   );
-# 680 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 680 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrnCpyS (
@@ -730,7 +730,7 @@ AsciiStrnCpyS (
   const CHAR8 *Source,
   UINTN Length
   );
-# 717 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 717 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrCatS (
@@ -738,7 +738,7 @@ AsciiStrCatS (
   UINTN DestMax,
   const CHAR8 *Source
   );
-# 756 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 756 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrnCatS (
@@ -747,7 +747,7 @@ AsciiStrnCatS (
   const CHAR8 *Source,
   UINTN Length
   );
-# 812 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 812 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrDecimalToUintnS (
@@ -755,7 +755,7 @@ AsciiStrDecimalToUintnS (
   CHAR8 **EndPointer,
   UINTN *Data
   );
-# 867 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 867 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrDecimalToUint64S (
@@ -763,7 +763,7 @@ AsciiStrDecimalToUint64S (
   CHAR8 **EndPointer,
   UINT64 *Data
   );
-# 926 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 926 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrHexToUintnS (
@@ -771,7 +771,7 @@ AsciiStrHexToUintnS (
   CHAR8 **EndPointer,
   UINTN *Data
   );
-# 985 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 985 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrHexToUint64S (
@@ -779,14 +779,14 @@ AsciiStrHexToUint64S (
   CHAR8 **EndPointer,
   UINT64 *Data
   );
-# 1021 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1021 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR16 *
 
 StrCpy (
   CHAR16 *Destination,
   const CHAR16 *Source
   );
-# 1061 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1061 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR16 *
 
 StrnCpy (
@@ -794,26 +794,26 @@ StrnCpy (
   const CHAR16 *Source,
   UINTN Length
   );
-# 1087 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1087 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 StrLen (
   const CHAR16 *String
   );
-# 1112 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1112 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 StrSize (
   const CHAR16 *String
   );
-# 1147 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1147 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 INTN
 
 StrCmp (
   const CHAR16 *FirstString,
   const CHAR16 *SecondString
   );
-# 1187 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1187 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 INTN
 
 StrnCmp (
@@ -821,14 +821,14 @@ StrnCmp (
   const CHAR16 *SecondString,
   UINTN Length
   );
-# 1232 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1232 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR16 *
 
 StrCat (
   CHAR16 *Destination,
   const CHAR16 *Source
   );
-# 1280 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1280 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR16 *
 
 StrnCat (
@@ -836,38 +836,38 @@ StrnCat (
   const CHAR16 *Source,
   UINTN Length
   );
-# 1314 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1314 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR16 *
 
 StrStr (
   const CHAR16 *String,
   const CHAR16 *SearchString
   );
-# 1355 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1355 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 StrDecimalToUintn (
   const CHAR16 *String
   );
-# 1395 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1395 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 StrDecimalToUint64 (
   const CHAR16 *String
   );
-# 1437 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1437 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 StrHexToUintn (
   const CHAR16 *String
   );
-# 1479 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1479 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 StrHexToUint64 (
   const CHAR16 *String
   );
-# 1543 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1543 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 StrToIpv6Address (
@@ -876,7 +876,7 @@ StrToIpv6Address (
   IPv6_ADDRESS *Address,
   UINT8 *PrefixLength
   );
-# 1601 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1601 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 StrToIpv4Address (
@@ -885,14 +885,14 @@ StrToIpv4Address (
   IPv4_ADDRESS *Address,
   UINT8 *PrefixLength
   );
-# 1656 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1656 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 StrToGuid (
   const CHAR16 *String,
   GUID *Guid
   );
-# 1707 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1707 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 StrHexToBytes (
@@ -901,14 +901,14 @@ StrHexToBytes (
   UINT8 *Buffer,
   UINTN MaxBufferSize
   );
-# 1753 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1753 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR8 *
 
 UnicodeStrToAsciiStr (
   const CHAR16 *Source,
   CHAR8 *Destination
   );
-# 1803 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1803 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 UnicodeStrToAsciiStrS (
@@ -916,7 +916,7 @@ UnicodeStrToAsciiStrS (
   CHAR8 *Destination,
   UINTN DestMax
   );
-# 1855 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1855 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 UnicodeStrnToAsciiStrS (
@@ -926,14 +926,14 @@ UnicodeStrnToAsciiStrS (
   UINTN DestMax,
   UINTN *DestinationLength
   );
-# 1890 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1890 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR8 *
 
 AsciiStrCpy (
   CHAR8 *Destination,
   const CHAR8 *Source
   );
-# 1927 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1927 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR8 *
 
 AsciiStrnCpy (
@@ -941,33 +941,33 @@ AsciiStrnCpy (
   const CHAR8 *Source,
   UINTN Length
   );
-# 1953 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1953 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsciiStrLen (
   const CHAR8 *String
   );
-# 1977 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 1977 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsciiStrSize (
   const CHAR8 *String
   );
-# 2010 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2010 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 INTN
 
 AsciiStrCmp (
   const CHAR8 *FirstString,
   const CHAR8 *SecondString
   );
-# 2047 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2047 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 INTN
 
 AsciiStriCmp (
   const CHAR8 *FirstString,
   const CHAR8 *SecondString
   );
-# 2085 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2085 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 INTN
 
 AsciiStrnCmp (
@@ -975,14 +975,14 @@ AsciiStrnCmp (
   const CHAR8 *SecondString,
   UINTN Length
   );
-# 2125 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2125 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR8 *
 
 AsciiStrCat (
   CHAR8 *Destination,
   const CHAR8 *Source
   );
-# 2171 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2171 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR8 *
 
 AsciiStrnCat (
@@ -990,38 +990,38 @@ AsciiStrnCat (
   const CHAR8 *Source,
   UINTN Length
   );
-# 2204 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2204 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR8 *
 
 AsciiStrStr (
   const CHAR8 *String,
   const CHAR8 *SearchString
   );
-# 2242 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2242 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsciiStrDecimalToUintn (
   const CHAR8 *String
   );
-# 2279 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2279 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsciiStrDecimalToUint64 (
   const CHAR8 *String
   );
-# 2320 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2320 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsciiStrHexToUintn (
   const CHAR8 *String
   );
-# 2361 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2361 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsciiStrHexToUint64 (
   const CHAR8 *String
   );
-# 2419 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2419 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrToIpv6Address (
@@ -1030,7 +1030,7 @@ AsciiStrToIpv6Address (
   IPv6_ADDRESS *Address,
   UINT8 *PrefixLength
   );
-# 2471 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2471 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrToIpv4Address (
@@ -1039,14 +1039,14 @@ AsciiStrToIpv4Address (
   IPv4_ADDRESS *Address,
   UINT8 *PrefixLength
   );
-# 2523 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2523 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrToGuid (
   const CHAR8 *String,
   GUID *Guid
   );
-# 2572 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2572 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrHexToBytes (
@@ -1055,14 +1055,14 @@ AsciiStrHexToBytes (
   UINT8 *Buffer,
   UINTN MaxBufferSize
   );
-# 2612 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2612 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR16 *
 
 AsciiStrToUnicodeStr (
   const CHAR8 *Source,
   CHAR16 *Destination
   );
-# 2658 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2658 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrToUnicodeStrS (
@@ -1070,7 +1070,7 @@ AsciiStrToUnicodeStrS (
   CHAR16 *Destination,
   UINTN DestMax
   );
-# 2709 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2709 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 AsciiStrnToUnicodeStrS (
@@ -1080,19 +1080,19 @@ AsciiStrnToUnicodeStrS (
   UINTN DestMax,
   UINTN *DestinationLength
   );
-# 2734 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2734 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR16
 
 CharToUpper (
   CHAR16 Char
   );
-# 2753 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2753 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR8
 
 AsciiCharToUpper (
   CHAR8 Chr
   );
-# 2778 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2778 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 Base64Encode (
@@ -1101,7 +1101,7 @@ Base64Encode (
   CHAR8 *Destination ,
   UINTN *DestinationSize
   );
-# 2806 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2806 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 RETURN_STATUS
 
 Base64Decode (
@@ -1110,249 +1110,249 @@ Base64Decode (
   UINT8 *Destination ,
   UINTN *DestinationSize
   );
-# 2828 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2828 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT8
 
 DecimalToBcd8 (
   UINT8 Value
   );
-# 2849 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2849 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT8
 
 BcdToDecimal8 (
   UINT8 Value
   );
-# 2867 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2867 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 BOOLEAN
 
 PathRemoveLastItem(
   CHAR16 *Path
   );
-# 2886 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2886 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 CHAR16*
 
 PathCleanUpDirectories(
   CHAR16 *Path
   );
-# 2932 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2932 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 BOOLEAN
 
 IsNodeInList (
   const LIST_ENTRY *FirstEntry,
   const LIST_ENTRY *SecondEntry
   );
-# 2956 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2956 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 LIST_ENTRY *
 
 InitializeListHead (
   LIST_ENTRY *ListHead
   );
-# 2985 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 2985 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 LIST_ENTRY *
 
 InsertHeadList (
   LIST_ENTRY *ListHead,
   LIST_ENTRY *Entry
   );
-# 3015 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3015 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 LIST_ENTRY *
 
 InsertTailList (
   LIST_ENTRY *ListHead,
   LIST_ENTRY *Entry
   );
-# 3043 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3043 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 LIST_ENTRY *
 
 GetFirstNode (
   const LIST_ENTRY *List
   );
-# 3071 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3071 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 LIST_ENTRY *
 
 GetNextNode (
   const LIST_ENTRY *List,
   const LIST_ENTRY *Node
   );
-# 3100 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3100 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 LIST_ENTRY *
 
 GetPreviousNode (
   const LIST_ENTRY *List,
   const LIST_ENTRY *Node
   );
-# 3127 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3127 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 BOOLEAN
 
 IsListEmpty (
   const LIST_ENTRY *ListHead
   );
-# 3160 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3160 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 BOOLEAN
 
 IsNull (
   const LIST_ENTRY *List,
   const LIST_ENTRY *Node
   );
-# 3191 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3191 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 BOOLEAN
 
 IsNodeAtEnd (
   const LIST_ENTRY *List,
   const LIST_ENTRY *Node
   );
-# 3225 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3225 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 LIST_ENTRY *
 
 SwapListEntries (
   LIST_ENTRY *FirstEntry,
   LIST_ENTRY *SecondEntry
   );
-# 3254 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3254 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 LIST_ENTRY *
 
 RemoveEntryList (
   const LIST_ENTRY *Entry
   );
-# 3279 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3279 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 LShiftU64 (
   UINT64 Operand,
   UINTN Count
   );
-# 3302 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3302 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 RShiftU64 (
   UINT64 Operand,
   UINTN Count
   );
-# 3325 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3325 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 ARShiftU64 (
   UINT64 Operand,
   UINTN Count
   );
-# 3349 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3349 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 LRotU32 (
   UINT32 Operand,
   UINTN Count
   );
-# 3373 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3373 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 RRotU32 (
   UINT32 Operand,
   UINTN Count
   );
-# 3397 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3397 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 LRotU64 (
   UINT64 Operand,
   UINTN Count
   );
-# 3421 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3421 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 RRotU64 (
   UINT64 Operand,
   UINTN Count
   );
-# 3442 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3442 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 INTN
 
 LowBitSet32 (
   UINT32 Operand
   );
-# 3463 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3463 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 INTN
 
 LowBitSet64 (
   UINT64 Operand
   );
-# 3484 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3484 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 INTN
 
 HighBitSet32 (
   UINT32 Operand
   );
-# 3505 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3505 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 INTN
 
 HighBitSet64 (
   UINT64 Operand
   );
-# 3525 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3525 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 GetPowerOfTwo32 (
   UINT32 Operand
   );
-# 3545 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3545 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 GetPowerOfTwo64 (
   UINT64 Operand
   );
-# 3564 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3564 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 SwapBytes16 (
   UINT16 Value
   );
-# 3583 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3583 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 SwapBytes32 (
   UINT32 Value
   );
-# 3602 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3602 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 SwapBytes64 (
   UINT64 Value
   );
-# 3623 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3623 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 MultU64x32 (
   UINT64 Multiplicand,
   UINT32 Multiplier
   );
-# 3645 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3645 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 MultU64x64 (
   UINT64 Multiplicand,
   UINT64 Multiplier
   );
-# 3667 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3667 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 INT64
 
 MultS64x64 (
   INT64 Multiplicand,
   INT64 Multiplier
   );
-# 3691 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3691 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 DivU64x32 (
   UINT64 Dividend,
   UINT32 Divisor
   );
-# 3715 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3715 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 ModU64x32 (
   UINT64 Dividend,
   UINT32 Divisor
   );
-# 3742 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3742 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 DivU64x32Remainder (
@@ -1360,7 +1360,7 @@ DivU64x32Remainder (
   UINT32 Divisor,
   UINT32 *Remainder
   );
-# 3770 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3770 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 DivU64x64Remainder (
@@ -1368,7 +1368,7 @@ DivU64x64Remainder (
   UINT64 Divisor,
   UINT64 *Remainder
   );
-# 3802 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3802 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 INT64
 
 DivS64x64Remainder (
@@ -1376,59 +1376,59 @@ DivS64x64Remainder (
   INT64 Divisor,
   INT64 *Remainder
   );
-# 3824 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3824 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 ReadUnaligned16 (
   const UINT16 *Buffer
   );
-# 3846 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3846 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 WriteUnaligned16 (
   UINT16 *Buffer,
   UINT16 Value
   );
-# 3867 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3867 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 ReadUnaligned24 (
   const UINT32 *Buffer
   );
-# 3889 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3889 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 WriteUnaligned24 (
   UINT32 *Buffer,
   UINT32 Value
   );
-# 3910 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3910 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 ReadUnaligned32 (
   const UINT32 *Buffer
   );
-# 3932 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3932 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 WriteUnaligned32 (
   UINT32 *Buffer,
   UINT32 Value
   );
-# 3953 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3953 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 ReadUnaligned64 (
   const UINT64 *Buffer
   );
-# 3975 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 3975 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 WriteUnaligned64 (
   UINT64 *Buffer,
   UINT64 Value
   );
-# 4006 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4006 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT8
 
 BitFieldRead8 (
@@ -1436,7 +1436,7 @@ BitFieldRead8 (
   UINTN StartBit,
   UINTN EndBit
   );
-# 4038 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4038 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT8
 
 BitFieldWrite8 (
@@ -1445,7 +1445,7 @@ BitFieldWrite8 (
   UINTN EndBit,
   UINT8 Value
   );
-# 4072 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4072 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT8
 
 BitFieldOr8 (
@@ -1454,7 +1454,7 @@ BitFieldOr8 (
   UINTN EndBit,
   UINT8 OrData
   );
-# 4106 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4106 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT8
 
 BitFieldAnd8 (
@@ -1463,7 +1463,7 @@ BitFieldAnd8 (
   UINTN EndBit,
   UINT8 AndData
   );
-# 4143 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4143 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT8
 
 BitFieldAndThenOr8 (
@@ -1473,7 +1473,7 @@ BitFieldAndThenOr8 (
   UINT8 AndData,
   UINT8 OrData
   );
-# 4173 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4173 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 BitFieldRead16 (
@@ -1481,7 +1481,7 @@ BitFieldRead16 (
   UINTN StartBit,
   UINTN EndBit
   );
-# 4205 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4205 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 BitFieldWrite16 (
@@ -1490,7 +1490,7 @@ BitFieldWrite16 (
   UINTN EndBit,
   UINT16 Value
   );
-# 4239 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4239 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 BitFieldOr16 (
@@ -1499,7 +1499,7 @@ BitFieldOr16 (
   UINTN EndBit,
   UINT16 OrData
   );
-# 4273 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4273 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 BitFieldAnd16 (
@@ -1508,7 +1508,7 @@ BitFieldAnd16 (
   UINTN EndBit,
   UINT16 AndData
   );
-# 4310 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4310 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 BitFieldAndThenOr16 (
@@ -1518,7 +1518,7 @@ BitFieldAndThenOr16 (
   UINT16 AndData,
   UINT16 OrData
   );
-# 4340 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4340 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 BitFieldRead32 (
@@ -1526,7 +1526,7 @@ BitFieldRead32 (
   UINTN StartBit,
   UINTN EndBit
   );
-# 4372 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4372 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 BitFieldWrite32 (
@@ -1535,7 +1535,7 @@ BitFieldWrite32 (
   UINTN EndBit,
   UINT32 Value
   );
-# 4406 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4406 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 BitFieldOr32 (
@@ -1544,7 +1544,7 @@ BitFieldOr32 (
   UINTN EndBit,
   UINT32 OrData
   );
-# 4440 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4440 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 BitFieldAnd32 (
@@ -1553,7 +1553,7 @@ BitFieldAnd32 (
   UINTN EndBit,
   UINT32 AndData
   );
-# 4477 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4477 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 BitFieldAndThenOr32 (
@@ -1563,7 +1563,7 @@ BitFieldAndThenOr32 (
   UINT32 AndData,
   UINT32 OrData
   );
-# 4507 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4507 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 BitFieldRead64 (
@@ -1571,7 +1571,7 @@ BitFieldRead64 (
   UINTN StartBit,
   UINTN EndBit
   );
-# 4539 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4539 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 BitFieldWrite64 (
@@ -1580,7 +1580,7 @@ BitFieldWrite64 (
   UINTN EndBit,
   UINT64 Value
   );
-# 4573 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4573 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 BitFieldOr64 (
@@ -1589,7 +1589,7 @@ BitFieldOr64 (
   UINTN EndBit,
   UINT64 OrData
   );
-# 4607 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4607 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 BitFieldAnd64 (
@@ -1598,7 +1598,7 @@ BitFieldAnd64 (
   UINTN EndBit,
   UINT64 AndData
   );
-# 4644 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4644 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 BitFieldAndThenOr64 (
@@ -1608,7 +1608,7 @@ BitFieldAndThenOr64 (
   UINT64 AndData,
   UINT64 OrData
   );
-# 4674 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4674 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT8
 
 BitFieldCountOnes32 (
@@ -1616,7 +1616,7 @@ BitFieldCountOnes32 (
   UINTN StartBit,
   UINTN EndBit
   );
-# 4702 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4702 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT8
 
 BitFieldCountOnes64 (
@@ -1624,90 +1624,90 @@ BitFieldCountOnes64 (
   UINTN StartBit,
   UINTN EndBit
   );
-# 4732 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4732 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT8
 
 CalculateSum8 (
   const UINT8 *Buffer,
   UINTN Length
   );
-# 4758 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4758 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT8
 
 CalculateCheckSum8 (
   const UINT8 *Buffer,
   UINTN Length
   );
-# 4785 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4785 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 CalculateSum16 (
   const UINT16 *Buffer,
   UINTN Length
   );
-# 4813 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4813 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 CalculateCheckSum16 (
   const UINT16 *Buffer,
   UINTN Length
   );
-# 4840 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4840 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 CalculateSum32 (
   const UINT32 *Buffer,
   UINTN Length
   );
-# 4868 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4868 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 CalculateCheckSum32 (
   const UINT32 *Buffer,
   UINTN Length
   );
-# 4895 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4895 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 CalculateSum64 (
   const UINT64 *Buffer,
   UINTN Length
   );
-# 4923 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4923 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 CalculateCheckSum64 (
   const UINT64 *Buffer,
   UINTN Length
   );
-# 4943 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4943 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 CalculateCrc32(
   void *Buffer,
   UINTN Length
   );
-# 4961 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4961 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 typedef
 void
 ( *SWITCH_STACK_ENTRY_POINT)(
   void *Context1,
   void *Context2
   );
-# 4976 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 4976 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 MemoryFence (
   void
   );
-# 5004 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5004 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 __attribute__((returns_twice))
 UINTN
 
 SetJump (
   BASE_LIBRARY_JUMP_BUFFER *JumpBuffer
   );
-# 5028 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5028 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 LongJump (
@@ -1736,7 +1736,7 @@ void
 DisableInterrupts (
   void
   );
-# 5066 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5066 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 BOOLEAN
 
 SaveAndDisableInterrupts (
@@ -1754,25 +1754,25 @@ void
 EnableDisableInterrupts (
   void
   );
-# 5095 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5095 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 BOOLEAN
 
 GetInterruptState (
   void
   );
-# 5116 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5116 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 BOOLEAN
 
 SetInterruptState (
   BOOLEAN InterruptState
   );
-# 5130 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5130 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 CpuPause (
   void
   );
-# 5166 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5166 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 SwitchStack (
@@ -1782,19 +1782,19 @@ SwitchStack (
   void *NewStack,
   ...
   );
-# 5184 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5184 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 CpuBreakpoint (
   void
   );
-# 5200 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5200 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 CpuDeadLoop (
   void
   );
-# 5214 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5214 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 SpeculationBarrier (
@@ -1945,7 +1945,7 @@ typedef struct {
   UINT16 Limit;
   UINTN Base;
 } IA32_DESCRIPTOR;
-# 5460 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5460 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 typedef union {
   struct {
     UINT32 OffsetLow:16;
@@ -2086,9 +2086,9 @@ typedef struct {
   UINT32 RealModeBufferSize;
   UINT32 ThunkAttributes;
 } THUNK_CONTEXT;
-# 5617 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5617 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 typedef void (X86_ASSEMBLY_PATCH_LABEL) (void);
-# 5644 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5644 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 AsmCpuid (
@@ -2098,7 +2098,7 @@ AsmCpuid (
   UINT32 *Ecx,
   UINT32 *Edx
   );
-# 5687 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5687 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 AsmCpuidEx (
@@ -2109,46 +2109,46 @@ AsmCpuidEx (
   UINT32 *Ecx,
   UINT32 *Edx
   );
-# 5706 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5706 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmDisableCache (
   void
   );
-# 5720 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5720 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmEnableCache (
   void
   );
-# 5741 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5741 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 AsmReadMsr32 (
   UINT32 Index
   );
-# 5765 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5765 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 AsmWriteMsr32 (
   UINT32 Index,
   UINT32 Value
   );
-# 5792 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5792 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 AsmMsrOr32 (
   UINT32 Index,
   UINT32 OrData
   );
-# 5819 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5819 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 AsmMsrAnd32 (
   UINT32 Index,
   UINT32 AndData
   );
-# 5849 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5849 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 AsmMsrAndThenOr32 (
@@ -2156,7 +2156,7 @@ AsmMsrAndThenOr32 (
   UINT32 AndData,
   UINT32 OrData
   );
-# 5880 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5880 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 AsmMsrBitFieldRead32 (
@@ -2164,7 +2164,7 @@ AsmMsrBitFieldRead32 (
   UINTN StartBit,
   UINTN EndBit
   );
-# 5914 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5914 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 AsmMsrBitFieldWrite32 (
@@ -2173,7 +2173,7 @@ AsmMsrBitFieldWrite32 (
   UINTN EndBit,
   UINT32 Value
   );
-# 5951 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5951 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 AsmMsrBitFieldOr32 (
@@ -2182,7 +2182,7 @@ AsmMsrBitFieldOr32 (
   UINTN EndBit,
   UINT32 OrData
   );
-# 5988 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 5988 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 AsmMsrBitFieldAnd32 (
@@ -2191,7 +2191,7 @@ AsmMsrBitFieldAnd32 (
   UINTN EndBit,
   UINT32 AndData
   );
-# 6029 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6029 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT32
 
 AsmMsrBitFieldAndThenOr32 (
@@ -2201,34 +2201,34 @@ AsmMsrBitFieldAndThenOr32 (
   UINT32 AndData,
   UINT32 OrData
   );
-# 6054 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6054 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmReadMsr64 (
   UINT32 Index
   );
-# 6078 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6078 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmWriteMsr64 (
   UINT32 Index,
   UINT64 Value
   );
-# 6104 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6104 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmMsrOr64 (
   UINT32 Index,
   UINT64 OrData
   );
-# 6130 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6130 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmMsrAnd64 (
   UINT32 Index,
   UINT64 AndData
   );
-# 6159 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6159 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmMsrAndThenOr64 (
@@ -2236,7 +2236,7 @@ AsmMsrAndThenOr64 (
   UINT64 AndData,
   UINT64 OrData
   );
-# 6190 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6190 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmMsrBitFieldRead64 (
@@ -2244,7 +2244,7 @@ AsmMsrBitFieldRead64 (
   UINTN StartBit,
   UINTN EndBit
   );
-# 6223 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6223 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmMsrBitFieldWrite64 (
@@ -2253,7 +2253,7 @@ AsmMsrBitFieldWrite64 (
   UINTN EndBit,
   UINT64 Value
   );
-# 6260 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6260 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmMsrBitFieldOr64 (
@@ -2262,7 +2262,7 @@ AsmMsrBitFieldOr64 (
   UINTN EndBit,
   UINT64 OrData
   );
-# 6297 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6297 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmMsrBitFieldAnd64 (
@@ -2271,7 +2271,7 @@ AsmMsrBitFieldAnd64 (
   UINTN EndBit,
   UINT64 AndData
   );
-# 6337 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6337 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmMsrBitFieldAndThenOr64 (
@@ -2281,355 +2281,355 @@ AsmMsrBitFieldAndThenOr64 (
   UINT64 AndData,
   UINT64 OrData
   );
-# 6358 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6358 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadEflags (
   void
   );
-# 6375 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6375 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadCr0 (
   void
   );
-# 6392 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6392 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadCr2 (
   void
   );
-# 6409 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6409 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadCr3 (
   void
   );
-# 6426 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6426 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadCr4 (
   void
   );
-# 6444 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6444 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmWriteCr0 (
   UINTN Cr0
   );
-# 6462 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6462 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmWriteCr2 (
   UINTN Cr2
   );
-# 6480 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6480 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmWriteCr3 (
   UINTN Cr3
   );
-# 6498 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6498 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmWriteCr4 (
   UINTN Cr4
   );
-# 6515 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6515 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadDr0 (
   void
   );
-# 6532 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6532 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadDr1 (
   void
   );
-# 6549 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6549 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadDr2 (
   void
   );
-# 6566 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6566 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadDr3 (
   void
   );
-# 6583 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6583 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadDr4 (
   void
   );
-# 6600 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6600 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadDr5 (
   void
   );
-# 6617 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6617 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadDr6 (
   void
   );
-# 6634 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6634 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmReadDr7 (
   void
   );
-# 6652 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6652 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmWriteDr0 (
   UINTN Dr0
   );
-# 6670 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6670 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmWriteDr1 (
   UINTN Dr1
   );
-# 6688 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6688 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmWriteDr2 (
   UINTN Dr2
   );
-# 6706 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6706 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmWriteDr3 (
   UINTN Dr3
   );
-# 6724 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6724 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmWriteDr4 (
   UINTN Dr4
   );
-# 6742 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6742 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmWriteDr5 (
   UINTN Dr5
   );
-# 6760 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6760 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmWriteDr6 (
   UINTN Dr6
   );
-# 6778 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6778 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmWriteDr7 (
   UINTN Dr7
   );
-# 6794 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6794 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 AsmReadCs (
   void
   );
-# 6810 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6810 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 AsmReadDs (
   void
   );
-# 6826 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6826 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 AsmReadEs (
   void
   );
-# 6842 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6842 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 AsmReadFs (
   void
   );
-# 6858 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6858 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 AsmReadGs (
   void
   );
-# 6874 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6874 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 AsmReadSs (
   void
   );
-# 6890 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6890 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 AsmReadTr (
   void
   );
-# 6908 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6908 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmReadGdtr (
   IA32_DESCRIPTOR *Gdtr
   );
-# 6926 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6926 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmWriteGdtr (
   const IA32_DESCRIPTOR *Gdtr
   );
-# 6944 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6944 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmReadIdtr (
   IA32_DESCRIPTOR *Idtr
   );
-# 6962 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6962 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmWriteIdtr (
   const IA32_DESCRIPTOR *Idtr
   );
-# 6978 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6978 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT16
 
 AsmReadLdtr (
   void
   );
-# 6994 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 6994 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmWriteLdtr (
   UINT16 Ldtr
   );
-# 7014 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7014 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmFxSave (
   IA32_FX_BUFFER *Buffer
   );
-# 7035 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7035 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmFxRestore (
   const IA32_FX_BUFFER *Buffer
   );
-# 7051 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7051 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmReadMm0 (
   void
   );
-# 7067 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7067 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmReadMm1 (
   void
   );
-# 7083 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7083 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmReadMm2 (
   void
   );
-# 7099 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7099 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmReadMm3 (
   void
   );
-# 7115 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7115 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmReadMm4 (
   void
   );
-# 7131 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7131 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmReadMm5 (
   void
   );
-# 7147 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7147 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmReadMm6 (
   void
   );
-# 7163 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7163 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmReadMm7 (
   void
   );
-# 7179 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7179 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmWriteMm0 (
   UINT64 Value
   );
-# 7195 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7195 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmWriteMm1 (
   UINT64 Value
   );
-# 7211 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7211 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmWriteMm2 (
   UINT64 Value
   );
-# 7227 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7227 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmWriteMm3 (
   UINT64 Value
   );
-# 7243 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7243 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmWriteMm4 (
   UINT64 Value
   );
-# 7259 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7259 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmWriteMm5 (
   UINT64 Value
   );
-# 7275 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7275 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmWriteMm6 (
   UINT64 Value
   );
-# 7291 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7291 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmWriteMm7 (
   UINT64 Value
   );
-# 7307 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7307 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmReadTsc (
   void
   );
-# 7325 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7325 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINT64
 
 AsmReadPmc (
   UINT32 Index
   );
-# 7348 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7348 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmMonitor (
@@ -2637,32 +2637,32 @@ AsmMonitor (
   UINTN Ecx,
   UINTN Edx
   );
-# 7371 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7371 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 UINTN
 
 AsmMwait (
   UINTN Eax,
   UINTN Ecx
   );
-# 7386 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7386 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmWbinvd (
   void
   );
-# 7400 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7400 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmInvd (
   void
   );
-# 7422 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7422 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void *
 
 AsmFlushCacheLine (
   void *LinearAddress
   );
-# 7466 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7466 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmEnablePaging32 (
@@ -2671,7 +2671,7 @@ AsmEnablePaging32 (
   void *Context2,
   void *NewStack
   );
-# 7510 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7510 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmDisablePaging32 (
@@ -2680,7 +2680,7 @@ AsmDisablePaging32 (
   void *Context2,
   void *NewStack
   );
-# 7552 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7552 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmEnablePaging64 (
@@ -2690,7 +2690,7 @@ AsmEnablePaging64 (
   UINT64 Context2,
   UINT64 NewStack
   );
-# 7593 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7593 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmDisablePaging64 (
@@ -2700,44 +2700,44 @@ AsmDisablePaging64 (
   UINT32 Context2,
   UINT32 NewStack
   );
-# 7629 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7629 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmGetThunk16Properties (
   UINT32 *RealModeBufferSize,
   UINT32 *ExtraStackSize
   );
-# 7651 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7651 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmPrepareThunk16 (
   THUNK_CONTEXT *ThunkContext
   );
-# 7711 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7711 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmThunk16 (
   THUNK_CONTEXT *ThunkContext
   );
-# 7738 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7738 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmPrepareAndThunk16 (
   THUNK_CONTEXT *ThunkContext
   );
-# 7755 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7755 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 BOOLEAN
 
 AsmRdRand16 (
   UINT16 *Rand
   );
-# 7772 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7772 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 BOOLEAN
 
 AsmRdRand32 (
   UINT32 *Rand
   );
-# 7789 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7789 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 BOOLEAN
 
 AsmRdRand64 (
@@ -2754,13 +2754,13 @@ void
 AsmWriteTr (
   UINT16 Selector
   );
-# 7813 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7813 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 AsmLfence (
   void
   );
-# 7853 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
+# 7853 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseLib.h"
 void
 
 PatchInstructionX86 (
@@ -2768,9 +2768,9 @@ PatchInstructionX86 (
   UINT64 PatchValue,
   UINTN ValueSize
   );
-# 14 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h" 1
-# 33 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 14 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h" 1
+# 33 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 CopyMem (
@@ -2778,7 +2778,7 @@ CopyMem (
   const void *SourceBuffer,
   UINTN Length
   );
-# 55 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 55 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 SetMem (
@@ -2786,7 +2786,7 @@ SetMem (
   UINTN Length,
   UINT8 Value
   );
-# 82 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 82 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 SetMem16 (
@@ -2794,7 +2794,7 @@ SetMem16 (
   UINTN Length,
   UINT16 Value
   );
-# 109 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 109 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 SetMem32 (
@@ -2802,7 +2802,7 @@ SetMem32 (
   UINTN Length,
   UINT32 Value
   );
-# 136 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 136 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 SetMem64 (
@@ -2810,7 +2810,7 @@ SetMem64 (
   UINTN Length,
   UINT64 Value
   );
-# 163 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 163 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 SetMemN (
@@ -2818,14 +2818,14 @@ SetMemN (
   UINTN Length,
   UINTN Value
   );
-# 185 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 185 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 ZeroMem (
   void *Buffer,
   UINTN Length
   );
-# 214 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 214 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 INTN
 
 CompareMem (
@@ -2833,7 +2833,7 @@ CompareMem (
   const void *SourceBuffer,
   UINTN Length
   );
-# 241 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 241 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 ScanMem8 (
@@ -2841,7 +2841,7 @@ ScanMem8 (
   UINTN Length,
   UINT8 Value
   );
-# 270 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 270 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 ScanMem16 (
@@ -2849,7 +2849,7 @@ ScanMem16 (
   UINTN Length,
   UINT16 Value
   );
-# 299 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 299 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 ScanMem32 (
@@ -2857,7 +2857,7 @@ ScanMem32 (
   UINTN Length,
   UINT32 Value
   );
-# 328 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 328 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 ScanMem64 (
@@ -2865,7 +2865,7 @@ ScanMem64 (
   UINTN Length,
   UINT64 Value
   );
-# 357 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 357 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 ScanMemN (
@@ -2873,21 +2873,21 @@ ScanMemN (
   UINTN Length,
   UINTN Value
   );
-# 380 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 380 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 GUID *
 
 CopyGuid (
   GUID *DestinationGuid,
   const GUID *SourceGuid
   );
-# 403 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 403 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 BOOLEAN
 
 CompareGuid (
   const GUID *Guid1,
   const GUID *Guid2
   );
-# 432 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 432 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 void *
 
 ScanGuid (
@@ -2895,22 +2895,22 @@ ScanGuid (
   UINTN Length,
   const GUID *Guid
   );
-# 454 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 454 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 BOOLEAN
 
 IsZeroGuid (
   const GUID *Guid
   );
-# 476 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
+# 476 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/BaseMemoryLib.h"
 BOOLEAN
 
 IsZeroBuffer (
   const void *Buffer,
   UINTN Length
   );
-# 15 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h" 2
-# 1 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/DebugLib.h" 1
-# 89 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
+# 15 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h" 2
+# 1 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/DebugLib.h" 1
+# 89 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
 void
 
 DebugPrint (
@@ -2918,7 +2918,7 @@ DebugPrint (
   const CHAR8 *Format,
   ...
   );
-# 113 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
+# 113 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
 void
 
 DebugVPrint (
@@ -2926,7 +2926,7 @@ DebugVPrint (
   const CHAR8 *Format,
   VA_LIST VaListMarker
   );
-# 139 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
+# 139 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
 void
 
 DebugBPrint (
@@ -2934,7 +2934,7 @@ DebugBPrint (
   const CHAR8 *Format,
   BASE_LIST BaseListMarker
   );
-# 169 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
+# 169 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
 void
 
 DebugAssert (
@@ -2942,114 +2942,114 @@ DebugAssert (
   UINTN LineNumber,
   const CHAR8 *Description
   );
-# 193 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
+# 193 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
 void *
 
 DebugClearMemory (
   void *Buffer,
   UINTN Length
   );
-# 211 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
+# 211 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
 BOOLEAN
 
 DebugAssertEnabled (
   void
   );
-# 228 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
+# 228 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
 BOOLEAN
 
 DebugPrintEnabled (
   void
   );
-# 245 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
+# 245 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
 BOOLEAN
 
 DebugCodeEnabled (
   void
   );
-# 262 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
+# 262 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
 BOOLEAN
 
 DebugClearMemoryEnabled (
   void
   );
-# 277 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
+# 277 "/home/totsugekitai/minOS/edk2/MdePkg/Include/Library/DebugLib.h"
 BOOLEAN
 
 DebugPrintLevelEnabled (
   const UINTN ErrorLevel
   );
-# 16 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h" 2
-# 35 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 16 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h" 2
+# 35 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINT64
 
 InternalMathLShiftU64 (
   UINT64 Operand,
   UINTN Count
   );
-# 55 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 55 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINT64
 
 InternalMathRShiftU64 (
   UINT64 Operand,
   UINTN Count
   );
-# 75 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 75 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINT64
 
 InternalMathARShiftU64 (
   UINT64 Operand,
   UINTN Count
   );
-# 96 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 96 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINT64
 
 InternalMathLRotU64 (
   UINT64 Operand,
   UINTN Count
   );
-# 117 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 117 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINT64
 
 InternalMathRRotU64 (
   UINT64 Operand,
   UINTN Count
   );
-# 136 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 136 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINT64
 
 InternalMathSwapBytes64 (
   UINT64 Operand
   );
-# 156 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 156 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINT64
 
 InternalMathMultU64x32 (
   UINT64 Multiplicand,
   UINT32 Multiplier
   );
-# 177 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 177 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINT64
 
 InternalMathMultU64x64 (
   UINT64 Multiplicand,
   UINT64 Multiplier
   );
-# 198 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 198 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINT64
 
 InternalMathDivU64x32 (
   UINT64 Dividend,
   UINT32 Divisor
   );
-# 219 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 219 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINT32
 
 InternalMathModU64x32 (
   UINT64 Dividend,
   UINT32 Divisor
   );
-# 243 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 243 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINT64
 
 InternalMathDivRemU64x32 (
@@ -3057,7 +3057,7 @@ InternalMathDivRemU64x32 (
   UINT32 Divisor,
   UINT32 *Remainder
   );
-# 268 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 268 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINT64
 
 InternalMathDivRemU64x64 (
@@ -3065,7 +3065,7 @@ InternalMathDivRemU64x64 (
   UINT64 Divisor,
   UINT64 *Remainder
   );
-# 293 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 293 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 INT64
 
 InternalMathDivRemS64x64 (
@@ -3073,7 +3073,7 @@ InternalMathDivRemS64x64 (
   INT64 Divisor,
   INT64 *Remainder
   );
-# 325 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 325 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalSwitchStack (
@@ -3083,7 +3083,7 @@ InternalSwitchStack (
   void *NewStack,
   VA_LIST Marker
   );
-# 348 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 348 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINTN
 
 BitFieldReadUint (
@@ -3091,7 +3091,7 @@ BitFieldReadUint (
   UINTN StartBit,
   UINTN EndBit
   );
-# 373 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 373 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINTN
 
 BitFieldOrUint (
@@ -3100,7 +3100,7 @@ BitFieldOrUint (
   UINTN EndBit,
   UINTN OrData
   );
-# 399 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 399 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINTN
 
 BitFieldAndUint (
@@ -3109,92 +3109,92 @@ BitFieldAndUint (
   UINTN EndBit,
   UINTN AndData
   );
-# 420 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 420 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalAssertJumpBuffer (
   BASE_LIBRARY_JUMP_BUFFER *JumpBuffer
   );
-# 438 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 438 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalLongJump (
   BASE_LIBRARY_JUMP_BUFFER *JumpBuffer,
   UINTN Value
   );
-# 459 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 459 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 BOOLEAN
 
 InternalIsDecimalDigitCharacter (
   CHAR16 Char
   );
-# 479 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 479 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINTN
 
 InternalHexCharToUintn (
   CHAR16 Char
   );
-# 500 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 500 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 BOOLEAN
 
 InternalIsHexaDecimalDigitCharacter (
   CHAR16 Char
   );
-# 520 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 520 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 BOOLEAN
 
 InternalAsciiIsDecimalDigitCharacter (
   CHAR8 Char
   );
-# 541 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 541 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 BOOLEAN
 
 InternalAsciiIsHexaDecimalDigitCharacter (
   CHAR8 Char
   );
-# 561 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 561 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 UINTN
 
 InternalAsciiHexCharToUintn (
   CHAR8 Char
   );
-# 582 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 582 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalX86ReadGdtr (
   IA32_DESCRIPTOR *Gdtr
   );
-# 597 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 597 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalX86WriteGdtr (
   const IA32_DESCRIPTOR *Gdtr
   );
-# 612 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 612 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalX86ReadIdtr (
   IA32_DESCRIPTOR *Idtr
   );
-# 627 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 627 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalX86WriteIdtr (
   const IA32_DESCRIPTOR *Idtr
   );
-# 643 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 643 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalX86FxSave (
   IA32_FX_BUFFER *Buffer
   );
-# 659 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 659 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalX86FxRestore (
   const IA32_FX_BUFFER *Buffer
   );
-# 698 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 698 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalX86EnablePaging32 (
@@ -3203,7 +3203,7 @@ InternalX86EnablePaging32 (
   void *Context2,
   void *NewStack
   );
-# 737 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 737 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalX86DisablePaging32 (
@@ -3212,7 +3212,7 @@ InternalX86DisablePaging32 (
   void *Context2,
   void *NewStack
   );
-# 773 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 773 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalX86EnablePaging64 (
@@ -3222,7 +3222,7 @@ InternalX86EnablePaging64 (
   UINT64 Context2,
   UINT64 NewStack
   );
-# 809 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 809 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 void
 
 InternalX86DisablePaging64 (
@@ -3232,25 +3232,25 @@ InternalX86DisablePaging64 (
   UINT32 Context2,
   UINT32 NewStack
   );
-# 828 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 828 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 BOOLEAN
 
 InternalX86RdRand16 (
   UINT16 *Rand
   );
-# 843 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 843 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 BOOLEAN
 
 InternalX86RdRand32 (
   UINT32 *Rand
   );
-# 859 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
+# 859 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/BaseLibInternals.h"
 BOOLEAN
 
 InternalX86RdRand64 (
   UINT64 *Rand
   );
-# 3 "/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseLib/X64/Thunk16.nasm" 2
+# 3 "/home/totsugekitai/minOS/edk2/MdePkg/Library/BaseLib/X64/Thunk16.nasm" 2
 
 ;------------------------------------------------------------------------------
 ;

@@ -1,6 +1,6 @@
-/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/BuildOptions
-/home/totsugekitai/workspace/mywork/minOS/edk2/Conf/build_rule.txt
-/home/totsugekitai/workspace/mywork/minOS/edk2/Conf/tools_def.txt
-/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/PcdTokenNumber
-/home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/MdePkg.dec
-/home/totsugekitai/workspace/mywork/minOS/edk2/LoaderPkg/LoaderPkg.dsc
+/home/totsugekitai/minOS/edk2/Conf/build_rule.txt
+/home/totsugekitai/minOS/edk2/Conf/tools_def.txt
+/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/BuildOptions
+/home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/PcdTokenNumber
+/home/totsugekitai/minOS/edk2/LoaderPkg/LoaderPkg.dsc
+/home/totsugekitai/minOS/edk2/MdePkg/MdePkg.dec
