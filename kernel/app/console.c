@@ -14,7 +14,7 @@ extern struct pix_format black;
 extern struct pix_format green;
 extern struct video_info *vinfo_global;
 
-uint8_t keycode;
+uint8_t keycode, oldkeycode, shift = 0;
 uint32_t text_x = 0, text_y = 0;
 
 void readline_serial(struct ring_buf_char *text_buf)
@@ -26,6 +26,38 @@ void readline_serial(struct ring_buf_char *text_buf)
         keycode = read_serial();
         if (keycode == 0x0d) {
             break;
+        }
+        if (keycode == 0x0a) { // ここがヤバイ！
+            //putstr(300, 100, white, black, vinfo_global, "0x01 input");
+            continue;
+        }
+        if (!buf_char_isfull(text_buf)) {
+            //putchar(300, 100, white, black, vinfo_global, keycode);
+            enqueue_char(text_buf, keycode);
+            // 文字描画部
+            putnum(300, 100, white, black, vinfo_global, keycode);
+            putchar(text_x, text_y, white, black, vinfo_global, keycode);
+            //putchar(300, 100, white, black, vinfo_global, keycode);
+            text_x += 8;
+        }
+    }
+    // 改行処理
+    text_x = 0;
+    text_y += 16;
+}
+
+void readline_ps2(struct ring_buf_char *text_buf)
+{
+    keycode = 0x00; // 初期化
+    putstr(text_x, text_y, green, black, vinfo_global, "totsugeki@minOS $ ");
+    text_x += 8 * 18;
+    while (keycode != 0x0a) { // 改行が来たらやめる
+        keycode = map_scan_to_ascii_set1(ps2_received(), &shift);
+        if (keycode == 0x0a) {
+            break;
+        }
+        if (keycode == 0x00) {
+            continue;
         }
         if (!buf_char_isfull(text_buf)) {
             enqueue_char(text_buf, keycode);
@@ -44,6 +76,9 @@ void parse_line(struct ring_buf_char *buf, char *args_array, char *args_top[10])
     // バッファに入っている文字をargs_arrayに移動
     uint8_t char_count = 0;
     while (!buf_char_isempty(buf)) {
+        //if (args_array[char_count] == 0x00) { // ヌル文字は捨てる
+        //    dequeue_char(0x00, &args_array[char_count]);
+        //}
         dequeue_char(buf, &args_array[char_count]);
         char_count++;
     }

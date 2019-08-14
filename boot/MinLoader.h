@@ -14,7 +14,7 @@
 
 #define MEM_DESC_SIZE       0xffff
 #define KERNEL_FILE_NAME    L"kernel.bin"
-#define BUF_16KB            16384
+#define BUF_16KB            32768
 #define BUF_256B            256
 #define KERNEL_START_QEMU   0x00110000
 #define BIN_HEADER_SIZE     16

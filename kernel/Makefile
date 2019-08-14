@@ -54,3 +54,5 @@ clean:
 	make -C $(CURRENT)interrupt/ clean
 	make -C $(CURRENT)device/ clean
 	make -C $(CURRENT)app/ clean
+	make -C $(CURRENT)acpi/ clean
+

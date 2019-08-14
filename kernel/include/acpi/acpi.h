@@ -27,5 +27,11 @@ struct madt {
     uint8_t structure[];
 };
 
+struct hpet_table {
+    struct sdt_header;
+    uint32_t event_timer_block_id;
+
+} __attribute__((packed));
+
 void *get_sdt(char *sig);
 extern void disabling_PIC(void);

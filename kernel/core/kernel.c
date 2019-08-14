@@ -44,11 +44,12 @@ void start_kernel(struct bootinfo *binfo)
         }
     }
     /* 初期の画面描画ここまで */
-
+    //putstr(100, 80, white, black, &vinfo, "init graphics");
     /* GDTなどの初期化 */
     // BSSセクションの初期化
     init_bss();
-
+    
+    putstr(100, 100, white, black, &vinfo, "init bss");
     // GDTの先頭アドレスは0x80
     uint64_t *GDT = (uint64_t *)0x80;
     // 空, KERNEL_CS, USER_CSの3つを用意
@@ -56,7 +57,9 @@ void start_kernel(struct bootinfo *binfo)
     GDT[1] = make_segment_descriptor(5, 0, 0);
     GDT[2] = make_segment_descriptor(5, 3, 0);
     // lgdtでGDTをセットする
+    //putstr(100, 120, white, black, &vinfo, "before load dgt");
     load_gdt(GDT, 0x17);
+    putstr(100, 140, white, black, &vinfo, "after load gdt");
     // セグメントレジスタの設定をやってmain_routineへとぶ
     set_segment_register(0x8, &vinfo);
 }
@@ -65,6 +68,7 @@ void start_kernel(struct bootinfo *binfo)
 void main_routine(struct video_info *vinfo)
 {
     vinfo_global = vinfo; // 割り込みハンドラ用のグローバル変数
+    putstr(100, 160, white, black, vinfo_global, "jump main_routine.");
 
     /* ページングの初期化 */
     uint64_t *PML4 = (uint64_t *)0x1000;
@@ -90,9 +94,10 @@ void main_routine(struct video_info *vinfo)
     // シリアル通信初期化
     init_serial();
 
-    // // ACPI関係
-    // xsdt = (struct xsd_table *)(acpi_info->xsdtaddr);
-    // num_sdts = (xsdt->header.length - sizeof(struct sdt_header)) / sizeof(struct sdt_header *);
+    putstr(100, 200, white, black, vinfo_global, "IDT setup");
+    // ACPI関係
+    //xsdt = (struct xsd_table *)(acpi_info->xsdtaddr);
+    //num_sdts = (xsdt->header.length - sizeof(struct sdt_header)) / sizeof(struct sdt_header *);
     // struct madt *madt = (struct madt *)get_sdt("APIC"); // Multiple APIC Description Table
     // // レガシーPICを無効化
     // if (madt->flags & PCAT_COMPAT) {
