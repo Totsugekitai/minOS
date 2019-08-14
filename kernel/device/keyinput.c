@@ -9,7 +9,7 @@ void init_serial(void)
 {
     io_outb(PORT + 1, 0x00);
     io_outb(PORT + 3, 0x80);
-    io_outb(PORT + 0, 0x03);
+    io_outb(PORT + 0, 0x01);
     io_outb(PORT + 1, 0x00);
     io_outb(PORT + 3, 0x03);
     io_outb(PORT + 2, 0xC7);
@@ -25,6 +25,26 @@ uint8_t read_serial(void)
 {
     while (serial_received() == 0);
     return io_inb(PORT);
+}
+
+uint8_t serial_thr_empty(void)
+{
+    return io_inb(PORT + 5) & 0x20;
+}
+
+void write_serial(uint8_t c)
+{
+    while (serial_thr_empty() == 0);
+    io_outb(PORT, c);
+}
+
+void puts_serial(const char *s)
+{
+    uint8_t i = 0;
+    while (s[i] != 0x00) {
+        write_serial(s[i]);
+        i++;
+    }
 }
 
 /* PS/2 */

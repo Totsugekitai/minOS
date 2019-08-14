@@ -27,17 +27,14 @@ void readline_serial(struct ring_buf_char *text_buf)
         if (keycode == 0x0d) {
             break;
         }
-        if (keycode == 0x0a) { // ここがヤバイ！
-            //putstr(300, 100, white, black, vinfo_global, "0x01 input");
+        if (keycode == 0x0a) {
             continue;
         }
         if (!buf_char_isfull(text_buf)) {
-            //putchar(300, 100, white, black, vinfo_global, keycode);
             enqueue_char(text_buf, keycode);
             // 文字描画部
             putnum(300, 100, white, black, vinfo_global, keycode);
             putchar(text_x, text_y, white, black, vinfo_global, keycode);
-            //putchar(300, 100, white, black, vinfo_global, keycode);
             text_x += 8;
         }
     }
@@ -76,9 +73,6 @@ void parse_line(struct ring_buf_char *buf, char *args_array, char *args_top[10])
     // バッファに入っている文字をargs_arrayに移動
     uint8_t char_count = 0;
     while (!buf_char_isempty(buf)) {
-        //if (args_array[char_count] == 0x00) { // ヌル文字は捨てる
-        //    dequeue_char(0x00, &args_array[char_count]);
-        //}
         dequeue_char(buf, &args_array[char_count]);
         char_count++;
     }
@@ -105,14 +99,18 @@ void do_command(char *args_array, char *args_top[MAX_ARGS], char *output)
     char null_char = 0x00;
     // コマンド引数の数を解析
     int number_of_args = 0;
-    for (int i = 1; i < MAX_ARGS; i++) {
-        if (!args_top[i] != 0) {
+    for (int i = 0; i < MAX_ARGS; i++) {
+        if (args_top[i] != 0) {
             number_of_args++;
         }
     }
     // コマンドによって実行コマンドを振り分ける
     if (strncmp(command, "echo", 5)) {
-        sprintf("echo~~~", output);
+        if (number_of_args != 2) {
+            sprintf("bad args", output);
+        } else {
+            echo(args_top[1], output);
+        }
     } else if (strncmp(command, &null_char, 1)) {
         sprintf("no input", output);
     } else {

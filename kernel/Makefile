@@ -25,8 +25,9 @@ OBJS		= core/kernel.o \
 			  device/keyboard.o \
 			  device/keyinput.o \
 			  app/console.o \
-			#   acpi/acpi.o \
-			#   acpi/acpi_asm.o
+			  command/echo.o \
+			  acpi/acpi.o \
+			  #acpi/acpi_asm.o
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+

@@ -3,35 +3,32 @@
 
 #define PCAT_COMPAT     0x1
 
-struct sdt_header {
+struct XSDT_sys_desc_header {
     char signature[4];
     uint32_t length;
     uint8_t revision;
     uint8_t checksum;
-    char oemid[6];
+    char oem_id[6];
     char oem_table_id[8];
     uint32_t oem_revision;
     uint32_t creator_id;
     uint32_t creator_revision;
 } __attribute__((packed));
 
-struct xsd_table {
-    struct sdt_header header;
-    struct sdt_header *entry[0];
+struct XSDT {
+    struct XSDT_sys_desc_header header;
+    uint64_t other_tables[];
 } __attribute__((packed));
 
-struct madt {
-    struct sdt_header sdth;
-    uint32_t local_int_controller_addr;
+struct FADT {
+    struct XSDT_sys_desc_header header;
+    uint64_t other_params1[9];
+    uint32_t PM_TMR_BLK;
+    uint32_t other_params2[9];
     uint32_t flags;
-    uint8_t structure[];
+    uint32_t other_params3[39];
 };
 
-struct hpet_table {
-    struct sdt_header;
-    uint32_t event_timer_block_id;
+void *get_xsdt_other_table(char *sig);
+void init_local_APIC(void);
 
-} __attribute__((packed));
-
-void *get_sdt(char *sig);
-extern void disabling_PIC(void);

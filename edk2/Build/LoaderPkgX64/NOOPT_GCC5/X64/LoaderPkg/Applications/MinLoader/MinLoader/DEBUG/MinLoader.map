@@ -3199,7 +3199,7 @@ OUTPUT(/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_G
  .debug_line    0x0000000000002156      0x651 /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(MinLoader.obj)
  .debug_line    0x00000000000027a7      0x45b /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
 
-.debug_str      0x0000000000000000     0x2d36
+.debug_str      0x0000000000000000     0x2d38
  .debug_str     0x0000000000000000      0x4e7 /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull/OUTPUT/BaseDebugLibNull.lib(DebugLib.obj)
                                         0x55a (緩和前のサイズ)
  .debug_str     0x00000000000004e7     0x1286 /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib/OUTPUT/UefiBootServicesTableLib.lib(UefiBootServicesTableLib.obj)
@@ -3210,9 +3210,9 @@ OUTPUT(/home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_G
                                        0x21a2 (緩和前のサイズ)
  .debug_str     0x00000000000023a9      0x133 /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/UefiApplicationEntryPoint/UefiApplicationEntryPoint/OUTPUT/UefiApplicationEntryPoint.lib(ApplicationEntryPoint.obj)
                                        0x16a1 (緩和前のサイズ)
- .debug_str     0x00000000000024dc      0x5ef /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(MinLoader.obj)
-                                       0x1fb0 (緩和前のサイズ)
- .debug_str     0x0000000000002acb      0x26b /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
+ .debug_str     0x00000000000024dc      0x5f1 /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(MinLoader.obj)
+                                       0x1fbb (緩和前のサイズ)
+ .debug_str     0x0000000000002acd      0x26b /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/LoaderPkg/Applications/MinLoader/MinLoader/OUTPUT/MinLoader.lib(AutoGen.obj)
                                        0x1b7f (緩和前のサイズ)
 
 .debug_frame    0x0000000000000000      0x968
