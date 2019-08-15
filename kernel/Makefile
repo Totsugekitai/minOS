@@ -3,8 +3,9 @@ SCRIPT		= $(CURRENT)scripts/
 INCLUDE		= $(CURRENT)include/
 
 TARGET		= kernel.bin
-CFLAGS 		= -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0 \
-			  -I /usr/include -I $(INCLUDE) -fno-stack-protector -fno-pic
+CFLAGS 		= -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0 \
+			  -I /usr/include -I $(INCLUDE) -fno-stack-protector -fno-pic \
+			  
 LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
 OBJS		= core/kernel.o \
@@ -21,19 +22,20 @@ OBJS		= core/kernel.o \
 			  interrupt/load_idt.o \
 			  interrupt/interrupt.o \
 			  interrupt/fault_handler.o \
+			  interrupt/user_defined_handler.o \
 			  interrupt/handler_caller.o \
 			  device/keyboard.o \
 			  device/keyinput.o \
 			  app/console.o \
-			  command/echo.o \
 			  acpi/acpi.o \
-			  #acpi/acpi_asm.o
+			  command/echo.o \
+			  command/uptime.o \
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+
 
 %.o: %.c
-	gcc $(CFLAGS) -c -o $@ $<
+	clang $(CFLAGS) -c -o $@ $<
 
 %.o: %.S
 	as -o $@ $<

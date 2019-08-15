@@ -9,7 +9,7 @@ io_inb:
 .global     io_in32
 io_in32:
     mov     rdx,rdi
-    in      eax,edx
+    in      eax,dx
     ret
 
 .global     io_outb # void io_outb(uint16_t port, uint8_t byte);

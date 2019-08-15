@@ -1,6 +1,5 @@
 #pragma once
 #include <stdint.h>
-
 #define PCAT_COMPAT     0x1
 
 struct XSDT_sys_desc_header {
@@ -22,7 +21,7 @@ struct XSDT {
 
 struct FADT {
     struct XSDT_sys_desc_header header;
-    uint64_t other_params1[9];
+    uint64_t other_params1[5];
     uint32_t PM_TMR_BLK;
     uint32_t other_params2[9];
     uint32_t flags;

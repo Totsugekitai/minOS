@@ -105,13 +105,13 @@ void do_command(char *args_array, char *args_top[MAX_ARGS], char *output)
         }
     }
     // コマンドによって実行コマンドを振り分ける
-    if (strncmp(command, "echo", 5)) {
+    if (strncmp(command, "echo", 5) == 0) {
         if (number_of_args != 2) {
             sprintf("bad args", output);
         } else {
             echo(args_top[1], output);
         }
-    } else if (strncmp(command, &null_char, 1)) {
+    } else if (strncmp(command, &null_char, 1) == 0) {
         sprintf("no input", output);
     } else {
         sprintf("bad command", output);

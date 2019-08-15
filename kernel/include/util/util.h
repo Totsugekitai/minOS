@@ -13,6 +13,8 @@ struct ring_buf_char {
     uint8_t tail;
 };
 
+void *memset(void *s, int c, int n);
+
 uint64_t pow(uint64_t num, uint64_t pow);
 
 struct ring_buf_u64 gen_buf_u64(void);
@@ -30,11 +32,11 @@ uint8_t dequeue_char(struct ring_buf_char *buf, char *dst);
 void flush_buf_char(struct ring_buf_char *buf);
 
 uint8_t comptext(char *text, char *pat);
-uint8_t strncmp(char *str1, char *str2, int num);
+int8_t strncmp(char *str1, char *str2, int num);
 void sprintf(char *src, char *dst);
 
 extern uint8_t io_inb(uint16_t port);
-extern uint32_t io_in32(uint32_t port);
+extern uint32_t io_in32(uint64_t port);
 extern void io_outb(uint16_t port, uint8_t byte);
 extern uint64_t io_rdmsr(uint32_t msr);
 extern void io_wrmsr(uint32_t edx, uint32_t eax);

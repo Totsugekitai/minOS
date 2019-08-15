@@ -19,7 +19,7 @@ struct pix_format green = {0x00, 0xFF, 0x00, 0x00};
 struct pix_format blue = {0xFF, 0x00, 0x00, 0x00};
 
 struct video_info *vinfo_global = (struct video_info *)0; // とりあえず0入れとく
-extern struct RSDP *rsdp;
+struct RSDP *rsdp;
 
 void main_routine(struct video_info *vinfo);
 
@@ -28,15 +28,24 @@ void start_kernel(struct bootinfo *binfo)
     // シリアル通信初期化
     init_serial();
     
-    //puts_serial("\nstart_kernel\n"); // debug用
+    puts_serial("\nstart_kernel\n"); // debug用
+    // タイマ割り込み有効化
+    //init_local_APIC();
+
     
     rsdp = binfo->rsdp;
+
+    puts_serial("RSDP: ");
+    putnum_serial((uint64_t)rsdp);
+    puts_serial("\n");
+
     vinfo_global = &(binfo->vinfo);
+    puts_serial("vinfo_global dainyuu\n"); // debug用
     
     /* BSSセクションの初期化 */
     init_bss();
     
-    //puts_serial("bss init\n"); // debug用
+    puts_serial("bss init\n"); // debug用
     
     /* GDTの初期化 */
     // GDTの先頭アドレスは0x80
@@ -47,11 +56,11 @@ void start_kernel(struct bootinfo *binfo)
     GDT[2] = make_segment_descriptor(5, 3, 0);
     // lgdtでGDTをセットする
     
-    //puts_serial("GDTR written\n"); // debug用
+    puts_serial("GDTR written\n"); // debug用
     
     load_gdt(GDT, 0x17);
     
-    //puts_serial("loaded gdt"); // debug用
+    puts_serial("loaded gdt\n"); // debug用
     
     // セグメントレジスタの設定をやってmain_routineへとぶ
     set_segment_register(0x8, vinfo_global);
@@ -60,12 +69,15 @@ void start_kernel(struct bootinfo *binfo)
 /* GDTの設定が終わった後のルーチン */
 void main_routine(struct video_info *vinfo)
 {
+    puts_serial("reach main_routine\n"); // debug用
     /* ページングの初期化 */
     uint64_t *PML4 = (uint64_t *)0x1000;
     uint64_t *PDP = (uint64_t *)0x2000;
     uint64_t *PD = (uint64_t *)0x10000;
     create_pgtable(PML4, PDP, PD);
     load_pgtable(PML4);
+
+    puts_serial("set paging\n"); // debug用
 
     /* IDTの初期化 */
     // IDTの先頭アドレスは0x20000
@@ -74,15 +86,18 @@ void main_routine(struct video_info *vinfo)
     for (int i = 0; i < 13; i++) {
         IDT[i] = zero_gate;
     }
-    IDT[13] = make_gate_descriptor((uint64_t)general_protection, 0, 0, 0);
+    IDT[13] = make_gate_descriptor((uint64_t)gp_handler_deluxe, 0, 0, 0);
     IDT[14] = make_gate_descriptor((uint64_t)page_fault, 0, 0, 0);
-    for (int i = 15; i < 256; i++) {
+    for (int i = 15; i < 32; i++) {
         IDT[i] = zero_gate;
     }
-    load_idt((uint64_t)IDT, 256);
+    IDT[32] = make_gate_descriptor((uint64_t)timer_handler, 0, 0, 0);
+    for (int i = 33; i < 256; i++) {
+        IDT[i] = make_gate_descriptor((uint64_t)timer_handler, 0, 0, 0);
+    }
+    load_idt((uint64_t)IDT, sizeof(struct gate_descriptor) * 256);
 
-    // ACPI関係
-    struct FADT *fadt = (struct FADT *)get_xsdt_other_table("FACP");
+    puts_serial("load IDT\n"); // debug用
 
     // フレームバッファの初期化
     uint32_t i, j;
@@ -95,6 +110,11 @@ void main_routine(struct video_info *vinfo)
             fb[i * ppsl + j] = white;
         }
     }
+    
+    puts_serial("init framebuffer\n"); // debug用
+
+    // タイマ割り込み有効化
+    init_local_APIC();
 
     /* いろんなレジスタとかメモリとかの表示 */
     // EFER
@@ -107,9 +127,9 @@ void main_routine(struct video_info *vinfo)
     putstr(600, 50, black, white, vinfo, "EFER: ");
     putnum(650, 50, black, white, vinfo, get_efer());
     // 自由欄
-    for (int i = 0; i < 4; i++) {
-        putchar(600 + i * 8, 70, black, white, vinfo, fadt->header.signature[i]);
-    }
+    //for (int i = 0; i < 4; i++) {
+    //    putchar(600 + i * 8, 70, black, white, vinfo, fadt->header.signature[i]);
+    //}
 
     /* 名前 */
     putstr(515, 560, black, white, vinfo,

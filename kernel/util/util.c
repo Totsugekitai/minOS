@@ -1,6 +1,17 @@
 #include <stdint.h>
 #include <util/util.h>
 
+/* memory関連 */
+void *memset(void *s, int c, int n)
+{
+    uint8_t *tmp = s;
+    uint8_t ch = c;
+    for (int i = 0; i < n; i++) {
+        tmp[i] = ch;
+    }
+    return s;
+}
+
 /* 数学関数 */
 uint64_t pow(uint64_t num, uint64_t pow)
 {
@@ -138,14 +149,18 @@ uint8_t comptext(char *text, char *pat)
     return 1;
 }
 
-uint8_t strncmp(char *str1, char *str2, int num)
+int8_t strncmp(char *str1, char *str2, int num)
 {
     for (int i = 0; i < num; i++) {
-        if (str1[i] != str2[i]) {
-            return 0;
+        if (str1[i] > str2[i]) {
+            return 1;
+        } else if (str1[i] < str2[i]) {
+            return -1;
+        } else {
+            continue;
         }
     }
-    return 1;
+    return 0;
 }
 
 void sprintf(char *src, char *dst)
@@ -157,3 +172,4 @@ void sprintf(char *src, char *dst)
     }
     dst[i] = src[i];
 }
+
