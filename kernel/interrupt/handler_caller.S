@@ -88,6 +88,7 @@ page_fault:
 .global     timer_interrupt
 timer_interrupt:
 # まず汎用レジスタをスタックに退避
+    iretq
     push    rbp
     push    rax
     push    rbx

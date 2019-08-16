@@ -111,6 +111,18 @@ void do_command(char *args_array, char *args_top[MAX_ARGS], char *output)
         } else {
             echo(args_top[1], output);
         }
+    } else if (strncmp(command, "uptime", 7) == 0) {
+        if (number_of_args != 1) {
+            sprintf("bad args", output);
+        } else {
+            uptime(output);
+        }
+    } else if (strncmp(command, "sleep", 6) == 0) {
+        if (number_of_args != 2) {
+            sprintf("bad args", output);
+        } else {
+            sleep(demstr_to_u64(args_top[1]));
+        }
     } else if (strncmp(command, &null_char, 1) == 0) {
         sprintf("no input", output);
     } else {
@@ -120,7 +132,11 @@ void do_command(char *args_array, char *args_top[MAX_ARGS], char *output)
 
 void writelines(char *output)
 {
-    putstr(text_x, text_y, white, black, vinfo_global, output);
+    if (output[0] == 0x00) {
+        putstr(text_x, text_y, white, black, vinfo_global, " ");
+    } else {
+        putstr(text_x, text_y, white, black, vinfo_global, output);
+    }
     text_x = 0;
     text_y += 16;
 }
@@ -131,11 +147,15 @@ void console(void)
     char args_array[MAX_ARGS * ARG_LENGTH] = {0},
         *args_top[MAX_ARGS] = {0}, output[OUTPUT_LENGTH] = {0};
 
-    readline_serial(&text_buf);
-    parse_line(&text_buf, args_array, args_top);
-    do_command(args_array, args_top, output);
-    writelines(output);
+    while (1) {
+        readline_serial(&text_buf);
+        parse_line(&text_buf, args_array, args_top);
+        do_command(args_array, args_top, output);
+        writelines(output);
 
-    flush_buf_char(&text_buf);
+        flush_buf_char(&text_buf);
+        flush_array_char(output);
+        flush_array_char(args_array);
+        flush_array_char(args_top);
+    }
 }
-

@@ -14,7 +14,6 @@ __attribute__((interrupt))
 void timer_handler(struct InterruptFrame *frame)
 {
     milli_clock += 1;
-    putnum(500, 400, white, black, vinfo_global, milli_clock);
     *end_of_interrupt = 0;
 }
 

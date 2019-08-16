@@ -122,6 +122,6 @@ void init_local_APIC(void)
     putnum_serial((uint64_t)*LVT_Timer);
     puts_serial("\n");
     
-    *Initial_Count = lapic_freq / 100; // 100msecごとにタイマ割り込み
+    *Initial_Count = lapic_freq / 0x20 / 1000; // 1msecごとにタイマ割り込み
 }
 

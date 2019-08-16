@@ -3,8 +3,9 @@ SCRIPT		= $(CURRENT)scripts/
 INCLUDE		= $(CURRENT)include/
 
 TARGET		= kernel.bin
-CFLAGS 		= -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common -O0 \
-			  -I /usr/include -I $(INCLUDE) -fno-stack-protector -fno-pic \
+CFLAGS 		= -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common \
+			  -O0 -I /usr/include -I $(INCLUDE) -fno-stack-protector -fno-pic \
+			  -mno-red-zone
 			  
 LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
@@ -30,6 +31,7 @@ OBJS		= core/kernel.o \
 			  acpi/acpi.o \
 			  command/echo.o \
 			  command/uptime.o \
+			  command/sleep.o \
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+
@@ -58,4 +60,5 @@ clean:
 	make -C $(CURRENT)device/ clean
 	make -C $(CURRENT)app/ clean
 	make -C $(CURRENT)acpi/ clean
+	make -C $(CURRENT)command/ clean
 

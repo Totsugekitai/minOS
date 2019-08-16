@@ -92,9 +92,9 @@ void main_routine(struct video_info *vinfo)
         IDT[i] = zero_gate;
     }
     IDT[32] = make_gate_descriptor((uint64_t)timer_handler, 0, 0, 0);
-    for (int i = 33; i < 256; i++) {
-        IDT[i] = make_gate_descriptor((uint64_t)timer_handler, 0, 0, 0);
-    }
+    //for (int i = 33; i < 256; i++) {
+    //    IDT[i] = make_gate_descriptor((uint64_t)timer_handler, 0, 0, 0);
+    //}
     load_idt((uint64_t)IDT, sizeof(struct gate_descriptor) * 256);
 
     puts_serial("load IDT\n"); // debug用
@@ -137,7 +137,6 @@ void main_routine(struct video_info *vinfo)
     putstr(500, 580, black, white, vinfo,
            "Developer : Totsugekitai(@totsugeki8)");
 
-    while (1) {
-        console();
-    }
+    // コンソール
+    console();
 }
