@@ -32,6 +32,7 @@ OBJS		= core/kernel.o \
 			  command/echo.o \
 			  command/uptime.o \
 			  command/sleep.o \
+			  command/delay.o \
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+

@@ -316,3 +316,12 @@ uint64_t demstr_to_u64(char *demstr)
     return num;
 }
 
+void null_to_space(char *str, int len)
+{
+    for (int i = 0; i < len; i++) {
+        if (str[i] == 0x00) {
+            str[i] = 0x20;
+        }
+    }
+}
+

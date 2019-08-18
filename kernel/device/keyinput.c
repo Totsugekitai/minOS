@@ -21,9 +21,13 @@ uint32_t serial_received(void)
     return io_inb(PORT + 5) & 1;
 }
 
-uint8_t read_serial(void)
+uint8_t read_serial(int interrupt_flag)
 {
-    while (serial_received() == 0);
+    while (serial_received() == 0) {
+        if (interrupt_flag == 1) {
+            return 'i';
+        }
+    }
     return io_inb(PORT);
 }
 

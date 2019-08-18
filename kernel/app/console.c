@@ -4,10 +4,12 @@
 #include <types/boottypes.h>
 #include <graphics/graphics.h>
 #include <util/util.h>
+#include <app/app.h>
 
 #define MAX_ARGS    8
 #define ARG_LENGTH  8
 #define OUTPUT_LENGTH   64
+#define READLINE_BUF_LENGTH     64
 
 extern struct pix_format white;
 extern struct pix_format black;
@@ -16,6 +18,9 @@ extern struct video_info *vinfo_global;
 
 uint8_t keycode, oldkeycode, shift = 0;
 uint32_t text_x = 0, text_y = 0;
+struct task_queue task_q;
+volatile int readline_flag = 0;
+volatile char readline_buf[READLINE_BUF_LENGTH] = {0};
 
 void readline_serial(struct ring_buf_char *text_buf)
 {
@@ -23,19 +28,35 @@ void readline_serial(struct ring_buf_char *text_buf)
     putstr(text_x, text_y, green, black, vinfo_global, "totsugeki@minOS $ ");
     text_x += 8 * 18;
     while (keycode != 0x0d) { // 改行が来たらやめる
-        keycode = read_serial();
-        if (keycode == 0x0d) {
+        if (readline_flag == 0) {
+            keycode = read_serial(readline_flag);
+            if (keycode == 0x0d) {
+                break;
+            }
+            if (keycode == 0x0a) {
+                continue;
+            }
+            if (!buf_char_isfull(text_buf)) {
+                enqueue_char(text_buf, keycode);
+                // 文字描画部
+                putnum(300, 100, white, black, vinfo_global, keycode);
+                putchar(text_x, text_y, white, black, vinfo_global, keycode);
+                text_x += 8;
+            }
+        } else {
+            while (!buf_char_isempty(text_buf)) {
+                dequeue_char(text_buf, 0x00);
+            }
+            for (int i = 0; i < READLINE_BUF_LENGTH; i++) {
+                if (readline_buf[i] != 0x00) {
+                    enqueue_char(text_buf, readline_buf[i]);
+                } else {
+                    break;
+                }
+            }
+            readline_flag = 0;
+            puts_serial("readline_flag changes 0\n");
             break;
-        }
-        if (keycode == 0x0a) {
-            continue;
-        }
-        if (!buf_char_isfull(text_buf)) {
-            enqueue_char(text_buf, keycode);
-            // 文字描画部
-            putnum(300, 100, white, black, vinfo_global, keycode);
-            putchar(text_x, text_y, white, black, vinfo_global, keycode);
-            text_x += 8;
         }
     }
     // 改行処理
@@ -76,6 +97,8 @@ void parse_line(struct ring_buf_char *buf, char *args_array, char *args_top[10])
         dequeue_char(buf, &args_array[char_count]);
         char_count++;
     }
+    puts_serial(args_array);
+    puts_serial("\n");
     // args_arrayに入った文字を解析
     char_count++;
     uint8_t i, j = 0;
@@ -107,21 +130,48 @@ void do_command(char *args_array, char *args_top[MAX_ARGS], char *output)
     // コマンドによって実行コマンドを振り分ける
     if (strncmp(command, "echo", 5) == 0) {
         if (number_of_args != 2) {
-            sprintf("bad args", output);
+            sprintf("echo: bad args", output);
         } else {
+            puts_serial("echo\n");
             echo(args_top[1], output);
         }
     } else if (strncmp(command, "uptime", 7) == 0) {
         if (number_of_args != 1) {
-            sprintf("bad args", output);
+            sprintf("uptime: bad args", output);
         } else {
+            puts_serial("uptime\n");
             uptime(output);
         }
     } else if (strncmp(command, "sleep", 6) == 0) {
         if (number_of_args != 2) {
-            sprintf("bad args", output);
+            sprintf("sleep: bad args", output);
         } else {
+            puts_serial("sleep\n");
             sleep(demstr_to_u64(args_top[1]));
+        }
+    } else if (strncmp(command, "delay", 6) == 0) {
+        if (number_of_args < 3) {
+            sprintf("delay: bad args", output);
+        } else {
+            int count = 0;
+            while(args_top[1][count] != 0x00) {
+                count++;
+            }
+            int index_args_top2 = 6 + count;
+            int len_args_array = MAX_ARGS * ARG_LENGTH;
+            int len_from_args_top2 = len_args_array - index_args_top2;
+            null_to_space(args_top[2], len_from_args_top2);
+            for (int i = index_args_top2; i < len_args_array; i++) {
+                if (args_top[2][i] == 0x20 && args_top[2][i+1] == 0x20) {
+                    args_top[2][i] = 0x00;
+                }
+            }
+
+            puts_serial("delay\n");
+            puts_serial(args_top[2]);
+            puts_serial("\n");
+            
+            delay(demstr_to_u64(args_top[1]), args_top[2]);
         }
     } else if (strncmp(command, &null_char, 1) == 0) {
         sprintf("no input", output);
@@ -157,5 +207,7 @@ void console(void)
         flush_array_char(output);
         flush_array_char(args_array);
         flush_array_char(args_top);
+        flush_array_char(readline_buf);
     }
 }
+

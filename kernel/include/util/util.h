@@ -37,6 +37,7 @@ int8_t strncmp(char *str1, char *str2, int num);
 void sprintf(char *src, char *dst);
 void u64_to_hexstr(char dst[19], uint64_t num);
 uint64_t demstr_to_u64(char *demstr);
+void null_to_space(char *str, int len);
 
 extern uint8_t io_inb(uint16_t port);
 extern uint32_t io_in32(uint64_t port);
