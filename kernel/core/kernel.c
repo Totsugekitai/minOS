@@ -14,7 +14,6 @@
 
 // bootinfoからとれる情報
 struct video_info *vinfo_global;
-struct video_info vinfo_global_entity;
 struct RSDP *rsdp;
 // GDTは0x80に固定配置
 uint64_t *GDT = (uint64_t *)0x80;
@@ -29,13 +28,10 @@ void main_routine(void);
 
 void start_kernel(struct bootinfo *binfo)
 {
+    init_bss();
     init_serial();
     init_global_variables(binfo);
-    init_local_APIC();
-    putnum_serial((uint64_t)rsdp->xsdt_address);
-    puts_serial("\n");
-    init_bss();
-    // init_gdt()でmain_routineへジャンプする
+    // init_gdtでmain_routineへジャンプする
     init_gdt();
 }
 
@@ -45,7 +41,8 @@ void main_routine(void)
     init_paging();
     init_interrupt();
     init_graphics();
-    
+    init_local_APIC();
+
     /* いろんなレジスタとかメモリとかの表示 */
     // EFER
     putstr(600, 10, black, white, vinfo_global, "CR3: ");

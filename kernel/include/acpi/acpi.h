@@ -31,4 +31,3 @@ struct FADT {
 
 void *get_xsdt_other_table(char *sig);
 void init_local_APIC(void);
-

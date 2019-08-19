@@ -1,10 +1,9 @@
 #pragma once
 #include <stdint.h>
 #include <types/boottypes.h>
-#include <graphics/graphics.h> 
+#include <graphics/graphics.h>
 
 extern struct video_info *vinfo_global;
-extern struct video_info vinfo_global_entity;
 extern struct RSDP *rsdp;
 
 extern uint64_t *GDT;
