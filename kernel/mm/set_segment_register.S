@@ -35,11 +35,7 @@ set_segment_register:
     
     iretq           # pushした値をそれぞれに書き込み、main_labelにジャンプ
 
-    hlt
-
 .global             main_label
 main_label:
     sti
-    mov     rdi,rsi
     call    main_routine
-

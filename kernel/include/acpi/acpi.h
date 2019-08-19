@@ -1,5 +1,6 @@
 #pragma once
 #include <stdint.h>
+#include <graphics/graphics.h>
 #define PCAT_COMPAT     0x1
 
 struct XSDT_sys_desc_header {

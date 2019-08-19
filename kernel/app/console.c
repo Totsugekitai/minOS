@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <core/global_variables.h>
 #include <device/device.h>
 #include <command/command.h>
 #include <types/boottypes.h>
@@ -6,21 +7,12 @@
 #include <util/util.h>
 #include <app/app.h>
 
-#define MAX_ARGS    8
-#define ARG_LENGTH  8
-#define OUTPUT_LENGTH   64
-#define READLINE_BUF_LENGTH     64
-
-extern struct pix_format white;
-extern struct pix_format black;
-extern struct pix_format green;
-extern struct video_info *vinfo_global;
-
-uint8_t keycode, oldkeycode, shift = 0;
-uint32_t text_x = 0, text_y = 0;
 struct task_queue task_q;
 volatile int readline_flag = 0;
 volatile char readline_buf[READLINE_BUF_LENGTH] = {0};
+
+uint8_t keycode, oldkeycode, shift = 0;
+uint32_t text_x = 0, text_y = 0;
 
 void readline_serial(struct ring_buf_char *text_buf)
 {

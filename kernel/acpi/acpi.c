@@ -1,18 +1,11 @@
 #include <stdint.h>
+#include <core/global_variables.h>
 #include <types/boottypes.h>
 #include <util/util.h>
 #include <acpi/acpi.h>
 #include <device/device.h>
 
-#include <graphics/graphics.h>
-
 const uint32_t PMTimerFreq = 3579545;
-
-extern struct RSDP *rsdp;
-extern struct video_info *vinfo_global;
-extern struct pix_format black;
-extern struct pix_format white;
-
 const uint32_t Max_Count = 0xffffffffu;
 uint32_t *LVT_Timer = (uint32_t *)0xfee00320;
 uint32_t *Initial_Count = (uint32_t *)0xfee00380;
@@ -122,6 +115,6 @@ void init_local_APIC(void)
     putnum_serial((uint64_t)*LVT_Timer);
     puts_serial("\n");
     
-    *Initial_Count = lapic_freq / 0x20 / 1000; // 1msecごとにタイマ割り込み
+    *Initial_Count = lapic_freq / 1000; // 1msecごとにタイマ割り込み
 }
 

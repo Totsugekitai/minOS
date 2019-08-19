@@ -12,6 +12,16 @@ void *memset(void *s, int c, int n)
     return s;
 }
 
+void *memcpy(void *buf1, const void *buf2, int n)
+{
+    char *b1 = buf1;
+    const char *b2 = buf2;
+    for (int i = 0; i < n; i++) {
+        b1[i] = b2[i];
+    }
+    return buf1;
+}
+
 /* 数学関数 */
 uint64_t pow(uint64_t num, uint64_t pow)
 {

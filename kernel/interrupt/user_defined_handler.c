@@ -1,20 +1,13 @@
 #include <stdint.h>
+#include <core/global_variables.h>
 #include <types/boottypes.h>
 #include <device/device.h>
 #include <graphics/graphics.h>
 #include <interrupt/int_handler.h>
 #include <app/app.h>
 
-#define READLINE_BUF_LENGTH     64
-
 uint64_t milli_clock = 0;
 uint64_t *end_of_interrupt = (uint64_t *)0xfee000b0;
-extern struct pix_format black;
-extern struct pix_format white;
-extern struct video_info *vinfo_global;
-extern struct task_queue task_q;
-extern int readline_flag;
-extern char readline_buf[READLINE_BUF_LENGTH];
 
 __attribute__((interrupt))
 void timer_handler(struct InterruptFrame *frame)

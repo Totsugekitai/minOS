@@ -5,7 +5,7 @@ INCLUDE		= $(CURRENT)include/
 TARGET		= kernel.bin
 CFLAGS 		= -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common \
 			  -O0 -I /usr/include -I $(INCLUDE) -fno-stack-protector -fno-pic \
-			  -mno-red-zone
+			  -mno-red-zone #-Wno-unused-parameter
 			  
 LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
@@ -14,6 +14,11 @@ OBJS		= core/kernel.o \
 			  util/util.o \
 			  util/util_asm.o \
 			  init/bss.o \
+			  init/init_global_variables.o \
+			  init/init_gdt.o \
+			  init/init_paging.o \
+			  init/init_interrupt.o \
+			  init/init_graphics.o \
 			  mm/segmentation.o \
 			  mm/load_gdt.o \
 			  mm/set_segment_register.o \

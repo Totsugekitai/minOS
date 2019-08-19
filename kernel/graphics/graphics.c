@@ -3,6 +3,12 @@
 #include <graphics/fonts_bin.h>
 #include <util/util.h>
 
+struct pix_format black = {0x00, 0x00, 0x00, 0x00};
+struct pix_format white = {0xFF, 0xFF, 0xFF, 0x00};
+struct pix_format red = {0x00, 0x00, 0xFF, 0x00};
+struct pix_format green = {0x00, 0xFF, 0x00, 0x00};
+struct pix_format blue = {0xFF, 0x00, 0x00, 0x00};
+
 void _draw_dot(uint32_t x, uint32_t y,
         struct pix_format color, struct video_info *vinfo)
 {
