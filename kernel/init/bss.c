@@ -1,10 +1,11 @@
-extern int *__bss_start, *__bss_end;
+#include <stdint.h>
+extern uint32_t *__bss_start, *__bss_end;
 
 void init_bss(void)
 {
-    int k, bss_size = (int)(__bss_end - __bss_start);
+    uint8_t k, bss_size = (uint8_t)(__bss_end - __bss_start);
     for (k = 0; k < bss_size; k++) {
-        __bss_start[k] = 0;
+        __bss_start[k] = 0x00;
     }
 
     return;

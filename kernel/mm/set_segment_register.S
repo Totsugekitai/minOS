@@ -25,20 +25,17 @@ set_segment_register:
 
 # CSの設定にiretq命令を使う
 # スタックにSS,RSP,RFLAGS,CS,RIPの順に設定したい値を入れていく
+    mov     rcx,rsp
     push    0     # ss = 0に設定
-    push    rsp     # rspはそのまま
+    push    rcx     # rspはそのまま
     pushfq          # RFLAGSはそのまま
     push    rdi     # cs = rdi(第一引数)に設定(権限のみ見る)
     lea     rcx,main_label
     push    rcx  # rip = main_labelのアドレス
-
+    
     iretq           # pushした値をそれぞれに書き込み、main_labelにジャンプ
-
-    hlt
 
 .global             main_label
 main_label:
     sti
-    mov     rdi,rsi
     call    main_routine
-

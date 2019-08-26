@@ -36,7 +36,7 @@ Uefi_Main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *st)
     bootinfo.vinfo.y_axis = (uint32_t)gop->Mode->Info->VerticalResolution;
     bootinfo.vinfo.ppsl = (uint32_t)gop->Mode->Info->PixelsPerScanLine;
     // acpi_infoを詰める
-    bootinfo.acpi_info = (struct acpi_table *)acpi_table;
+    bootinfo.rsdp = (struct RSDP *)acpi_table;
 
     // SympleFileSystemProtocolを取得
     EFI_GUID sfsp_guid = EFI_SIMPLE_FILE_SYSTEM_PROTOCOL_GUID;
@@ -122,3 +122,4 @@ int IsEqualGUID(EFI_GUID *guid1, EFI_GUID *guid2)
     uint64_t *t = (uint64_t *)guid2;
     return (s[0] == t[0]) && (s[1] == t[1]);
 }
+

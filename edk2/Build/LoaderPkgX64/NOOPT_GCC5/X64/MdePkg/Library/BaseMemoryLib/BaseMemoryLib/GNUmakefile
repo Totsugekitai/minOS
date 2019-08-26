@@ -19,7 +19,7 @@ PLATFORM_NAME = LoaderPkg
 PLATFORM_GUID = dc89db21-066d-4e66-882b-a13bc4915236
 PLATFORM_VERSION = 0.1
 PLATFORM_RELATIVE_DIR = LoaderPkg
-PLATFORM_DIR = /home/totsugekitai/minOS/edk2/LoaderPkg
+PLATFORM_DIR = /home/totsugekitai/workspace/mywork/minOS/edk2/LoaderPkg
 PLATFORM_OUTPUT_DIR = Build/LoaderPkgX64
 
 #
@@ -35,7 +35,7 @@ MODULE_FILE_BASE_NAME = BaseMemoryLib
 BASE_NAME = $(MODULE_NAME)
 MODULE_RELATIVE_DIR = MdePkg/Library/BaseMemoryLib
 PACKAGE_RELATIVE_DIR = Library/BaseMemoryLib
-MODULE_DIR = /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib
+MODULE_DIR = /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib
 FFS_OUTPUT_DIR = 
 
 MODULE_ENTRY_POINT = _ModuleEntryPoint
@@ -60,13 +60,13 @@ TARGET = NOOPT
 #
 # Build Directory Macro Definition
 #
-# PLATFORM_BUILD_DIR = /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5
-BUILD_DIR = /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5
+# PLATFORM_BUILD_DIR = /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5
+BUILD_DIR = /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5
 BIN_DIR = $(BUILD_DIR)/X64
 LIB_DIR = $(BIN_DIR)
-MODULE_BUILD_DIR = /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib
-OUTPUT_DIR = /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT
-DEBUG_DIR = /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/DEBUG
+MODULE_BUILD_DIR = /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib
+OUTPUT_DIR = /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT
+DEBUG_DIR = /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/DEBUG
 DEST_DIR_OUTPUT = $(OUTPUT_DIR)
 DEST_DIR_DEBUG = $(DEBUG_DIR)
 
@@ -115,11 +115,11 @@ OBJCOPY_FLAGS =
 ASM = gcc
 ASM_FLAGS = -c -x assembler -imacros $(DEST_DIR_DEBUG)/AutoGen.h -m64
 
-ASMLINK = bin16\link16.exe
-ASMLINK_FLAGS = /nologo /tiny
-
 CC_FLAGS = -g -fshort-wchar -fno-builtin -fno-strict-aliasing -Wall -Werror -Wno-array-bounds -ffunction-sections -fdata-sections -include AutoGen.h -fno-common -DSTRING_ARRAY_NAME=$(BASE_NAME)Strings -m64 -fno-stack-protector "-DEFIAPI=__attribute__((ms_abi))" -maccumulate-outgoing-args -mno-red-zone -Wno-address -mcmodel=small -fpie -fno-asynchronous-unwind-tables -Wno-address -O0
 CC = gcc
+
+ASMLINK = bin16\link16.exe
+ASMLINK_FLAGS = /nologo /tiny
 
 TIANO = TianoCompress
 TIANO_GUID =  A31280AD-481E-41B6-95E8-127F4C984779
@@ -221,16 +221,16 @@ INC =  \
     -I$(WORKSPACE)/MdePkg/Include \
     -I$(WORKSPACE)/MdePkg/Include/X64
 
-OBJECT_FILES_LIST = /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/object_files.lst
+OBJECT_FILES_LIST = /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/object_files.lst
 
 
 COMMON_DEPS = $(WORKSPACE)/MdePkg/Include/X64/ProcessorBind.h \
-              $(WORKSPACE)/MdePkg/Include/Base.h \
               $(DEBUG_DIR)/AutoGen.h \
               $(WORKSPACE)/MdePkg/Include/Library/BaseMemoryLib.h \
-              $(WORKSPACE)/MdePkg/Include/Library/DebugLib.h \
-              $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/MemLibInternals.h \
               $(WORKSPACE)/MdePkg/Include/Library/BaseLib.h \
+              $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/MemLibInternals.h \
+              $(WORKSPACE)/MdePkg/Include/Library/DebugLib.h \
+              $(WORKSPACE)/MdePkg/Include/Base.h \
               
 
 #
@@ -240,7 +240,7 @@ FORCE_REBUILD = force_build
 INIT_TARGET = init
 PCH_TARGET =
 BC_TARGET = 
-CODA_TARGET = /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib \
+CODA_TARGET = /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib \
               
 
 #
@@ -312,90 +312,90 @@ gen_fds:
 #
 # Individual Object Build Targets
 #
-$(OUTPUT_DIR)/ScanMem64Wrapper.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/ScanMem64Wrapper.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/ScanMem64Wrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/ScanMem64Wrapper.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./ScanMem64Wrapper.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/ScanMem64Wrapper.c
-
-$(OUTPUT_DIR)/MemLibGeneric.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/MemLibGeneric.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/MemLibGeneric.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/MemLibGeneric.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./MemLibGeneric.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/MemLibGeneric.c
-
-$(OUTPUT_DIR)/MemLibGuid.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/MemLibGuid.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/MemLibGuid.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/MemLibGuid.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./MemLibGuid.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/MemLibGuid.c
-
-$(OUTPUT_DIR)/IsZeroBufferWrapper.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/IsZeroBufferWrapper.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/IsZeroBufferWrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/IsZeroBufferWrapper.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./IsZeroBufferWrapper.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/IsZeroBufferWrapper.c
+$(OUTPUT_DIR)/SetMem64Wrapper.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/SetMem64Wrapper.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/SetMem64Wrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/SetMem64Wrapper.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./SetMem64Wrapper.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/SetMem64Wrapper.c
 
 $(OUTPUT_DIR)/SetMem16Wrapper.obj : $(MAKE_FILE)
 $(OUTPUT_DIR)/SetMem16Wrapper.obj : $(COMMON_DEPS)
 $(OUTPUT_DIR)/SetMem16Wrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/SetMem16Wrapper.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./SetMem16Wrapper.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/SetMem16Wrapper.c
-
-$(OUTPUT_DIR)/CompareMemWrapper.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/CompareMemWrapper.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/CompareMemWrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/CompareMemWrapper.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./CompareMemWrapper.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/CompareMemWrapper.c
-
-$(OUTPUT_DIR)/ScanMem32Wrapper.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/ScanMem32Wrapper.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/ScanMem32Wrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/ScanMem32Wrapper.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./ScanMem32Wrapper.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/ScanMem32Wrapper.c
-
-$(OUTPUT_DIR)/CopyMemWrapper.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/CopyMemWrapper.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/CopyMemWrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/CopyMemWrapper.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./CopyMemWrapper.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/CopyMemWrapper.c
-
-$(OUTPUT_DIR)/CopyMem.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/CopyMem.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/CopyMem.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/CopyMem.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./CopyMem.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/CopyMem.c
-
-$(OUTPUT_DIR)/SetMem.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/SetMem.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/SetMem.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/SetMem.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./SetMem.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/SetMem.c
-
-$(OUTPUT_DIR)/SetMem32Wrapper.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/SetMem32Wrapper.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/SetMem32Wrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/SetMem32Wrapper.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./SetMem32Wrapper.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/SetMem32Wrapper.c
-
-$(OUTPUT_DIR)/ZeroMemWrapper.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/ZeroMemWrapper.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/ZeroMemWrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/ZeroMemWrapper.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./ZeroMemWrapper.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/ZeroMemWrapper.c
-
-$(OUTPUT_DIR)/ScanMem8Wrapper.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/ScanMem8Wrapper.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/ScanMem8Wrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/ScanMem8Wrapper.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./ScanMem8Wrapper.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/ScanMem8Wrapper.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./SetMem16Wrapper.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/SetMem16Wrapper.c
 
 $(OUTPUT_DIR)/ScanMem16Wrapper.obj : $(MAKE_FILE)
 $(OUTPUT_DIR)/ScanMem16Wrapper.obj : $(COMMON_DEPS)
 $(OUTPUT_DIR)/ScanMem16Wrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/ScanMem16Wrapper.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./ScanMem16Wrapper.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/ScanMem16Wrapper.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./ScanMem16Wrapper.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/ScanMem16Wrapper.c
+
+$(OUTPUT_DIR)/ZeroMemWrapper.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/ZeroMemWrapper.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/ZeroMemWrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/ZeroMemWrapper.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./ZeroMemWrapper.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/ZeroMemWrapper.c
+
+$(OUTPUT_DIR)/SetMem32Wrapper.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/SetMem32Wrapper.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/SetMem32Wrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/SetMem32Wrapper.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./SetMem32Wrapper.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/SetMem32Wrapper.c
+
+$(OUTPUT_DIR)/MemLibGuid.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/MemLibGuid.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/MemLibGuid.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/MemLibGuid.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./MemLibGuid.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/MemLibGuid.c
+
+$(OUTPUT_DIR)/CompareMemWrapper.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/CompareMemWrapper.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/CompareMemWrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/CompareMemWrapper.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./CompareMemWrapper.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/CompareMemWrapper.c
+
+$(OUTPUT_DIR)/CopyMemWrapper.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/CopyMemWrapper.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/CopyMemWrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/CopyMemWrapper.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./CopyMemWrapper.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/CopyMemWrapper.c
+
+$(OUTPUT_DIR)/ScanMem32Wrapper.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/ScanMem32Wrapper.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/ScanMem32Wrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/ScanMem32Wrapper.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./ScanMem32Wrapper.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/ScanMem32Wrapper.c
 
 $(OUTPUT_DIR)/SetMemWrapper.obj : $(MAKE_FILE)
 $(OUTPUT_DIR)/SetMemWrapper.obj : $(COMMON_DEPS)
 $(OUTPUT_DIR)/SetMemWrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/SetMemWrapper.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./SetMemWrapper.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/SetMemWrapper.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./SetMemWrapper.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/SetMemWrapper.c
 
-$(OUTPUT_DIR)/SetMem64Wrapper.obj : $(MAKE_FILE)
-$(OUTPUT_DIR)/SetMem64Wrapper.obj : $(COMMON_DEPS)
-$(OUTPUT_DIR)/SetMem64Wrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/SetMem64Wrapper.c
-	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./SetMem64Wrapper.obj $(INC) /home/totsugekitai/minOS/edk2/MdePkg/Library/BaseMemoryLib/SetMem64Wrapper.c
+$(OUTPUT_DIR)/ScanMem8Wrapper.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/ScanMem8Wrapper.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/ScanMem8Wrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/ScanMem8Wrapper.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./ScanMem8Wrapper.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/ScanMem8Wrapper.c
+
+$(OUTPUT_DIR)/ScanMem64Wrapper.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/ScanMem64Wrapper.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/ScanMem64Wrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/ScanMem64Wrapper.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./ScanMem64Wrapper.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/ScanMem64Wrapper.c
+
+$(OUTPUT_DIR)/IsZeroBufferWrapper.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/IsZeroBufferWrapper.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/IsZeroBufferWrapper.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/IsZeroBufferWrapper.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./IsZeroBufferWrapper.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/IsZeroBufferWrapper.c
+
+$(OUTPUT_DIR)/SetMem.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/SetMem.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/SetMem.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/SetMem.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./SetMem.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/SetMem.c
+
+$(OUTPUT_DIR)/MemLibGeneric.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/MemLibGeneric.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/MemLibGeneric.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/MemLibGeneric.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./MemLibGeneric.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/MemLibGeneric.c
+
+$(OUTPUT_DIR)/CopyMem.obj : $(MAKE_FILE)
+$(OUTPUT_DIR)/CopyMem.obj : $(COMMON_DEPS)
+$(OUTPUT_DIR)/CopyMem.obj : $(WORKSPACE)/MdePkg/Library/BaseMemoryLib/CopyMem.c
+	"$(CC)" $(CC_FLAGS) -c -o /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/./CopyMem.obj $(INC) /home/totsugekitai/workspace/mywork/minOS/edk2/MdePkg/Library/BaseMemoryLib/CopyMem.c
 
 $(OUTPUT_DIR)/BaseMemoryLib.lib : $(OBJECT_FILES)
 $(OUTPUT_DIR)/BaseMemoryLib.lib : $(OBJECT_FILES_LIST)
-	$(RM) /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib
-	"$(SLINK)" cr /home/totsugekitai/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib $(SLINK_FLAGS) @$(OBJECT_FILES_LIST)
+	$(RM) /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib
+	"$(SLINK)" cr /home/totsugekitai/workspace/mywork/minOS/edk2/Build/LoaderPkgX64/NOOPT_GCC5/X64/MdePkg/Library/BaseMemoryLib/BaseMemoryLib/OUTPUT/BaseMemoryLib.lib $(SLINK_FLAGS) @$(OBJECT_FILES_LIST)
 
 
 
