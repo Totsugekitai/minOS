@@ -21,8 +21,9 @@ void readline_serial(struct ring_buf_char *text_buf)
     text_x += 8 * 18;
     while (keycode != 0x0d) { // 改行が来たらやめる
         // if (readline_flag == 0) {
-            //wait_serial_input();
-            keycode = read_serial(readline_flag);
+            keycode = 0x00;
+            wait_serial_input();
+            //keycode = read_serial(readline_flag);
             if (keycode == 0x0d) {
                 break;
             }
@@ -142,30 +143,6 @@ void do_command(char *args_array, char *args_top[MAX_ARGS], char *output)
             puts_serial("sleep\n");
             sleep(demstr_to_u64(args_top[1]));
         }
-    // } else if (strncmp(command, "delay", 6) == 0) {
-    //     if (number_of_args < 3) {
-    //         sprintf("delay: bad args", output);
-    //     } else {
-    //         int count = 0;
-    //         while(args_top[1][count] != 0x00) {
-    //             count++;
-    //         }
-    //         int index_args_top2 = 6 + count;
-    //         int len_args_array = MAX_ARGS * ARG_LENGTH;
-    //         int len_from_args_top2 = len_args_array - index_args_top2;
-    //         null_to_space(args_top[2], len_from_args_top2);
-    //         for (int i = index_args_top2; i < len_args_array; i++) {
-    //             if (args_top[2][i] == 0x20 && args_top[2][i+1] == 0x20) {
-    //                 args_top[2][i] = 0x00;
-    //             }
-    //         }
-
-    //         puts_serial("delay\n");
-    //         puts_serial(args_top[2]);
-    //         puts_serial("\n");
-    //         
-    //         delay(demstr_to_u64(args_top[1]), args_top[2]);
-    //     }
     } else if (strncmp(command, &null_char, 1) == 0) {
         sprintf("no input", output);
     } else {

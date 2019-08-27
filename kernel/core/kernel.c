@@ -20,9 +20,9 @@ uint64_t *GDT = (uint64_t *)0x80;
 // 初期ページテーブルは固定配置
 uint64_t *PML4 = (uint64_t *)0x1000;
 uint64_t *PDP = (uint64_t *)0x2000;
-uint64_t *PD = (uint64_t *)0x10000;
-// IDTは0x20000に固定配置
-struct gate_descriptor *IDT = (struct gate_descriptor *)0x20000;
+uint64_t *PD = (uint64_t *)0x3000;
+// IDTは固定配置
+struct gate_descriptor *IDT = (struct gate_descriptor *)0x13000;
 
 void main_routine(void);
 
@@ -31,8 +31,7 @@ void start_kernel(struct bootinfo *binfo)
     init_bss();
     init_serial();
     init_global_variables(binfo);
-    // init_gdtでmain_routineへジャンプする
-    init_gdt();
+    init_gdt(); // init_gdtでmain_routineへジャンプする
 }
 
 /* GDTの設定が終わった後のルーチン */
@@ -59,7 +58,9 @@ void main_routine(void)
            "minOS - A Minimal Operating System.");
     putstr(500, 580, black, white, vinfo_global,
            "Developer : Totsugekitai(@totsugeki8)");
-
+    
+    asm volatile("int $0x21");
+    asm volatile("int $0x24");
     puts_serial("console start\n");
 
     // コンソール

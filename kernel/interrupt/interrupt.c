@@ -17,7 +17,6 @@ struct gate_descriptor make_gate_descriptor(uint64_t offset, uint32_t dpl,
 
 void init_pic(void)
 {
-    //puts_serial("start init_pic\n");
     io_outb(PIC0_ICW1, 0x11);
     io_outb(PIC0_ICW2, 32); // IRQ0-7をINT 0x20-0x27にマップ
     io_outb(PIC0_ICW3, 4);
@@ -31,16 +30,7 @@ void init_pic(void)
     io_outb(PIC1_ICW4, 0x01);
     io_outb(PIC1_IMR, 0xff);
 
-    io_outb(PIC0_IMR, 0xee);
+    io_outb(PIC0_IMR, 0xee); // タイマとCOM1以外はMask
     io_outb(PIC1_IMR, 0xff);
-
-    //puts_serial("PIC0_IMR:");
-    //putnum_serial(io_inb(PIC0_IMR));
-    //puts_serial("\n");
-    //puts_serial("PIC1_IMR:");
-    //putnum_serial(io_inb(PIC1_IMR));
-    //puts_serial("\n");
-
-    //puts_serial("end init_pic\n");
 }
 

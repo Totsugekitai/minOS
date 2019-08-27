@@ -76,7 +76,7 @@ Uefi_Main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *st)
     uint64_t *kernel_program = NULL;
     uint64_t *start_address =
         (uint64_t *)KERNEL_START_QEMU;
-    buf_size = (UINTN)BUF_16KB;
+    buf_size = (UINTN)BUF_512KB;
     do {
         status = kernel_file->Read(kernel_file,
                 &buf_size, kernel_program);

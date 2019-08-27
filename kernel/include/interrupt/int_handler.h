@@ -21,4 +21,6 @@ void keyboard_handler(struct InterruptFrame *frame);
 void keyboard_handler_dash(void);
 void com1_handler(struct InterruptFrame *frame);
 void com1_handler_dash(void);
+void mouse_handler(struct InterruptFrame *frame);
+void empty_handler(struct InterruptFrame *frame);
 

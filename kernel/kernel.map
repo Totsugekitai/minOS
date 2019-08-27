@@ -7,7 +7,7 @@
  .debug_macinfo
                 0x0000000000000000        0x1 core/kernel.o
  .eh_frame      0x0000000000000000       0x58 core/kernel.o
- .debug_line    0x0000000000000000      0x12e core/kernel.o
+ .debug_line    0x0000000000000000      0x130 core/kernel.o
  .llvm_addrsig  0x0000000000000000       0x12 core/kernel.o
  .debug_str     0x0000000000000000      0x1dd graphics/graphics.o
  .debug_abbrev  0x0000000000000000       0xb7 graphics/graphics.o
@@ -58,14 +58,14 @@
  .eh_frame      0x0000000000000000       0x38 init/init_paging.o
  .debug_line    0x0000000000000000       0x5f init/init_paging.o
  .llvm_addrsig  0x0000000000000000        0x5 init/init_paging.o
- .debug_str     0x0000000000000000       0xa9 init/init_interrupt.o
- .debug_abbrev  0x0000000000000000       0x41 init/init_interrupt.o
- .debug_info    0x0000000000000000       0x5d init/init_interrupt.o
+ .debug_str     0x0000000000000000       0xaf init/init_interrupt.o
+ .debug_abbrev  0x0000000000000000       0x59 init/init_interrupt.o
+ .debug_info    0x0000000000000000       0x81 init/init_interrupt.o
  .debug_macinfo
                 0x0000000000000000        0x1 init/init_interrupt.o
  .eh_frame      0x0000000000000000       0x38 init/init_interrupt.o
- .debug_line    0x0000000000000000       0xb7 init/init_interrupt.o
- .llvm_addrsig  0x0000000000000000        0x8 init/init_interrupt.o
+ .debug_line    0x0000000000000000       0xe7 init/init_interrupt.o
+ .llvm_addrsig  0x0000000000000000        0xa init/init_interrupt.o
  .debug_str     0x0000000000000000       0xfa init/init_graphics.o
  .debug_abbrev  0x0000000000000000       0x7c init/init_graphics.o
  .debug_info    0x0000000000000000      0x129 init/init_graphics.o
@@ -96,7 +96,7 @@
  .debug_macinfo
                 0x0000000000000000        0x1 interrupt/interrupt.o
  .eh_frame      0x0000000000000000       0x58 interrupt/interrupt.o
- .debug_line    0x0000000000000000       0xec interrupt/interrupt.o
+ .debug_line    0x0000000000000000       0xea interrupt/interrupt.o
  .llvm_addrsig  0x0000000000000000        0x1 interrupt/interrupt.o
  .debug_str     0x0000000000000000       0xfb interrupt/fault_handler.o
  .debug_abbrev  0x0000000000000000       0x88 interrupt/fault_handler.o
@@ -106,21 +106,21 @@
  .eh_frame      0x0000000000000000       0xa8 interrupt/fault_handler.o
  .debug_line    0x0000000000000000      0x128 interrupt/fault_handler.o
  .llvm_addrsig  0x0000000000000000        0x8 interrupt/fault_handler.o
- .debug_str     0x0000000000000000      0x153 interrupt/user_defined_handler.o
+ .debug_str     0x0000000000000000      0x16f interrupt/user_defined_handler.o
  .debug_abbrev  0x0000000000000000       0x99 interrupt/user_defined_handler.o
- .debug_info    0x0000000000000000      0x16f interrupt/user_defined_handler.o
+ .debug_info    0x0000000000000000      0x1b9 interrupt/user_defined_handler.o
  .debug_macinfo
                 0x0000000000000000        0x1 interrupt/user_defined_handler.o
- .eh_frame      0x0000000000000000      0x178 interrupt/user_defined_handler.o
- .debug_line    0x0000000000000000      0x12e interrupt/user_defined_handler.o
- .llvm_addrsig  0x0000000000000000        0x9 interrupt/user_defined_handler.o
+ .eh_frame      0x0000000000000000      0x220 interrupt/user_defined_handler.o
+ .debug_line    0x0000000000000000      0x14c interrupt/user_defined_handler.o
+ .llvm_addrsig  0x0000000000000000        0xb interrupt/user_defined_handler.o
  .debug_str     0x0000000000000000      0x1e8 device/keyinput.o
  .debug_abbrev  0x0000000000000000      0x115 device/keyinput.o
  .debug_info    0x0000000000000000      0x29d device/keyinput.o
  .debug_macinfo
                 0x0000000000000000        0x1 device/keyinput.o
  .eh_frame      0x0000000000000000      0x198 device/keyinput.o
- .debug_line    0x0000000000000000      0x4f2 device/keyinput.o
+ .debug_line    0x0000000000000000      0x4f3 device/keyinput.o
  .llvm_addrsig  0x0000000000000000        0xb device/keyinput.o
  .debug_str     0x0000000000000000      0x22d app/console.o
  .debug_abbrev  0x0000000000000000       0xcb app/console.o
@@ -128,8 +128,8 @@
  .debug_macinfo
                 0x0000000000000000        0x1 app/console.o
  .eh_frame      0x0000000000000000       0xd8 app/console.o
- .debug_line    0x0000000000000000      0x3a1 app/console.o
- .llvm_addrsig  0x0000000000000000       0x22 app/console.o
+ .debug_line    0x0000000000000000      0x39a app/console.o
+ .llvm_addrsig  0x0000000000000000       0x21 app/console.o
  .debug_str     0x0000000000000000      0x2a6 acpi/acpi.o
  .debug_abbrev  0x0000000000000000       0xee acpi/acpi.o
  .debug_info    0x0000000000000000      0x3c4 acpi/acpi.o
@@ -181,234 +181,238 @@ BODY             0x0000000000110000 0x0000000000100000 xrw
 リンカスクリプトおよびメモリマップ
 
 
-.body           0x0000000000110000     0x5f00
+.body           0x0000000000110000     0x6270
  *(.text)
- .text          0x0000000000110000      0x1f0 core/kernel.o
+ .text          0x0000000000110000      0x1f4 core/kernel.o
                 0x0000000000110000                start_kernel
                 0x0000000000110030                main_routine
- .text          0x00000000001101f0      0x879 graphics/graphics.o
-                0x00000000001101f0                _draw_dot
-                0x0000000000110270                draw_square
-                0x0000000000110350                putchar
-                0x0000000000110640                putstr
-                0x00000000001106c0                putnum
- *fill*         0x0000000000110a69        0x7 
- .text          0x0000000000110a70      0xe2c util/util.o
-                0x0000000000110a70                memset
-                0x0000000000110ad0                memcpy
-                0x0000000000110b40                pow
-                0x0000000000110ba0                gen_buf_u64
-                0x0000000000110c00                buf_u64_isempty
-                0x0000000000110c40                buf_u64_isfull
-                0x0000000000110c90                enqueue_u64
-                0x0000000000110d10                dequeue_u64
-                0x0000000000110d90                flush_buf_u64
-                0x0000000000110df0                gen_buf_char
-                0x0000000000110e50                buf_char_isempty
-                0x0000000000110e80                buf_char_isfull
-                0x0000000000110ed0                enqueue_char
-                0x0000000000110f40                dequeue_char
-                0x0000000000110fc0                flush_buf_char
-                0x0000000000111010                flush_array_char
-                0x0000000000111060                comptext
-                0x0000000000111140                strncmp
-                0x00000000001111e0                sprintf
-                0x0000000000111260                u64_to_hexstr
-                0x00000000001115f0                demchar_to_u64
-                0x0000000000111720                demstr_to_u64
-                0x0000000000111840                null_to_space
- .text          0x000000000011189c       0x60 util/util_asm.o
-                0x000000000011189c                io_cli
-                0x000000000011189e                io_sti
-                0x00000000001118a0                io_inb
-                0x00000000001118a5                io_in32
-                0x00000000001118aa                io_out32
-                0x00000000001118b2                io_outb
-                0x00000000001118ba                io_rdmsr
-                0x00000000001118c7                io_wrmsr
-                0x00000000001118d0                init_irq
-                0x00000000001118f7                send_eoi
- *fill*         0x00000000001118fc        0x4 
- .text          0x0000000000111900       0x60 init/bss.o
-                0x0000000000111900                init_bss
- .text          0x0000000000111960       0x2b init/init_global_variables.o
-                0x0000000000111960                init_global_variables
- *fill*         0x000000000011198b        0x5 
- .text          0x0000000000111990       0x74 init/init_gdt.o
-                0x0000000000111990                init_gdt
- *fill*         0x0000000000111a04        0xc 
- .text          0x0000000000111a10       0x30 init/init_paging.o
-                0x0000000000111a10                init_paging
- .text          0x0000000000111a40      0x177 init/init_interrupt.o
-                0x0000000000111a40                init_interrupt
- *fill*         0x0000000000111bb7        0x9 
- .text          0x0000000000111bc0       0xaa init/init_graphics.o
-                0x0000000000111bc0                init_graphics
- *fill*         0x0000000000111c6a        0x6 
- .text          0x0000000000111c70       0x6e mm/segmentation.o
-                0x0000000000111c70                make_segment_descriptor
- .text          0x0000000000111cde       0x18 mm/load_gdt.o
-                0x0000000000111cde                load_gdt
- .text          0x0000000000111cf6       0x33 mm/set_segment_register.o
-                0x0000000000111cf6                set_segment_register
-                0x0000000000111d23                main_label
- .text          0x0000000000111d29        0xb mm/load_pgtable.o
-                0x0000000000111d29                load_pgtable
- *fill*         0x0000000000111d34        0xc 
- .text          0x0000000000111d40      0x11c mm/paging.o
-                0x0000000000111d40                create_pgtable
- .text          0x0000000000111e5c       0x17 debug/debug.o
-                0x0000000000111e5c                insert_to_reg
-                0x0000000000111e60                get_cr3
-                0x0000000000111e64                get_cr4
-                0x0000000000111e68                get_efer
-                0x0000000000111e70                generate_gp
- .text          0x0000000000111e73       0x18 interrupt/load_idt.o
-                0x0000000000111e73                load_idt
- *fill*         0x0000000000111e8b        0x5 
- .text          0x0000000000111e90      0x11a interrupt/interrupt.o
-                0x0000000000111e90                make_gate_descriptor
-                0x0000000000111ef0                init_pic
- *fill*         0x0000000000111faa        0x6 
- .text          0x0000000000111fb0      0x25b interrupt/fault_handler.o
-                0x0000000000111fb0                gp_handler
-                0x0000000000111ff0                gp_handler_deluxe
-                0x00000000001121d0                pf_handler
- *fill*         0x000000000011220b        0x5 
- .text          0x0000000000112210      0x500 interrupt/user_defined_handler.o
-                0x0000000000112210                timer_handler
-                0x0000000000112370                timer_handler_dash
-                0x00000000001123b0                keyboard_handler
-                0x0000000000112510                keyboard_handler_dash
-                0x0000000000112550                com1_handler
-                0x00000000001126c0                com1_handler_dash
- .text          0x0000000000112710      0x10e interrupt/handler_caller.o
-                0x0000000000112710                general_protection
-                0x0000000000112746                page_fault
-                0x000000000011277b                timer_interrupt
-                0x00000000001127b2                keyboard_interrupt
-                0x00000000001127e9                com1_interrupt
- .text          0x000000000011281e        0x6 device/keyboard.o
-                0x000000000011281e                read_kbd_signal
-                0x0000000000112821                read_kbd_status
- *fill*         0x0000000000112824        0xc 
- .text          0x0000000000112830      0xed9 device/keyinput.o
-                0x0000000000112830                init_serial
-                0x00000000001128a0                serial_received
-                0x00000000001128c0                wait_serial_input
-                0x00000000001128f0                read_serial
-                0x0000000000112940                serial_thr_empty
-                0x0000000000112960                write_serial
-                0x00000000001129a0                puts_serial
-                0x0000000000112a00                ps2_received
-                0x0000000000112a40                read_ps2
-                0x0000000000112a80                map_scan_to_ascii_set1
-                0x0000000000112f00                map_scan_to_ascii_set2
-                0x0000000000113380                putnum_serial
- *fill*         0x0000000000113709        0x7 
- .text          0x0000000000113710      0x7bb app/console.o
-                0x0000000000113710                readline_serial
-                0x0000000000113880                readline_ps2
-                0x00000000001139e0                parse_line
-                0x0000000000113b10                do_command
-                0x0000000000113d20                writelines
-                0x0000000000113dd0                console
- *fill*         0x0000000000113ecb        0x5 
- .text          0x0000000000113ed0      0x443 acpi/acpi.o
-                0x0000000000113ed0                get_xsdt_other_table
-                0x0000000000113fa0                wait_milliseconds
-                0x00000000001140a0                measure_freq
-                0x0000000000114120                init_local_APIC
- *fill*         0x0000000000114313        0xd 
- .text          0x0000000000114320       0x23 command/echo.o
-                0x0000000000114320                echo
- *fill*         0x0000000000114343        0xd 
- .text          0x0000000000114350       0x33 command/uptime.o
-                0x0000000000114350                uptime
- *fill*         0x0000000000114383        0xd 
- .text          0x0000000000114390       0x42 command/sleep.o
-                0x0000000000114390                sleep
- *fill*         0x00000000001143d2        0xe 
- .text          0x00000000001143e0       0xb2 command/delay.o
-                0x00000000001143e0                delay
+ *fill*         0x00000000001101f4        0xc 
+ .text          0x0000000000110200      0x879 graphics/graphics.o
+                0x0000000000110200                _draw_dot
+                0x0000000000110280                draw_square
+                0x0000000000110360                putchar
+                0x0000000000110650                putstr
+                0x00000000001106d0                putnum
+ *fill*         0x0000000000110a79        0x7 
+ .text          0x0000000000110a80      0xe2c util/util.o
+                0x0000000000110a80                memset
+                0x0000000000110ae0                memcpy
+                0x0000000000110b50                pow
+                0x0000000000110bb0                gen_buf_u64
+                0x0000000000110c10                buf_u64_isempty
+                0x0000000000110c50                buf_u64_isfull
+                0x0000000000110ca0                enqueue_u64
+                0x0000000000110d20                dequeue_u64
+                0x0000000000110da0                flush_buf_u64
+                0x0000000000110e00                gen_buf_char
+                0x0000000000110e60                buf_char_isempty
+                0x0000000000110e90                buf_char_isfull
+                0x0000000000110ee0                enqueue_char
+                0x0000000000110f50                dequeue_char
+                0x0000000000110fd0                flush_buf_char
+                0x0000000000111020                flush_array_char
+                0x0000000000111070                comptext
+                0x0000000000111150                strncmp
+                0x00000000001111f0                sprintf
+                0x0000000000111270                u64_to_hexstr
+                0x0000000000111600                demchar_to_u64
+                0x0000000000111730                demstr_to_u64
+                0x0000000000111850                null_to_space
+ .text          0x00000000001118ac       0x60 util/util_asm.o
+                0x00000000001118ac                io_cli
+                0x00000000001118ae                io_sti
+                0x00000000001118b0                io_inb
+                0x00000000001118b5                io_in32
+                0x00000000001118ba                io_out32
+                0x00000000001118c2                io_outb
+                0x00000000001118ca                io_rdmsr
+                0x00000000001118d7                io_wrmsr
+                0x00000000001118e0                init_irq
+                0x0000000000111907                send_eoi
+ *fill*         0x000000000011190c        0x4 
+ .text          0x0000000000111910       0x60 init/bss.o
+                0x0000000000111910                init_bss
+ .text          0x0000000000111970       0x2b init/init_global_variables.o
+                0x0000000000111970                init_global_variables
+ *fill*         0x000000000011199b        0x5 
+ .text          0x00000000001119a0       0x74 init/init_gdt.o
+                0x00000000001119a0                init_gdt
+ *fill*         0x0000000000111a14        0xc 
+ .text          0x0000000000111a20       0x30 init/init_paging.o
+                0x0000000000111a20                init_paging
+ .text          0x0000000000111a50      0x249 init/init_interrupt.o
+                0x0000000000111a50                init_interrupt
+ *fill*         0x0000000000111c99        0x7 
+ .text          0x0000000000111ca0       0xaa init/init_graphics.o
+                0x0000000000111ca0                init_graphics
+ *fill*         0x0000000000111d4a        0x6 
+ .text          0x0000000000111d50       0x6e mm/segmentation.o
+                0x0000000000111d50                make_segment_descriptor
+ .text          0x0000000000111dbe       0x18 mm/load_gdt.o
+                0x0000000000111dbe                load_gdt
+ .text          0x0000000000111dd6       0x33 mm/set_segment_register.o
+                0x0000000000111dd6                set_segment_register
+                0x0000000000111e03                main_label
+ .text          0x0000000000111e09        0xb mm/load_pgtable.o
+                0x0000000000111e09                load_pgtable
+ *fill*         0x0000000000111e14        0xc 
+ .text          0x0000000000111e20      0x11c mm/paging.o
+                0x0000000000111e20                create_pgtable
+ .text          0x0000000000111f3c       0x17 debug/debug.o
+                0x0000000000111f3c                insert_to_reg
+                0x0000000000111f40                get_cr3
+                0x0000000000111f44                get_cr4
+                0x0000000000111f48                get_efer
+                0x0000000000111f50                generate_gp
+ .text          0x0000000000111f53       0x18 interrupt/load_idt.o
+                0x0000000000111f53                load_idt
+ *fill*         0x0000000000111f6b        0x5 
+ .text          0x0000000000111f70      0x11a interrupt/interrupt.o
+                0x0000000000111f70                make_gate_descriptor
+                0x0000000000111fd0                init_pic
+ *fill*         0x000000000011208a        0x6 
+ .text          0x0000000000112090      0x25b interrupt/fault_handler.o
+                0x0000000000112090                gp_handler
+                0x00000000001120d0                gp_handler_deluxe
+                0x00000000001122b0                pf_handler
+ *fill*         0x00000000001122eb        0x5 
+ .text          0x00000000001122f0      0x763 interrupt/user_defined_handler.o
+                0x00000000001122f0                timer_handler
+                0x0000000000112440                timer_handler_dash
+                0x0000000000112480                keyboard_handler
+                0x00000000001125e0                keyboard_handler_dash
+                0x0000000000112620                com1_handler
+                0x0000000000112790                com1_handler_dash
+                0x00000000001127e0                mouse_handler
+                0x0000000000112930                empty_handler
+ .text          0x0000000000112a53      0x10e interrupt/handler_caller.o
+                0x0000000000112a53                general_protection
+                0x0000000000112a89                page_fault
+                0x0000000000112abe                timer_interrupt
+                0x0000000000112af5                keyboard_interrupt
+                0x0000000000112b2c                com1_interrupt
+ .text          0x0000000000112b61        0x6 device/keyboard.o
+                0x0000000000112b61                read_kbd_signal
+                0x0000000000112b64                read_kbd_status
+ *fill*         0x0000000000112b67        0x9 
+ .text          0x0000000000112b70      0xee9 device/keyinput.o
+                0x0000000000112b70                init_serial
+                0x0000000000112bf0                serial_received
+                0x0000000000112c10                wait_serial_input
+                0x0000000000112c40                read_serial
+                0x0000000000112c90                serial_thr_empty
+                0x0000000000112cb0                write_serial
+                0x0000000000112cf0                puts_serial
+                0x0000000000112d50                ps2_received
+                0x0000000000112d90                read_ps2
+                0x0000000000112dd0                map_scan_to_ascii_set1
+                0x0000000000113250                map_scan_to_ascii_set2
+                0x00000000001136d0                putnum_serial
+ *fill*         0x0000000000113a59        0x7 
+ .text          0x0000000000113a60      0x7bb app/console.o
+                0x0000000000113a60                readline_serial
+                0x0000000000113bd0                readline_ps2
+                0x0000000000113d30                parse_line
+                0x0000000000113e60                do_command
+                0x0000000000114070                writelines
+                0x0000000000114120                console
+ *fill*         0x000000000011421b        0x5 
+ .text          0x0000000000114220      0x443 acpi/acpi.o
+                0x0000000000114220                get_xsdt_other_table
+                0x00000000001142f0                wait_milliseconds
+                0x00000000001143f0                measure_freq
+                0x0000000000114470                init_local_APIC
+ *fill*         0x0000000000114663        0xd 
+ .text          0x0000000000114670       0x23 command/echo.o
+                0x0000000000114670                echo
+ *fill*         0x0000000000114693        0xd 
+ .text          0x00000000001146a0       0x33 command/uptime.o
+                0x00000000001146a0                uptime
+ *fill*         0x00000000001146d3        0xd 
+ .text          0x00000000001146e0       0x42 command/sleep.o
+                0x00000000001146e0                sleep
+ *fill*         0x0000000000114722        0xe 
+ .text          0x0000000000114730       0xb2 command/delay.o
+                0x0000000000114730                delay
  *(.rodata*)
  .rodata.str1.1
-                0x0000000000114492       0x6c core/kernel.o
+                0x00000000001147e2       0x6c core/kernel.o
  .rodata.str1.1
-                0x00000000001144fe       0x3b interrupt/fault_handler.o
+                0x000000000011484e       0x3b interrupt/fault_handler.o
  .rodata.str1.1
-                0x0000000000114539       0x53 interrupt/user_defined_handler.o
- *fill*         0x000000000011458c        0x4 
- .rodata        0x0000000000114590      0xf80 device/keyinput.o
+                0x0000000000114889       0x6c interrupt/user_defined_handler.o
+ *fill*         0x00000000001148f5        0x3 
+ .rodata        0x00000000001148f8      0xf80 device/keyinput.o
  .rodata.str1.1
-                0x0000000000115510       0x83 app/console.o
- *fill*         0x0000000000115593        0x1 
- .rodata        0x0000000000115594        0x8 acpi/acpi.o
-                0x0000000000115594                PMTimerFreq
-                0x0000000000115598                Max_Count
+                0x0000000000115878       0x83 app/console.o
+ *fill*         0x00000000001158fb        0x1 
+ .rodata        0x00000000001158fc        0x8 acpi/acpi.o
+                0x00000000001158fc                PMTimerFreq
+                0x0000000000115900                Max_Count
  .rodata.str1.1
-                0x000000000011559c       0xfa acpi/acpi.o
+                0x0000000000115904       0xfa acpi/acpi.o
  *(.data*)
- *fill*         0x0000000000115696        0x2 
- .data          0x0000000000115698       0x28 core/kernel.o
-                0x0000000000115698                GDT
-                0x00000000001156a0                PML4
-                0x00000000001156a8                PDP
-                0x00000000001156b0                PD
-                0x00000000001156b8                IDT
- .data          0x00000000001156c0      0x600 graphics/graphics.o
-                0x00000000001156c0                fonts
-                0x0000000000115cb0                white
-                0x0000000000115cb4                red
-                0x0000000000115cb8                green
-                0x0000000000115cbc                blue
- .data          0x0000000000115cc0        0x0 util/util_asm.o
- .data          0x0000000000115cc0        0x0 mm/load_gdt.o
- .data          0x0000000000115cc0        0x0 mm/set_segment_register.o
- .data          0x0000000000115cc0        0x0 mm/load_pgtable.o
- .data          0x0000000000115cc0        0x0 debug/debug.o
- .data          0x0000000000115cc0        0x0 interrupt/load_idt.o
- .data          0x0000000000115cc0        0x8 interrupt/user_defined_handler.o
-                0x0000000000115cc0                end_of_interrupt
- .data          0x0000000000115cc8        0x0 interrupt/handler_caller.o
- .data          0x0000000000115cc8        0x0 device/keyboard.o
- .data          0x0000000000115cc8       0x20 acpi/acpi.o
-                0x0000000000115cc8                LVT_Timer
-                0x0000000000115cd0                Initial_Count
-                0x0000000000115cd8                Current_Count
-                0x0000000000115ce0                Divide_Configuration
-                0x0000000000115ce8                __bss_start = .
+ *fill*         0x00000000001159fe        0x2 
+ .data          0x0000000000115a00       0x28 core/kernel.o
+                0x0000000000115a00                GDT
+                0x0000000000115a08                PML4
+                0x0000000000115a10                PDP
+                0x0000000000115a18                PD
+                0x0000000000115a20                IDT
+ *fill*         0x0000000000115a28        0x8 
+ .data          0x0000000000115a30      0x600 graphics/graphics.o
+                0x0000000000115a30                fonts
+                0x0000000000116020                white
+                0x0000000000116024                red
+                0x0000000000116028                green
+                0x000000000011602c                blue
+ .data          0x0000000000116030        0x0 util/util_asm.o
+ .data          0x0000000000116030        0x0 mm/load_gdt.o
+ .data          0x0000000000116030        0x0 mm/set_segment_register.o
+ .data          0x0000000000116030        0x0 mm/load_pgtable.o
+ .data          0x0000000000116030        0x0 debug/debug.o
+ .data          0x0000000000116030        0x0 interrupt/load_idt.o
+ .data          0x0000000000116030        0x8 interrupt/user_defined_handler.o
+                0x0000000000116030                end_of_interrupt
+ .data          0x0000000000116038        0x0 interrupt/handler_caller.o
+ .data          0x0000000000116038        0x0 device/keyboard.o
+ .data          0x0000000000116038       0x20 acpi/acpi.o
+                0x0000000000116038                LVT_Timer
+                0x0000000000116040                Initial_Count
+                0x0000000000116048                Current_Count
+                0x0000000000116050                Divide_Configuration
+                0x0000000000116058                __bss_start = .
  *(.bss)
- .bss           0x0000000000115ce8       0x10 core/kernel.o
-                0x0000000000115ce8                vinfo_global
-                0x0000000000115cf0                rsdp
- .bss           0x0000000000115cf8        0x4 graphics/graphics.o
-                0x0000000000115cf8                black
- .bss           0x0000000000115cfc        0x0 util/util_asm.o
- .bss           0x0000000000115cfc        0x0 mm/load_gdt.o
- .bss           0x0000000000115cfc        0x0 mm/set_segment_register.o
- .bss           0x0000000000115cfc        0x0 mm/load_pgtable.o
- .bss           0x0000000000115cfc        0x0 debug/debug.o
- .bss           0x0000000000115cfc        0x0 interrupt/load_idt.o
- *fill*         0x0000000000115cfc        0x4 
- .bss           0x0000000000115d00        0x8 interrupt/user_defined_handler.o
-                0x0000000000115d00                milli_clock
- .bss           0x0000000000115d08        0x0 interrupt/handler_caller.o
- .bss           0x0000000000115d08        0x0 device/keyboard.o
- *fill*         0x0000000000115d08        0x8 
- .bss           0x0000000000115d10      0x1e1 app/console.o
-                0x0000000000115d10                readline_flag
-                0x0000000000115d20                readline_buf
-                0x0000000000115d60                shift
-                0x0000000000115d64                text_x
-                0x0000000000115d68                text_y
-                0x0000000000115d6c                keycode
-                0x0000000000115d70                task_q
-                0x0000000000115ef0                oldkeycode
- *fill*         0x0000000000115ef1        0x7 
- .bss           0x0000000000115ef8        0x8 acpi/acpi.o
-                0x0000000000115ef8                lapic_freq
-                0x0000000000115f00                __bss_end = .
+ .bss           0x0000000000116058       0x10 core/kernel.o
+                0x0000000000116058                vinfo_global
+                0x0000000000116060                rsdp
+ .bss           0x0000000000116068        0x4 graphics/graphics.o
+                0x0000000000116068                black
+ .bss           0x000000000011606c        0x0 util/util_asm.o
+ .bss           0x000000000011606c        0x0 mm/load_gdt.o
+ .bss           0x000000000011606c        0x0 mm/set_segment_register.o
+ .bss           0x000000000011606c        0x0 mm/load_pgtable.o
+ .bss           0x000000000011606c        0x0 debug/debug.o
+ .bss           0x000000000011606c        0x0 interrupt/load_idt.o
+ *fill*         0x000000000011606c        0x4 
+ .bss           0x0000000000116070        0x8 interrupt/user_defined_handler.o
+                0x0000000000116070                milli_clock
+ .bss           0x0000000000116078        0x0 interrupt/handler_caller.o
+ .bss           0x0000000000116078        0x0 device/keyboard.o
+ *fill*         0x0000000000116078        0x8 
+ .bss           0x0000000000116080      0x1e1 app/console.o
+                0x0000000000116080                readline_flag
+                0x0000000000116090                readline_buf
+                0x00000000001160d0                shift
+                0x00000000001160d4                text_x
+                0x00000000001160d8                text_y
+                0x00000000001160dc                keycode
+                0x00000000001160e0                task_q
+                0x0000000000116260                oldkeycode
+ *fill*         0x0000000000116261        0x7 
+ .bss           0x0000000000116268        0x8 acpi/acpi.o
+                0x0000000000116268                lapic_freq
+                0x0000000000116270                __bss_end = .
 
 /DISCARD/
  *(.eh_frame)

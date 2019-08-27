@@ -19,26 +19,9 @@ __attribute__((interrupt))
 void timer_handler(struct InterruptFrame *frame)
 {
     milli_clock += 1;
-    puts_serial("timer\n");
+    //puts_serial("timer\n");
     io_outb(PIC0_OCW2, 0x20);
     io_outb(PIC1_OCW2, 0x20);
-    //for (int i = 0; i < MAX_TASKS; i++) {
-    //    if (task_q.tasks[i].is_checked == 0 &&
-    //        task_q.tasks[i].exec_time != 0 &&
-    //        task_q.tasks[i].exec_time < milli_clock) {
-    //        for (int i = 0; i < READLINE_BUF_LENGTH; i++) {
-    //            if (task_q.tasks[i].command_line[i] == 0x00) {
-    //                break;
-    //            }
-    //            readline_buf[i] = task_q.tasks[i].command_line[i];
-    //        }
-    //        task_q.tasks[i].is_checked = 1;
-    //        readline_flag = 1;
-    //        puts_serial("readline_flag changes 1\n");
-    //        break;
-    //    }
-    //}
-    //*end_of_interrupt = 0;
 }
 
 void timer_handler_dash(void)
@@ -80,9 +63,22 @@ void com1_handler_dash(void)
 {
     puts_serial("COM1 interrupt.\n");
     keycode = io_inb(PORT);
-    io_outb(PIC0_OCW2, 0x61); // IRQ-04受付完了をPICに通知
     
     io_outb(PIC0_OCW2, 0x20);
     io_outb(PIC1_OCW2, 0x20);
+}
+
+__attribute__((interrupt))
+void mouse_handler(struct InterruptFrame *frame)
+{
+    puts_serial("mouse interrupt\n");
+    io_outb(PIC0_OCW2, 0x20);
+    io_outb(PIC1_OCW2, 0x20);
+}
+
+__attribute__((interrupt))
+void empty_handler(struct InterruptFrame *frame)
+{
+    puts_serial("empty handler\n");
 }
 

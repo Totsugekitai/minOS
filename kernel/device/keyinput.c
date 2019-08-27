@@ -16,6 +16,7 @@ void init_serial(void)
     io_outb(PORT + 3, 0x03);
     io_outb(PORT + 2, 0xC7);
     io_outb(PORT + 4, 0x0B);
+    io_outb(PORT + 1, 0x0d); // 割り込み許可
 }
 
 uint32_t serial_received(void)
