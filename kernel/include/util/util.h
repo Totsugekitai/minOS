@@ -39,9 +39,14 @@ void u64_to_hexstr(char dst[19], uint64_t num);
 uint64_t demstr_to_u64(char *demstr);
 void null_to_space(char *str, int len);
 
+extern void io_cli(void);
+extern void io_sti(void);
 extern uint8_t io_inb(uint16_t port);
 extern uint32_t io_in32(uint64_t port);
 extern void io_outb(uint16_t port, uint8_t byte);
+extern void io_out32(uint16_t port, uint32_t data);
 extern uint64_t io_rdmsr(uint32_t msr);
 extern void io_wrmsr(uint32_t edx, uint32_t eax);
+extern void init_irq(void);
+extern void send_eoi(void);
 

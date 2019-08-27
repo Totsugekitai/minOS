@@ -1,5 +1,15 @@
 .intel_syntax       noprefix
 
+.global     io_cli
+io_cli:
+    cli
+    ret
+
+.global     io_sti
+io_sti:
+    sti
+    ret
+
 .global     io_inb  # uint8_t io_inb(uint8_t port);
 io_inb:
     mov     rdx,rdi
@@ -10,6 +20,13 @@ io_inb:
 io_in32:
     mov     rdx,rdi
     in      eax,dx
+    ret
+
+.global     io_out32 # void io_out32(uint16_t port, uint32_t data);
+io_out32:
+    mov     rdx,rdi
+    mov     rax,rsi
+    out     dx,eax
     ret
 
 .global     io_outb # void io_outb(uint16_t port, uint8_t byte);
@@ -33,3 +50,37 @@ io_wrmsr:
     mov     rax,rsi
     wrmsr
     ret
+
+.global     init_irq
+init_irq:
+# PIC1
+    mov     al,0x11
+    out     0x20,al
+    mov     al,0x20
+    out     0x21,al
+    mov     al,0x4
+    out     0x21,al
+#PIC2
+    mov     al,0x11
+    out     0xa0,al
+    mov     al,0x28
+    out     0xa1,al
+    mov     al,0x2
+    out     0xa1,al
+
+    mov al, 0x04
+    out 0x21, al
+    mov al, 0x02
+    out 0xA1, al
+    mov     al,1
+    out     0x21,al
+    out     0xa1,al
+    
+    ret
+     
+.global     send_eoi
+send_eoi:
+    mov     al,0x20
+    out     0x20,al
+    ret
+

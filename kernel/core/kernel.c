@@ -41,7 +41,8 @@ void main_routine(void)
     init_paging();
     init_interrupt();
     init_graphics();
-    init_local_APIC();
+    //init_local_APIC();
+    init_pic();
 
     /* いろんなレジスタとかメモリとかの表示 */
     // EFER
@@ -59,6 +60,9 @@ void main_routine(void)
     putstr(500, 580, black, white, vinfo_global,
            "Developer : Totsugekitai(@totsugeki8)");
 
+    puts_serial("console start\n");
+
     // コンソール
     console();
 }
+

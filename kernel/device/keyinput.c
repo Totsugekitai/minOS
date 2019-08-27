@@ -4,6 +4,8 @@
 
 #define PORT    0x3f8
 
+extern uint8_t keycode;
+
 /* シリアル通信 */
 void init_serial(void)
 {
@@ -19,6 +21,13 @@ void init_serial(void)
 uint32_t serial_received(void)
 {
     return io_inb(PORT + 5) & 1;
+}
+
+void wait_serial_input(void)
+{
+    while (keycode == 0) {
+        asm volatile("hlt");
+    }
 }
 
 uint8_t read_serial(int interrupt_flag)
