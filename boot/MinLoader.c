@@ -72,11 +72,11 @@ Uefi_Main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *st)
     UINTN file_size = file_info->FileSize;
 
     // カーネルファイルをメモリに読み込む
-    // ここではカーネルのファイルサイズを16KB以下とする
+    // ここではカーネルのファイルサイズを512KB以下とする
     uint64_t *kernel_program = NULL;
     uint64_t *start_address =
         (uint64_t *)KERNEL_START_QEMU;
-    buf_size = (UINTN)BUF_16KB;
+    buf_size = (UINTN)BUF_512KB;
     do {
         status = kernel_file->Read(kernel_file,
                 &buf_size, kernel_program);
@@ -107,6 +107,11 @@ Uefi_Main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *st)
         // ExitBootServices
         status = gBS->ExitBootServices(ImageHandle, mapkey);
     } while (EFI_ERROR(status));
+
+    // メモリマップやらを取得
+    bootinfo.memory_map = mmap;
+    bootinfo.mmapsize = mmapsize;
+    bootinfo.memdescsize = descsize;
 
     // カーネルに渡す情報をレジスタに格納
     // スタックポインタを設定しカーネルへジャンプ

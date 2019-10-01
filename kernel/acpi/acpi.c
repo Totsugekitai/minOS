@@ -47,11 +47,6 @@ void wait_milliseconds(uint32_t *pm_timer_addr, uint32_t msec)
     puts_serial("\n");
     
     uint32_t k = 0;
-    //if (end < start) {
-    //    while ((k = io_in32((uint64_t)pm_timer_addr)) >= start) {
-    //        puts_serial("overflow");
-    //    }
-    //}
 
     puts_serial("after if\n");
     

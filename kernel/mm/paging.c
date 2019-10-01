@@ -28,7 +28,7 @@ void create_pgtable(uint64_t *pml4_addr,
     for (i = 0; i < PD_NUM; i++) {
         pdp_addr[i] = ((uint64_t)(&pd_addr[i * TABLE_SIZE]) | 0x003);
     }
-    
+
     // PML4のエントリにPDPを登録
     // pml4[0]に&pdp[0]を登録するだけ
     pml4_addr[0] = ((uint64_t)(&pdp_addr[0]) | 0x003);

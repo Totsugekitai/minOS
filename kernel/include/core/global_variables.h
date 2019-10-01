@@ -5,6 +5,9 @@
 
 extern struct video_info *vinfo_global;
 extern struct RSDP *rsdp;
+extern struct memory_descriptor *start_mmap;
+extern uint64_t mmapsize;
+extern uint64_t memdescsize;
 
 extern uint64_t *GDT;
 

@@ -14,6 +14,7 @@
 
 #define MEM_DESC_SIZE       0xffff
 #define KERNEL_FILE_NAME    L"kernel.bin"
+#define BUF_512KB           BUF_16KB * 32
 #define BUF_16KB            32768
 #define BUF_256B            256
 #define KERNEL_START_QEMU   0x00110000
@@ -42,6 +43,9 @@ struct RSDP {
 struct bootinfo_t {
     struct video_info_t vinfo;
     struct RSDP *rsdp;
+    EFI_MEMORY_DESCRIPTOR *memory_map;
+    UINTN mmapsize;
+    UINTN memdescsize;
 };
 
 struct header {

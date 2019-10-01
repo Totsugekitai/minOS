@@ -17,11 +17,11 @@ set_segment_register:
 
 # CSを設定する
 
-    pushfq
-    pop     rcx
-    and     rcx,0xffffffffffffbfff
-    push    rcx
-    popfq
+#    pushfq
+#    pop     rcx
+#    and     rcx,0xffffffffffffbfff
+#    push    rcx
+#    popfq
 
 # CSの設定にiretq命令を使う
 # スタックにSS,RSP,RFLAGS,CS,RIPの順に設定したい値を入れていく

@@ -27,7 +27,18 @@ struct RSDP {
     uint8_t reserved[3];
 } __attribute__((packed));
 
+struct memory_descriptor {
+    uint32_t type;
+    uint64_t physical_start;
+    uint64_t virtual_start;
+    uint64_t number_of_pages;
+    uint64_t attribute;
+};
+
 struct bootinfo {
     struct video_info vinfo;
     struct RSDP *rsdp;
+    struct memory_descriptor *memory_descriptor;
+    uint64_t mmapsize;
+    uint64_t memdescsize; 
 };

@@ -24,6 +24,8 @@ OBJS		= core/kernel.o \
 			  mm/set_segment_register.o \
 			  mm/load_pgtable.o \
 			  mm/paging.o \
+			  mm/memory.o \
+			  mm/memory_asm.o \
 			  debug/debug.o \
 			  interrupt/load_idt.o \
 			  interrupt/interrupt.o \
@@ -32,12 +34,11 @@ OBJS		= core/kernel.o \
 			  interrupt/handler_caller.o \
 			  device/keyboard.o \
 			  device/keyinput.o \
-			  app/console.o \
+			  app/console_kai.o \
 			  acpi/acpi.o \
 			  command/echo.o \
 			  command/uptime.o \
 			  command/sleep.o \
-			  command/delay.o \
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+
