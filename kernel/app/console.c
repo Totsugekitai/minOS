@@ -19,39 +19,19 @@ void readline_serial(struct ring_buf_char *text_buf)
     keycode = 0x00; // 初期化
     putstr(text_x, text_y, green, black, vinfo_global, "totsugeki@minOS $ ");
     text_x += 8 * 18;
-    while (keycode != 0x0d) { // 改行が来たらやめる
-        // if (readline_flag == 0) {
-            keycode = 0x00;
-            wait_serial_input();
-            //keycode = read_serial(readline_flag);
-            if (keycode == 0x0d) {
-                break;
-            }
-            if (keycode == 0x0a) {
-                continue;
-            }
-            if (!buf_char_isfull(text_buf)) {
-                enqueue_char(text_buf, keycode);
-                // 文字描画部
-                putnum(300, 100, white, black, vinfo_global, keycode);
-                putchar(text_x, text_y, white, black, vinfo_global, keycode);
-                text_x += 8;
-            }
-        // } else {
-        //     while (!buf_char_isempty(text_buf)) {
-        //         dequeue_char(text_buf, 0x00);
-        //     }
-        //     for (int i = 0; i < READLINE_BUF_LENGTH; i++) {
-        //         if (readline_buf[i] != 0x00) {
-        //             enqueue_char(text_buf, readline_buf[i]);
-        //         } else {
-        //             break;
-        //         }
-        //     }
-        //     readline_flag = 0;
-        //     puts_serial("readline_flag changes 0\n");
-        //     break;
-        // }
+    while (keycode != 0x0d && keycode != 0x0a) { // 改行が来たらやめる
+        keycode = 0x00;
+        wait_serial_input();
+        if (keycode == 0x0d || keycode == 0x0a) {
+            continue;
+        }
+        if (!buf_char_isfull(text_buf)) {
+            enqueue_char(text_buf, keycode);
+            // 文字描画部
+            putnum(300, 100, white, black, vinfo_global, keycode);
+            putchar(text_x, text_y, white, black, vinfo_global, keycode);
+            text_x += 8;
+        }
     }
     // 改行処理
     text_x = 0;
@@ -91,8 +71,10 @@ void parse_line(struct ring_buf_char *buf, char *args_array, char *args_top[10])
         dequeue_char(buf, &args_array[char_count]);
         char_count++;
     }
+    
     puts_serial(args_array);
     puts_serial("\n");
+    
     // args_arrayに入った文字を解析
     char_count++;
     uint8_t i, j = 0;

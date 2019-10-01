@@ -133,11 +133,23 @@ void flush_buf_char(struct ring_buf_char *buf)
     buf->tail = 0;
 }
 
-void flush_array_char(char *chararr)
+void flush_array_char(char chararr[])
 {
-    uint8_t i = 0;
-    while (chararr[i] != 0x00) {
+    int i = 0;
+    while (chararr[i] != 0x00 || chararr[i+1] != 0x00) {
         chararr[i] = 0x00;
+        i++;
+    }
+}
+
+void flush_argv(char *argv[])
+{
+    int i = 0, j = 0;
+    while (argv[i] != 0x00) {
+        while (argv[i][j] != 0x00) {
+            argv[i][j] = 0x00;
+            j++;
+        }
         i++;
     }
 }

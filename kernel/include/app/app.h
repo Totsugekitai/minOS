@@ -3,7 +3,7 @@
 
 #define MAX_TASKS   16
 #define MAX_ARGS 8
-#define ARG_LENGTH 8
+#define ARG_LENGTH 16
 #define OUTPUT_LENGTH 64
 #define READLINE_BUF_LENGTH 64
 #define READLINE_BUF_LENGTH 64
@@ -23,4 +23,5 @@ struct task_queue {
 };
 
 void console(void);
+void console_kai(void);
 

@@ -31,6 +31,7 @@ uint8_t buf_char_isfull(struct ring_buf_char *buf);
 uint8_t enqueue_char(struct ring_buf_char *buf, char data);
 uint8_t dequeue_char(struct ring_buf_char *buf, char *dst);
 void flush_buf_char(struct ring_buf_char *buf);
+void flush_argv(char *argv[]);
 
 uint8_t comptext(char *text, char *pat);
 int8_t strncmp(char *str1, char *str2, int num);

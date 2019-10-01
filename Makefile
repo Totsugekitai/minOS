@@ -37,7 +37,7 @@ run:
 		-drive if=pflash,format=raw,file=$(TOOLS)OVMF_VARS.fd \
 		fat:rw:$(FS) -m 4G \
 		-chardev stdio,mux=on,id=com1 \
-		-serial chardev:com1
+		-serial chardev:com1 \
 
 
 debug_run:
@@ -46,7 +46,8 @@ debug_run:
 		fat:rw:$(FS) -m 4G \
 		-chardev stdio,mux=on,id=com1 \
 		-serial chardev:com1 \
-		-monitor telnet::1234,server,nowait
+		-monitor telnet::1234,server,nowait \
+		-enable-kvm
 
 clean_boot:
 	-rm -r $(EDKBUILD)* $(LOADERSRC)boot

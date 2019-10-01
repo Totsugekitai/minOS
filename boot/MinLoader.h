@@ -43,6 +43,9 @@ struct RSDP {
 struct bootinfo_t {
     struct video_info_t vinfo;
     struct RSDP *rsdp;
+    EFI_MEMORY_DESCRIPTOR *memory_map;
+    UINTN mmapsize;
+    UINTN memdescsize;
 };
 
 struct header {
