@@ -19,15 +19,6 @@ __attribute__((interrupt))
 void timer_handler(struct InterruptFrame *frame)
 {
     milli_clock += 1;
-    //puts_serial("timer\n");
-    io_outb(PIC0_OCW2, 0x20);
-    io_outb(PIC1_OCW2, 0x20);
-}
-
-void timer_handler_dash(void)
-{
-    milli_clock += 1;
-    //puts_serial("timer\n");
     io_outb(PIC0_OCW2, 0x20);
     io_outb(PIC1_OCW2, 0x20);
 }

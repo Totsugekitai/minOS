@@ -149,7 +149,7 @@ void writelines()
     text_y += 16;
 }
 
-void console_kai(void)
+void console_kai(int argc, char **argv)
 {
     text_buf = gen_buf_char();
 
