@@ -5,7 +5,7 @@ INCLUDE		= $(CURRENT)include/
 TARGET		= kernel.bin
 CFLAGS 		= -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common \
 			  -O0 -I /usr/include -I $(INCLUDE) -fno-stack-protector -fno-pic \
-			  -mno-red-zone #-Wno-unused-parameter
+			  -mno-red-zone -Wno-unused-parameter
 			  
 LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
@@ -39,6 +39,8 @@ OBJS		= core/kernel.o \
 			  command/echo.o \
 			  command/uptime.o \
 			  command/sleep.o \
+			  task/thread.o \
+			  task/thread_asm.o \
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+
@@ -68,4 +70,5 @@ clean:
 	make -C $(CURRENT)app/ clean
 	make -C $(CURRENT)acpi/ clean
 	make -C $(CURRENT)command/ clean
+	make -C $(CURRENT)task/ clean
 

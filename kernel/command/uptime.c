@@ -6,11 +6,11 @@ extern char output[];
 
 void uptime(int argc, char *argv[])
 {
-    if (argc != 1) {
-        sprintf("uptime: bad args", output);
-    } else {
+    if (argc == 1) {
         char clockstr[19];
         u64_to_hexstr(clockstr, milli_clock);
         sprintf(clockstr, output);
+    } else {
+        sprintf("uptime: bad args", output);
     }
 }

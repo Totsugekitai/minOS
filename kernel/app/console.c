@@ -7,12 +7,8 @@
 #include <util/util.h>
 #include <app/app.h>
 
-// struct task_queue task_q;
-// volatile int readline_flag = 0;
-// volatile char readline_buf[READLINE_BUF_LENGTH] = {0};
-
 char args_array[MAX_ARGS * ARG_LENGTH] = {0},
-    *argv[MAX_ARGS] = {0}, output[OUTPUT_LENGTH] = {0};
+    *console_argv[MAX_ARGS] = {0}, output[OUTPUT_LENGTH] = {0};
 uint8_t keycode, oldkeycode, shift = 0;
 uint32_t text_x = 0, text_y = 0;
 struct ring_buf_char text_buf;
@@ -83,14 +79,14 @@ void parse_line(void)
     // args_arrayに入った文字を解析
     //char_count++;
     int i, j = 0;
-    argv[j] = args_array;
+    console_argv[j] = args_array;
     j++;
     for (i = 0; i < char_count; i++) {
         if (args_array[i] == 0x00) {
             break;
         }
         if (args_array[i] == 0x20) { // スペースだったら
-            argv[j] = &args_array[i + 1]; // args_topに次の文字のアドレスを登録
+            console_argv[j] = &args_array[i + 1]; // args_topに次の文字のアドレスを登録
             args_array[i] = 0x00; // スペースをnull文字に置換
             j++;
         }
@@ -100,9 +96,9 @@ void parse_line(void)
 
     // debug用
     for (int i = 0; i < MAX_ARGS; i++) {
-        if (argv[i] != 0x00) {
+        if (console_argv[i] != 0x00) {
             puts_serial("[");
-            puts_serial(argv[i]);
+            puts_serial(console_argv[i]);
             puts_serial("]");
             puts_serial("\n");
         } else {
@@ -114,23 +110,23 @@ void parse_line(void)
 void do_command(void)
 {
     // コマンドはargs_arrayの先頭
-    char *command = argv[0];
+    char *command = console_argv[0];
     
     // コマンド引数の数を解析
     int argc = 0;
     for (int i = 0; i < MAX_ARGS; i++) {
-        if (argv[i] != 0x00) {
+        if (console_argv[i] != 0x00) {
             argc++;
         }
     }
     
     // コマンドによって実行コマンドを振り分ける
     if (strncmp(command, "echo", 5) == 0) {
-        echo(argc, argv);
+        echo(argc, console_argv);
     } else if (strncmp(command, "uptime", 7) == 0) {
-        uptime(argc, argv);
+        uptime(argc, console_argv);
     } else if (strncmp(command, "sleep", 6) == 0) {
-        sleep(argc, argv);
+        sleep(argc, console_argv);
     } else if (strncmp(command, "", 1) == 0) {
         sprintf("no input", output);
     } else {
@@ -149,10 +145,13 @@ void writelines()
     text_y += 16;
 }
 
+/** コンソールの本体
+ * 二つの引数は便宜上設定しているが用いないので_をつけている
+ */
 void console(int _argc, char **_argv)
 {
+    puts_serial("enter console\n");
     text_buf = gen_buf_char();
-
 
     while (1) {
         readline_serial();
@@ -163,8 +162,7 @@ void console(int _argc, char **_argv)
         flush_buf_char(&text_buf);
         flush_array_char(output);
         flush_array_char(args_array);
-        flush_argv(argv);
-        // flush_array_char(readline_buf);
+        flush_argv(console_argv);
     }
 }
 

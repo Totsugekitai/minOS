@@ -47,7 +47,6 @@ debug_run:
 		-chardev stdio,mux=on,id=com1 \
 		-serial chardev:com1 \
 		-monitor telnet::1234,server,nowait \
-		-enable-kvm
 
 clean_boot:
 	-rm -r $(EDKBUILD)* $(LOADERSRC)boot

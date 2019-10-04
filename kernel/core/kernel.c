@@ -12,6 +12,7 @@
 #include <debug/debug.h>
 #include <device/device.h>
 #include <app/app.h>
+#include <task/thread.h>
 
 // bootinfoからとれる情報
 struct video_info *vinfo_global;
@@ -29,6 +30,14 @@ uint64_t *PD = (uint64_t *)0x3000;
 struct gate_descriptor *IDT = (struct gate_descriptor *)0x13000;
 
 void main_routine(void);
+void hlt(int _argc, char **_argv);
+
+extern uint64_t stack0[0x1000];
+extern uint64_t stack1[0x1000];
+extern uint64_t stack2[0x1000];
+extern uint64_t stack3[0x1000];
+extern uint64_t stack4[0x1000];
+extern uint64_t stack5[0x1000];
 
 void start_kernel(struct bootinfo *binfo)
 {
@@ -92,7 +101,33 @@ void main_routine(void)
     //putnum(70, 64, black, white, vinfo_global, memsize);
 
     // コンソール
-    puts_serial("console start\n");
-    console(0, 0);
+    // puts_serial("console start\n");
+    // console(0, 0);
+
+    // タスクスイッチ間隔を設定
+    puts_serial("period init 1000\n");
+    schedule_period_init(1000);
+
+    // スレッドを生成
+    // コンソールとhltを設定
+    puts_serial("generate threads\n");
+    struct thread thread0 = thread_gen(&stack0[0xfff], console, 0, 0);
+    struct thread thread1 = thread_gen(&stack1[0xfff], hlt, 0, 0);
+    puts_serial("end to of generating threads\n");
+
+    // スレッドを走らせる
+    puts_serial("begin to run threads!\n");
+    puts_serial("thread0 run\n");
+    thread_run(thread0);
+    puts_serial("thread1 run\n");
+    thread_run(thread1);
+    puts_serial("thread end\n");
 }
 
+void hlt(int _argc, char **_argv)
+{
+    while (1)
+    {
+        asm volatile("hlt");
+    }
+}

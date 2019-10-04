@@ -3,12 +3,12 @@
 
 #define THREAD_NUM 6 // スレッドの最大数
 #define SCHED_THREAD_INDEX 0 // スケジューラのスレッドのインデックス
-#define INIT_TIME_SLICE 15 // 初期化時のタイムスライス
+#define INIT_TIME_SLICE 15 // タイムスライスはとりあえず固定値15
 
 extern uint64_t milli_clock;
 
 struct thread_func {
-    uint64_t *func;
+    void (*func)(int, char**);
     int argc;
     char **argv;
 };
@@ -27,20 +27,12 @@ struct thread {
     enum thread_state state;
 };
 
-/** threadsについて
- * スレッドの配列がそのままランキュー
- * 0番目は必ずスレッドスケジューラのスレッドにする
- */
-struct thread threads[THREAD_NUM];
-int current_thread_index = 0;
-
-// スタックはとりあえず固定配置
-uint64_t stack0[0x1000];
-uint64_t stack1[0x1000];
-uint64_t stack2[0x1000];
-uint64_t stack3[0x1000];
-uint64_t stack4[0x1000];
-uint64_t stack5[0x1000];
-
 extern void save_and_dispatch(uint64_t *current_rsp, uint64_t *next_rsp);
+struct thread thread_gen(uint64_t *stack, void (*func)(int, char**),
+                         int argc, char **argv);
+void thread_run(struct thread thread);
+void thread_end(int thread_index);
+void threads_init(void);
+void schedule_period_init(uint64_t milli_sec);
+void thread_scheduler(void);
 int search_next_thread(void);

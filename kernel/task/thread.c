@@ -1,9 +1,32 @@
+#include <device/device.h>
 #include <task/thread.h>
+
+/** threadsについて
+ * スレッドの配列がそのままランキュー
+ * 0番目は必ずスレッドスケジューラのスレッドにする
+ */
+struct thread threads[THREAD_NUM];
+int current_thread_index = 0;
+
+// スタックはとりあえず固定配置
+uint64_t stack0[0x1000];
+uint64_t stack1[0x1000];
+uint64_t stack2[0x1000];
+uint64_t stack3[0x1000];
+uint64_t stack4[0x1000];
+uint64_t stack5[0x1000];
+
+/** 周期割り込みの設定 
+ * timer_period: 周期割り込みの周期
+ * previous_interrupt: 前回の周期割り込みの時間
+*/
+uint64_t timer_period = 0;
+uint64_t previous_interrupt = 0;
 
 /** スレッドの生成
  * 初期タイムスライスはINIT_TIME_SLICEで決めておく
  */
-struct thread thread_gen(uint64_t *stack, uint64_t *func,
+struct thread thread_gen(uint64_t *stack, void (*func)(int, char**),
     int argc, char **argv)
 {
     struct thread thread;
@@ -37,7 +60,9 @@ void thread_run(struct thread thread)
 
     // スレッドのメイン関数を実行する
     void (*func)(int, char**) = threads[thread_index].func_info.func;
-    (*func)(threads[i].func_info.argc, threads[thread_index].func_info.argv);
+    puts_serial("thread_run func run!\n");
+    (*func)(threads[thread_index].func_info.argc, threads[thread_index].func_info.argv);
+    puts_serial("thread_run func end\n");
 
     // スレッドを終了する
     thread_end(thread_index);
@@ -67,18 +92,20 @@ void threads_init(void)
     }
 }
 
+void schedule_period_init(uint64_t milli_sec)
+{
+    timer_period = milli_sec;
+}
+
 /** スレッドスケジューラ
  * 各スレッドにタイムスライスを持たせてそれが尽きた or 処理が終了したら次のスレッドを実行したい
- * 疑問：タイムスライスの更新はどうする？
- * 疑問：タイムスライスが尽きたときのスケジューラ移行処理の書き方がわからん
+ * save_and_dispatchで今実行しているスレッドのコンテキストを保存し、次のスレッドをディスパッチ
  */
-void thread_scheduler(uint64_t milli_interval)
+void thread_scheduler(void)
 {
-    while (1) {
-        int old_thread_index = current_thread_index;
-        current_thread_index = search_next_thread();
-        save_and_dispatch(&(threads[old_thread_index].rsp), &(threads[current_thread_index].rsp));
-    }
+    int old_thread_index = current_thread_index;
+    current_thread_index = search_next_thread();
+    save_and_dispatch(&(threads[old_thread_index].rsp), &(threads[current_thread_index].rsp));
 }
 
 /** 次に実行するスレッドを探す
