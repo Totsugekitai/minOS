@@ -114,12 +114,37 @@ void thread_scheduler(void)
 int search_next_thread(void)
 {
     int next = 0;
-    uint64_t max_timeslice = 0;
-    for (int i = 0; i < THREAD_NUM; i++) {
-        if (threads[i].timeslice > max_timeslice) {
-            max_timeslice = threads[i].timeslice;
-            next = i;
+    // uint64_t max_timeslice = 0;
+    // for (int i = 0; i < THREAD_NUM; i++) {
+    //     if (threads[i].timeslice > max_timeslice) {
+    //         max_timeslice = threads[i].timeslice;
+    //         next = i;
+    //     }
+    // }
+
+    int i;
+    if (current_thread_index + 1 == THREAD_NUM) {
+        i = 0;
+    } else {
+        i = current_thread_index = 1;
+    }
+
+    while (1)
+    {
+        if (i == THREAD_NUM - 1) {
+            if (threads[i].state == RUNNABLE) {
+                return i;
+            } else {
+                i = 0;
+            }
+        } else {
+            if (threads[i].state == RUNNABLE) {
+                return i;
+            } else {
+                i++;
+            }
         }
     }
-    return next;
+
+    return current_thread_index;
 }
