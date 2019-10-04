@@ -1,16 +1,15 @@
 #include <task/thread.h>
 
-/* スレッドの生成 */
+/** スレッドの生成
+ * 初期タイムスライスはINIT_TIME_SLICEで決めておく
+ */
 struct thread thread_gen(uint64_t *stack, uint64_t *func,
     int argc, char **argv)
 {
     struct thread thread;
 
-    thread.thread_id = thread_number;
-
-    thread_number++; // スレッドの生成カウンタをインクリメント
-
     thread.stack = stack;
+    thread.timeslice = INIT_TIME_SLICE;
     thread.func_info.func = func;
     thread.func_info.argc = argc;
     thread.func_info.argv = argv;
@@ -18,7 +17,9 @@ struct thread thread_gen(uint64_t *stack, uint64_t *func,
     return thread;
 }
 
-/* スレッドの実行 */
+/** スレッドの実行
+ * threadsにスレッドを登録し、スレッドのメイン関数を実行
+ */
 void thread_run(struct thread thread)
 {
     // threadsにthreadの登録をする
@@ -27,57 +28,71 @@ void thread_run(struct thread thread)
         // threadsのi番目が開いていたら...
         if (threads[i].state == DEAD) {
             threads[i] = thread; // スレッドをi番目に入れて
-            threads[i].state = LIVE; // stateはLIVE
+            threads[i].state = RUNNABLE; // stateはRUNNABLE
             break;
         }
     }
 
-    int thread_id = threads[i].thread_id;
+    int thread_index = i;
 
     // スレッドのメイン関数を実行する
-    void (*func)(int, char**) = threads[i].func_info.func;
-    (*func)(threads[i].func_info.argc, threads[i].func_info.argv);
+    void (*func)(int, char**) = threads[thread_index].func_info.func;
+    (*func)(threads[i].func_info.argc, threads[thread_index].func_info.argv);
 
     // スレッドを終了する
-    thread_end(thread_id);
+    thread_end(thread_index);
 }
 
-/* スレッドの終了 */
-void thread_end(int thread_id)
+/** スレッドの終了
+ * stateをDEADにし、スケジューラに切り替える
+ */
+void thread_end(int thread_index)
 {
-    for (int i = 0; i < THREAD_NUM; i++) {
-        if (threads[i].thread_id == thread_id) {
-            threads[i].state =DEAD; // stateをDEADにする
-            break;
-        }
-    }
+    threads[thread_index].state = DEAD; // stateはDEADにする
+    // threads[SCHED_THREAD_INDEX]はスレッドスケジューラなのでこれでよい
+    save_and_dispatch(&(threads[thread_index].rsp), &(threads[SCHED_THREAD_INDEX].rsp));
 }
 
+/** threadsの初期化処理
+ * DEADのスレッドを作ってそれで埋めておく
+ */
 void threads_init(void)
 {
     struct thread empty_thread;
-    empty_thread.thread_id = -1;
     empty_thread.stack = 0;
+    empty_thread.timeslice = 0;
     empty_thread.state = DEAD;
     for (int i = 0; i < THREAD_NUM; i++) {
         threads[i] = empty_thread;
     }
 }
 
-/* スレッドスケジューラ */
+/** スレッドスケジューラ
+ * 各スレッドにタイムスライスを持たせてそれが尽きた or 処理が終了したら次のスレッドを実行したい
+ * 疑問：タイムスライスの更新はどうする？
+ * 疑問：タイムスライスが尽きたときのスケジューラ移行処理の書き方がわからん
+ */
 void thread_scheduler(uint64_t milli_interval)
 {
-    uint64_t next_switch_timing = milli_clock + milli_interval;
-    if (next_switch_timing < milli_clock) {
-        if (current_thread_index == THREAD_NUM - 1)
-        {
-            save_and_dispatch(&(threads[current_thread_index].rsp), &(threads[0].rsp));
-            current_thread_index = 0;
-        } else {
-            save_and_dispatch(&(threads[current_thread_index].rsp),
-                              &(threads[current_thread_index + 1].rsp));
-            current_thread_index++;
-        }
-        next_switch_timing = milli_clock + milli_interval;
+    while (1) {
+        int old_thread_index = current_thread_index;
+        current_thread_index = search_next_thread();
+        save_and_dispatch(&(threads[old_thread_index].rsp), &(threads[current_thread_index].rsp));
     }
+}
+
+/** 次に実行するスレッドを探す
+ * 戻り値は次に実行するスレッドのインデックス
+ */
+int search_next_thread(void)
+{
+    int next = 0;
+    uint64_t max_timeslice = 0;
+    for (int i = 0; i < THREAD_NUM; i++) {
+        if (threads[i].timeslice > max_timeslice) {
+            max_timeslice = threads[i].timeslice;
+            next = i;
+        }
+    }
+    return next;
 }

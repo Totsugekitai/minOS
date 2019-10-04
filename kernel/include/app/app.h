@@ -22,6 +22,5 @@ struct task_queue {
     struct task tasks[MAX_TASKS];
 };
 
-void console(void);
-void console_kai(void);
+void console(int argc, char **argv);
 

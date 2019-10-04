@@ -34,7 +34,7 @@ OBJS		= core/kernel.o \
 			  interrupt/handler_caller.o \
 			  device/keyboard.o \
 			  device/keyinput.o \
-			  app/console_kai.o \
+			  app/console.o \
 			  acpi/acpi.o \
 			  command/echo.o \
 			  command/uptime.o \
