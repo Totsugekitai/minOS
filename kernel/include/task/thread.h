@@ -21,13 +21,14 @@ enum thread_state {
 
 struct thread {
     uint64_t *stack;
-    uint64_t rsp;
-    uint64_t timeslice;
+    uint64_t *rsp;
+    // uint64_t timeslice;
     struct thread_func func_info;
     enum thread_state state;
 };
 
 extern void save_and_dispatch(uint64_t *current_rsp, uint64_t *next_rsp);
+extern void stacked_registers_init(uint64_t *stack_bottom);
 struct thread thread_gen(uint64_t *stack, void (*func)(int, char**),
                          int argc, char **argv);
 void thread_run(struct thread thread);

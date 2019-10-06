@@ -34,9 +34,9 @@ void timer_handler(struct InterruptFrame *frame)
      */
     if (milli_clock > previous_interrupt + timer_period) {
         previous_interrupt = milli_clock;
-        // puts_serial("tick\n");
-        puts_serial("scheduler boot!\n");
-        thread_scheduler();
+        puts_serial("tick\n");
+        // puts_serial("scheduler boot!\n");
+        // thread_scheduler();
     }
 }
 

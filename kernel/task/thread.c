@@ -32,10 +32,13 @@ struct thread thread_gen(uint64_t *stack, void (*func)(int, char**),
     struct thread thread;
 
     thread.stack = stack;
-    thread.timeslice = INIT_TIME_SLICE;
+    thread.rsp = stack;
+    // thread.timeslice = INIT_TIME_SLICE;
     thread.func_info.func = func;
     thread.func_info.argc = argc;
     thread.func_info.argv = argv;
+
+    stacked_registers_init(stack);
 
     return thread;
 }
@@ -75,7 +78,7 @@ void thread_end(int thread_index)
 {
     threads[thread_index].state = DEAD; // stateはDEADにする
     // threads[SCHED_THREAD_INDEX]はスレッドスケジューラなのでこれでよい
-    save_and_dispatch(&(threads[thread_index].rsp), &(threads[SCHED_THREAD_INDEX].rsp));
+    save_and_dispatch(threads[thread_index].rsp, threads[SCHED_THREAD_INDEX].rsp);
 }
 
 /** threadsの初期化処理
@@ -85,7 +88,7 @@ void threads_init(void)
 {
     struct thread empty_thread;
     empty_thread.stack = 0;
-    empty_thread.timeslice = 0;
+    // empty_thread.timeslice = 0;
     empty_thread.state = DEAD;
     for (int i = 0; i < THREAD_NUM; i++) {
         threads[i] = empty_thread;
@@ -105,7 +108,7 @@ void thread_scheduler(void)
 {
     int old_thread_index = current_thread_index;
     current_thread_index = search_next_thread();
-    save_and_dispatch(&(threads[old_thread_index].rsp), &(threads[current_thread_index].rsp));
+    save_and_dispatch(threads[old_thread_index].rsp, threads[current_thread_index].rsp);
 }
 
 /** 次に実行するスレッドを探す
@@ -113,15 +116,6 @@ void thread_scheduler(void)
  */
 int search_next_thread(void)
 {
-    int next = 0;
-    // uint64_t max_timeslice = 0;
-    // for (int i = 0; i < THREAD_NUM; i++) {
-    //     if (threads[i].timeslice > max_timeslice) {
-    //         max_timeslice = threads[i].timeslice;
-    //         next = i;
-    //     }
-    // }
-
     int i;
     if (current_thread_index + 1 == THREAD_NUM) {
         i = 0;

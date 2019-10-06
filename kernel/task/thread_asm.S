@@ -39,3 +39,24 @@ save_and_dispatch:     # void save_and_dispatch(uint64_t *current_rsp, uint64_t 
     pop     rbp
 
     ret
+
+.global stacked_registers_init
+stacked_registers_init:     # void stacked_registers_init(uint64_t *stack_bottom);
+    movq    [rdi - 0],0         # rbp
+    movq    [rdi - 8],0         # rax
+    movq    [rdi - 16],0        # rbx
+    movq    [rdi - 24],0        # rcx
+    movq    [rdi - 32],0        # rdx
+    movq    [rdi - 40],0        # rsi
+    movq    [rdi - 48],0        # rdi
+    movq    [rdi - 56],0        # r8
+    movq    [rdi - 64],0        # r9
+    movq    [rdi - 72],0        # r10
+    movq    [rdi - 80],0        # r11
+    movq    [rdi - 88],0        # r12
+    movq    [rdi - 96],0        # r13
+    movq    [rdi - 104],0       # r14
+    movq    [rdi - 112],0       # r15
+
+    ret
+
