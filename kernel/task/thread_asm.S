@@ -1,5 +1,25 @@
 .intel_syntax       noprefix
 
+.global save_and_jump
+save_and_jump:    # void save_and_jump(uint64_t *task_address);
+    push    rbp
+	  push    rax
+	  push    rbx
+	  push    rcx
+	  push    rdx
+	  push    rsi
+	  push    rdi
+	  push    r8
+	  push    r9
+	  push    r10
+	  push    r11
+	  push    r12
+	  push    r13
+	  push    r14
+	  push    r15
+    push    rip
+    ret
+
 .global save_and_dispatch
 save_and_dispatch:     # void save_and_dispatch(uint64_t *current_rsp, uint64_t *next_rsp);
 # 今のスレッドの汎用レジスタをスタックに退避
@@ -40,8 +60,8 @@ save_and_dispatch:     # void save_and_dispatch(uint64_t *current_rsp, uint64_t 
 
     ret
 
-.global stacked_registers_init
-stacked_registers_init:     # void stacked_registers_init(uint64_t *stack_bottom);
+.global stack_init_and_jump
+stack_init_and_jump:     # void stacked_registers_init(uint64_t *stack_bottom, uint64_t *func_addr);
     movq    [rdi - 0],0         # rbp
     movq    [rdi - 8],0         # rax
     movq    [rdi - 16],0        # rbx
@@ -57,6 +77,6 @@ stacked_registers_init:     # void stacked_registers_init(uint64_t *stack_bottom
     movq    [rdi - 96],0        # r13
     movq    [rdi - 104],0       # r14
     movq    [rdi - 112],0       # r15
-
-    ret
+    movq    [rdi - 120],rsi     # func_addr
+    ret                         # ここでジャンプ
 
