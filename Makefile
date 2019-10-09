@@ -38,6 +38,7 @@ run:
 		fat:rw:$(FS) -m 4G \
 		-chardev stdio,mux=on,id=com1 \
 		-serial chardev:com1 \
+		-no-reboot
 
 
 debug_run:
@@ -47,6 +48,7 @@ debug_run:
 		-chardev stdio,mux=on,id=com1 \
 		-serial chardev:com1 \
 		-monitor telnet::1234,server,nowait \
+		-no-reboot
 
 clean_boot:
 	-rm -r $(EDKBUILD)* $(LOADERSRC)boot

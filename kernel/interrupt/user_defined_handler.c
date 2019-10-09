@@ -32,11 +32,11 @@ void timer_handler(struct InterruptFrame *frame)
     /** 周期が来たらスケジューラを呼び出す
      * 各種パラメータはint_handler.hで設定
      */
-    if (milli_clock > previous_interrupt + timer_period) {
+    if (milli_clock > previous_interrupt + timer_period && milli_clock > 400) {
         previous_interrupt = milli_clock;
         puts_serial("tick\n");
-        // puts_serial("scheduler boot!\n");
-        // thread_scheduler();
+        puts_serial("scheduler boot!\n");
+        thread_scheduler();
     }
 }
 

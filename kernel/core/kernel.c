@@ -14,6 +14,8 @@
 #include <app/app.h>
 #include <task/thread.h>
 
+extern int thread_counter; // デバッグ用
+
 // bootinfoからとれる情報
 struct video_info *vinfo_global;
 struct RSDP *rsdp;
@@ -72,46 +74,24 @@ void main_routine(void)
     putstr(500, 580, black, white, vinfo_global,
            "Developer : Totsugekitai(@totsugeki8)");
     
-    putstr(0, 16, black, white, vinfo_global, "mmapsize: ");
-    putnum(100, 16, black, white, vinfo_global, mmapsize);
+    // putstr(0, 16, black, white, vinfo_global, "mmapsize: ");
+    // putnum(100, 16, black, white, vinfo_global, mmapsize);
 
-    putstr(0, 32, black, white, vinfo_global, "memdescsize: ");
-    putnum(100, 32 ,black, white, vinfo_global, memdescsize);
-
-    // int i = 0, j = 48;
-    // uint64_t numpages;
-    // uint64_t phystart;
-    // uint64_t virtstart;
-    // do {
-    //     numpages = start_mmap[i].number_of_pages;
-    //     phystart = start_mmap[i].physical_start;
-    //     virtstart = start_mmap[i].virtual_start;
-    //     putnum(0, j, black, white, vinfo_global, numpages);
-    //     putstr(170, j, black, white, vinfo_global, ":");
-    //     putnum(180, j, black, white, vinfo_global, phystart);
-    //     putstr(350, j, black, white, vinfo_global, ":");
-    //     putnum(360, j, black, white, vinfo_global, virtstart);
-    //     i++;
-    //     j += 16;
-    // } while (i != 10);
-
-    // 1GBまで検査
-    //volatile uint64_t memsize = calc_mem_size(0, 0x10000);
-    //putstr(0, 64, black, white, vinfo_global, "memsize:");
-    //putnum(70, 64, black, white, vinfo_global, memsize);
-
-
+    // putstr(0, 32, black, white, vinfo_global, "memdescsize: ");
+    // putnum(100, 32 ,black, white, vinfo_global, memdescsize);
 
     // タスクスイッチ間隔を設定
     puts_serial("period init 100\n");
-    schedule_period_init(100);
+    schedule_period_init(0x100);
+    // threadsを初期化
+    threads_init();
 
     // スレッドを生成
     // コンソールとhltを設定
     puts_serial("generate threads\n");
-    struct thread thread0 = thread_gen(&stack0[0x1000 - 0x8], console, 0, 0);
-    struct thread thread1 = thread_gen(&stack1[0x1000 - 0x8], hlt, 0, 0);
-    puts_serial("end to of generating threads\n");
+    struct thread thread0 = thread_gen(stack0, console, 0, 0);
+    struct thread thread1 = thread_gen(stack1, hlt, 0, 0);
+    puts_serial("end of generating threads\n");
 
     // スレッドを走らせる
     puts_serial("begin to run threads!\n");
@@ -119,17 +99,24 @@ void main_routine(void)
     thread_run(thread0);
     puts_serial("thread1 run\n");
     thread_run(thread1);
-    puts_serial("thread end\n");
-    
+
+    puts_serial("first dispatch\n");
+    dispatch(thread0.rsp);
+
     // // コンソール
     // puts_serial("console start\n");
     // console(0, 0);
+
+    puts_serial("kernel end.\n");
+    while (1) {
+        asm("hlt");
+    }
 }
 
 void hlt(int _argc, char **_argv)
 {
-    while (1)
-    {
+    puts_serial("hlt function\n");
+    while (1) {
         asm volatile("hlt");
     }
 }
