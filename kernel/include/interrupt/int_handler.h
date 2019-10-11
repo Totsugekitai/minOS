@@ -16,6 +16,7 @@ extern void keyboard_interrupt(void);
 extern void com1_interrupt(void);
 extern void syscall_handler(void);
 void gp_handler_deluxe(struct InterruptFrame *frame, uint64_t error_code);
+void my_timer_handler(void);
 void timer_handler(struct InterruptFrame *frame);
 void keyboard_handler(struct InterruptFrame *frame);
 void keyboard_handler_dash(void);

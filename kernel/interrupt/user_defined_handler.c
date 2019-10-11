@@ -20,23 +20,38 @@ extern uint8_t keycode;
 extern uint64_t previous_interrupt;
 extern uint64_t timer_period;
 
-__attribute__((interrupt))
-void timer_handler(struct InterruptFrame *frame)
+void my_timer_handler(void)
 {
+    // クロック値を進める
+    milli_clock++;
     // EOIをPICに送る
     io_outb(PIC0_OCW2, PIC_EOI);
     io_outb(PIC1_OCW2, PIC_EOI);
-    // クロック値を進める
-    milli_clock++;
 
     /** 周期が来たらスケジューラを呼び出す
      * 各種パラメータはint_handler.hで設定
      */
-    if (milli_clock > previous_interrupt + timer_period && milli_clock > 400) {
+    // if (milli_clock > previous_interrupt + timer_period && milli_clock > 100) {
+    //     previous_interrupt = milli_clock;
+    //     thread_scheduler();
+    // }
+}
+
+__attribute__((interrupt))
+void timer_handler(struct InterruptFrame *frame)
+{
+    // クロック値を進める
+    milli_clock++;
+    // EOIをPICに送る
+    io_outb(PIC0_OCW2, PIC_EOI);
+    io_outb(PIC1_OCW2, PIC_EOI);
+
+    /** 周期が来たらスケジューラを呼び出す
+     * 各種パラメータはint_handler.hで設定
+     */
+    if (milli_clock > previous_interrupt + timer_period && milli_clock > 100) {
         previous_interrupt = milli_clock;
-        puts_serial("tick\n");
-        puts_serial("scheduler boot!\n");
-        thread_scheduler();
+        thread_scheduler(frame->rip);
     }
 }
 
@@ -60,11 +75,11 @@ __attribute__((interrupt))
 void com1_handler(struct InterruptFrame *frame)
 {
     keycode = io_inb(PORT);
-    putnum_serial(keycode);
-    puts_serial(" COM1 interrupt.\n");
-    
     io_outb(PIC0_OCW2, PIC_EOI);
     io_outb(PIC1_OCW2, PIC_EOI);
+
+    putnum_serial(keycode);
+    puts_serial(" COM1 interrupt.\n");
 }
 
 void com1_handler_dash(void)

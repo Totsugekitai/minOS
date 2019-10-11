@@ -3,7 +3,6 @@
 .global     general_protection
 general_protection:
 # まず汎用レジスタをスタックに退避
-#    hlt
     push    rbp
     push    rax
     push    rbx
@@ -88,7 +87,6 @@ page_fault:
 .global     timer_interrupt
 timer_interrupt:
 # まず汎用レジスタをスタックに退避
-#    iretq
     push    rbp
     push    rax
     push    rbx
@@ -106,7 +104,7 @@ timer_interrupt:
     push    r15
 
 # ハンドラ本体を呼び出す
-    call    timer_handler
+    call    my_timer_handler
 
 # 汎用レジスタを復帰
     pop     r15

@@ -1,6 +1,7 @@
 #include <device/device.h>
 #include <task/thread.h>
 
+// デバッグ用
 int thread_counter = 0;
 
 /** threadsについて
@@ -10,13 +11,16 @@ int thread_counter = 0;
 struct thread threads[THREAD_NUM];
 int current_thread_index = 0;
 
+// スタックの大きさを定義
+#define STACK_LENGTH    0x1000
+
 // スタックはとりあえず固定配置
-uint64_t stack0[0x1000];
-uint64_t stack1[0x1000];
-uint64_t stack2[0x1000];
-uint64_t stack3[0x1000];
-uint64_t stack4[0x1000];
-uint64_t stack5[0x1000];
+uint64_t stack0[STACK_LENGTH];
+uint64_t stack1[STACK_LENGTH];
+uint64_t stack2[STACK_LENGTH];
+uint64_t stack3[STACK_LENGTH];
+uint64_t stack4[STACK_LENGTH];
+uint64_t stack5[STACK_LENGTH];
 
 /** 周期割り込みの設定 
  * timer_period: 周期割り込みの周期
@@ -28,18 +32,19 @@ uint64_t previous_interrupt = 0;
 /** スレッドの生成
  * thread構造体の初期化とスタックの初期化を行う
  */
-struct thread thread_gen(uint64_t *stack, void (*func)(int, char**),
+struct thread thread_gen(uint64_t *stack, uint64_t *func,
     int argc, char **argv)
 {
     struct thread thread;
 
     thread.stack = stack;
-    thread.rsp = (uint64_t)(stack + 0x1000);
+    thread.rsp = (uint64_t)(stack + STACK_LENGTH);
+    thread.rip = (uint64_t)func;
     thread.func_info.func = func;
     thread.func_info.argc = argc;
     thread.func_info.argv = argv;
 
-    thread.rsp = stack_init(thread.rsp, func);
+    thread.rsp = stack_init(thread.rsp, (uint64_t)func);
 
     puts_serial("thread rsp: ");
     putnum_serial(thread.rsp);
@@ -99,40 +104,33 @@ void schedule_period_init(uint64_t milli_sec)
  * 各スレッドにタイムスライスを持たせてそれが尽きた or 処理が終了したら次のスレッドを実行したい
  * save_and_dispatchで今実行しているスレッドのコンテキストを保存し、次のスレッドをディスパッチ
  */
-void thread_scheduler(void)
+void thread_scheduler(uint64_t old_rip)
 {
-    int next_thread_index = 0;
-    if (current_thread_index == 1) {
-        current_thread_index = 0;
-        next_thread_index = 0;
-    } else {
-        current_thread_index = 1;
-        next_thread_index = 1;
-    }
-    // for (int i = 1; i < THREAD_NUM; i++) {
-    //     if (threads[(current_thread_index + i) % THREAD_NUM].state == RUNNABLE) {
-    //         next_thread_index = (current_thread_index + i) % THREAD_NUM;
-    //         break;
-    //     }
-    // }
+    // current_thread_indexを更新
+    int old_thread_index = current_thread_index;
+    current_thread_index = (current_thread_index + 1) % THREAD_NUM;
+
+    threads[old_thread_index].rip = old_rip;
+
     puts_serial("next thread index: ");
-    putnum_serial((uint64_t)next_thread_index);
+    putnum_serial((uint64_t)current_thread_index);
     puts_serial("\n");
 
-    puts_serial("start rsp: ");
-    putnum_serial(threads[next_thread_index].rsp);
+    puts_serial("next start rsp: ");
+    putnum_serial(threads[current_thread_index].rsp);
     puts_serial("\n");
 
-    // dispatch(threads[next_thread_index].rsp);
-    if (thread_counter > 0) {
-        puts_serial("dispatch2 start\n\n");
-        save_and_dispatch2(&(threads[current_thread_index].rsp), threads[next_thread_index].rsp);
-    } else {
-        thread_counter++;
-        puts_serial("counter: ");
-        putnum_serial((uint64_t)thread_counter);
-        puts_serial("\n");
-        puts_serial("dispatch start\n\n");
-        save_and_dispatch(&(threads[current_thread_index].rsp), threads[next_thread_index].rsp);
-    }
+
+    puts_serial("next start func address: ");
+    putnum_serial((uint64_t)(threads[current_thread_index].func_info.func));
+    puts_serial("\n");
+
+    puts_serial("next thread rip: ");
+    putnum_serial(threads[current_thread_index].rip);
+    puts_serial("\n\n");
+
+    puts_serial("save_and_dispatch start\n\n");
+
+    save_and_dispatch2(&(threads[old_thread_index].rsp), threads[current_thread_index].rsp,
+        threads[current_thread_index].rip);
 }

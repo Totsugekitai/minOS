@@ -21,7 +21,6 @@ void readline_serial(void)
     while (keycode != 0x0d && keycode != 0x0a) { // 改行が来たらやめる
         keycode = 0x00;
         wait_serial_input();
-        //keycode = read_serial();
         if (keycode == 0x0d || keycode == 0x0a) {
             continue;
         }
@@ -150,7 +149,7 @@ void writelines()
  */
 void console(int _argc, char **_argv)
 {
-    puts_serial("enter console\n");
+    puts_serial("enter console\n\n");
     text_buf = gen_buf_char();
 
     while (1) {

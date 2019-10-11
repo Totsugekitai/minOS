@@ -33,6 +33,8 @@ struct gate_descriptor *IDT = (struct gate_descriptor *)0x13000;
 
 void main_routine(void);
 void hlt(int _argc, char **_argv);
+void task_a(void);
+void task_b(void);
 
 extern uint64_t stack0[0x1000];
 extern uint64_t stack1[0x1000];
@@ -82,25 +84,24 @@ void main_routine(void)
 
     // タスクスイッチ間隔を設定
     puts_serial("period init 100\n");
-    schedule_period_init(0x100);
+    schedule_period_init(100);
     // threadsを初期化
     threads_init();
 
     // スレッドを生成
     // コンソールとhltを設定
-    puts_serial("generate threads\n");
-    struct thread thread0 = thread_gen(stack0, console, 0, 0);
-    struct thread thread1 = thread_gen(stack1, hlt, 0, 0);
-    puts_serial("end of generating threads\n");
+    struct thread thread0 = thread_gen(stack0, (uint64_t*)task_a, 0, 0);
+    struct thread thread1 = thread_gen(stack1, (uint64_t*)hlt, 0, 0);
+    struct thread thread2 = thread_gen(stack2, (uint64_t*)task_b, 0, 0);
 
     // スレッドを走らせる
-    puts_serial("begin to run threads!\n");
     puts_serial("thread0 run\n");
     thread_run(thread0);
     puts_serial("thread1 run\n");
     thread_run(thread1);
+    thread_run(thread2);
 
-    puts_serial("first dispatch\n");
+    puts_serial("dispatch start\n\n");
     dispatch(thread0.rsp);
 
     // // コンソール
@@ -115,8 +116,25 @@ void main_routine(void)
 
 void hlt(int _argc, char **_argv)
 {
-    puts_serial("hlt function\n");
     while (1) {
         asm volatile("hlt");
+        puts_serial("enter hlt function\n");
+    }
+}
+
+void task_a(void)
+{
+    while (1) {
+        asm volatile("hlt");
+        puts_serial("taskA\n");
+    }
+}
+
+void task_b(void)
+{
+    while (1)
+    {
+        asm volatile("hlt");
+        puts_serial("taskB\n");
     }
 }
