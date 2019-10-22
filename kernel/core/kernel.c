@@ -75,7 +75,7 @@ void main_routine(void)
            "minOS - A Minimal Operating System.");
     putstr(500, 580, black, white, vinfo_global,
            "Developer : Totsugekitai(@totsugeki8)");
-    
+
     // putstr(0, 16, black, white, vinfo_global, "mmapsize: ");
     // putnum(100, 16, black, white, vinfo_global, mmapsize);
 
@@ -84,7 +84,7 @@ void main_routine(void)
 
     // タスクスイッチ間隔を設定
     puts_serial("period init 100\n");
-    schedule_period_init(100);
+    schedule_period_init(300);
     // threadsを初期化
     threads_init();
 
@@ -102,7 +102,7 @@ void main_routine(void)
     thread_run(thread2);
 
     puts_serial("dispatch start\n\n");
-    dispatch(thread0.rsp);
+    dispatch3(thread0.rsp);
 
     // // コンソール
     // puts_serial("console start\n");
