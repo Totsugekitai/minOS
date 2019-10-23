@@ -1,9 +1,6 @@
 #include <device/device.h>
 #include <task/thread.h>
 
-// デバッグ用
-int thread_counter = 0;
-
 /** threadsについて
  * スレッドの配列がそのままランキュー
  * 0番目は必ずスレッドスケジューラのスレッドにする
@@ -101,7 +98,6 @@ void schedule_period_init(uint64_t milli_sec)
 }
 
 /** スレッドスケジューラ
- * 各スレッドにタイムスライスを持たせてそれが尽きた or 処理が終了したら次のスレッドを実行したい
  * save_and_dispatchで今実行しているスレッドのコンテキストを保存し、次のスレッドをディスパッチ
  */
 void thread_scheduler(uint64_t old_rip)
@@ -129,9 +125,13 @@ void thread_scheduler(uint64_t old_rip)
     putnum_serial(threads[current_thread_index].rip);
     puts_serial("\n\n");
 
-    puts_serial("save_and_dispatch start\n\n");
+    puts_serial("dispatch start\n\n");
 
     // save_and_dispatch2(&(threads[old_thread_index].rsp), threads[current_thread_index].rsp,
     //     threads[current_thread_index].rip);
-    dispatch3(threads[current_thread_index].rsp);
+    if (current_thread_index != 0) {
+        dispatch3(threads[current_thread_index].rsp, &(threads[old_thread_index].rsp));
+    } else {
+        dispatch3_hlt(threads[current_thread_index].rsp, &(threads[old_thread_index].rsp));
+    }
 }

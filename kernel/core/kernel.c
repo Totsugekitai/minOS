@@ -14,8 +14,6 @@
 #include <app/app.h>
 #include <task/thread.h>
 
-extern int thread_counter; // デバッグ用
-
 // bootinfoからとれる情報
 struct video_info *vinfo_global;
 struct RSDP *rsdp;
@@ -83,8 +81,8 @@ void main_routine(void)
     // putnum(100, 32 ,black, white, vinfo_global, memdescsize);
 
     // タスクスイッチ間隔を設定
-    puts_serial("period init 100\n");
-    schedule_period_init(300);
+    puts_serial("period init 10\n");
+    schedule_period_init(100);
     // threadsを初期化
     threads_init();
 
@@ -101,8 +99,19 @@ void main_routine(void)
     thread_run(thread1);
     thread_run(thread2);
 
-    puts_serial("dispatch start\n\n");
-    dispatch3(thread0.rsp);
+    puts_serial("\n");
+    puts_serial("next start rsp: ");
+    putnum_serial(thread0.rsp);
+    puts_serial("\n");
+    puts_serial("next start func address: ");
+    putnum_serial((uint64_t)(thread0.func_info.func));
+    puts_serial("\n");
+    puts_serial("next thread rip: ");
+    putnum_serial(thread0.rip);
+    puts_serial("\n\n");
+    puts_serial("first dispatch start\n\n");
+
+    first_dispatch3(thread0.rsp);
 
     // // コンソール
     // puts_serial("console start\n");
@@ -116,25 +125,24 @@ void main_routine(void)
 
 void hlt(int _argc, char **_argv)
 {
+    puts_serial("hlt function\n");
     while (1) {
         asm volatile("hlt");
-        puts_serial("enter hlt function\n");
     }
 }
 
 void task_a(void)
 {
+    puts_serial("taskA\n");
     while (1) {
         asm volatile("hlt");
-        puts_serial("taskA\n");
     }
 }
 
 void task_b(void)
 {
-    while (1)
-    {
+    puts_serial("taskB\n");
+    while (1) {
         asm volatile("hlt");
-        puts_serial("taskB\n");
     }
 }

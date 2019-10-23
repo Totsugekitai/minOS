@@ -1,0 +1,99 @@
+    2850:       55                      push   rbp
+    2851:       48 89 e5                mov    rbp,rsp
+    2854:       50                      push   rax
+    2855:       41 53                   push   r11
+    2857:       41 52                   push   r10
+    2859:       41 51                   push   r9
+    285b:       41 50                   push   r8
+    285d:       57                      push   rdi
+    285e:       56                      push   rsi
+    285f:       52                      push   rdx
+    2860:       51                      push   rcx
+    2861:       48 81 ec 18 01 00 00    sub    rsp,0x118
+    2868:       44 0f 29 7d a0          movaps XMMWORD PTR [rbp-0x60],xmm15
+    286d:       44 0f 29 75 90          movaps XMMWORD PTR [rbp-0x70],xmm14
+    2872:       44 0f 29 6d 80          movaps XMMWORD PTR [rbp-0x80],xmm13
+    2877:       44 0f 29 a5 70 ff ff    movaps XMMWORD PTR [rbp-0x90],xmm12
+    287e:       ff 
+    287f:       44 0f 29 9d 60 ff ff    movaps XMMWORD PTR [rbp-0xa0],xmm11
+    2886:       ff 
+    2887:       44 0f 29 95 50 ff ff    movaps XMMWORD PTR [rbp-0xb0],xmm10
+    288e:       ff 
+    288f:       44 0f 29 8d 40 ff ff    movaps XMMWORD PTR [rbp-0xc0],xmm9
+    2896:       ff 
+    2897:       44 0f 29 85 30 ff ff    movaps XMMWORD PTR [rbp-0xd0],xmm8
+    289e:       ff 
+    289f:       0f 29 bd 20 ff ff ff    movaps XMMWORD PTR [rbp-0xe0],xmm7
+    28a6:       0f 29 b5 10 ff ff ff    movaps XMMWORD PTR [rbp-0xf0],xmm6
+    28ad:       0f 29 ad 00 ff ff ff    movaps XMMWORD PTR [rbp-0x100],xmm5
+    28b4:       0f 29 a5 f0 fe ff ff    movaps XMMWORD PTR [rbp-0x110],xmm4
+    28bb:       0f 29 9d e0 fe ff ff    movaps XMMWORD PTR [rbp-0x120],xmm3
+    28c2:       0f 29 95 d0 fe ff ff    movaps XMMWORD PTR [rbp-0x130],xmm2
+    28c9:       0f 29 8d c0 fe ff ff    movaps XMMWORD PTR [rbp-0x140],xmm1
+    28d0:       0f 29 85 b0 fe ff ff    movaps XMMWORD PTR [rbp-0x150],xmm0
+    28d7:       fc                      cld    
+    28d8:       48 8d 45 08             lea    rax,[rbp+0x8]
+    28dc:       b9 20 00 00 00          mov    ecx,0x20
+    28e1:       48 89 85 a8 fe ff ff    mov    QWORD PTR [rbp-0x158],rax
+    28e8:       48 8b 04 25 38 6d 11    mov    rax,QWORD PTR ds:0x116d38
+    28ef:       00 
+    28f0:       48 83 c0 01             add    rax,0x1
+    28f4:       48 89 04 25 38 6d 11    mov    QWORD PTR ds:0x116d38,rax
+    28fb:       00 
+    28fc:       89 cf                   mov    edi,ecx
+    28fe:       89 ce                   mov    esi,ecx
+    2900:       e8 3d f3 ff ff          call   0x1c42
+    2905:       bf a0 00 00 00          mov    edi,0xa0
+    290a:       be 20 00 00 00          mov    esi,0x20
+    290f:       e8 2e f3 ff ff          call   0x1c42
+    2914:       48 8b 04 25 38 6d 11    mov    rax,QWORD PTR ds:0x116d38
+    291b:       00 
+    291c:       48 8b 14 25 70 72 11    mov    rdx,QWORD PTR ds:0x117270
+    2923:       00 
+    2924:       48 03 14 25 68 72 11    add    rdx,QWORD PTR ds:0x117268
+    292b:       00 
+    292c:       48 39 d0                cmp    rax,rdx
+    292f:       0f 86 2e 00 00 00       jbe    0x2963
+    2935:       48 83 3c 25 38 6d 11    cmp    QWORD PTR ds:0x116d38,0x64
+    293c:       00 64 
+    293e:       0f 86 1f 00 00 00       jbe    0x2963
+    2944:       48 8b 04 25 38 6d 11    mov    rax,QWORD PTR ds:0x116d38
+    294b:       00 
+    294c:       48 89 04 25 70 72 11    mov    QWORD PTR ds:0x117270,rax
+    2953:       00 
+    2954:       48 8b 85 a8 fe ff ff    mov    rax,QWORD PTR [rbp-0x158]
+    295b:       48 8b 38                mov    rdi,QWORD PTR [rax]
+    295e:       e8 6d 26 00 00          call   0x4fd0
+    2963:       0f 28 85 b0 fe ff ff    movaps xmm0,XMMWORD PTR [rbp-0x150]
+    296a:       0f 28 8d c0 fe ff ff    movaps xmm1,XMMWORD PTR [rbp-0x140]
+    2971:       0f 28 95 d0 fe ff ff    movaps xmm2,XMMWORD PTR [rbp-0x130]
+    2978:       0f 28 9d e0 fe ff ff    movaps xmm3,XMMWORD PTR [rbp-0x120]
+    297f:       0f 28 a5 f0 fe ff ff    movaps xmm4,XMMWORD PTR [rbp-0x110]
+    2986:       0f 28 ad 00 ff ff ff    movaps xmm5,XMMWORD PTR [rbp-0x100]
+    298d:       0f 28 b5 10 ff ff ff    movaps xmm6,XMMWORD PTR [rbp-0xf0]
+    2994:       0f 28 bd 20 ff ff ff    movaps xmm7,XMMWORD PTR [rbp-0xe0]
+    299b:       44 0f 28 85 30 ff ff    movaps xmm8,XMMWORD PTR [rbp-0xd0]
+    29a2:       ff 
+    29a3:       44 0f 28 8d 40 ff ff    movaps xmm9,XMMWORD PTR [rbp-0xc0]
+    29aa:       ff 
+    29ab:       44 0f 28 95 50 ff ff    movaps xmm10,XMMWORD PTR [rbp-0xb0]
+    29b2:       ff 
+    29b3:       44 0f 28 9d 60 ff ff    movaps xmm11,XMMWORD PTR [rbp-0xa0]
+    29ba:       ff 
+    29bb:       44 0f 28 a5 70 ff ff    movaps xmm12,XMMWORD PTR [rbp-0x90]
+    29c2:       ff 
+    29c3:       44 0f 28 6d 80          movaps xmm13,XMMWORD PTR [rbp-0x80]
+    29c8:       44 0f 28 75 90          movaps xmm14,XMMWORD PTR [rbp-0x70]
+    29cd:       44 0f 28 7d a0          movaps xmm15,XMMWORD PTR [rbp-0x60]
+    29d2:       48 81 c4 18 01 00 00    add    rsp,0x118
+    29d9:       59                      pop    rcx
+    29da:       5a                      pop    rdx
+    29db:       5e                      pop    rsi
+    29dc:       5f                      pop    rdi
+    29dd:       41 58                   pop    r8
+    29df:       41 59                   pop    r9
+    29e1:       41 5a                   pop    r10
+    29e3:       41 5b                   pop    r11
+    29e5:       58                      pop    rax
+    29e6:       5d                      pop    rbp
+    29e7:       48 cf                   iretq  
