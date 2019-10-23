@@ -1,185 +1,12 @@
 .intel_syntax       noprefix
 
-.global stack_init
-# スレッドの初期スタックを作成し、rspを適切な位置に進めて戻り値として返す
-stack_init:     # uint64_t stack_init(uint64_t *stack_bottom, uint64_t rip);
-    movq     rcx,rsp
-    movq     rsp,rdi
-    pushq   0x10
-    pushq   rdi
-    pushq   0x202
-    pushq   8
-    pushq   rsi
-    pushq   0
-    pushq   0
-    pushq   0
-    pushq   0
-    pushq   0
-    pushq   0
-    pushq   0
-    pushq   0
-    pushq   0
-    pushq   0
-    pushq   0
-    pushq   0
-    pushq   0
-    pushq   0
-    pushq   0
-    movq     rax,rsp
-    movq     rsp,rcx
-    ret
-
-.global save_and_dispatch
-save_and_dispatch:     # void save_and_dispatch(uint64_t *current_rsp, uint64_t next_rsp);
-# 今のスレッドの汎用レジスタをスタックに退避
-    pushq    rbp
-    pushq    rax
-    pushq    rbx
-    pushq    rcx
-    pushq    rdx
-    pushq    rsi
-    pushq    rdi
-    pushq    r8
-    pushq    r9
-    pushq    r10
-    pushq    r11
-    pushq    r12
-    pushq    r13
-    pushq    r14
-    pushq    r15
-# current_rspを保存し、next_rspをロードする
-    movq     [rdi],rsp
-    movq     rsp,rsi
-# 次のスレッドの汎用レジスタをスタックから復帰
-    popq     r15
-    popq     r14
-    popq     r13
-    popq     r12
-    popq     r11
-    popq     r10
-    popq     r9
-    popq     r8
-    popq     rdi
-    popq     rsi
-    popq     rdx
-    popq     rcx
-    popq     rbx
-    popq     rax
-    popq     rbp
-    iretq
-
-.global dispatch
-dispatch:           # void dispatch(uint64_t next_rsp);
-# next_rspをロードする
-    movq     rsp,rdi
-# 次のスレッドの汎用レジスタをスタックから復帰
-    popq     r15
-    popq     r14
-    popq     r13
-    popq     r12
-    popq     r11
-    popq     r10
-    popq     r9
-    popq     r8
-    popq     rdi
-    popq     rsi
-    popq     rdx
-    popq     rcx
-    popq     rbx
-    popq     rax
-    popq     rbp
-    iretq
-
-# デバッグ用
-.global save_and_dispatch2
-save_and_dispatch2:     # void save_and_dispatch2(uint64_t *current_rsp, uint64_t next_rsp, void (*func)(int, char**));
-# 今のスレッドの汎用レジスタをスタックに退避
-    pushq    rbp
-    pushq    rax
-    pushq    rbx
-    pushq    rcx
-    pushq    rdx
-    pushq    rsi
-    pushq    rdi
-    pushq    r8
-    pushq    r9
-    pushq    r10
-    pushq    r11
-    pushq    r12
-    pushq    r13
-    pushq    r14
-    pushq    r15
-# current_rspを保存し、next_rspをロードする
-    movq     [rdi],rsp
-    movq     rsp,rsi
-# 次のスレッドの汎用レジスタをスタックから復帰
-    popq     r15
-    popq     r14
-    popq     r13
-    popq     r12
-    popq     r11
-    popq     r10
-    popq     r9
-    popq     r8
-    popq     rdi
-    popq     rsi
-    popq     rax    # rdxは関数呼び出しの引数で使うためここでは用いない
-    popq     rcx
-    popq     rbx
-    popq     rax
-    popq     rbp
-#  割り込み時に入るスタックの様子がおかしいので修正
-    add     rsp,48
-    mov     rdi,rsp
-    pushq   0
-    pushq   rdi
-    pushq   0x202
-    pushq   8
-#    lea     rdx,console
-    pushq   rdx
-# iretqでタスクスイッチ
-    iretq
-
-.global dispatch2
-dispatch2:     # void save_and_dispatch2(uint64_t next_rsp, uint64_t rip);
-    movq     rsp,rsi
-# 次のスレッドの汎用レジスタをスタックから復帰
-    popq     r15
-    popq     r14
-    popq     r13
-    popq     r12
-    popq     r11
-    popq     r10
-    popq     r9
-    popq     r8
-    popq     rdi
-    popq     rsi
-    popq     rax    # rdxは関数呼び出しの引数で使うためここでは用いない
-    popq     rcx
-    popq     rbx
-    popq     rax
-    popq     rbp
-#  割り込み時に入るスタックの様子がおかしいので修正
-    add     rsp,48
-    mov     rdi,rsp
-    pushq   0
-    pushq   rdi
-    pushq   0x202
-    pushq   8
-#    lea     rdx,console
-    pushq   rdx
-# iretqでタスクスイッチ
-    iretq
-
-
-
-.global   init_stack2
+.global   init_stack
 .align      16
-init_stack2:  # uint64_t init_stack2(uint64_t *stack_bottom, uint64_t rip);
+init_stack:  # uint64_t init_stack(uint64_t *stack_bottom, uint64_t rip);
     movq      rcx,rsp   # rspを保存
     movq      rdx,rbp   # rbpを保存
 	movq      rsp,rdi   # rspを移動
-# 割り込み時に自動で積まれる分
+# iretqで必要な分
 	pushq     0x10      # ss
 	pushq     rdi       # rsp
 	pushq     0x202     # rflags
@@ -223,10 +50,9 @@ init_stack2:  # uint64_t init_stack2(uint64_t *stack_bottom, uint64_t rip);
     movq      rbp,rdx   # rbpを復旧
 	ret
 
-.global     dispatch3
+.global     dispatch
 .align      16
-dispatch3:  # void dispatch3(uint64_t next_rsp, uint64_t *current_rsp);
-    add       rsp,0x38     # 調整
+dispatch:  # void dispatch(uint64_t next_rsp, uint64_t *current_rsp, uint64_t next_rip);
     movq      [rsi],rsp   # rspを保存
     movq      rsp,rdi     # rspを更新
     movaps    xmm0,XMMWORD PTR  [rsp+0x10]
@@ -247,7 +73,7 @@ dispatch3:  # void dispatch3(uint64_t next_rsp, uint64_t *current_rsp);
     movaps    xmm15,XMMWORD PTR [rsp+0x100]
     add       rsp,0x118
     popq      rcx
-    popq      rdx
+    popq      rax
     popq      rsi
     popq      rdi
     popq      r8
@@ -256,72 +82,11 @@ dispatch3:  # void dispatch3(uint64_t next_rsp, uint64_t *current_rsp);
     popq      r11
     popq      rax
     popq      rbp
-    iretq
-
-.global     first_dispatch3
-.align      16
-first_dispatch3:  # void first_dispatch3(uint64_t next_rsp);
-    movq      rsp,rdi     # rspを更新
-    movaps    xmm0,XMMWORD PTR  [rsp+0x10]
-    movaps    xmm1,XMMWORD PTR  [rsp+0x20]
-    movaps    xmm2,XMMWORD PTR  [rsp+0x30]
-    movaps    xmm3,XMMWORD PTR  [rsp+0x40]
-    movaps    xmm4,XMMWORD PTR  [rsp+0x50]
-    movaps    xmm5,XMMWORD PTR  [rsp+0x60]
-    movaps    xmm6,XMMWORD PTR  [rsp+0x70]
-    movaps    xmm7,XMMWORD PTR  [rsp+0x80]
-    movaps    xmm8,XMMWORD PTR  [rsp+0x90]
-    movaps    xmm9,XMMWORD PTR  [rsp+0xa0]
-    movaps    xmm10,XMMWORD PTR [rsp+0xb0]
-    movaps    xmm11,XMMWORD PTR [rsp+0xc0]
-    movaps    xmm12,XMMWORD PTR [rsp+0xd0]
-    movaps    xmm13,XMMWORD PTR [rsp+0xe0]
-    movaps    xmm14,XMMWORD PTR [rsp+0xf0]
-    movaps    xmm15,XMMWORD PTR [rsp+0x100]
-    add       rsp,0x118
-    popq      rcx
-    popq      rdx
-    popq      rsi
-    popq      rdi
-    popq      r8
-    popq      r9
-    popq      r10
-    popq      r11
-    popq      rax
-    popq      rbp
-    iretq
-
-.global     dispatch3_hlt
-.align      16
-dispatch3_hlt:  # void dispatch3(uint64_t next_rsp, uint64_t *current_rsp);
-    sub       rsp,0x38     # 調整
-    movq      [rsi],rsp   # rspを保存
-    movq      rsp,rdi     # rspを更新
-    movaps    xmm0,XMMWORD PTR  [rsp+0x10]
-    movaps    xmm1,XMMWORD PTR  [rsp+0x20]
-    movaps    xmm2,XMMWORD PTR  [rsp+0x30]
-    movaps    xmm3,XMMWORD PTR  [rsp+0x40]
-    movaps    xmm4,XMMWORD PTR  [rsp+0x50]
-    movaps    xmm5,XMMWORD PTR  [rsp+0x60]
-    movaps    xmm6,XMMWORD PTR  [rsp+0x70]
-    movaps    xmm7,XMMWORD PTR  [rsp+0x80]
-    movaps    xmm8,XMMWORD PTR  [rsp+0x90]
-    movaps    xmm9,XMMWORD PTR  [rsp+0xa0]
-    movaps    xmm10,XMMWORD PTR [rsp+0xb0]
-    movaps    xmm11,XMMWORD PTR [rsp+0xc0]
-    movaps    xmm12,XMMWORD PTR [rsp+0xd0]
-    movaps    xmm13,XMMWORD PTR [rsp+0xe0]
-    movaps    xmm14,XMMWORD PTR [rsp+0xf0]
-    movaps    xmm15,XMMWORD PTR [rsp+0x100]
-    add       rsp,0x118
-    popq      rcx
-    popq      rdx
-    popq      rsi
-    popq      rdi
-    popq      r8
-    popq      r9
-    popq      r10
-    popq      r11
-    popq      rax
-    popq      rbp
+# interrupt stack frame
+    mov       rdi,rsp
+	pushq     0x10      # ss
+	pushq     rdi       # rsp
+	pushq     0x202     # rflags
+	pushq     8         # cs
+	pushq     rdx       # rip
     iretq

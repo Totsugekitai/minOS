@@ -41,7 +41,7 @@ struct thread thread_gen(uint64_t *stack, uint64_t *func,
     thread.func_info.argc = argc;
     thread.func_info.argv = argv;
 
-    thread.rsp = init_stack2(thread.rsp, (uint64_t)func);
+    thread.rsp = init_stack(thread.rsp, (uint64_t)func);
 
     puts_serial("thread rsp: ");
     putnum_serial(thread.rsp);
@@ -129,9 +129,6 @@ void thread_scheduler(uint64_t old_rip)
 
     // save_and_dispatch2(&(threads[old_thread_index].rsp), threads[current_thread_index].rsp,
     //     threads[current_thread_index].rip);
-    if (current_thread_index != 0) {
-        dispatch3(threads[current_thread_index].rsp, &(threads[old_thread_index].rsp));
-    } else {
-        dispatch3_hlt(threads[current_thread_index].rsp, &(threads[old_thread_index].rsp));
-    }
+    dispatch(threads[current_thread_index].rsp,
+        &(threads[old_thread_index].rsp), threads[current_thread_index].rip);
 }

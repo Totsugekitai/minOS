@@ -30,9 +30,9 @@ uint64_t *PD = (uint64_t *)0x3000;
 struct gate_descriptor *IDT = (struct gate_descriptor *)0x13000;
 
 void main_routine(void);
-void hlt(int _argc, char **_argv);
 void task_a(void);
 void task_b(void);
+void task_c(void);
 
 extern uint64_t stack0[0x1000];
 extern uint64_t stack1[0x1000];
@@ -74,12 +74,6 @@ void main_routine(void)
     putstr(500, 580, black, white, vinfo_global,
            "Developer : Totsugekitai(@totsugeki8)");
 
-    // putstr(0, 16, black, white, vinfo_global, "mmapsize: ");
-    // putnum(100, 16, black, white, vinfo_global, mmapsize);
-
-    // putstr(0, 32, black, white, vinfo_global, "memdescsize: ");
-    // putnum(100, 32 ,black, white, vinfo_global, memdescsize);
-
     // タスクスイッチ間隔を設定
     puts_serial("period init 10\n");
     schedule_period_init(100);
@@ -89,15 +83,16 @@ void main_routine(void)
     // スレッドを生成
     // コンソールとhltを設定
     struct thread thread0 = thread_gen(stack0, (uint64_t*)task_a, 0, 0);
-    struct thread thread1 = thread_gen(stack1, (uint64_t*)hlt, 0, 0);
-    struct thread thread2 = thread_gen(stack2, (uint64_t*)task_b, 0, 0);
+    struct thread thread1 = thread_gen(stack1, (uint64_t*)task_b, 0, 0);
+    struct thread thread2 = thread_gen(stack2, (uint64_t*)task_c, 0, 0);
+    struct thread thread3 = thread_gen(stack3, (uint64_t*)console, 0, 0);
 
     // スレッドを走らせる
-    puts_serial("thread0 run\n");
     thread_run(thread0);
-    puts_serial("thread1 run\n");
     thread_run(thread1);
     thread_run(thread2);
+    thread_run(thread3);
+    puts_serial("threads run\n");
 
     puts_serial("\n");
     puts_serial("next start rsp: ");
@@ -111,7 +106,7 @@ void main_routine(void)
     puts_serial("\n\n");
     puts_serial("first dispatch start\n\n");
 
-    first_dispatch3(thread0.rsp);
+    dispatch(thread0.rsp, 0, thread0.rip);
 
     // // コンソール
     // puts_serial("console start\n");
@@ -120,14 +115,6 @@ void main_routine(void)
     puts_serial("kernel end.\n");
     while (1) {
         asm("hlt");
-    }
-}
-
-void hlt(int _argc, char **_argv)
-{
-    puts_serial("hlt function\n");
-    while (1) {
-        asm volatile("hlt");
     }
 }
 
@@ -142,6 +129,14 @@ void task_a(void)
 void task_b(void)
 {
     puts_serial("taskB\n");
+    while (1) {
+        asm volatile("hlt");
+    }
+}
+
+void task_c(void)
+{
+    puts_serial("taskC\n");
     while (1) {
         asm volatile("hlt");
     }

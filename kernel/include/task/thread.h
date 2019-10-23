@@ -1,9 +1,8 @@
 #pragma once
 #include <stdint.h>
 
-#define THREAD_NUM 3 // スレッドの最大数
+#define THREAD_NUM 4 // スレッドの最大数
 #define SCHED_THREAD_INDEX 0 // スケジューラのスレッドのインデックス
-#define INIT_TIME_SLICE 15 // タイムスライスはとりあえず固定値15
 
 extern uint64_t milli_clock;
 
@@ -27,14 +26,8 @@ struct thread {
     enum thread_state state;
 };
 
-extern uint64_t stack_init(uint64_t stack_bottom, uint64_t rip);
-extern void save_and_dispatch(uint64_t *current_rsp, uint64_t next_rsp);
-extern void save_and_dispatch2(uint64_t *current_rsp, uint64_t next_rsp, uint64_t next_rip);
-extern void dispatch(uint64_t next_rsp);
-extern uint64_t init_stack2(uint64_t stack_bottom, uint64_t rip);
-extern void dispatch3(uint64_t next_rsp, uint64_t *current_rsp);
-extern void first_dispatch3(uint64_t next_rsp);
-extern void dispatch3_hlt(uint64_t next_rsp, uint64_t *current_rsp);
+extern uint64_t init_stack(uint64_t stack_bottom, uint64_t rip);
+extern void dispatch(uint64_t next_rsp, uint64_t *current_rsp, uint64_t next_rip);
 
 struct thread thread_gen(uint64_t *stack, uint64_t *func,
     int argc, char **argv);

@@ -5,7 +5,7 @@ INCLUDE		= $(CURRENT)include/
 TARGET		= kernel.bin
 CFLAGS 		= -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common \
 			  -O0 -I /usr/include -I $(INCLUDE) -fno-stack-protector -fno-pic \
-			  -mno-red-zone -Wno-unused-parameter
+			  -mno-red-zone -Wno-unused-parameter -mno-avx
 			  
 LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
@@ -31,7 +31,6 @@ OBJS		= core/kernel.o \
 			  interrupt/interrupt.o \
 			  interrupt/fault_handler.o \
 			  interrupt/user_defined_handler.o \
-			  interrupt/handler_caller.o \
 			  device/keyboard.o \
 			  device/keyinput.o \
 			  app/console.o \
