@@ -20,6 +20,10 @@ extern uint8_t keycode;
 extern uint64_t previous_interrupt;
 extern uint64_t timer_period;
 
+/**
+ * タイマ割り込みハンドラ
+ * クロック値を進めて、スケジューラを呼び出す
+*/
 __attribute__((interrupt))
 void timer_handler(struct InterruptFrame *frame)
 {
@@ -38,6 +42,9 @@ void timer_handler(struct InterruptFrame *frame)
     }
 }
 
+/**
+ * PS/2キーボードの割り込みハンドラ
+*/
 __attribute__((interrupt))
 void keyboard_handler(struct InterruptFrame *frame)
 {
@@ -47,6 +54,9 @@ void keyboard_handler(struct InterruptFrame *frame)
     io_outb(PIC1_OCW2, PIC_EOI);
 }
 
+/**
+ * シリアルポートCOM1の割り込みハンドラ
+*/
 __attribute__((interrupt))
 void com1_handler(struct InterruptFrame *frame)
 {
@@ -58,6 +68,10 @@ void com1_handler(struct InterruptFrame *frame)
     puts_serial(" COM1 interrupt.\n");
 }
 
+/**
+ * PS/2マウス割り込みハンドラ
+ * 現在は未使用
+*/
 __attribute__((interrupt))
 void mouse_handler(struct InterruptFrame *frame)
 {
@@ -66,6 +80,10 @@ void mouse_handler(struct InterruptFrame *frame)
     io_outb(PIC1_OCW2, PIC_EOI);
 }
 
+/**
+ * 空のハンドラ
+ * 未使用の割り込みベクタに登録しておく
+*/
 __attribute__((interrupt))
 void empty_handler(struct InterruptFrame *frame)
 {
@@ -74,4 +92,3 @@ void empty_handler(struct InterruptFrame *frame)
         asm("hlt");
     }
 }
-

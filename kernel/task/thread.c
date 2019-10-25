@@ -127,8 +127,6 @@ void thread_scheduler(uint64_t old_rip)
 
     puts_serial("dispatch start\n\n");
 
-    // save_and_dispatch2(&(threads[old_thread_index].rsp), threads[current_thread_index].rsp,
-    //     threads[current_thread_index].rip);
     dispatch(threads[current_thread_index].rsp,
         &(threads[old_thread_index].rsp), threads[current_thread_index].rip);
 }

@@ -22,7 +22,6 @@ void init_pic(void)
     io_outb(PIC0_ICW3, 4);
     io_outb(PIC0_ICW4, 0x01);
     io_outb(PIC0_IMR, 0xff);
-    
 
     io_outb(PIC1_ICW1, 0x11);
     io_outb(PIC1_ICW2, 40); // IRQ8-15をINT 0x28-0x2fにマップ
