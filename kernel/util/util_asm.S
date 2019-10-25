@@ -12,28 +12,36 @@ io_sti:
 
 .global     io_inb  # uint8_t io_inb(uint8_t port);
 io_inb:
+    cli
     mov     rdx,rdi
     in      al,dx
+    sti
     ret
 
 .global     io_in32
 io_in32:
+    cli
     mov     rdx,rdi
     in      eax,dx
-    ret
-
-.global     io_out32 # void io_out32(uint16_t port, uint32_t data);
-io_out32:
-    mov     rdx,rdi
-    mov     rax,rsi
-    out     dx,eax
+    sti
     ret
 
 .global     io_outb # void io_outb(uint16_t port, uint8_t byte);
 io_outb:
+    cli
     mov     rdx,rdi
     mov     rax,rsi
     out     dx,al
+    sti
+    ret
+
+.global     io_out32 # void io_out32(uint16_t port, uint32_t data);
+io_out32:
+    cli
+    mov     rdx,rdi
+    mov     rax,rsi
+    out     dx,eax
+    sti
     ret
 
 .global     io_rdmsr # uint64_t io_rdmsr(uint32_t msr);
@@ -60,7 +68,7 @@ init_irq:
     out     0x21,al
     mov     al,0x4
     out     0x21,al
-#PIC2
+# PIC2
     mov     al,0x11
     out     0xa0,al
     mov     al,0x28
@@ -68,10 +76,10 @@ init_irq:
     mov     al,0x2
     out     0xa1,al
 
-    mov al, 0x04
-    out 0x21, al
-    mov al, 0x02
-    out 0xA1, al
+    mov     al, 0x04
+    out     0x21, al
+    mov     al, 0x02
+    out     0xa1, al
     mov     al,1
     out     0x21,al
     out     0xa1,al
@@ -83,4 +91,3 @@ send_eoi:
     mov     al,0x20
     out     0x20,al
     ret
-

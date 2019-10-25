@@ -27,7 +27,6 @@ void readline_serial(void)
         if (!buf_char_isfull(&text_buf)) {
             enqueue_char(&text_buf, keycode);
             // 文字描画部
-            putnum(300, 100, white, black, vinfo_global, keycode);
             putchar(text_x, text_y, white, black, vinfo_global, keycode);
             text_x += 8;
         }
@@ -76,7 +75,6 @@ void parse_line(void)
     puts_serial("\n");
     
     // args_arrayに入った文字を解析
-    //char_count++;
     int i, j = 0;
     console_argv[j] = args_array;
     j++;
@@ -88,20 +86,6 @@ void parse_line(void)
             console_argv[j] = &args_array[i + 1]; // args_topに次の文字のアドレスを登録
             args_array[i] = 0x00; // スペースをnull文字に置換
             j++;
-        }
-    }
-    // 最後の改行文字を置き換え
-    // args_array[i] = 0x00;
-
-    // debug用
-    for (int i = 0; i < MAX_ARGS; i++) {
-        if (console_argv[i] != 0x00) {
-            puts_serial("[");
-            puts_serial(console_argv[i]);
-            puts_serial("]");
-            puts_serial("\n");
-        } else {
-            puts_serial("[]\n");
         }
     }
 }
@@ -153,15 +137,21 @@ void console(int _argc, char **_argv)
     text_buf = gen_buf_char();
 
     while (1) {
+        puts_serial("console: readline_serial\n\n");
         readline_serial();
+        puts_serial("console: parse_line\n\n");
         parse_line();
+        puts_serial("console: do_command\n\n");
         do_command();
+        puts_serial("console: writelines\n\n");
         writelines();
 
+        puts_serial("console: flush\n\n");
         flush_buf_char(&text_buf);
         flush_array_char(output);
         flush_array_char(args_array);
         flush_argv(console_argv);
+        puts_serial("console: loop bottom\n\n");
     }
 }
 

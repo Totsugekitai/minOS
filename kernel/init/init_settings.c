@@ -72,8 +72,24 @@ void init_interrupt(void)
         IDT[i] = make_gate_descriptor((uint64_t)empty_handler, 0, 0, 0);
     }
 
+    IDT[0] = make_gate_descriptor((uint64_t)de_handler, 0, 0, 0);        // #DEハンドラ
+    IDT[1] = make_gate_descriptor((uint64_t)db_handler, 0, 0, 0);        // #DBハンドラ
+    IDT[2] = make_gate_descriptor((uint64_t)nmi_handler, 0, 0, 0);       // NMIハンドラ
+    IDT[3] = make_gate_descriptor((uint64_t)bp_handler, 0, 0, 0);        // #BPハンドラ
+    IDT[4] = make_gate_descriptor((uint64_t)of_handler, 0, 0, 0);        // #OFハンドラ
+    IDT[5] = make_gate_descriptor((uint64_t)br_handler, 0, 0, 0);        // #BRハンドラ
+    IDT[6] = make_gate_descriptor((uint64_t)ud_handler, 0, 0, 0);        // #UDハンドラ
+    IDT[7] = make_gate_descriptor((uint64_t)nm_handler, 0, 0, 0);        // #NMハンドラ
+    IDT[8] = make_gate_descriptor((uint64_t)df_handler, 0, 0, 0);        // #DFハンドラ
+    IDT[10] = make_gate_descriptor((uint64_t)ts_handler, 0, 0, 0);       // #TSハンドラ
+    IDT[11] = make_gate_descriptor((uint64_t)np_handler, 0, 0, 0);       // #NPハンドラ
+    IDT[12] = make_gate_descriptor((uint64_t)ss_handler, 0, 0, 0);       // #SSハンドラ
     IDT[13] = make_gate_descriptor((uint64_t)gp_handler, 0, 0, 0);       // #GPハンドラ
     IDT[14] = make_gate_descriptor((uint64_t)pf_handler, 0, 0, 0);       // #PFハンドラ
+    IDT[16] = make_gate_descriptor((uint64_t)mf_handler, 0, 0, 0);       // #MFハンドラ
+    IDT[17] = make_gate_descriptor((uint64_t)ac_handler, 0, 0, 0);       // #ACハンドラ
+    IDT[18] = make_gate_descriptor((uint64_t)mc_handler, 0, 0, 0);       // #MCハンドラ
+    IDT[19] = make_gate_descriptor((uint64_t)xm_handler, 0, 0, 0);       // #XMハンドラ
     IDT[32] = make_gate_descriptor((uint64_t)timer_handler, 0, 0, 0);    // timerハンドラ
     IDT[33] = make_gate_descriptor((uint64_t)keyboard_handler, 0, 0, 0); // keyboardハンドラ
     IDT[36] = make_gate_descriptor((uint64_t)com1_handler, 0, 0, 0);     // COM1ハンドラ

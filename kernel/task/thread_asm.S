@@ -3,6 +3,7 @@
 .global   init_stack
 .align      16
 init_stack:  # uint64_t init_stack(uint64_t *stack_bottom, uint64_t rip);
+    cli
     movq      rcx,rsp   # rspを保存
     movq      rdx,rbp   # rbpを保存
 	movq      rsp,rdi   # rspを移動
@@ -27,7 +28,7 @@ init_stack:  # uint64_t init_stack(uint64_t *stack_bottom, uint64_t rip);
 	pushq     0         # rdx
 	pushq     0         # rcx
     sub       rsp,0x118
-    movq      rsi,0xdeadbeef    # デバッグ用のdeadbeef
+    movq      rsi,0
     movq      xmm0,rsi
     movaps    XMMWORD PTR [rbp-0x60],xmm0       # xmm15
     movaps    XMMWORD PTR [rbp-0x70],xmm0       # xmm14
@@ -48,6 +49,7 @@ init_stack:  # uint64_t init_stack(uint64_t *stack_bottom, uint64_t rip);
 	movq      rax,rsp   # rspを戻り値に設定
 	movq      rsp,rcx   # rspを復旧
     movq      rbp,rdx   # rbpを復旧
+    sti
 	ret
 
 .global     dispatch

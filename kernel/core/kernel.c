@@ -4,10 +4,7 @@
 #include <util/util.h>
 #include <init/init.h>
 #include <interrupt/interrupt.h>
-#include <interrupt/int_handler.h>
-#include <mm/segmentation.h>
 #include <mm/paging.h>
-#include <mm/memory.h>
 #include <graphics/graphics.h>
 #include <debug/debug.h>
 #include <device/device.h>
@@ -33,6 +30,7 @@ void main_routine(void);
 void task_a(void);
 void task_b(void);
 void task_c(void);
+void task_input(void);
 
 extern uint64_t stack0[0x1000];
 extern uint64_t stack1[0x1000];
@@ -75,26 +73,28 @@ void main_routine(void)
            "Developer : Totsugekitai(@totsugeki8)");
 
     // タスクスイッチ間隔を設定
-    puts_serial("period init 10\n");
-    schedule_period_init(100);
+    int pe = 1;
+    puts_serial("period init: ");
+    putnum_serial(pe);
+    puts_serial("\n");
+    schedule_period_init(pe);
     // threadsを初期化
     threads_init();
 
     // スレッドを生成
     // コンソールとhltを設定
-    struct thread thread0 = thread_gen(stack0, (uint64_t*)task_a, 0, 0);
-    struct thread thread1 = thread_gen(stack1, (uint64_t*)task_b, 0, 0);
-    struct thread thread2 = thread_gen(stack2, (uint64_t*)task_c, 0, 0);
-    struct thread thread3 = thread_gen(stack3, (uint64_t*)console, 0, 0);
+    struct thread thread0 = thread_gen(stack0, (uint64_t*)task_input, 0, 0);
+    struct thread thread1 = thread_gen(stack1, (uint64_t*)task_a, 0, 0);
+    struct thread thread2 = thread_gen(stack2, (uint64_t*)task_b, 0, 0);
+    struct thread thread3 = thread_gen(stack3, (uint64_t*)task_c, 0, 0);
 
     // スレッドを走らせる
     thread_run(thread0);
     thread_run(thread1);
     thread_run(thread2);
     thread_run(thread3);
-    puts_serial("threads run\n");
+    puts_serial("threads run\n\n");
 
-    puts_serial("\n");
     puts_serial("next start rsp: ");
     putnum_serial(thread0.rsp);
     puts_serial("\n");
@@ -105,12 +105,7 @@ void main_routine(void)
     putnum_serial(thread0.rip);
     puts_serial("\n\n");
     puts_serial("first dispatch start\n\n");
-
     dispatch(thread0.rsp, 0, thread0.rip);
-
-    // // コンソール
-    // puts_serial("console start\n");
-    // console(0, 0);
 
     puts_serial("kernel end.\n");
     while (1) {
@@ -118,26 +113,57 @@ void main_routine(void)
     }
 }
 
+int taskcharA = 0;
+int taskcharB = 0;
+int taskcharC = 0;
 void task_a(void)
 {
-    puts_serial("taskA\n");
     while (1) {
+        putchar((taskcharA-8) % 800, 80, white, white, vinfo_global, ' ');
+        putchar(taskcharA % 800, 80, white, red, vinfo_global, ' ');
         asm volatile("hlt");
+        taskcharA++;
     }
 }
 
 void task_b(void)
 {
-    puts_serial("taskB\n");
     while (1) {
+        putchar((taskcharB-8) % 800, 96, white, white, vinfo_global, ' ');
+        putchar(taskcharB % 800, 96, white, blue, vinfo_global, ' ');
         asm volatile("hlt");
+        taskcharB += 2;
     }
 }
 
 void task_c(void)
 {
-    puts_serial("taskC\n");
     while (1) {
+        putchar((taskcharC-8) % 800, 112, white, white, vinfo_global, ' ');
+        putchar(taskcharC % 800, 112, white, green, vinfo_global, ' ');
         asm volatile("hlt");
+        taskcharC += 3;
+    }
+}
+
+extern uint8_t keycode;
+extern uint32_t text_x, text_y;
+void task_input(void)
+{
+    keycode = 0x00; // 初期化
+    while (1) {
+        keycode = 0x00;
+        wait_serial_input();
+        if (keycode == 0x0d || keycode == 0x0a) {
+            puts_serial("new line\n");
+            text_y += 16;
+            text_x = 0;
+        } else {
+            puts_serial("put keycode: ");
+            putnum_serial(keycode);
+            puts_serial("\n");
+            putchar(text_x, text_y, white, black, vinfo_global, keycode);
+            text_x += 8;
+        }
     }
 }
