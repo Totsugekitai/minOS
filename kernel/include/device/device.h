@@ -5,6 +5,7 @@ extern uint8_t read_kbd_status(void);
 void init_serial(void);
 uint32_t serial_received(void);
 void wait_serial_input(void);
+char receive_serial_input(void);
 uint8_t read_serial(void);
 uint8_t serial_thr_empty(void);
 void write_serial(uint8_t c);

@@ -73,7 +73,7 @@ void main_routine(void)
            "Developer : Totsugekitai(@totsugeki8)");
 
     // タスクスイッチ間隔を設定
-    int pe = 1;
+    int pe = 300;
     puts_serial("period init: ");
     putnum_serial(pe);
     puts_serial("\n");
@@ -84,15 +84,15 @@ void main_routine(void)
     // スレッドを生成
     // コンソールとhltを設定
     struct thread thread0 = thread_gen(stack0, (uint64_t*)task_input, 0, 0);
-    struct thread thread1 = thread_gen(stack1, (uint64_t*)task_a, 0, 0);
-    struct thread thread2 = thread_gen(stack2, (uint64_t*)task_b, 0, 0);
-    struct thread thread3 = thread_gen(stack3, (uint64_t*)task_c, 0, 0);
+    // struct thread thread1 = thread_gen(stack1, (uint64_t*)task_a, 0, 0);
+    // struct thread thread2 = thread_gen(stack2, (uint64_t*)task_b, 0, 0);
+    // struct thread thread3 = thread_gen(stack3, (uint64_t*)task_c, 0, 0);
 
     // スレッドを走らせる
     thread_run(thread0);
-    thread_run(thread1);
-    thread_run(thread2);
-    thread_run(thread3);
+    // thread_run(thread1);
+    // thread_run(thread2);
+    // thread_run(thread3);
     puts_serial("threads run\n\n");
 
     puts_serial("next start rsp: ");
@@ -154,14 +154,16 @@ void task_input(void)
     while (1) {
         keycode = 0x00;
         wait_serial_input();
-        if (keycode == 0x0d || keycode == 0x0a) {
+        // asm volatile(".byte 0xcc");
+        if (keycode == 0x0d || keycode == 0x0a)
+        {
             puts_serial("new line\n");
             text_y += 16;
             text_x = 0;
         } else {
             puts_serial("put keycode: ");
             putnum_serial(keycode);
-            puts_serial("\n");
+            puts_serial("\n\n");
             putchar(text_x, text_y, white, black, vinfo_global, keycode);
             text_x += 8;
         }

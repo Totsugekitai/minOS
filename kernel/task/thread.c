@@ -43,6 +43,9 @@ struct thread thread_gen(uint64_t *stack, uint64_t *func,
 
     thread.rsp = init_stack(thread.rsp, (uint64_t)func);
 
+    puts_serial("thread stack bottom: ");
+    putnum_serial((uint64_t)thread.stack + STACK_LENGTH);
+    puts_serial("\n");
     puts_serial("thread rsp: ");
     putnum_serial(thread.rsp);
     puts_serial("\n");
@@ -106,7 +109,13 @@ void thread_scheduler(uint64_t old_rip)
     int old_thread_index = current_thread_index;
     current_thread_index = (current_thread_index + 1) % THREAD_NUM;
 
+    puts_serial("thread_scheduler old_rip: ");
+    putnum_serial(old_rip);
+    puts_serial("\n");
     threads[old_thread_index].rip = old_rip;
+    puts_serial("threads[old_thread_index].rip: ");
+    putnum_serial(threads[old_thread_index].rip);
+    puts_serial("\n");
 
     puts_serial("next thread index: ");
     putnum_serial((uint64_t)current_thread_index);

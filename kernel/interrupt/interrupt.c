@@ -32,3 +32,8 @@ void init_pic(void)
     io_outb(PIC0_IMR, 0xee); // タイマとCOM1以外はMask
     io_outb(PIC1_IMR, 0xff);
 }
+
+void writebyte(void *addr, uint8_t v)
+{
+    *(uint8_t *)addr = v;
+}
