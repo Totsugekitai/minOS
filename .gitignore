@@ -1,4 +1,5 @@
 .vscode/
 fs/
 tools/
-
+*.log
+*.map

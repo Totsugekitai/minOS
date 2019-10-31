@@ -56,4 +56,4 @@ splash:
 
 dump:
 	objdump -D -b binary -m i386:x86-64:intel $(ROOTDIR)kernel/kernel.bin > $(ROOTDIR)kernel/dump.log
-	# cat $(ROOTDIR)kernel/dump.log | 
+	awk -f $(ROOTDIR)kernel/scripts/dump.awk $(ROOTDIR)kernel/kernel.map $(ROOTDIR)kernel/dump.log > $(ROOTDIR)kernel/kernel_dump.log
