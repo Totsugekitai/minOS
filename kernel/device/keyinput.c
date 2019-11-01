@@ -31,10 +31,7 @@ void wait_serial_input(void)
     while (keycode == 0) {
         asm volatile("hlt");
     }
-    asm volatile(".byte 0xcc");
-    //    puts_serial("wait_serial_input capture keycode: ");
-    //    putnum_serial(keycode);
-    //    puts_serial("\n");
+    puts_serial("wait_serial_input after while\n");
 }
 
 char receive_serial_input(void)

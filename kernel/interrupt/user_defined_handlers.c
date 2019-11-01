@@ -37,7 +37,6 @@ void timer_handler(struct InterruptFrame *frame)
      * 各種パラメータはint_handler.hで設定
      */
     if (milli_clock > previous_interrupt + timer_period && milli_clock > 100) {
-        io_cli();   // 安全のため割り込み禁止
         previous_interrupt = milli_clock;
         puts_serial("timer_handler old rip: ");
         putnum_serial(frame->rip);
@@ -64,21 +63,13 @@ void keyboard_handler(struct InterruptFrame *frame)
 __attribute__((interrupt))
 void com1_handler(struct InterruptFrame *frame)
 {
-    char c = io_inb(PORT);
+    io_cli();
+    keycode = io_inb(PORT);
+    puts_serial("Interrupt COM1\n");
     io_outb(PIC0_OCW2, PIC_EOI);
     io_outb(PIC1_OCW2, PIC_EOI);
 
-    // puts_serial("com1_handler COM1 interrupt: ");
-    // putnum_serial(c);
-    // puts_serial("\n");
-    // io_cli();
-    // uint64_t addr = (uint64_t)&keycode;
-    // *(uint8_t *)addr = c;
-    // //keycode = c;
-    // io_sti();
-    // writebyte(&keycode, 0x12);
-    uint64_t cc = c | 0x80706000;
-    keycode = cc;
+    io_sti();
 }
 
 /**

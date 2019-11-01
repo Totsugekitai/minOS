@@ -12,36 +12,28 @@ io_sti:
 
 .global     io_inb  # uint8_t io_inb(uint8_t port);
 io_inb:
-    cli
     mov     rdx,rdi
     in      al,dx
-    sti
     ret
 
 .global     io_in32
 io_in32:
-    cli
     mov     rdx,rdi
     in      eax,dx
-    sti
     ret
 
 .global     io_outb # void io_outb(uint16_t port, uint8_t byte);
 io_outb:
-    cli
     mov     rdx,rdi
     mov     rax,rsi
     out     dx,al
-    sti
     ret
 
 .global     io_out32 # void io_out32(uint16_t port, uint32_t data);
 io_out32:
-    cli
     mov     rdx,rdi
     mov     rax,rsi
     out     dx,eax
-    sti
     ret
 
 .global     io_rdmsr # uint64_t io_rdmsr(uint32_t msr);
@@ -90,4 +82,10 @@ init_irq:
 send_eoi:
     mov     al,0x20
     out     0x20,al
+    ret
+
+.global     set_rflags
+set_rflags:   # void set_rflags(uint64_t);
+    pushq   rdi
+    popfq
     ret

@@ -78,8 +78,6 @@ void thread_run(struct thread thread)
 void thread_end(int thread_index)
 {
     threads[thread_index].state = DEAD; // stateはDEADにする
-    // // threads[SCHED_THREAD_INDEX]はスレッドスケジューラなのでこれでよい
-    // save_and_dispatch(threads[thread_index].rsp, threads[SCHED_THREAD_INDEX].rsp);
 }
 
 /** threadsの初期化処理
@@ -101,7 +99,7 @@ void schedule_period_init(uint64_t milli_sec)
 }
 
 /** スレッドスケジューラ
- * save_and_dispatchで今実行しているスレッドのコンテキストを保存し、次のスレッドをディスパッチ
+ * 現在のripを保存し、次のスレッドをディスパッチ
  */
 void thread_scheduler(uint64_t old_rip)
 {
@@ -112,6 +110,7 @@ void thread_scheduler(uint64_t old_rip)
     puts_serial("thread_scheduler old_rip: ");
     putnum_serial(old_rip);
     puts_serial("\n");
+    // 前のスレッドのripをthread構造体に保存
     threads[old_thread_index].rip = old_rip;
     puts_serial("threads[old_thread_index].rip: ");
     putnum_serial(threads[old_thread_index].rip);

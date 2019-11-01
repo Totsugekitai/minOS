@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 
-#define THREAD_NUM 1 // スレッドの最大数
+#define THREAD_NUM 4 // スレッドの最大数
 #define SCHED_THREAD_INDEX 0 // スケジューラのスレッドのインデックス
 
 extern uint64_t milli_clock;

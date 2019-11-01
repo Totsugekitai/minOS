@@ -9,7 +9,7 @@
 
 char args_array[MAX_ARGS * ARG_LENGTH] = {0},
     *console_argv[MAX_ARGS] = {0}, output[OUTPUT_LENGTH] = {0};
-uint8_t keycode, oldkeycode, shift = 0;
+uint8_t keycode = 0, oldkeycode = 0, shift = 0;
 uint32_t text_x = 0, text_y = 0;
 struct ring_buf_char text_buf;
 

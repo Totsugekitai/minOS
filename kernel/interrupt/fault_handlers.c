@@ -412,7 +412,7 @@ __attribute__((interrupt))
 void pf_handler(struct InterruptFrame *frame, uint64_t error_code)
 {
     io_cli();
-    struct general_registers grs = {0};
+    struct general_registers grs;
     get_general_registers(&grs);
 
     puts_serial("#Page fault\n");
