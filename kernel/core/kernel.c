@@ -154,6 +154,7 @@ void task_input(void)
     while (1) {
         keycode = 0x00;
         wait_serial_input();
+        puts_serial("I am in task_input(). I backed from receive_serial_input()\n");
         if (keycode == 0x0d || keycode == 0x0a)
         {
             puts_serial("new line\n");

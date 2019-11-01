@@ -34,22 +34,15 @@ void wait_serial_input(void)
     puts_serial("wait_serial_input after while\n");
 }
 
-char receive_serial_input(void)
+uint8_t receive_serial_input(void)
 {
     while (keycode == 0) {
         asm volatile("hlt");
     }
-    puts_serial("receive_serial_input capture keycode: ");
-    putnum_serial(keycode);
-    puts_serial("\n");
+    puts_serial("receive_serial_input after while\n");
 
-    char c = keycode;
-    uint64_t rip;
-    asm("movq 8(%%rbp), %0"
-                :"=r"(rip));
-    puts_serial("receive_serial_input return address: ");
-    putnum_serial(rip);
-    puts_serial("\n\n");
+    uint8_t c = keycode;
+    puts_serial("receive_serial_input c = keycode\n");
 
     return c;
 }
