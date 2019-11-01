@@ -41,13 +41,18 @@ run:
 		-monitor telnet::1234,server,nowait \
 		-no-reboot
 
-clean_boot:
+rerun-kernel:
+	make clean_kernel
+	make kernel
+	make run
+
+clean-boot:
 	-rm -r $(EDKBUILD)* $(LOADERSRC)boot
 
-clean_kernel:
+clean-kernel:
 	make -C $(KERNELSRC) clean
 
-clean_full:
+clean-full:
 	make clean_boot && make clean_kernel
 
 splash:
