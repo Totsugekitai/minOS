@@ -1,5 +1,6 @@
 .vscode/
 fs/
 tools/
-*.log
-*.map
+kernel/*.log
+kernel/kernel.map
+kernel/kernel.bin
