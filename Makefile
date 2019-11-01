@@ -19,6 +19,7 @@ boot: FORCE1
 kernel: FORCE2
 	make -C $(KERNELSRC)
 	cp $(KERNELSRC)kernel.bin $(FS)
+	make dump
 
 FORCE1:
 
@@ -39,10 +40,10 @@ run:
 		-chardev stdio,mux=on,id=com1 \
 		-serial chardev:com1 \
 		-monitor telnet::1234,server,nowait \
-		-no-reboot
+		-no-reboot \
 
 rerun-kernel:
-	make clean_kernel
+	make clean-kernel
 	make kernel
 	make run
 
