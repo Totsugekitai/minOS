@@ -73,7 +73,7 @@ void main_routine(void)
            "Developer : Totsugekitai(@totsugeki8)");
 
     // タスクスイッチ間隔を設定
-    int pe = 200;
+    int pe = 3;
     puts_serial("period init: ");
     putnum_serial(pe);
     puts_serial("\n");
@@ -83,7 +83,7 @@ void main_routine(void)
 
     // スレッドを生成
     // コンソールとhltを設定
-    struct thread thread0 = thread_gen(stack0, (uint64_t*)task_input, 0, 0);
+    struct thread thread0 = thread_gen(stack0, (uint64_t*)console, 0, 0);
     struct thread thread1 = thread_gen(stack1, (uint64_t*)task_a, 0, 0);
     struct thread thread2 = thread_gen(stack2, (uint64_t*)task_b, 0, 0);
     struct thread thread3 = thread_gen(stack3, (uint64_t*)task_c, 0, 0);
@@ -105,7 +105,8 @@ void main_routine(void)
     putnum_serial(thread0.rip);
     puts_serial("\n\n");
     puts_serial("first dispatch start\n\n");
-    dispatch(thread0.rsp, 0, thread0.rip);
+    // dispatch(thread0.rsp, 0, thread0.rip);
+    switch_context(0, thread0.rsp);
 
     puts_serial("kernel end.\n");
     while (1) {

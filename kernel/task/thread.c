@@ -19,7 +19,7 @@ uint64_t stack3[STACK_LENGTH];
 uint64_t stack4[STACK_LENGTH];
 uint64_t stack5[STACK_LENGTH];
 
-/** 周期割り込みの設定 
+/** 周期割り込みの設定
  * timer_period: 周期割り込みの周期
  * previous_interrupt: 前回の周期割り込みの時間
 */
@@ -41,7 +41,8 @@ struct thread thread_gen(uint64_t *stack, uint64_t *func,
     thread.func_info.argc = argc;
     thread.func_info.argv = argv;
 
-    thread.rsp = init_stack(thread.rsp, (uint64_t)func);
+    // thread.rsp = init_stack(thread.rsp, (uint64_t)func);
+    thread.rsp = init_stack2(thread.rsp, (uint64_t)func);
 
     puts_serial("thread stack bottom: ");
     putnum_serial((uint64_t)thread.stack + STACK_LENGTH);
@@ -135,6 +136,7 @@ void thread_scheduler(uint64_t old_rip)
 
     puts_serial("dispatch start\n\n");
 
-    dispatch(threads[current_thread_index].rsp,
-        &(threads[old_thread_index].rsp), threads[current_thread_index].rip);
+    // dispatch(threads[current_thread_index].rsp,
+    //     &(threads[old_thread_index].rsp), threads[current_thread_index].rip);
+    switch_context(&threads[old_thread_index].rsp, threads[current_thread_index].rsp);
 }
