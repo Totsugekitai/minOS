@@ -22,18 +22,18 @@ io_in32:
     in      eax,dx
     ret
 
-.global     io_out32 # void io_out32(uint16_t port, uint32_t data);
-io_out32:
-    mov     rdx,rdi
-    mov     rax,rsi
-    out     dx,eax
-    ret
-
 .global     io_outb # void io_outb(uint16_t port, uint8_t byte);
 io_outb:
     mov     rdx,rdi
     mov     rax,rsi
     out     dx,al
+    ret
+
+.global     io_out32 # void io_out32(uint16_t port, uint32_t data);
+io_out32:
+    mov     rdx,rdi
+    mov     rax,rsi
+    out     dx,eax
     ret
 
 .global     io_rdmsr # uint64_t io_rdmsr(uint32_t msr);
@@ -60,7 +60,7 @@ init_irq:
     out     0x21,al
     mov     al,0x4
     out     0x21,al
-#PIC2
+# PIC2
     mov     al,0x11
     out     0xa0,al
     mov     al,0x28
@@ -68,10 +68,10 @@ init_irq:
     mov     al,0x2
     out     0xa1,al
 
-    mov al, 0x04
-    out 0x21, al
-    mov al, 0x02
-    out 0xA1, al
+    mov     al, 0x04
+    out     0x21, al
+    mov     al, 0x02
+    out     0xa1, al
     mov     al,1
     out     0x21,al
     out     0xa1,al
@@ -84,3 +84,8 @@ send_eoi:
     out     0x20,al
     ret
 
+.global     set_rflags
+set_rflags:   # void set_rflags(uint64_t);
+    pushq   rdi
+    popfq
+    ret

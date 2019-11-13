@@ -27,3 +27,4 @@ struct gate_descriptor make_gate_descriptor(uint64_t offset, uint32_t dpl,
 void init_pic(void);
 
 extern void load_idt(uint64_t base, uint64_t limit);
+void writebyte(void *, uint8_t);

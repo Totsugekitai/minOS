@@ -5,7 +5,7 @@ INCLUDE		= $(CURRENT)include/
 TARGET		= kernel.bin
 CFLAGS 		= -g -Wall -Wextra -nostdinc -nostdlib -fno-builtin -fno-common \
 			  -O0 -I /usr/include -I $(INCLUDE) -fno-stack-protector -fno-pic \
-			  -mno-red-zone #-Wno-unused-parameter
+			  -mno-red-zone -Wno-unused-parameter -mno-avx -mgeneral-regs-only
 			  
 LDFLAGS		= -Map kernel.map -s -x -T $(SCRIPT)kernel.ld
 
@@ -13,38 +13,32 @@ OBJS		= core/kernel.o \
 			  graphics/graphics.o \
 			  util/util.o \
 			  util/util_asm.o \
-			  init/bss.o \
-			  init/init_global_variables.o \
-			  init/init_gdt.o \
-			  init/init_paging.o \
-			  init/init_interrupt.o \
-			  init/init_graphics.o \
+			  init/init_settings.o \
 			  mm/segmentation.o \
-			  mm/load_gdt.o \
-			  mm/set_segment_register.o \
-			  mm/load_pgtable.o \
 			  mm/paging.o \
 			  mm/memory.o \
 			  mm/memory_asm.o \
 			  debug/debug.o \
+			  debug/debug_asm.o \
 			  interrupt/load_idt.o \
 			  interrupt/interrupt.o \
-			  interrupt/fault_handler.o \
-			  interrupt/user_defined_handler.o \
-			  interrupt/handler_caller.o \
+			  interrupt/fault_handlers.o \
+			  interrupt/user_defined_handlers.o \
 			  device/keyboard.o \
 			  device/keyinput.o \
-			  app/console_kai.o \
+			  app/console.o \
 			  acpi/acpi.o \
 			  command/echo.o \
 			  command/uptime.o \
 			  command/sleep.o \
+			  task/thread.o \
+			  task/thread_asm.o \
 
 $(TARGET): $(OBJS)
 	ld $(LDFLAGS) -o $@ $+
 
 %.o: %.c
-	clang $(CFLAGS) -c -o $@ $<
+	gcc $(CFLAGS) -c -o $@ $<
 
 %.o: %.S
 	as -o $@ $<
@@ -68,4 +62,4 @@ clean:
 	make -C $(CURRENT)app/ clean
 	make -C $(CURRENT)acpi/ clean
 	make -C $(CURRENT)command/ clean
-
+	make -C $(CURRENT)task/ clean

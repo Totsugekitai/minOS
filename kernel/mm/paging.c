@@ -2,7 +2,7 @@
 #define PML4_NUM        1
 #define PD_NUM          16
 #define TABLE_SIZE      512
-#define PAGE_SIZE_2M    (long)0x00200000 // 2MiB
+#define PAGE_SIZE_2M    (uint64_t)0x00200000 // 2MiB
 #define PAGE_SIZE_1G    512 * PAGE_SIZE_2M // 1GiB
 
 void create_pgtable(uint64_t *pml4_addr,

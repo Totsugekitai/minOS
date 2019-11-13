@@ -19,6 +19,7 @@ boot: FORCE1
 kernel: FORCE2
 	make -C $(KERNELSRC)
 	cp $(KERNELSRC)kernel.bin $(FS)
+	make dump
 
 FORCE1:
 
@@ -38,27 +39,27 @@ run:
 		fat:rw:$(FS) -m 4G \
 		-chardev stdio,mux=on,id=com1 \
 		-serial chardev:com1 \
-
-
-debug_run:
-	$(QEMU) -drive if=pflash,format=raw,readonly,file=$(TOOLS)OVMF_CODE.fd \
-		-drive if=pflash,format=raw,file=$(TOOLS)OVMF_VARS.fd \
-		fat:rw:$(FS) -m 4G \
-		-chardev stdio,mux=on,id=com1 \
-		-serial chardev:com1 \
 		-monitor telnet::1234,server,nowait \
-		-enable-kvm
+		-no-reboot \
 
-clean_boot:
+rerun-kernel:
+	make clean-kernel
+	make kernel
+	make run
+
+clean-boot:
 	-rm -r $(EDKBUILD)* $(LOADERSRC)boot
-#	cd "$(ROOTDIR)kernel/" && make clean
 
-clean_kernel:
+clean-kernel:
 	make -C $(KERNELSRC) clean
 
-clean_full:
+clean-full:
 	make clean_boot && make clean_kernel
 
 splash:
 	make clean_full
 	-rm -r $(FS)kernel.bin $(FS)EFI/BOOT/BOOTX64.EFI
+
+dump:
+	objdump -D -b binary -m i386:x86-64:intel $(ROOTDIR)kernel/kernel.bin > $(ROOTDIR)kernel/dump.log
+	awk -f $(ROOTDIR)kernel/scripts/dump.awk $(ROOTDIR)kernel/kernel.map $(ROOTDIR)kernel/dump.log > $(ROOTDIR)kernel/kernel_dump.log

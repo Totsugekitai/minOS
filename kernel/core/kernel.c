@@ -4,14 +4,12 @@
 #include <util/util.h>
 #include <init/init.h>
 #include <interrupt/interrupt.h>
-#include <interrupt/int_handler.h>
-#include <mm/segmentation.h>
 #include <mm/paging.h>
-#include <mm/memory.h>
 #include <graphics/graphics.h>
 #include <debug/debug.h>
 #include <device/device.h>
 #include <app/app.h>
+#include <task/thread.h>
 
 // bootinfoからとれる情報
 struct video_info *vinfo_global;
@@ -29,6 +27,17 @@ uint64_t *PD = (uint64_t *)0x3000;
 struct gate_descriptor *IDT = (struct gate_descriptor *)0x13000;
 
 void main_routine(void);
+void task_a(void);
+void task_b(void);
+void task_c(void);
+void task_input(void);
+
+extern uint64_t stack0[0x1000];
+extern uint64_t stack1[0x1000];
+extern uint64_t stack2[0x1000];
+extern uint64_t stack3[0x1000];
+extern uint64_t stack4[0x1000];
+extern uint64_t stack5[0x1000];
 
 void start_kernel(struct bootinfo *binfo)
 {
@@ -62,39 +71,102 @@ void main_routine(void)
            "minOS - A Minimal Operating System.");
     putstr(500, 580, black, white, vinfo_global,
            "Developer : Totsugekitai(@totsugeki8)");
-    
-    putstr(0, 16, black, white, vinfo_global, "mmapsize: ");
-    putnum(100, 16, black, white, vinfo_global, mmapsize);
 
-    putstr(0, 32, black, white, vinfo_global, "memdescsize: ");
-    putnum(100, 32 ,black, white, vinfo_global, memdescsize);
+    // タスクスイッチ間隔を設定
+    int pe = 3;
+    puts_serial("period init: ");
+    putnum_serial(pe);
+    puts_serial("\n");
+    schedule_period_init(pe);
+    // threadsを初期化
+    threads_init();
 
-    int i = 0, j = 48;
-    uint64_t numpages;
-    uint64_t phystart;
-    uint64_t virtstart;
-    do {
-        numpages = start_mmap[i].number_of_pages;
-        phystart = start_mmap[i].physical_start;
-        virtstart = start_mmap[i].virtual_start;
-        putnum(0, j, black, white, vinfo_global, numpages);
-        putstr(170, j, black, white, vinfo_global, ":");
-        putnum(180, j, black, white, vinfo_global, phystart);
-        putstr(350, j, black, white, vinfo_global, ":");
-        putnum(360, j, black, white, vinfo_global, virtstart);
-        i++;
-        j += 16;
-    } while (i != 10);
+    // スレッドを生成
+    // コンソールとhltを設定
+    struct thread thread0 = thread_gen(stack0, (uint64_t*)console, 0, 0);
+    struct thread thread1 = thread_gen(stack1, (uint64_t*)task_a, 0, 0);
+    struct thread thread2 = thread_gen(stack2, (uint64_t*)task_b, 0, 0);
+    struct thread thread3 = thread_gen(stack3, (uint64_t*)task_c, 0, 0);
 
-    // 1GBまで検査
-    //volatile uint64_t memsize = calc_mem_size(0, 0x10000);
-    //putstr(0, 64, black, white, vinfo_global, "memsize:");
-    //putnum(70, 64, black, white, vinfo_global, memsize);
+    // スレッドを走らせる
+    thread_run(thread0);
+    thread_run(thread1);
+    thread_run(thread2);
+    thread_run(thread3);
+    puts_serial("threads run\n\n");
 
-    puts_serial("console start\n");
+    puts_serial("next start rsp: ");
+    putnum_serial(thread0.rsp);
+    puts_serial("\n");
+    puts_serial("next start func address: ");
+    putnum_serial((uint64_t)(thread0.func_info.func));
+    puts_serial("\n");
+    puts_serial("next thread rip: ");
+    putnum_serial(thread0.rip);
+    puts_serial("\n\n");
+    puts_serial("first dispatch start\n\n");
+    // dispatch(thread0.rsp, 0, thread0.rip);
+    switch_context(0, thread0.rsp);
 
-    // コンソール
-    //console();
-    console_kai();
+    puts_serial("kernel end.\n");
+    while (1) {
+        asm("hlt");
+    }
 }
 
+int taskcharA = 0;
+int taskcharB = 0;
+int taskcharC = 0;
+void task_a(void)
+{
+    while (1) {
+        putchar((taskcharA-8) % 800, 80, white, white, vinfo_global, ' ');
+        putchar(taskcharA % 800, 80, white, red, vinfo_global, ' ');
+        asm volatile("hlt");
+        taskcharA++;
+    }
+}
+
+void task_b(void)
+{
+    while (1) {
+        putchar((taskcharB-8) % 800, 96, white, white, vinfo_global, ' ');
+        putchar(taskcharB % 800, 96, white, blue, vinfo_global, ' ');
+        asm volatile("hlt");
+        taskcharB += 2;
+    }
+}
+
+void task_c(void)
+{
+    while (1) {
+        putchar((taskcharC-8) % 800, 112, white, white, vinfo_global, ' ');
+        putchar(taskcharC % 800, 112, white, green, vinfo_global, ' ');
+        asm volatile("hlt");
+        taskcharC += 3;
+    }
+}
+
+extern uint8_t keycode;
+extern uint32_t text_x, text_y;
+void task_input(void)
+{
+    keycode = 0x00; // 初期化
+    while (1) {
+        keycode = 0x00;
+        wait_serial_input();
+        puts_serial("I am in task_input(). I backed from receive_serial_input()\n");
+        if (keycode == 0x0d || keycode == 0x0a)
+        {
+            puts_serial("new line\n");
+            text_y += 16;
+            text_x = 0;
+        } else {
+            puts_serial("put keycode: ");
+            putnum_serial(keycode);
+            puts_serial("\n\n");
+            putchar(text_x, text_y, white, black, vinfo_global, keycode);
+            text_x += 8;
+        }
+    }
+}

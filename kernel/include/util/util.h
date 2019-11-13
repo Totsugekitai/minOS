@@ -50,4 +50,4 @@ extern uint64_t io_rdmsr(uint32_t msr);
 extern void io_wrmsr(uint32_t edx, uint32_t eax);
 extern void init_irq(void);
 extern void send_eoi(void);
-
+extern void set_rflags(uint64_t);

@@ -52,6 +52,7 @@ void putchar(uint32_t ul_x, uint32_t ul_y, struct pix_format color,
     char d, c_num = c - 0x20;
     int i, j;
 
+    io_cli();   // 割り込み禁止
     // 背景を塗る
     for (i = 0; i < 16; i++) {
         for (j = 0; j < 8; j++) {
@@ -71,8 +72,7 @@ void putchar(uint32_t ul_x, uint32_t ul_y, struct pix_format color,
         if ((d & 0x02) != 0) { _draw_dot(ul_x + 6, ul_y + i, color, vinfo); }
         if ((d & 0x01) != 0) { _draw_dot(ul_x + 7, ul_y + i, color, vinfo); }
     }
-
-    return;
+    io_sti();   // 割り込み許可
 }
 
 void putstr(uint32_t ul_x, uint32_t ul_y, struct pix_format color,
