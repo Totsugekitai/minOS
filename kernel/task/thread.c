@@ -106,7 +106,13 @@ void thread_scheduler(uint64_t old_rip)
 {
     // current_thread_indexを更新
     int old_thread_index = current_thread_index;
-    current_thread_index = (current_thread_index + 1) % THREAD_NUM;
+    int i = 1;
+    while (current_thread_index == old_thread_index) {
+        if (threads[(current_thread_index + i) % THREAD_NUM].state == RUNNABLE) {
+            current_thread_index = (current_thread_index + i) % THREAD_NUM;
+        }
+        i++;
+    }
 
     puts_serial("thread_scheduler old_rip: ");
     putnum_serial(old_rip);

@@ -5,6 +5,7 @@
 #include <init/init.h>
 #include <interrupt/interrupt.h>
 #include <mm/paging.h>
+#include <mm/memory.h>
 #include <graphics/graphics.h>
 #include <debug/debug.h>
 #include <device/device.h>
@@ -144,29 +145,5 @@ void task_c(void)
         putchar(taskcharC % 800, 112, white, green, vinfo_global, ' ');
         asm volatile("hlt");
         taskcharC += 3;
-    }
-}
-
-extern uint8_t keycode;
-extern uint32_t text_x, text_y;
-void task_input(void)
-{
-    keycode = 0x00; // 初期化
-    while (1) {
-        keycode = 0x00;
-        wait_serial_input();
-        puts_serial("I am in task_input(). I backed from receive_serial_input()\n");
-        if (keycode == 0x0d || keycode == 0x0a)
-        {
-            puts_serial("new line\n");
-            text_y += 16;
-            text_x = 0;
-        } else {
-            puts_serial("put keycode: ");
-            putnum_serial(keycode);
-            puts_serial("\n\n");
-            putchar(text_x, text_y, white, black, vinfo_global, keycode);
-            text_x += 8;
-        }
     }
 }
