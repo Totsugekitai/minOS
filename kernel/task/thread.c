@@ -29,7 +29,7 @@ uint64_t previous_interrupt = 0;
 /** スレッドの生成
  * thread構造体の初期化とスタックの初期化を行う
  */
-struct thread thread_gen(uint64_t *stack, uint64_t *func,
+struct thread thread_gen(uint64_t *stack, void (*func)(int, char**),
     int argc, char **argv)
 {
     struct thread thread;
@@ -41,7 +41,6 @@ struct thread thread_gen(uint64_t *stack, uint64_t *func,
     thread.func_info.argc = argc;
     thread.func_info.argv = argv;
 
-    // thread.rsp = init_stack(thread.rsp, (uint64_t)func);
     thread.rsp = init_stack(thread.rsp, (uint64_t)func);
 
     puts_serial("thread stack bottom: ");
@@ -99,12 +98,13 @@ void schedule_period_init(uint64_t milli_sec)
     timer_period = milli_sec;
 }
 
-/** スレッドスケジューラ
- * 現在のripを保存し、次のスレッドをディスパッチ
+/** This is thread scheduler
+ * This function dumps current nad next thread info and
+ * calls switch_context
  */
 void thread_scheduler(uint64_t old_rip)
 {
-    // current_thread_indexを更新
+    // update current_thread_index
     int old_thread_index = current_thread_index;
     current_thread_index = (current_thread_index + 1) % THREAD_NUM;
     // int i = 1;

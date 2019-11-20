@@ -28,9 +28,9 @@ uint64_t *PD = (uint64_t *)0x3000;
 struct gate_descriptor *IDT = (struct gate_descriptor *)0x13000;
 
 void main_routine(void);
-void task_a(void);
-void task_b(void);
-void task_c(void);
+void task_a(int _argc, char **_argv);
+void task_b(int _argc, char **_argv);
+void task_c(int _argc, char **_argv);
 void task_input(void);
 
 extern uint64_t stack0[0x1000];
@@ -84,10 +84,10 @@ void main_routine(void)
 
     // スレッドを生成
     // コンソールとhltを設定
-    struct thread thread0 = thread_gen(stack0, (uint64_t*)console, 0, 0);
-    struct thread thread1 = thread_gen(stack1, (uint64_t*)task_a, 0, 0);
-    struct thread thread2 = thread_gen(stack2, (uint64_t*)task_b, 0, 0);
-    struct thread thread3 = thread_gen(stack3, (uint64_t*)task_c, 0, 0);
+    struct thread thread0 = thread_gen(stack0, console, 0, 0);
+    struct thread thread1 = thread_gen(stack1, task_a, 0, 0);
+    struct thread thread2 = thread_gen(stack2, task_b, 0, 0);
+    struct thread thread3 = thread_gen(stack3, task_c, 0, 0);
 
     // スレッドを走らせる
     thread_run(thread0);
@@ -118,7 +118,7 @@ void main_routine(void)
 int taskcharA = 0;
 int taskcharB = 0;
 int taskcharC = 0;
-void task_a(void)
+void task_a(int _argc, char **_argv)
 {
     while (1) {
         putchar((taskcharA-8) % 800, 80, white, white, vinfo_global, ' ');
@@ -128,7 +128,7 @@ void task_a(void)
     }
 }
 
-void task_b(void)
+void task_b(int _argc, char **_argv)
 {
     while (1) {
         putchar((taskcharB-8) % 800, 96, white, white, vinfo_global, ' ');
@@ -138,7 +138,7 @@ void task_b(void)
     }
 }
 
-void task_c(void)
+void task_c(int _argc, char **_argv)
 {
     while (1) {
         putchar((taskcharC-8) % 800, 112, white, white, vinfo_global, ' ');
