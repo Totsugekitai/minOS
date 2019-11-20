@@ -8,18 +8,30 @@
 #include <core/global_variables.h>
 #include <mm/paging.h>
 
-extern uint32_t *__bss_start, *__bss_end;
+// These are from linker script
+// Normally, variables from linker script is decleared as not pointer type
+extern uint64_t __bss_start, __bss_end;
+extern uint64_t __heap_start, __heap_end, _heap_size;
 
-// bssセクションの初期化
+// init bss section
 void init_bss(void)
 {
-    int bss_size = (int)(__bss_end - __bss_start);
+    int bss_size = (int)(&__bss_end - &__bss_start);
     for (int k = 0; k < bss_size; k++) {
-        __bss_start[k] = 0x00;
+        (&__bss_start)[k] = 0x00;
     }
 }
 
-// グローバル変数の初期化
+// init heap region
+void init_heap(void)
+{
+    int heap_size = (int)(&__heap_end - &__heap_start);
+    for (int i = 0; i < (int)heap_size; i++) {
+        (&__heap_start)[i] = 0;
+    }
+}
+
+// init global variables
 void init_global_variables(struct bootinfo *binfo)
 {
     rsdp = binfo->rsdp;
@@ -29,7 +41,7 @@ void init_global_variables(struct bootinfo *binfo)
     memdescsize = binfo->memdescsize;
 }
 
-// GDTの初期化
+// init GDT
 void init_gdt(void)
 {
     // 空, KERNEL_CS, KERNEL_DSの3つを用意

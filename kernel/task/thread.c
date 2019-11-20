@@ -3,7 +3,6 @@
 
 /** threadsについて
  * スレッドの配列がそのままランキュー
- * 0番目は必ずスレッドスケジューラのスレッドにする
  */
 struct thread threads[THREAD_NUM];
 int current_thread_index = 0;
@@ -99,8 +98,8 @@ void schedule_period_init(uint64_t milli_sec)
 }
 
 /** This is thread scheduler
- * This function dumps current nad next thread info and
- * calls switch_context
+ * This function dumps current and next thread info
+ * and calls switch_context
  */
 void thread_scheduler(uint64_t old_rip)
 {
@@ -115,10 +114,7 @@ void thread_scheduler(uint64_t old_rip)
     //     i++;
     // }
 
-    puts_serial("thread_scheduler old_rip: ");
-    putnum_serial(old_rip);
-    puts_serial("\n");
-    // 前のスレッドのripをthread構造体に保存
+    // save previous thread's rip to struct thread
     threads[old_thread_index].rip = old_rip;
     puts_serial("threads[old_thread_index].rip: ");
     putnum_serial(threads[old_thread_index].rip);

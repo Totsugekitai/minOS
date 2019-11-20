@@ -12,26 +12,25 @@
 #include <app/app.h>
 #include <task/thread.h>
 
-// bootinfoからとれる情報
+// These are information that we get at bootinfo
 struct video_info *vinfo_global;
 struct RSDP *rsdp;
 struct memory_descriptor *start_mmap;
 uint64_t mmapsize;
 uint64_t memdescsize;
-// GDTは0x80に固定配置
+// GDT is located at 0x80
 uint64_t *GDT = (uint64_t *)0x80;
-// 初期ページテーブルは固定配置
+// Init page table is located at fixed position
 uint64_t *PML4 = (uint64_t *)0x1000;
 uint64_t *PDP = (uint64_t *)0x2000;
 uint64_t *PD = (uint64_t *)0x3000;
-// IDTは固定配置
+// IDT is located at fixed position
 struct gate_descriptor *IDT = (struct gate_descriptor *)0x13000;
 
 void main_routine(void);
 void task_a(int _argc, char **_argv);
 void task_b(int _argc, char **_argv);
 void task_c(int _argc, char **_argv);
-void task_input(void);
 
 extern uint64_t stack0[0x1000];
 extern uint64_t stack1[0x1000];
@@ -45,10 +44,10 @@ void start_kernel(struct bootinfo *binfo)
     init_bss();
     init_serial();
     init_global_variables(binfo);
-    init_gdt(); // init_gdtでmain_routineへジャンプする
+    init_gdt(); // jump main_routine!!!
 }
 
-/* GDTの設定が終わった後のルーチン */
+/* This is a routine after finishing setting GDT */
 void main_routine(void)
 {
     init_paging();
@@ -57,7 +56,7 @@ void main_routine(void)
     //init_local_APIC();
     init_pic();
 
-    /* いろんなレジスタとかメモリとかの表示 */
+    /* print various memory dump and registers */
     // EFER
     putstr(600, 10, black, white, vinfo_global, "CR3: ");
     putnum(650, 10, black, white, vinfo_global, get_cr3());
@@ -71,9 +70,11 @@ void main_routine(void)
     putstr(515, 560, black, white, vinfo_global,
            "minOS - A Minimal Operating System.");
     putstr(500, 580, black, white, vinfo_global,
-           "Developer : Totsugekitai(@totsugeki8)");
+           "Developer : Totsugekitai(@totsugeki_tai)");
 
-    // タスクスイッチ間隔を設定
+    init_heap();
+
+    // set task switch interval
     int pe = 3;
     puts_serial("period init: ");
     putnum_serial(pe);
@@ -83,13 +84,12 @@ void main_routine(void)
     threads_init();
 
     // スレッドを生成
-    // コンソールとhltを設定
     struct thread thread0 = thread_gen(stack0, console, 0, 0);
     struct thread thread1 = thread_gen(stack1, task_a, 0, 0);
     struct thread thread2 = thread_gen(stack2, task_b, 0, 0);
     struct thread thread3 = thread_gen(stack3, task_c, 0, 0);
 
-    // スレッドを走らせる
+    // run thread
     thread_run(thread0);
     thread_run(thread1);
     thread_run(thread2);
@@ -106,7 +106,6 @@ void main_routine(void)
     putnum_serial(thread0.rip);
     puts_serial("\n\n");
     puts_serial("first dispatch start\n\n");
-    // dispatch(thread0.rsp, 0, thread0.rip);
     switch_context(0, thread0.rsp);
 
     puts_serial("kernel end.\n");
