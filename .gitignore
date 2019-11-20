@@ -4,3 +4,4 @@ kernel/dump.log
 kernel/kernel_dump.log
 kernel/kernel.map
 kernel/kernel.bin
+serial_output.log
