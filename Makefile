@@ -19,7 +19,6 @@ boot: FORCE1
 kernel: FORCE2
 	make -C $(KERNELSRC)
 	cp $(KERNELSRC)kernel.bin $(FS)
-	make dump
 
 FORCE1:
 
@@ -37,7 +36,7 @@ run:
 	$(QEMU) -drive if=pflash,format=raw,readonly,file=$(TOOLS)OVMF_CODE.fd \
 		-drive if=pflash,format=raw,file=$(TOOLS)OVMF_VARS.fd \
 		fat:rw:$(FS) -m 4G \
-		-chardev stdio,mux=on,id=com1 \
+		-chardev stdio,mux=on,id=com1,logfile=serial_output.log \
 		-serial chardev:com1 \
 		-monitor telnet::1234,server,nowait \
 		-no-reboot \
