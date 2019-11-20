@@ -42,7 +42,7 @@ struct thread thread_gen(uint64_t *stack, uint64_t *func,
     thread.func_info.argv = argv;
 
     // thread.rsp = init_stack(thread.rsp, (uint64_t)func);
-    thread.rsp = init_stack2(thread.rsp, (uint64_t)func);
+    thread.rsp = init_stack(thread.rsp, (uint64_t)func);
 
     puts_serial("thread stack bottom: ");
     putnum_serial((uint64_t)thread.stack + STACK_LENGTH);
@@ -106,13 +106,14 @@ void thread_scheduler(uint64_t old_rip)
 {
     // current_thread_indexを更新
     int old_thread_index = current_thread_index;
-    int i = 1;
-    while (current_thread_index == old_thread_index) {
-        if (threads[(current_thread_index + i) % THREAD_NUM].state == RUNNABLE) {
-            current_thread_index = (current_thread_index + i) % THREAD_NUM;
-        }
-        i++;
-    }
+    current_thread_index = (current_thread_index + 1) % THREAD_NUM;
+    // int i = 1;
+    // while (current_thread_index == old_thread_index) {
+    //     if (threads[(current_thread_index + i) % THREAD_NUM].state == RUNNABLE) {
+    //         current_thread_index = (current_thread_index + i) % THREAD_NUM;
+    //     }
+    //     i++;
+    // }
 
     puts_serial("thread_scheduler old_rip: ");
     putnum_serial(old_rip);
@@ -142,7 +143,5 @@ void thread_scheduler(uint64_t old_rip)
 
     puts_serial("dispatch start\n\n");
 
-    // dispatch(threads[current_thread_index].rsp,
-    //     &(threads[old_thread_index].rsp), threads[current_thread_index].rip);
     switch_context(&threads[old_thread_index].rsp, threads[current_thread_index].rsp);
 }

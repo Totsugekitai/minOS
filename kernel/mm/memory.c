@@ -1,6 +1,6 @@
 #include <stdint.h>
-#include <util.h>
-#include <device.h>
+#include <util/util.h>
+#include <device/device.h>
 
 extern uint32_t *__bss_end;
 
