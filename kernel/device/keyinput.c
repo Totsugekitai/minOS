@@ -156,6 +156,13 @@ void putnum_serial(uint64_t num)
     puts_serial(numchararr);
 }
 
+void put_str_num_serial(const char *s, uint64_t n)
+{
+    puts_serial(s);
+    putnum_serial(n);
+    puts_serial("\n");
+}
+
 /* PS/2 */
 uint8_t ps2_received(void)
 {
