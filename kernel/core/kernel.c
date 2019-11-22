@@ -74,6 +74,17 @@ void main_routine(void)
 
     init_heap();
 
+    char *malloc1 = (char *)minmalloc(10);
+    char *malloc2 = (char *)minmalloc(100);
+    char *malloc3 = (char *)minmalloc(11000);
+    char *malloc4 = (char *)minmalloc(140);
+    char *malloc5 = (char *)minmalloc(510);
+    char *malloc6 = (char *)minmalloc(330);
+
+    while (1) {
+        asm volatile("hlt");
+    }
+
     // set task switch interval
     int pe = 3;
     puts_serial("period init: ");
