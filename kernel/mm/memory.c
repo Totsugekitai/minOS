@@ -4,9 +4,8 @@
 #include <device/device.h>
 #include <mm/memory.h>
 
-// These variables are about heap region.
-// When use these for address calculation, attach & to its head.
-extern uint64_t __heap_start, __heap_end;
+#define HEAP_SIZE 0x400000
+static uint64_t heap[HEAP_SIZE];
 
 // This global variable is base pointer of malloc.
 // This has only chunk header, don't have data.
@@ -38,9 +37,9 @@ void *minmalloc(uint64_t size)
 
         next_search_position = prev_p = &base;
         base.block_size = 0;
-        base.next = (struct malloc_header *)&__heap_start;
+        base.next = (struct malloc_header *)heap;
         base.next->block_size =
-            ((uint64_t)(&__heap_end - &__heap_start) / sizeof(struct malloc_header));
+            (HEAP_SIZE / sizeof(struct malloc_header));
         base.next->next = &base;
 
         puts_serial("init base\n");
