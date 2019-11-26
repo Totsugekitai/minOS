@@ -1,5 +1,6 @@
 #include <device/device.h>
 #include <task/thread.h>
+#include <mm/memory.h>
 
 /** threadsについて
  * スレッドの配列がそのままランキュー
@@ -9,14 +10,6 @@ int current_thread_index = 0;
 
 // スタックの大きさを定義
 #define STACK_LENGTH    0x1000
-
-// スタックはとりあえず固定配置
-uint64_t stack0[STACK_LENGTH];
-uint64_t stack1[STACK_LENGTH];
-uint64_t stack2[STACK_LENGTH];
-uint64_t stack3[STACK_LENGTH];
-uint64_t stack4[STACK_LENGTH];
-uint64_t stack5[STACK_LENGTH];
 
 /** 周期割り込みの設定
  * timer_period: 周期割り込みの周期
@@ -28,13 +21,32 @@ uint64_t previous_interrupt = 0;
 /** スレッドの生成
  * thread構造体の初期化とスタックの初期化を行う
  */
-struct thread thread_gen(uint64_t *stack, void (*func)(int, char**),
-    int argc, char **argv)
+// struct thread thread_gen(uint64_t *stack, void (*func)(int, char**),
+//     int argc, char **argv)
+// {
+//     struct thread thread;
+// 
+//     thread.stack = stack;
+//     thread.rsp = (uint64_t)(stack + STACK_LENGTH);
+//     thread.rip = (uint64_t)func;
+//     thread.func_info.func = func;
+//     thread.func_info.argc = argc;
+//     thread.func_info.argv = argv;
+// 
+//     thread.rsp = init_stack(thread.rsp, (uint64_t)func);
+// 
+//     put_str_num_serial("thread stack bottom: ", (uint64_t)thread.stack + STACK_LENGTH);
+//     put_str_num_serial("thread rsp: ", thread.rsp);
+// 
+//     return thread;
+// }
+
+struct thread thread_gen(void (*func)(int, char**), int argc, char **argv)
 {
     struct thread thread;
 
-    thread.stack = stack;
-    thread.rsp = (uint64_t)(stack + STACK_LENGTH);
+    thread.stack = (uint64_t *)minmalloc(STACK_LENGTH);
+    thread.rsp = (uint64_t)(thread.stack + STACK_LENGTH);
     thread.rip = (uint64_t)func;
     thread.func_info.func = func;
     thread.func_info.argc = argc;
@@ -42,12 +54,8 @@ struct thread thread_gen(uint64_t *stack, void (*func)(int, char**),
 
     thread.rsp = init_stack(thread.rsp, (uint64_t)func);
 
-    puts_serial("thread stack bottom: ");
-    putnum_serial((uint64_t)thread.stack + STACK_LENGTH);
-    puts_serial("\n");
-    puts_serial("thread rsp: ");
-    putnum_serial(thread.rsp);
-    puts_serial("\n");
+    put_str_num_serial("thread stack bottom: ", (uint64_t)thread.stack + STACK_LENGTH);
+    put_str_num_serial("thread rsp: ", thread.rsp);
 
     return thread;
 }
@@ -69,6 +77,29 @@ void thread_run(struct thread thread)
             break;
         }
     }
+}
+
+int thread_register(struct thread thread)
+{
+    // threadsにthreadの登録をする
+    int i;
+    for (i = 0; i < THREAD_NUM; i++) {
+        // threadsのi番目が開いていたら...
+        if (threads[i].state == DEAD) {
+            threads[i] = thread; // スレッドをi番目に入れて
+            threads[i].state = RUNNABLE; // stateはRUNNABLE
+            break;
+        }
+    }
+    return i;
+}
+
+void thread_exec(struct thread thread)
+{
+    int index = thread_register(thread);
+    thread.func_info.func(thread.func_info.argc, thread.func_info.argv);
+    thread_end(index);
+    minfree(thread.stack);
 }
 
 /** スレッドの終了
@@ -116,27 +147,12 @@ void thread_scheduler(uint64_t old_rip)
 
     // save previous thread's rip to struct thread
     threads[old_thread_index].rip = old_rip;
-    puts_serial("threads[old_thread_index].rip: ");
-    putnum_serial(threads[old_thread_index].rip);
+    put_str_num_serial("threads[old_thread_index].rip: ", threads[old_thread_index].rip);
+    put_str_num_serial("next thread index: ", (uint64_t)current_thread_index);
+    put_str_num_serial("next start rsp: ", threads[current_thread_index].rsp);
+    put_str_num_serial("next start func address: ", (uint64_t)(threads[current_thread_index].func_info.func));
+    put_str_num_serial("next thread rip: ", threads[current_thread_index].rip);
     puts_serial("\n");
-
-    puts_serial("next thread index: ");
-    putnum_serial((uint64_t)current_thread_index);
-    puts_serial("\n");
-
-    puts_serial("next start rsp: ");
-    putnum_serial(threads[current_thread_index].rsp);
-    puts_serial("\n");
-
-
-    puts_serial("next start func address: ");
-    putnum_serial((uint64_t)(threads[current_thread_index].func_info.func));
-    puts_serial("\n");
-
-    puts_serial("next thread rip: ");
-    putnum_serial(threads[current_thread_index].rip);
-    puts_serial("\n\n");
-
     puts_serial("dispatch start\n\n");
 
     switch_context(&threads[old_thread_index].rsp, threads[current_thread_index].rsp);

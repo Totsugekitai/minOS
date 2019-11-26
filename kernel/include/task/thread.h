@@ -28,9 +28,12 @@ struct thread {
 extern uint64_t init_stack(uint64_t stack_bottom, uint64_t rip);
 extern void switch_context(uint64_t *current_rsp, uint64_t next_rsp);
 
-struct thread thread_gen(uint64_t *stack, void (*func)(int, char**),
-    int argc, char **argv);
+// struct thread thread_gen(uint64_t *stack, void (*func)(int, char**),
+//     int argc, char **argv);
+struct thread thread_gen(void (*func)(int, char **), int argc, char **argv);
 void thread_run(struct thread thread);
+int thread_register(struct thread thread);
+void thread_exec(struct thread thread);
 void thread_end(int thread_index);
 void threads_init(void);
 void schedule_period_init(uint64_t milli_sec);

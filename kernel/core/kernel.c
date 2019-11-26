@@ -32,13 +32,6 @@ void task_a(int _argc, char **_argv);
 void task_b(int _argc, char **_argv);
 void task_c(int _argc, char **_argv);
 
-// extern uint64_t stack0[0x1000];
-// extern uint64_t stack1[0x1000];
-// extern uint64_t stack2[0x1000];
-// extern uint64_t stack3[0x1000];
-// extern uint64_t stack4[0x1000];
-// extern uint64_t stack5[0x1000];
-
 void start_kernel(struct bootinfo *binfo)
 {
     init_bss();
@@ -74,23 +67,16 @@ void main_routine(void)
 
     // set task switch interval
     int pe = 3;
-    puts_serial("period init: ");
-    putnum_serial(pe);
-    puts_serial("\n");
+    put_str_num_serial("period init: ", pe);
     schedule_period_init(pe);
     // threadsを初期化
     threads_init();
 
     // スレッドを生成
-    uint64_t *stack0 = (uint64_t *)minmalloc(0x1000);
-    uint64_t *stack1 = (uint64_t *)minmalloc(0x1000);
-    uint64_t *stack2 = (uint64_t *)minmalloc(0x1000);
-    uint64_t *stack3 = (uint64_t *)minmalloc(0x1000);
-
-    struct thread thread0 = thread_gen(stack0, console, 0, 0);
-    struct thread thread1 = thread_gen(stack1, task_a, 0, 0);
-    struct thread thread2 = thread_gen(stack2, task_b, 0, 0);
-    struct thread thread3 = thread_gen(stack3, task_c, 0, 0);
+    struct thread thread0 = thread_gen(console, 0, 0);
+    struct thread thread1 = thread_gen(task_a, 0, 0);
+    struct thread thread2 = thread_gen(task_b, 0, 0);
+    struct thread thread3 = thread_gen(task_c, 0, 0);
 
     // run thread
     thread_run(thread0);
@@ -99,15 +85,9 @@ void main_routine(void)
     thread_run(thread3);
     puts_serial("threads run\n\n");
 
-    puts_serial("next start rsp: ");
-    putnum_serial(thread0.rsp);
-    puts_serial("\n");
-    puts_serial("next start func address: ");
-    putnum_serial((uint64_t)(thread0.func_info.func));
-    puts_serial("\n");
-    puts_serial("next thread rip: ");
-    putnum_serial(thread0.rip);
-    puts_serial("\n\n");
+    put_str_num_serial("next start rsp: ", thread0.rsp);
+    put_str_num_serial("next start func address: ", (uint64_t)thread0.func_info.func);
+    put_str_num_serial("next thread rip: ", thread0.rip);
     puts_serial("first dispatch start\n\n");
     switch_context(0, thread0.rsp);
 
