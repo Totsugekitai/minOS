@@ -14,8 +14,8 @@ static uint64_t heap[HEAP_SIZE];
 // This has only chunk header, don't have data.
 static struct malloc_header base =
 {
- 0,
- 0
+    0,
+    0
 };
 
 static struct malloc_header *next_search_position = 0;
@@ -27,7 +27,7 @@ void *minmalloc(uint64_t size)
     uint64_t number_of_blocks =
         ((size + sizeof(struct malloc_header) - 1) / sizeof(struct malloc_header)) + 1;
 
-    printf("number_of_blocks: %d\n", (int)number_of_blocks);
+    printf("number_of_blocks: %lx\n", number_of_blocks);
 
     struct malloc_header *p, *prev_p = next_search_position;
 
@@ -43,7 +43,7 @@ void *minmalloc(uint64_t size)
 
         printf("init base\n");
         printf("base: %p\n", &base);
-        printf("base.block_size: %d\n", (int)base.block_size);
+        printf("base.block_size: %lx\n", base.block_size);
         printf("base.next: %p\n", base.next);
         printf("\n");
 
@@ -59,10 +59,10 @@ void *minmalloc(uint64_t size)
                 p->block_size = number_of_blocks;
             }
             printf("prev_p: %p\n", prev_p);
-            printf("prev_p->block_size: %d\n", (uint64_t)prev_p->block_size);
+            printf("prev_p->block_size: %lx\n", prev_p->block_size);
             printf("prev_p->next: %p\n", prev_p->next);
             printf("p: %p\n", p);
-            printf("p->block_size: %d\n", (int)p->block_size);
+            printf("p->block_size: %lx\n", p->block_size);
             printf("p->next: %p\n", p->next);
             printf("\n");
             return ((void *)(p + 1));
@@ -82,10 +82,10 @@ void *minmalloc(uint64_t size)
                     p->block_size = number_of_blocks;
                 }
                 printf("prev_p: %p\n", prev_p);
-                printf("prev_p->block_size: %d\n", (int)prev_p->block_size);
+                printf("prev_p->block_size: %lx\n", prev_p->block_size);
                 printf("prev_p->next: %p\n", prev_p->next);
                 printf("p: %p\n", prev_p);
-                printf("p->block_size: %d\n", (int)p->block_size);
+                printf("p->block_size: %lx\n", p->block_size);
                 printf("p->next: %p\n", p->next);
                 printf("\n");
                 return ((void *)(p + 1));
@@ -125,6 +125,32 @@ void minfree(void *ptr)
     next_search_position = p;
 }
 
+void print_heap(struct malloc_header *base, struct malloc_header *malloc[], int nummalloc)
+{
+    struct malloc_header *p;
+
+    printf("1 block = %lx\n", sizeof(struct malloc_header));
+
+    printf("Empty heap\n");
+    for (p = base;; p = p->next)
+    {
+        printf("address: %p, block: %05lx, next address: %p\n", p, p->block_size, p->next);
+        if (p->next == base)
+        {
+            printf("\n");
+            break;
+        }
+    }
+
+    printf("Allocated heap\n");
+    for (int i = 0; i < nummalloc; i++)
+    {
+        p = malloc[i] - 1;
+        printf("address: %p, block: %05lx, next address: %p\n", p, p->block_size, p->next);
+    }
+    printf("\n");
+}
+
 char itoc(int i)
 {
     return '0' + i;
@@ -133,12 +159,12 @@ char itoc(int i)
 int main(void)
 {
     char *malloc[6];
-    malloc[0] = minmalloc(10);
-    malloc[1] = minmalloc(100);
-    malloc[2] = minmalloc(1000);
-    malloc[3] = minmalloc(10000);
-    malloc[4] = minmalloc(1000);
-    malloc[5] = minmalloc(100);
+    malloc[0] = minmalloc(0x10);
+    malloc[1] = minmalloc(0x20);
+    malloc[2] = minmalloc(0x30);
+    malloc[3] = minmalloc(0x40);
+    malloc[4] = minmalloc(0x50);
+    malloc[5] = minmalloc(0x60);
     for (int i = 0; i < 6; i++) {
         malloc[i][0] = 'm';
         malloc[i][1] = 'a';
@@ -150,9 +176,12 @@ int main(void)
         malloc[i][7] = '\0';
     }
 
+    print_heap(&base, (struct malloc_header **)malloc, 6);
+
     for (int i = 0; i < 6; i++) {
         minfree(malloc[i]);
     }
+    print_heap(&base, (struct malloc_header **)malloc, 6);
 
     return 0;
 }
