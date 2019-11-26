@@ -89,6 +89,7 @@ void main_routine(void)
     put_str_num_serial("next start func address: ", (uint64_t)thread0.func_info.func);
     put_str_num_serial("next thread rip: ", thread0.rip);
     puts_serial("first dispatch start\n\n");
+
     switch_context(0, thread0.rsp);
 
     puts_serial("kernel end.\n");

@@ -21,26 +21,6 @@ uint64_t previous_interrupt = 0;
 /** スレッドの生成
  * thread構造体の初期化とスタックの初期化を行う
  */
-// struct thread thread_gen(uint64_t *stack, void (*func)(int, char**),
-//     int argc, char **argv)
-// {
-//     struct thread thread;
-// 
-//     thread.stack = stack;
-//     thread.rsp = (uint64_t)(stack + STACK_LENGTH);
-//     thread.rip = (uint64_t)func;
-//     thread.func_info.func = func;
-//     thread.func_info.argc = argc;
-//     thread.func_info.argv = argv;
-// 
-//     thread.rsp = init_stack(thread.rsp, (uint64_t)func);
-// 
-//     put_str_num_serial("thread stack bottom: ", (uint64_t)thread.stack + STACK_LENGTH);
-//     put_str_num_serial("thread rsp: ", thread.rsp);
-// 
-//     return thread;
-// }
-
 struct thread thread_gen(void (*func)(int, char**), int argc, char **argv)
 {
     struct thread thread;
@@ -48,11 +28,13 @@ struct thread thread_gen(void (*func)(int, char**), int argc, char **argv)
     thread.stack = (uint64_t *)minmalloc(STACK_LENGTH);
     thread.rsp = (uint64_t)(thread.stack + STACK_LENGTH);
     thread.rip = (uint64_t)func;
+    // thread.rip = (uint64_t)thread_exec;
     thread.func_info.func = func;
     thread.func_info.argc = argc;
     thread.func_info.argv = argv;
 
-    thread.rsp = init_stack(thread.rsp, (uint64_t)func);
+    // thread.rsp = init_stack(thread.rsp, (uint64_t)func);
+    thread.rsp = init_stack(thread.rsp, thread.rip);
 
     put_str_num_serial("thread stack bottom: ", (uint64_t)thread.stack + STACK_LENGTH);
     put_str_num_serial("thread rsp: ", thread.rsp);
@@ -74,6 +56,7 @@ void thread_run(struct thread thread)
         if (threads[i].state == DEAD) {
             threads[i] = thread; // スレッドをi番目に入れて
             threads[i].state = RUNNABLE; // stateはRUNNABLE
+            threads[i].index = i; // indexを登録
             break;
         }
     }
@@ -88,18 +71,18 @@ int thread_register(struct thread thread)
         if (threads[i].state == DEAD) {
             threads[i] = thread; // スレッドをi番目に入れて
             threads[i].state = RUNNABLE; // stateはRUNNABLE
+            threads[i].index = i; // indexを登録
             break;
         }
     }
     return i;
 }
 
-void thread_exec(struct thread thread)
+void thread_exec(struct thread *thread)
 {
-    int index = thread_register(thread);
-    thread.func_info.func(thread.func_info.argc, thread.func_info.argv);
-    thread_end(index);
-    minfree(thread.stack);
+    thread->func_info.func(thread->func_info.argc, thread->func_info.argv);
+    thread_end(thread->index);
+    minfree(thread->stack);
 }
 
 /** スレッドの終了
