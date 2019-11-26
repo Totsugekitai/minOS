@@ -11,7 +11,6 @@
 // These are from linker script
 // Normally, variables from linker script is decleared as not pointer type
 extern uint64_t __bss_start, __bss_end;
-extern uint64_t __heap_start, __heap_end, _heap_size;
 
 // init bss section
 void init_bss(void)
@@ -19,15 +18,6 @@ void init_bss(void)
     int bss_size = (int)(&__bss_end - &__bss_start);
     for (int k = 0; k < bss_size; k++) {
         (&__bss_start)[k] = 0x00;
-    }
-}
-
-// init heap region
-void init_heap(void)
-{
-    int heap_size = (int)(&__heap_end - &__heap_start);
-    for (int i = 0; i < (int)heap_size; i++) {
-        (&__heap_start)[i] = 0;
     }
 }
 
