@@ -32,12 +32,12 @@ void task_a(int _argc, char **_argv);
 void task_b(int _argc, char **_argv);
 void task_c(int _argc, char **_argv);
 
-extern uint64_t stack0[0x1000];
-extern uint64_t stack1[0x1000];
-extern uint64_t stack2[0x1000];
-extern uint64_t stack3[0x1000];
-extern uint64_t stack4[0x1000];
-extern uint64_t stack5[0x1000];
+// extern uint64_t stack0[0x1000];
+// extern uint64_t stack1[0x1000];
+// extern uint64_t stack2[0x1000];
+// extern uint64_t stack3[0x1000];
+// extern uint64_t stack4[0x1000];
+// extern uint64_t stack5[0x1000];
 
 void start_kernel(struct bootinfo *binfo)
 {
@@ -72,19 +72,6 @@ void main_routine(void)
     putstr(500, 580, black, white, vinfo_global,
            "Developer : Totsugekitai(@totsugeki_tai)");
 
-    init_heap();
-
-    char *malloc1 = (char *)minmalloc(10);
-    char *malloc2 = (char *)minmalloc(100);
-    char *malloc3 = (char *)minmalloc(11000);
-    char *malloc4 = (char *)minmalloc(140);
-    char *malloc5 = (char *)minmalloc(510);
-    char *malloc6 = (char *)minmalloc(330);
-
-    while (1) {
-        asm volatile("hlt");
-    }
-
     // set task switch interval
     int pe = 3;
     puts_serial("period init: ");
@@ -95,6 +82,11 @@ void main_routine(void)
     threads_init();
 
     // スレッドを生成
+    uint64_t *stack0 = (uint64_t *)minmalloc(0x1000);
+    uint64_t *stack1 = (uint64_t *)minmalloc(0x1000);
+    uint64_t *stack2 = (uint64_t *)minmalloc(0x1000);
+    uint64_t *stack3 = (uint64_t *)minmalloc(0x1000);
+
     struct thread thread0 = thread_gen(stack0, console, 0, 0);
     struct thread thread1 = thread_gen(stack1, task_a, 0, 0);
     struct thread thread2 = thread_gen(stack2, task_b, 0, 0);
