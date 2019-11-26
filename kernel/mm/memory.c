@@ -99,3 +99,30 @@ void *minmalloc(uint64_t size)
     }
     return 0;
 }
+
+void minfree(void *ptr)
+{
+    struct malloc_header *p, *q;
+
+    p = (struct malloc_header *)ptr - 1;
+    for (q = next_search_position; !(p > q && p < q->next); q = q->next) {
+        if (q >= q->next && (p > q || p < q->next)) {
+            break;
+        }
+    }
+
+    if (p + p->block_size == q->next) {
+        p->block_size += q->next->block_size;
+        p->next = q->next->next;
+    } else {
+        p->next = q->next;
+    }
+
+    if (q + q->block_size == p) {
+        q->block_size += p->block_size;
+        q->next = p->next;
+    } else {
+        q->next = p;
+    }
+    next_search_position = p;
+}

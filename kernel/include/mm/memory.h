@@ -7,3 +7,4 @@ struct malloc_header {
 };
 
 void *minmalloc(uint64_t size);
+void minfree(void *ptr);
