@@ -66,7 +66,7 @@ void main_routine(void)
            "Developer : Totsugekitai(@totsugeki_tai)");
 
     // set task switch interval
-    int pe = 3;
+    int pe = 300;
     put_str_num_serial("period init: ", pe);
     schedule_period_init(pe);
     // threadsを初期化
@@ -77,6 +77,12 @@ void main_routine(void)
     struct thread thread1 = thread_gen(task_a, 0, 0);
     struct thread thread2 = thread_gen(task_b, 0, 0);
     struct thread thread3 = thread_gen(task_c, 0, 0);
+
+    // initialize stack
+    thread_stack_init(&thread0);
+    thread_stack_init(&thread1);
+    thread_stack_init(&thread2);
+    thread_stack_init(&thread3);
 
     // run thread
     thread_run(thread0);
@@ -113,7 +119,7 @@ void task_a(int _argc, char **_argv)
 
 void task_b(int _argc, char **_argv)
 {
-    while (1) {
+    for (int i = 1; i < 100; i++) {
         putchar((taskcharB-8) % 800, 96, white, white, vinfo_global, ' ');
         putchar(taskcharB % 800, 96, white, blue, vinfo_global, ' ');
         asm volatile("hlt");
