@@ -27,10 +27,11 @@ struct thread {
 };
 
 extern uint64_t init_stack(uint64_t stack_bottom, uint64_t rip);
-// extern uint64_t init_stack(uint64_t stack_bottom, uint64_t rip, struct thread *thread);
+extern uint64_t init_stack2(uint64_t stack_bottom, uint64_t rip, struct thread *thread);
 extern void switch_context(uint64_t *current_rsp, uint64_t next_rsp);
 
 struct thread thread_gen(void (*func)(int, char **), int argc, char **argv);
+void thread_stack_init(struct thread *thread);
 void thread_run(struct thread thread);
 int thread_register(struct thread thread);
 void thread_exec(struct thread *thread);

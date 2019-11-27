@@ -27,19 +27,22 @@ struct thread thread_gen(void (*func)(int, char**), int argc, char **argv)
 
     thread.stack = (uint64_t *)minmalloc(STACK_LENGTH);
     thread.rsp = (uint64_t)(thread.stack + STACK_LENGTH);
-    thread.rip = (uint64_t)func;
-    // thread.rip = (uint64_t)thread_exec;
+    thread.rip = (uint64_t)thread_exec;
     thread.func_info.func = func;
     thread.func_info.argc = argc;
     thread.func_info.argv = argv;
-
-    // thread.rsp = init_stack(thread.rsp, (uint64_t)func);
-    thread.rsp = init_stack(thread.rsp, thread.rip);
 
     put_str_num_serial("thread stack bottom: ", (uint64_t)thread.stack + STACK_LENGTH);
     put_str_num_serial("thread rsp: ", thread.rsp);
 
     return thread;
+}
+
+void thread_stack_init(struct thread *thread)
+{
+    thread->rsp = init_stack2(thread->rsp, thread->rip, thread);
+    put_str_num_serial("thread stack bottom: ", (uint64_t)thread->stack + STACK_LENGTH);
+    put_str_num_serial("thread rsp: ", thread->rsp);
 }
 
 /** スレッドの実行
