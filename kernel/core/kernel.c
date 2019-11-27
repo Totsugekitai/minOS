@@ -85,10 +85,10 @@ void main_routine(void)
     thread_stack_init(&thread3);
 
     // run thread
-    thread_run(thread0);
-    thread_run(thread1);
-    thread_run(thread2);
-    thread_run(thread3);
+    thread_run(&thread0);
+    thread_run(&thread1);
+    thread_run(&thread2);
+    thread_run(&thread3);
     puts_serial("threads run\n\n");
 
     put_str_num_serial("next start rsp: ", thread0.rsp);
