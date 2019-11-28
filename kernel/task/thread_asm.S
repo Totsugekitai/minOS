@@ -1,32 +1,8 @@
-.intel_syntax       noprefix
+.intel_syntax   noprefix
 
 .global     init_stack
 .align      16
-init_stack:           # uint64_t init_stack(uint64_t stack_bottom, uint64_t rip);
-    cli
-	  mov     rcx,rsp   # save rsp at rcx
-	  mov     rsp,rdi   # move rip to rsp
-# push general registers to stack
-    push    rsi       # push rip(second argument) to stack bottom
-                      # because function switch_context requires return rip
-    push    0         # rbp
-    push    0         # r11
-    push    0         # r10
-    push    0         # r9
-    push    0         # r8
-    push    0         # rdi
-    push    0         # rsi
-    push    0         # rcx
-    push    0         # rdx
-    push    0         # rax
-    mov     rax,rsp   # set current rsp to return value
-    mov     rsp,rcx   # load rsp from rcx
-    sti
-    ret
-
-.global     init_stack2
-.align      16
-init_stack2:           # uint64_t init_stack2(uint64_t stack_bottom, uint64_t rip, struct thread *thread);
+init_stack:           # uint64_t init_stack(uint64_t stack_bottom, uint64_t rip, struct thread *thread);
     cli
     mov     rcx,rsp   # save rsp at rcx
     mov     rsp,rdi   # move rip to rsp

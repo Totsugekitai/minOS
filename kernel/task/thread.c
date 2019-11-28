@@ -8,7 +8,9 @@
 struct thread *threads[THREAD_NUM];
 int current_thread_index = 0;
 
+// dummy thread
 static struct thread empty_thread;
+
 // スタックの大きさを定義
 #define STACK_LENGTH    0x1000
 
@@ -41,7 +43,7 @@ struct thread thread_gen(void (*func)(int, char**), int argc, char **argv)
 
 void thread_stack_init(struct thread *thread)
 {
-    thread->rsp = init_stack2(thread->rsp, thread->rip, thread);
+    thread->rsp = init_stack(thread->rsp, thread->rip, thread);
     put_str_num_serial("thread stack bottom: ", (uint64_t)thread->stack + STACK_LENGTH);
     put_str_num_serial("thread rsp: ", thread->rsp);
 }
@@ -71,7 +73,7 @@ void thread_exec(struct thread *thread)
     thread->func_info.func(thread->func_info.argc, thread->func_info.argv);
     thread_end(thread->index);
     minfree(thread->stack);
-    thread_scheduler(0);
+    thread_scheduler();
 }
 
 /** スレッドの終了
@@ -103,11 +105,10 @@ void schedule_period_init(uint64_t milli_sec)
  * This function dumps current and next thread info
  * and calls switch_context
  */
-void thread_scheduler(uint64_t old_rip)
+void thread_scheduler(void)
 {
     // update current_thread_index
     int old_thread_index = current_thread_index;
-    // current_thread_index = (current_thread_index + 1) % THREAD_NUM;
     int i = 1;
     while (current_thread_index == old_thread_index) {
         if (threads[(current_thread_index + i) % THREAD_NUM]->state == RUNNABLE) {
@@ -117,12 +118,9 @@ void thread_scheduler(uint64_t old_rip)
     }
 
     // save previous thread's rip to struct thread
-    threads[old_thread_index]->rip = old_rip;
-    put_str_num_serial("threads[old_thread_index].rip: ", threads[old_thread_index]->rip);
     put_str_num_serial("next thread index: ", (uint64_t)current_thread_index);
     put_str_num_serial("next start rsp: ", threads[current_thread_index]->rsp);
     put_str_num_serial("next start func address: ", (uint64_t)(threads[current_thread_index]->func_info.func));
-    put_str_num_serial("next thread rip: ", threads[current_thread_index]->rip);
     puts_serial("\n");
     puts_serial("dispatch start\n\n");
 
