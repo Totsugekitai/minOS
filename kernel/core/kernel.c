@@ -66,7 +66,7 @@ void main_routine(void)
            "Developer : Totsugekitai(@totsugeki_tai)");
 
     // set task switch interval
-    int pe = 300;
+    int pe = 1;
     put_str_num_serial("period init: ", pe);
     schedule_period_init(pe);
     // threadsを初期化
