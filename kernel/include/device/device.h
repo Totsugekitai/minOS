@@ -1,5 +1,7 @@
 #pragma once
 #include <stdint.h>
+
+/* keyboard and serial */
 extern uint8_t read_kbd_signal(void);
 extern uint8_t read_kbd_status(void);
 void init_serial(void);
@@ -16,3 +18,27 @@ uint8_t map_scan_to_ascii_set1(uint8_t scan, uint8_t *shift);
 //uint8_t map_scan_to_ascii_set2(uint8_t scan, uint8_t *shift);
 uint8_t ps2_received(void);
 
+/* PCI device */
+struct pci_config_space {
+    uint16_t vendor;
+    uint16_t device;
+    uint16_t command;
+    uint16_t status;
+    uint8_t revision_id;
+    uint8_t prog_if;
+    uint8_t subclass;
+    uint8_t class_code;
+    uint8_t cache_line_size;
+    uint8_t latency_timer;
+    uint8_t header_type;
+    uint8_t bist;
+
+    uint8_t capabilities_pointer;
+
+    uint8_t interrupt_line;
+    uint8_t interrupt_pin;
+
+    uint16_t address_map_register;
+};
+struct pci_config_space pci_check_parameters(uint8_t bus, uint8_t slot, uint8_t func);
+void check_all_buses(void);
