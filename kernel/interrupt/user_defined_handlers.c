@@ -38,8 +38,8 @@ void timer_handler(struct InterruptFrame *frame)
      */
     if (milli_clock > previous_interrupt + timer_period && milli_clock > 100) {
         previous_interrupt = milli_clock;
-        put_str_num_serial("timer_handler old rip: ", frame->rip);
-        puts_serial("\n");
+        // put_str_num_serial("timer_handler old rip: ", frame->rip);
+        // puts_serial("\n");
         thread_scheduler();
     }
 }
