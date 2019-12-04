@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 
-/* keyboard and serial */
+/* PS/2 keyboard and serial */
 extern uint8_t read_kbd_signal(void);
 extern uint8_t read_kbd_status(void);
 void init_serial(void);
@@ -18,7 +18,7 @@ uint8_t map_scan_to_ascii_set1(uint8_t scan, uint8_t *shift);
 //uint8_t map_scan_to_ascii_set2(uint8_t scan, uint8_t *shift);
 uint8_t ps2_received(void);
 
-/* PCI device */
+/* PCI */
 struct pci_config_space {
     uint16_t vendor;
     uint16_t device;
@@ -42,3 +42,5 @@ struct pci_config_space {
 };
 struct pci_config_space pci_check_parameters(uint8_t bus, uint8_t slot, uint8_t func);
 void check_all_buses(void);
+
+/* Serial-ATA */
