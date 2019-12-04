@@ -26,6 +26,7 @@ OBJS		= core/kernel.o \
 			  interrupt/user_defined_handlers.o \
 			  device/keyboard.o \
 			  device/keyinput.o \
+			  device/pci.o \
 			  app/console.o \
 			  acpi/acpi.o \
 			  command/echo.o \
