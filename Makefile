@@ -38,7 +38,9 @@ run:
 		fat:rw:$(FS) -m 4G \
 		-chardev stdio,mux=on,id=com1,logfile=serial_output.log \
 		-serial chardev:com1 \
-		-blockdev driver=file,node-name=hdd_file,filename=$(TOOLS)hdd.img \
+		-device ich9-ahci,id=ahci \
+		-device ide-drive,drive=sata,bus=ahci.0 \
+		-drive if=none,id=sata,file=$(TOOLS)hdd.img \
 		-monitor telnet::1234,server,nowait \
 		-no-reboot \
 
