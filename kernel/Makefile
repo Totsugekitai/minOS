@@ -27,6 +27,7 @@ OBJS		= core/kernel.o \
 			  device/keyboard.o \
 			  device/keyinput.o \
 			  device/pci.o \
+			  device/sata.o \
 			  app/console.o \
 			  acpi/acpi.o \
 			  command/echo.o \
