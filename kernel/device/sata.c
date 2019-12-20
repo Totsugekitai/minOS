@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <device/device.h>
+#include <device/sata.h>
 
 #define SATA_SIG_ATA 0x00000101   // SATA drive
 #define SATA_SIG_ATAPI 0xEB140101 // SATAPI drive
@@ -15,49 +16,51 @@
 #define HBA_PORT_IPM_ACTIVE 1
 #define HBA_PORT_DET_PRESENT 3
 
-void probe_port(struct hba_mem_regs *reg)
+// AHCI Address Base
+// It is defined at pci.c
+extern uint64_t *abar;
+
+#define PORT0_OFFSET ((abar)+(0x100))
+
+void print_hba_memory_register(void)
 {
-    uint32_t port_impl = reg->generic_host_ctl.port_impl;
-    for (int i = 0; i < 32; i++) {
-        if (port_impl & 1) {
-            int dt = check_type(&reg->ports[i]);
-            if (dt == AHCI_DEV_SATA) {
-                put_str_num_serial("SATA drive found at port: ", i);
-            } else if (dt == AHCI_DEV_SATAPI) {
-                put_str_num_serial("SATAPI drive found at port: ", i);
-            } else if (dt == AHCI_DEV_SEMB) {
-                put_str_num_serial("SEMB drive found at port: ", i);
-            } else if (dt == AHCI_DEV_PM) {
-                put_str_num_serial("PM drive found at port: ", i);
-            } else {
-                put_str_num_serial("No drive found at port: ", i);
-            }
-        }
-    }
+    struct HBA_MEM *hba_memreg = (struct HBA_MEM *)abar;
+    puts_serial("HBA Memory Register\n");
+
+    puts_serial("status of Generic Host Control\n");
+    put_str_num_serial("cap: ", (uint64_t)hba_memreg->cap);
+    put_str_num_serial("ghc: ", (uint64_t)hba_memreg->ghc);
+    put_str_num_serial("is: ", (uint64_t)hba_memreg->is);
+    put_str_num_serial("pi: ", (uint64_t)hba_memreg->pi);
+    put_str_num_serial("vs: ", (uint64_t)hba_memreg->vs);
+    put_str_num_serial("ccc_ctl: ", (uint64_t)hba_memreg->ccc_ctl);
+    put_str_num_serial("ccc_pts: ", (uint64_t)hba_memreg->ccc_pts);
+    put_str_num_serial("em_loc: ", (uint64_t)hba_memreg->em_loc);
+    put_str_num_serial("em_ctl: ", (uint64_t)hba_memreg->em_ctl);
+    put_str_num_serial("cap2: ", (uint64_t)hba_memreg->cap2);
+    put_str_num_serial("bohc: ", (uint64_t)hba_memreg->bohc);
+
+    struct HBA_PORT port0 = hba_memreg->ports[0];
+    puts_serial("status of HBA Port 0\n");
+    put_str_num_serial("clb: ", (uint64_t)port0.clb);
+    put_str_num_serial("clbu: ", (uint64_t)port0.clbu);
+    put_str_num_serial("fb: ", (uint64_t)port0.fb);
+    put_str_num_serial("fbu: ", (uint64_t)port0.fbu);
+    put_str_num_serial("is: ", (uint64_t)port0.is);
+    put_str_num_serial("ie: ", (uint64_t)port0.ie);
+    put_str_num_serial("cmd: ", (uint64_t)port0.cmd);
+    put_str_num_serial("tfd: ", (uint64_t)port0.tfd);
+    put_str_num_serial("sig: ", (uint64_t)port0.sig);
+    put_str_num_serial("ssts: ", (uint64_t)port0.ssts);
+    put_str_num_serial("sctl: ", (uint64_t)port0.sctl);
+    put_str_num_serial("serr: ", (uint64_t)port0.serr);
+    put_str_num_serial("sact: ", (uint64_t)port0.sact);
+    put_str_num_serial("ci: ", (uint64_t)port0.ci);
+    put_str_num_serial("sntf: ", (uint64_t)port0.sntf);
+    put_str_num_serial("fbs: ", (uint64_t)port0.fbs);
 }
 
-static int check_type(struct port_reg *port)
+void check_ahci(void)
 {
-    uint32_t ssts = port->ssts;
-
-    uint8_t ipm = (ssts >> 8) & 0x0f;
-    uint8_t det = ssts & 0x0f;
-
-    if (det != HBA_PORT_DET_PRESENT) {
-        return AHCI_DEV_NULL;
-    }
-    if (ipm != HBA_PORT_IPM_ACTIVE) {
-        return AHCI_DEV_NULL;
-    }
-
-    switch (port->sig) {
-        case SATA_SIG_ATAPI:
-            return AHCI_DEV_SATAPI;
-        case SATA_SIG_SEMB:
-            return AHCI_DEV_SEMB;
-        case SATA_SIG_PM:
-            return AHCI_DEV_PM;
-        default:
-            return AHCI_DEV_SATA;
-        }
+    print_hba_memory_register();
 }
