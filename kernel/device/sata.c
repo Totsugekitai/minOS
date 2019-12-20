@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <util/util.h>
 #include <device/device.h>
 #include <device/sata.h>
 
@@ -15,6 +16,11 @@
 
 #define HBA_PORT_IPM_ACTIVE 1
 #define HBA_PORT_DET_PRESENT 3
+
+#define ATA_DEV_BUSY 0x80
+#define ATA_DEV_DRQ 0x08
+
+#define SIZE_8KB (8 * 1024 - 1)
 
 // AHCI Address Base
 // It is defined at pci.c
@@ -58,6 +64,107 @@ void print_hba_memory_register(void)
     put_str_num_serial("ci: ", (uint64_t)port0.ci);
     put_str_num_serial("sntf: ", (uint64_t)port0.sntf);
     put_str_num_serial("fbs: ", (uint64_t)port0.fbs);
+}
+
+// Check device type
+static int check_type(struct HBA_PORT *port)
+{
+    uint32_t ssts = port->ssts;
+
+    uint8_t ipm = (ssts >> 8) & 0x0F;
+    uint8_t det = ssts & 0x0F;
+
+    if (det != HBA_PORT_DET_PRESENT) { // Check drive status
+        return AHCI_DEV_NULL;
+    }
+    if (ipm != HBA_PORT_IPM_ACTIVE) {
+        return AHCI_DEV_NULL;
+    }
+
+    switch (port->sig) {
+    case SATA_SIG_ATAPI:
+        return AHCI_DEV_SATAPI;
+    case SATA_SIG_SEMB:
+        return AHCI_DEV_SEMB;
+    case SATA_SIG_PM:
+        return AHCI_DEV_PM;
+    default:
+        return AHCI_DEV_SATA;
+    }
+}
+
+void probe_port(void)
+{
+    // Search disk in implemented ports
+    struct HBA_MEM *hba_memreg = (struct HBA_MEM *)abar;
+    uint32_t pi = hba_memreg->pi;
+    int i = 0;
+    while (i < 32) {
+        if (pi & 1) {
+            int dt = check_type(&hba_memreg->ports[i]);
+            if (dt == AHCI_DEV_SATA) {
+                put_str_num_serial("SATA drive found at port ", i);
+            } else if (dt == AHCI_DEV_SATAPI) {
+                put_str_num_serial("SATAPI drive found at port ", i);
+            } else if (dt == AHCI_DEV_SEMB) {
+                put_str_num_serial("SEMB drive found at port ", i);
+            } else if (dt == AHCI_DEV_PM) {
+                put_str_num_serial("PM drive found at port ", i);
+            } else {
+                put_str_num_serial("No drive found at port ", i);
+            }
+        }
+
+        pi >>= 1;
+        i++;
+    }
+}
+
+int find_cmdslot(struct HBA_PORT *port)
+{
+
+}
+
+int read(struct HBA_PORT *port, uint32_t startl, uint32_t starth, uint32_t count, uint16_t *buf)
+{
+    port->is = (uint32_t)-1; // clear pending interrupt bits
+    int spin = 0; // spin lock timeout counter
+    int slot = find_cmdslot(port);
+    if (slot == -1) {
+        return -1;
+    }
+
+    struct HBA_CMD_HEADER *cmdheader = (struct HBA_CMD_HEADER *)port->clb;
+    cmdheader += slot;
+    cmdheader->cfl = sizeof(struct FIS_REG_H2D) / sizeof(uint32_t); // Command FIS size
+    cmdheader->w = 0;
+    cmdheader->prdtl = (uint16_t)((count - 1) >> 4) + 1; // PRDT entries count
+
+    struct HBA_CMD_TBL *cmdtbl = (struct HBA_CMD_TBL *)(cmdheader->ctba);
+    memset(cmdtbl, 0, sizeof(struct HBA_CMD_TBL) +
+        (cmdheader->prdtl - 1) * sizeof(struct HBA_PRDT_ENTRY));
+
+    // 8KB(16 sectors) per PRDT
+    int i;
+    for (i = 0; i < cmdheader->prdtl - 1; i++) {
+        cmdtbl->prdt_entry[i].dba = (uint32_t)buf;
+        cmdtbl->prdt_entry[i].dbc = SIZE_8KB;
+        cmdtbl->prdt_entry[i].i = 1;
+        buf += 4 * 1024; // 4K words
+        count -= 16; // 16 sectors
+    }
+
+    // Last entry
+    cmdtbl->prdt_entry[i].dba = (uint32_t)buf;
+    cmdtbl->prdt_entry[i].dbc = (count << 9) - 1;
+    cmdtbl->prdt_entry[i].i = 1;
+    
+    // Setup Command
+    struct FIS_REG_H2D *cmdfis = (struct FIS_REG_H2D *)(&cmdtbl->cfis);
+
+    cmdfis->fis_type = FIS_TYPE_REG_H2D;
+    cmdfis->c = 1; // Command
+    // cmdfis->command =
 }
 
 void check_ahci(void)
