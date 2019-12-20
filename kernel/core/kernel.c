@@ -9,6 +9,7 @@
 #include <graphics/graphics.h>
 #include <debug/debug.h>
 #include <device/device.h>
+#include <device/sata.h>
 #include <app/app.h>
 #include <task/thread.h>
 
@@ -66,6 +67,7 @@ void main_routine(void)
            "Developer : Totsugekitai(@totsugeki_tai)");
 
     check_all_buses();
+    check_ahci();
 
     while (1) {
         asm volatile("hlt");
