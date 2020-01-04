@@ -272,6 +272,17 @@ struct HBA_CMD_HEADER {
 };
 
 /* Command Table */
+struct HBA_PRDT_ENTRY {
+    uint32_t dba;  // Data base address
+    uint32_t dbau; // Data base address upper 32 bits
+    uint32_t rsv0; // Reserved
+
+    // DW3
+    uint32_t dbc : 22; // Byte count, 4M max
+    uint32_t rsv1 : 9; // Reserved
+    uint32_t i : 1;    // Interrupt on completion
+};
+
 struct HBA_CMD_TBL {
     // 0x00
     uint8_t cfis[64]; // Command FIS
@@ -286,17 +297,7 @@ struct HBA_CMD_TBL {
     struct HBA_PRDT_ENTRY prdt_entry[1]; // Physical region descriptor table entries, 0 ~ 65535
 };
 
-struct HBA_PRDT_ENTRY {
-    uint32_t dba;  // Data base address
-    uint32_t dbau; // Data base address upper 32 bits
-    uint32_t rsv0; // Reserved
-
-    // DW3
-    uint32_t dbc : 22; // Byte count, 4M max
-    uint32_t rsv1 : 9; // Reserved
-    uint32_t i : 1;    // Interrupt on completion
-};
-
 /* functions */
 void print_hba_memory_register(void);
+int read(struct HBA_PORT *port, uint32_t startl, uint32_t starth, uint32_t count, uint16_t *buf);
 void check_ahci(void);
