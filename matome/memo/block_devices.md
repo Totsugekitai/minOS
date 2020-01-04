@@ -154,3 +154,9 @@ D2H Register FISのl(小文字のL)ビットが1なら、HBAはExam:D2HIntrマ�
 2. デバイスにデータを送る際、HBAはExam:FetchとExam:Transmitの状態を横断する
     - CH(pIssueSlot).P = 1の時、Exam:TransmitマクロのCFIS:Success状態の後かつ、Example:FetchマクロのP:Idle状態に戻る前に、次のstateを実行する
     - CFIS:PrefetchPRD -> P:Idle
+3. これがDMA write commandの場合は、デバイスからのレスポンスはDMA Activate FISである
+    - Exam:AcceptNonDataマクロ状態になりFISを受け入れ、Exam:DMATransmitマクロ状態でData FISを送る
+4. Data FISがtransfer countを満たさなかった場合、デバイスは別のDMA Activate FISを送る
+    - その際Exam:AcceptNonDataとExam:DMATransmitマクロ状態を通過する
+    - transfer countが満たされるまで続けられる
+    - Data FISのtransfer countが終わったら、次にデバイスから送られてくるFISはD2H Register FISである
