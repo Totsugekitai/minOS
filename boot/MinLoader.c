@@ -72,14 +72,12 @@ Uefi_Main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *st)
     UINTN file_size = file_info->FileSize;
 
     // カーネルファイルをメモリに読み込む
-    // ここではカーネルのファイルサイズを512KB以下とする
     uint64_t *kernel_program = NULL;
     uint64_t *start_address =
         (uint64_t *)KERNEL_START_QEMU;
-    buf_size = (UINTN)BUF_512KB;
     do {
         status = kernel_file->Read(kernel_file,
-                &buf_size, kernel_program);
+                &file_size, kernel_program);
     } while(EFI_ERROR(status));
 
     // bodyをメモリに書き込む

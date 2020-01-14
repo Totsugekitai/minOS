@@ -9,8 +9,6 @@
 #include <X64/ProcessorBind.h>
 #include <Guid/FileInfo.h>
 #include <Guid/Acpi.h>
-#include <Uefi/UefiMultiPhase.h>
-#include <Uefi/UefiSpec.h>
 
 #define MEM_DESC_SIZE       0xffff
 #define KERNEL_FILE_NAME    L"kernel.bin"
