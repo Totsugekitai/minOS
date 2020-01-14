@@ -63,7 +63,7 @@ void main_routine(void)
     /* 名前 */
     putstr(515, 560, black, white, vinfo_global,
            "minOS - A Minimal Operating System.");
-    putstr(500, 580, black, white, vinfo_global,
+    putstr(480, 580, black, white, vinfo_global,
            "Developer : Totsugekitai(@totsugeki_tai)");
 
     check_all_buses();
