@@ -66,12 +66,12 @@ void main_routine(void)
     putstr(480, 580, black, white, vinfo_global,
            "Developer : Totsugekitai(@totsugeki_tai)");
 
-    check_all_buses();
-    check_ahci();
+    //check_all_buses();
+    //check_ahci();
 
-    while (1) {
-        asm volatile("hlt");
-    }
+    // while (1) {
+    //     asm volatile("hlt");
+    // }
 
     // set task switch interval
     int pe = 1;
@@ -118,18 +118,18 @@ int taskcharC = 0;
 void task_a(int _argc, char **_argv)
 {
     while (1) {
-        putchar((taskcharA-8) % 800, 80, white, white, vinfo_global, ' ');
-        putchar(taskcharA % 800, 80, white, red, vinfo_global, ' ');
+        putchar((taskcharA-8) % 400 + 400, 80, white, white, vinfo_global, ' ');
+        putchar(taskcharA % 400 + 400, 80, white, red, vinfo_global, ' ');
         asm volatile("hlt");
-        taskcharA++;
+        taskcharA += 1;
     }
 }
 
 void task_b(int _argc, char **_argv)
 {
     for (int i = 1; i < 100; i++) {
-        putchar((taskcharB-8) % 800, 96, white, white, vinfo_global, ' ');
-        putchar(taskcharB % 800, 96, white, blue, vinfo_global, ' ');
+        putchar((taskcharB-8) % 400 + 400, 96, white, white, vinfo_global, ' ');
+        putchar(taskcharB % 400 + 400, 96, white, blue, vinfo_global, ' ');
         asm volatile("hlt");
         taskcharB += 2;
     }
@@ -138,9 +138,9 @@ void task_b(int _argc, char **_argv)
 void task_c(int _argc, char **_argv)
 {
     while (1) {
-        putchar((taskcharC-8) % 800, 112, white, white, vinfo_global, ' ');
-        putchar(taskcharC % 800, 112, white, green, vinfo_global, ' ');
+        putchar((taskcharC-8) % 400 + 400, 112, white, white, vinfo_global, ' ');
+        putchar(taskcharC % 400 + 400, 112, white, green, vinfo_global, ' ');
         asm volatile("hlt");
-        taskcharC += 3;
+        taskcharC += 4;
     }
 }
