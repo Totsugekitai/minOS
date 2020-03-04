@@ -66,12 +66,12 @@ void main_routine(void)
     putstr(480, 580, black, white, vinfo_global,
            "Developer : Totsugekitai(@totsugeki_tai)");
 
-    //check_all_buses();
-    //check_ahci();
+    check_all_buses();
+    check_ahci();
 
-    // while (1) {
-    //     asm volatile("hlt");
-    // }
+     while (1) {
+         asm volatile("hlt");
+     }
 
     // set task switch interval
     int pe = 1;
