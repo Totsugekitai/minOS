@@ -1,8 +1,10 @@
 #pragma once
 #include <stdint.h>
 
+#define PORT_NUM 32
+
 /* about FIS */
-enum FIS_TYPE {
+typedef enum FIS_TYPE {
     FIS_TYPE_REG_H2D = 0x27,   // Register FIS - host to device
     FIS_TYPE_REG_D2H = 0x34,   // Register FIS - device to host
     FIS_TYPE_DMA_ACT = 0x39,   // DMA activate FIS - device to host
@@ -11,9 +13,9 @@ enum FIS_TYPE {
     FIS_TYPE_BIST = 0x58,      // BIST activate FIS - bidirectional
     FIS_TYPE_PIO_SETUP = 0x5F, // PIO setup FIS - device to host
     FIS_TYPE_DEV_BITS = 0xA1,  // Set device bits FIS - device to host
-};
+} FIS_TYPE;
 
-struct FIS_REG_H2D {
+typedef volatile struct tagFIS_REG_H2D {
     // DWORD 0
     uint8_t fis_type; // FIS_TYPE_REG_H2D
 
@@ -44,7 +46,7 @@ struct FIS_REG_H2D {
 
     // DWORD 4
     uint8_t rsv1[4];  // Reserved
-};
+} FIS_REG_H2D;
 
 struct FIS_REG_D2H {
     // DWORD 0
@@ -174,7 +176,7 @@ struct FIS_DEV_BITS {
 };
 
 /* HBA Memory Register */
-struct HBA_PORT {
+typedef volatile struct tagHBA_PORT {
     uint32_t clb;       // 0x00, command list base address, 1K-byte aligned
     uint32_t clbu;      // 0x04, command list base address upper 32 bits
     uint32_t fb;        // 0x08, FIS base address, 256-byte aligned
@@ -194,9 +196,9 @@ struct HBA_PORT {
     uint32_t fbs;       // 0x40, FIS-based switch control
     uint32_t rsv1[11];  // 0x44 ~ 0x6F, Reserved
     uint32_t vendor[4]; // 0x70 ~ 0x7F, vendor specific
-};
+} HBA_PORT;
 
-struct HBA_MEM {
+typedef volatile struct tagHBA_MEM_REG {
     // 0x00 - 0x2B, Generic Host Control
     uint32_t cap;     // 0x00, Host capability
     uint32_t ghc;     // 0x04, Global host control
@@ -217,7 +219,15 @@ struct HBA_MEM {
     uint8_t vendor[0x100 - 0xA0];
 
     // 0x100 - 0x10FF, Port control registers
-    struct HBA_PORT ports[1]; // 1 ~ 32
+    HBA_PORT ports[1]; // 1 ~ 32
+} HBA_MEM_REG;
+
+struct port_implemented {
+    uint32_t sata_bit;
+    uint32_t atapi_bit;
+    uint32_t semb_bit;
+    uint32_t pm_bit;
+    uint32_t no_bit;
 };
 
 /* Reserved FIS */
@@ -245,7 +255,7 @@ struct HBA_FIS {
 };
 
 /* Command Header */
-struct HBA_CMD_HEADER {
+typedef volatile struct tagHBA_CMD_HEADER {
     // DW0
     uint8_t cfl : 5; // Command FIS length in DWORDS, 2 ~ 16
     uint8_t a : 1;   // ATAPI
@@ -269,10 +279,10 @@ struct HBA_CMD_HEADER {
 
     // DW4 - 7
     uint32_t rsv1[4]; // Reserved
-};
+} HBA_CMD_HEADER;
 
 /* Command Table */
-struct HBA_PRDT_ENTRY {
+typedef volatile struct tagHBA_PRDT_ENTRY {
     uint32_t dba;  // Data base address
     uint32_t dbau; // Data base address upper 32 bits
     uint32_t rsv0; // Reserved
@@ -281,23 +291,31 @@ struct HBA_PRDT_ENTRY {
     uint32_t dbc : 22; // Byte count, 4M max
     uint32_t rsv1 : 9; // Reserved
     uint32_t i : 1;    // Interrupt on completion
-};
+} HBA_PRDT_ENTRY;
 
-struct HBA_CMD_TBL {
+typedef volatile struct tagHBA_CMD_TBL {
     // 0x00
     uint8_t cfis[64]; // Command FIS
 
     // 0x40
-    uint8_t acmd[16]; // ATAPI command, 12 or 16 bytes
-
-    // 0x50
     uint8_t rsv[48]; // Reserved
 
     // 0x80
-    struct HBA_PRDT_ENTRY prdt_entry[1]; // Physical region descriptor table entries, 0 ~ 65535
-};
+    HBA_PRDT_ENTRY prdt_entry[1]; // Physical region descriptor table entries, 0 ~ 65535
+} HBA_CMD_TBL;
+
+#define READ_DMA_EXT 0x25
+#define WRITE_DMA_EXT 0x35
+
+typedef struct tagCMD_PARAMS {
+    uint8_t cmd_type;   // command type
+    uint64_t *ctba;     // command table base address
+    uint64_t *lba;      // logical block address
+    uint16_t count;     // block count (1 count = 512 byte)
+    uint64_t *dba;      // data base address (physical address of data block aligned word)
+} CMD_PARAMS;
 
 /* functions */
 void print_hba_memory_register(void);
-int read(struct HBA_PORT *port, uint32_t startl, uint32_t starth, uint32_t count, uint16_t *buf);
+int read(HBA_PORT *port, uint32_t startl, uint32_t starth, uint32_t count, uint16_t *buf);
 void check_ahci(void);
