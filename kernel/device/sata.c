@@ -81,7 +81,6 @@ static inline void hba_reset(void)
     memreg->ghc = 0x80000000;
     memreg->ghc |= 0x00000001;
     // during HR = 1, polling
-    puts_serial("while reseting");
     while (memreg->ghc & 0x1) {
         puts_serial(".");
         asm volatile("hlt");
@@ -89,52 +88,123 @@ static inline void hba_reset(void)
     puts_serial("\n");
 }
 
+// if PxCMD.ST, PxCMD.CR, and PxCMD.FRE is clear, the port is idle.
 static uint32_t probe_idle_port(uint32_t pi)
 {
+    HBA_MEM_REG *memreg = (HBA_MEM_REG *)abar;
     uint32_t pidle = 0;
     for (int i = 0; i < 32; i++) {
         if (pi >> i) {
-            if (memreg->ports[i].cmd & 0x811 == 0) {
+            if ((memreg->ports[i].cmd & 0x811) == 0) {
                 pidle |= 1 << i;
+            } else {
+                put_str_num_serial("port is busy - PxCMD: ", (uint64_t)memreg->ports[i].cmd);
             }
         }
     }
     return pidle;
 }
 
-#define CMD_LIST_BASE 0x10000000
-static inline void alloc_mem_for_impl_ports(uint32_t pi_list, uint16_t slot_num)
+#define CMD_LIST_BASE 0x10000000    // size: 0x20 * 32 * 32 = 0x8000
+#define RCVD_FIS_BASE 0x10008000    // size: 0x100 * 32     = 0x2000
+static inline void alloc_mem_for_ports(uint32_t pi_list, uint16_t slot_num)
 {
+    memset((void *)CMD_LIST_BASE, 0, 0x8000 + 0x2000);
     HBA_PORT *ports = (HBA_PORT *)&(((HBA_MEM_REG *)abar)->ports[0]);
     for (int i = 0; i < 32; i++) {
         if (pi_list >> i) {
-            ports[i]->clb = CMD_LIST_BASE + 
+            ports[i].clb = CMD_LIST_BASE + sizeof(HBA_CMD_HEADER) * 32 * i;
+            ports[i].fb = RCVD_FIS_BASE + sizeof(RCVD_FIS) * i;
+            ports[i].cmd |= 0x10;  // PxCMD.FRE is set to 1
         }
     }
 }
 
+static inline void clear_ports_serr(uint32_t pi_list)
+{
+    HBA_PORT *ports = (HBA_PORT *)&(((HBA_MEM_REG *)abar)->ports[0]);
+    for (int i = 0; i < 32; i++) {
+        if (pi_list >> i) {
+            ports[i].serr |= 0x7ff0f03;    // clear by writing 1s to each bit
+            while (ports[i].serr)
+                asm volatile("hlt");
+        }
+    }
+}
+
+static inline void enable_ahci_interrupt(uint32_t pi_list)
+{
+    // first, PxIS are cleared to 0
+    HBA_MEM_REG *ghc = (HBA_MEM_REG *)abar;
+    HBA_PORT *ports = (HBA_PORT *)&(ghc->ports[0]);
+    for (int i = 0; i < 32; i++) {
+        if (pi_list >> i) {
+            //ports[i].is &= ~(ports[i].is);    // clear by writing 1s to each bit
+            ports[i].is = 0xffffffff; // clear pending interrupt bits
+            while (ports[i].is) {
+                asm volatile("hlt");
+                put_str_num_serial("PxIS clear cannot be finished: ", (uint64_t)ports[i].is);
+            }
+        }
+    }
+    // second, IS.IPS is cleared to 0
+    ghc->is &= ~(ghc->is);
+    while (ghc->is) {
+        asm volatile("hlt");
+        puts_serial("GHC.IS.IPS clear cannot be finished.\n");
+    }
+    // enable PxIE bit
+    for (int i = 0; i < 32; i++) {
+        if (pi_list >> i) {
+            ports[i].ie = 0xfdc000ff;  // Interrupt Enable all set
+        }
+    }
+    // set GHC.IE to 1
+    ghc->ghc |= 0x2;
+}
+
+/*
+ * Initialization procedure
+ * This is MINIMAL initialization.
+ * (10.1.2 System Software Specific Initialization)
+ * */
 static inline void ahci_init(void)
 {
+    puts_serial("AHCI initialization start.\n");
     // initial HBA reset
     hba_reset();
+    puts_serial("HBA reset end.\n");
 
     HBA_MEM_REG *memreg = (HBA_MEM_REG *)abar;
     // step 1: GHC.AE = 1
     memreg->ghc |= 0x80000000;
+    puts_serial("AHCI init step 1 end.\n");
     // step 2: determine implemented port
     uint32_t pi = memreg->pi;
+    puts_serial("AHCI init step 2 end.\n");
     // step 3: ensure that the controller is not running state
     // if PxCMD.ST, PxCMD.CR, and PxCMD.FRE is clear, the port is idle.
     uint32_t pidle = probe_idle_port(pi);
-    if (pi != pidle) {
-        puts_serial("Implement port is not idle.\n");
-        return;
+    while (pi != pidle) {
+        put_str_num_serial("Implement port is: ", pi);
+        put_str_num_serial("Implement port is not idle: ", pidle);
+        asm volatile("hlt");
     }
+    puts_serial("AHCI init step 3 end.\n");
     // step 4: determine how many command slots the HBA supports
     uint16_t slot_num = (uint16_t)((memreg->cap >> 8) & 0x1f);
+    puts_serial("AHCI init step 4 end.\n");
     // step 5: allocate memory for implemented ports
     // required params: PxCLB and PxFB
-    alloc_mem_for_impl_ports(pi, slot_num);
+    alloc_mem_for_ports(pi, slot_num);
+    puts_serial("AHCI init step 5 end.\n");
+    // step 6: clear PxSERR
+    clear_ports_serr(pi);
+    puts_serial("AHCI init step 6 end.\n");
+    // step 7: enable interrupt
+    enable_ahci_interrupt(pi);
+    puts_serial("AHCI init step 7 end.\n");
+    puts_serial("All of AHCI initialization end.\n");
 }
 
 /* ----------------------------------------------------------------------------
@@ -285,10 +355,10 @@ static inline void port_rebase(HBA_PORT *port, int portno)
 // bufへ書き込む
 int read(HBA_PORT *port, uint32_t startl, uint32_t starth, uint32_t count, uint16_t *buf)
 {
-    port->ie = 0xfdc000ff;  // Interrupt Enable all set
+    //port->ie = 0xfdc000ff;  // Interrupt Enable all set
     //port->is = 0xffffffff; // clear pending interrupt bits
     //port->is = 0xfd8000af;  // Interrupt Status all reset
-    port->is = 0x0;  // Interrupt Status all reset
+    //port->is = 0x0;  // Interrupt Status all reset
     while (1) {
         //put_str_num_serial("during IS reset: ", (uint64_t)port->is);
         print_port_status(port);
@@ -363,10 +433,11 @@ int read(HBA_PORT *port, uint32_t startl, uint32_t starth, uint32_t count, uint1
     print_port_status(port);
 
     // コマンド実行が終了するまでループで待つ
+    puts_serial("wait command read is finished\n");
     while (1) {
         //put_str_num_serial("port->ci: ", (uint64_t)port->ci);
         if ((port->ci & (1 << slot)) == 0) {
-            puts_serial("read finished\n");
+            puts_serial("command read finished\n");
             break;
         }
         //  port->isのbit 30がTask file error statusなのでそれを確認
@@ -374,6 +445,7 @@ int read(HBA_PORT *port, uint32_t startl, uint32_t starth, uint32_t count, uint1
             puts_serial("Read disk error\n");
             return 0;
         }
+        asm volatile("hlt");
     }
 
     // もう一回チェック
@@ -387,10 +459,11 @@ int read(HBA_PORT *port, uint32_t startl, uint32_t starth, uint32_t count, uint1
 
 void check_ahci(void)
 {
-    ((HBA_MEM_REG *)abar)->ghc |= 0x2; // interrupt enable
+    ahci_init();    // AHCI initialization
     print_hba_memory_register();
 
     HBA_PORT port = ((HBA_MEM_REG *)abar)->ports[0];
+    print_port_status(&port);
 
     uint16_t buf[512] = {0};
 
@@ -406,6 +479,9 @@ void check_ahci(void)
 
     for (int i = 0; i < 256; i++) {
         putnum_serial((uint64_t)buf[i]);
+    }
+    while (1) {
+        asm volatile("hlt");
     }
 }
 

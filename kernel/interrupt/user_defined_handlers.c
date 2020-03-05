@@ -36,7 +36,7 @@ void timer_handler(struct InterruptFrame *frame)
     /** 周期が来たらスケジューラを呼び出す
      * 各種パラメータはint_handler.hで設定
      */
-    if (milli_clock > previous_interrupt + timer_period && milli_clock > 100) {
+    if (milli_clock > previous_interrupt + timer_period && milli_clock > 900) {
         previous_interrupt = milli_clock;
         // put_str_num_serial("timer_handler old rip: ", frame->rip);
         // puts_serial("\n");

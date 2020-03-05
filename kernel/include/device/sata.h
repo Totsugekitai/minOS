@@ -231,7 +231,7 @@ struct port_implemented {
 };
 
 /* Reserved FIS */
-struct HBA_FIS {
+typedef volatile struct tagRCVD_FIS {
     // 0x00
     struct FIS_DMA_SETUP dsfis; // DMA Setup FIS
     uint8_t pad0[4];
@@ -252,7 +252,7 @@ struct HBA_FIS {
 
     // 0xA0
     uint8_t rsv[0x100 - 0xA0];
-};
+} RCVD_FIS;
 
 /* Command Header */
 typedef volatile struct tagHBA_CMD_HEADER {
