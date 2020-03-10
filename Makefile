@@ -1,7 +1,7 @@
 ROOTDIR			:= $(dir $(lastword $(MAKEFILE_LIST)))
 
 TOOLS			= $(ROOTDIR)tools/
-QEMU			= qemu-system-x86_64
+QEMU			= /home/totsugekitai/workspace/mywork/qemu/build/x86_64-softmmu/qemu-system-x86_64
 FS				= $(ROOTDIR)fs/
 KERNELSRC		= $(ROOTDIR)kernel/
 BOOTSRC			= $(ROOTDIR)boot/
@@ -43,6 +43,7 @@ run:
 		-drive if=none,id=sata,file=$(TOOLS)hdd.img \
 		-monitor telnet::1234,server,nowait \
 		-no-reboot \
+		--trace events=trace.event \
 
 rerun-kernel:
 	make clean-kernel

@@ -208,9 +208,155 @@ static inline void ahci_init(void)
 }
 
 /* ----------------------------------------------------------------------------
- * AHCI Read/Write process utility procedures and functions
+ * AHCI Read/Write utility procedures and functions
  * ----------------------------------------------------------------------------
  */
+
+static int find_free_cmdslot(HBA_PORT *port)
+{
+    uint32_t slots = (port->ci | port->sact);
+    for (int i = 0; i < 32; i++) {
+        if ((slots & 1) == 0) {
+            return i;
+        }
+        slots >>= 1;
+    }
+    puts_serial("Cannot find free command list entry\n");
+    return -1;
+}
+
+#define CMD_TBL_BASE 0x10010000
+static inline void build_cmd_table(CMD_PARAMS *params, uint64_t *table_addr)
+{
+    memset((void *)table_addr, 0, 0x80 + 16 * 65536); // zero clear
+    HBA_CMD_TBL *table = (HBA_CMD_TBL *)table_addr;
+
+    // build CFIS
+    if (params->fis_type == 0x27) { // if Register H2D
+        FIS_REG_H2D *h2dfis = (FIS_REG_H2D *)table_addr;
+        h2dfis->fis_type = 0x27;    // H2D FIS type magic number
+        h2dfis->c = 1;              // This is command
+        // command type is referenced in ATA command set
+        h2dfis->command = params->cmd_type;
+        // device
+        h2dfis->device = 0xe0;
+        // LBA
+        h2dfis->lba0 = (uint8_t)(((uint64_t)(params->lba) >>  0) & 0xff);
+        h2dfis->lba1 = (uint8_t)(((uint64_t)(params->lba) >>  8) & 0xff);
+        h2dfis->lba2 = (uint8_t)(((uint64_t)(params->lba) >> 16) & 0xff);
+        h2dfis->lba3 = (uint8_t)(((uint64_t)(params->lba) >> 24) & 0xff);
+        h2dfis->lba4 = (uint8_t)(((uint64_t)(params->lba) >> 32) & 0xff);
+        h2dfis->lba5 = (uint8_t)(((uint64_t)(params->lba) >> 40) & 0xff);
+        // block count
+        h2dfis->countl = (uint8_t)((params->count >> 0) & 0xff);
+        h2dfis->counth = (uint8_t)((params->count >> 8) & 0xff);
+    } else {
+        // TODO: other FIS is not implemented.
+    }
+
+    // build PRD Table
+    // 8 KB (16 sectors) per PRD Table
+    // 1 sectors = 512 KB
+    uint16_t count = params->count;
+    int prdtl = (int)((params->count - 1) >> 4) + 1;
+    uint8_t *buf = (uint8_t *)params->dba;
+    int i;
+    for (i = 0; i < prdtl - 1; i++) {
+        table->prdt_entry[i].dba  = (uint32_t)buf;
+        table->prdt_entry[i].dbau = 0;
+        table->prdt_entry[i].dbc = 8 * 1024 - 1;
+        table->prdt_entry[i].i = 1; // notify interrupt
+        buf += 8 * 1024; // 8K bytes
+        count -= 16; // 16 sectors
+    }
+
+    // Last entry
+    table->prdt_entry[i].dba = (uint32_t)buf;
+    table->prdt_entry[i].dbc = (count << 9) - 1;
+    table->prdt_entry[i].i = 1;
+}
+
+static inline void build_cmdheader(HBA_PORT *port, int slot, CMD_PARAMS *params)
+{
+    HBA_CMD_HEADER *cmd_list = ((HBA_CMD_HEADER *)port->clb + slot);
+    memset((void *)cmd_list, 0, 0x400);
+    cmd_list->ctba = (uint32_t)CMD_TBL_BASE;
+    cmd_list->ctbau = 0;
+    cmd_list->prdtl = (uint16_t)(((params->count - 1) >> 4) + 1);
+    cmd_list->cfl = params->cfis_len;
+    cmd_list->w = params->w;
+}
+
+static inline void notify_cmd_is_active(HBA_PORT *port, int slot)
+{
+    port->ci |= 1 << slot;
+}
+
+static inline void build_command(HBA_PORT *port, CMD_PARAMS *params)
+{
+    int slot = find_free_cmdslot(port);
+    // step 1:
+    // build a command FIS in system memory at location PxCLB[CH(pFreeSlot)]:CFIS with the command type.
+    build_cmd_table(params, (uint64_t *)CMD_TBL_BASE);
+    // step 2:
+    // build a command header at PxCLB[CH(pFreeSlot)].
+    build_cmdheader(port, slot, params);
+    // step 3:
+    // set PxCI.CI(pFreeSlot) to indicate to the HBA that a command is active.
+    notify_cmd_is_active(port, slot);
+
+    puts_serial("build command is over\n");
+    print_port_status(port);
+}
+
+static inline void wait_interrupt(HBA_PORT *port)
+{
+    puts_serial("while waiting interrupt\n");
+    while (port->is == 0) {
+        asm volatile("hlt");
+    }
+    puts_serial("interrupt comes\n");
+    print_port_status(port);
+}
+
+static inline void clear_pxis(HBA_PORT *port)
+{
+    port->is |= port->is;
+    puts_serial("while clear PxIS\n");
+    while (port->is) {
+        asm volatile("hlt");
+    }
+    puts_serial("clearing PxIS is over\n");
+    print_port_status(port);
+}
+
+static inline void clear_ghc_is(int portno)
+{
+    HBA_MEM_REG *ghc = (HBA_MEM_REG *)abar;
+    ghc->is |= 1 << portno;
+    puts_serial("while clear IS.IPS\n");
+    while (ghc->is) {
+        asm volatile("hlt");
+    }
+    puts_serial("clearing IS.IPS is finished\n");
+}
+
+int ahci_read(HBA_PORT *port, int portno, uint64_t start, uint16_t count, uint16_t *buf)
+{
+    CMD_PARAMS params;
+    params.fis_type = 0x27;
+    params.cmd_type = READ_DMA_EXT;
+    params.cfis_len = 5;
+    params.lba = (uint64_t *)start;
+    params.count = count;
+    params.dba = (uint64_t *)buf;
+    params.w = 0;
+    build_command(port, &params);
+    wait_interrupt(port);
+    clear_pxis(port);
+    clear_ghc_is(portno);
+    return 1;
+}
 
 // Check device type
 static int check_type(HBA_PORT *port)
@@ -270,19 +416,6 @@ void probe_port(struct port_implemented *p_impl)
         pi >>= 1;
         i++;
     }
-}
-
-static uint32_t find_cmdslot(HBA_PORT *port)
-{
-    uint32_t slots = (port->sact | port->ci);
-    for (int i = 0; i < 32; i++) {
-        if ((slots & 1) == 0) {
-            return (uint32_t)i;
-        }
-        slots >>= 1;
-    }
-    puts_serial("Cannot find free command list entry\n");
-    return -1;
 }
 
 static inline void stop_cmd(HBA_PORT *port)
@@ -367,7 +500,7 @@ int read(HBA_PORT *port, uint32_t startl, uint32_t starth, uint32_t count, uint1
         }
     }
 
-    int slot = find_cmdslot(port);
+    int slot = find_free_cmdslot(port);
     if (slot == -1) {
         return 0;
     }
@@ -381,7 +514,7 @@ int read(HBA_PORT *port, uint32_t startl, uint32_t starth, uint32_t count, uint1
     HBA_CMD_TBL *cmdtbl = (HBA_CMD_TBL *)(cmdheader->ctba);
     // HBA_CMD_TBL末尾にはPRDT1エントリ分が含まれているのでそれと重複させないようにしつつ
     // command tableを0で初期化する
-    memset(cmdtbl, 0, sizeof(HBA_CMD_TBL) +
+    memset((void *)cmdtbl, 0, sizeof(HBA_CMD_TBL) +
         (cmdheader->prdtl - 1) * sizeof(HBA_PRDT_ENTRY));
 
     // 8KB(16 sectors) per PRDT
@@ -391,7 +524,7 @@ int read(HBA_PORT *port, uint32_t startl, uint32_t starth, uint32_t count, uint1
         cmdtbl->prdt_entry[i].dba = (uint32_t)buf;
         cmdtbl->prdt_entry[i].dbc = 8*1024-1;
         cmdtbl->prdt_entry[i].i = 1; // 割り込みを通知する設定
-        buf += 4 * 1024; // 4K words
+        buf += 4 * 1024; // 8K words
         count -= 16; // 16 sectors
     }
 
@@ -465,15 +598,19 @@ void check_ahci(void)
     HBA_PORT port = ((HBA_MEM_REG *)abar)->ports[0];
     print_port_status(&port);
 
+    // while (1) {
+    //     asm volatile("hlt");
+    // }
+
     uint16_t buf[512] = {0};
 
-    port_rebase(&port, 0);
+    // port_rebase(&port, 0);
     print_port_status(&port);
-    int err = read(&port, 32, 32, 1, buf);
+    int err = ahci_read(&port, 0, 0x100, 1, buf);
     print_port_status(&port);
 
     if (!err) {
-        puts_serial("error\n");
+        puts_serial("AHCI read error!!!!!!!\n");
         return;
     }
 

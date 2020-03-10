@@ -298,7 +298,10 @@ typedef volatile struct tagHBA_CMD_TBL {
     uint8_t cfis[64]; // Command FIS
 
     // 0x40
-    uint8_t rsv[48]; // Reserved
+    uint8_t acmd[16]; // Reserved
+
+    // 0x50
+    uint8_t rsv[48];
 
     // 0x80
     HBA_PRDT_ENTRY prdt_entry[1]; // Physical region descriptor table entries, 0 ~ 65535
@@ -308,11 +311,14 @@ typedef volatile struct tagHBA_CMD_TBL {
 #define WRITE_DMA_EXT 0x35
 
 typedef struct tagCMD_PARAMS {
+    uint8_t fis_type;   // fis type
     uint8_t cmd_type;   // command type
+    uint8_t cfis_len;
     uint64_t *ctba;     // command table base address
     uint64_t *lba;      // logical block address
     uint16_t count;     // block count (1 count = 512 byte)
     uint64_t *dba;      // data base address (physical address of data block aligned word)
+    uint8_t w;
 } CMD_PARAMS;
 
 /* functions */
