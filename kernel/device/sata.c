@@ -21,8 +21,6 @@
 #define ATA_DEV_BUSY 0x80
 #define ATA_DEV_DRQ 0x08
 
-#define SIZE_8KB (8 * 1024 - 1)
-
 // AHCI Address Base
 // It is defined at pci.c
 extern uint64_t *abar;
@@ -294,13 +292,6 @@ static inline void notify_cmd_is_active(HBA_PORT *port, int slot)
     port->ci |= 1 << slot;
 }
 
-static inline void print_prdt(HBA_PORT *port, int slot)
-{
-    uint64_t *ctba = (uint64_t *)((HBA_CMD_HEADER *)(port->clb))[slot].ctba;
-    HBA_PRDT_ENTRY *prdt_entry = (HBA_PRDT_ENTRY *)((char *)ctba + 0x80);
-    put_str_num_serial("i: ", (uint64_t)prdt_entry->i);
-}
-
 static inline void build_command(HBA_PORT *port, CMD_PARAMS *params)
 {
     int slot = find_free_cmdslot(port);
@@ -316,7 +307,6 @@ static inline void build_command(HBA_PORT *port, CMD_PARAMS *params)
 
     puts_serial("build command is over\n");
     print_port_status(port);
-    print_prdt(port, slot);
 }
 
 static inline void wait_interrupt(HBA_PORT *port)
@@ -357,13 +347,8 @@ static inline void stop_cmd(HBA_PORT *port)
     port->cmd &= ~0x01;
 
     // wait until FR, CR are cleared
-    while (1) {
-        if (port->cmd & 0xc000) {
-            asm volatile("hlt");
-            continue;
-        } else {
-            break;
-        }
+    while (port->cmd & 0x4000 || port->cmd & 0x8000) {
+        asm volatile("hlt");
     }
 
     // clear FRE
@@ -382,6 +367,7 @@ static inline void start_cmd(HBA_PORT *port)
 
 int ahci_read_test(HBA_PORT *port, int portno, uint64_t start, uint16_t count, uint16_t *buf)
 {
+    //stop_cmd(port);
     start_cmd(port);
     CMD_PARAMS params;
     params.fis_type = 0x27;
@@ -398,20 +384,27 @@ int ahci_read_test(HBA_PORT *port, int portno, uint64_t start, uint16_t count, u
     return 1;
 }
 
-int ahci_write(HBA_PORT *port, int portno, uint64_t start, uint16_t count, uint16_t *buf)
+int ahci_write_test(HBA_PORT *port, int portno, uint64_t start, uint16_t count, uint16_t *buf)
 {
+    //puts_serial("stop_cmd\n");
+    //stop_cmd(port);
+    puts_serial("start_cmd\n");
     start_cmd(port);
     CMD_PARAMS params;
     params.fis_type = 0x27;
-    params.cmd_type = READ_DMA_EXT;
+    params.cmd_type = WRITE_DMA_EXT;
     params.cfis_len = 5;
     params.lba = (uint64_t *)start;
     params.count = count;
     params.dba = (uint64_t *)buf;
     params.w = 1;
+    puts_serial("build_command\n");
     build_command(port, &params);
+    puts_serial("wait_interrupt\n");
     wait_interrupt(port);
+    puts_serial("clear_pxis\n");
     clear_pxis(port);
+    puts_serial("clear_ghc_is\n");
     clear_ghc_is(portno);
     return 1;
 }
@@ -432,14 +425,32 @@ void check_ahci(void)
         putnum_serial((uint64_t)buf[i]);
     }
 
-    // port_rebase(&port, 0);
     print_port_status(port);
     ahci_read_test(port, 0, 0x100, 1, buf);
     print_port_status(port);
-
     for (int i = 0; i < 256; i++) {
         putnum_serial((uint64_t)buf[i]);
     }
+
+    ahci_init();    // AHCI initialization
+    uint16_t buf1[512];
+    for (int i = 0; i < 512; i++) {
+        buf1[i] = 0xabcd;
+    }
+
+    print_port_status(port);
+    puts_serial("write start\n");
+    ahci_write_test(port, 0, 0x0, 1, buf1);
+    //print_port_status(port);
+
+    //ahci_init();    // AHCI initialization
+    //print_port_status(port);
+    //ahci_read_test(port, 0, 0x100, 1, buf);
+    //print_port_status(port);
+    //for (int i = 0; i < 256; i++) {
+    //    putnum_serial((uint64_t)buf[i]);
+    //}
+
     while (1) {
         asm volatile("hlt");
     }
