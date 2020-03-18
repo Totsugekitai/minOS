@@ -28,7 +28,6 @@ extern uint64_t *abar;
 void print_hba_memory_register(void)
 {
     HBA_MEM_REG *hba_memreg = (HBA_MEM_REG *)abar;
-    //puts_serial("HBA Memory Register\n");
 
     puts_serial("status of Generic Host Control\n");
     put_str_num_serial("cap: ", (uint64_t)hba_memreg->cap);
@@ -137,7 +136,6 @@ static inline void enable_ahci_interrupt(uint32_t pi_list)
     HBA_PORT *ports = (HBA_PORT *)&(ghc->ports[0]);
     for (int i = 0; i < 32; i++) {
         if (pi_list >> i) {
-            //ports[i].is &= ~(ports[i].is);    // clear by writing 1s to each bit
             ports[i].is = 0xffffffff; // clear pending interrupt bits
             while (ports[i].is) {
                 asm volatile("hlt");
@@ -306,7 +304,6 @@ static inline void build_command(HBA_PORT *port, CMD_PARAMS *params)
     notify_cmd_is_active(port, slot);
 
     puts_serial("build command is over\n");
-    print_port_status(port);
 }
 
 static inline void wait_interrupt(HBA_PORT *port)
@@ -316,7 +313,6 @@ static inline void wait_interrupt(HBA_PORT *port)
         asm volatile("hlt");
     }
     puts_serial("interrupt comes\n");
-    print_port_status(port);
 }
 
 static inline void clear_pxis(HBA_PORT *port)
@@ -327,7 +323,6 @@ static inline void clear_pxis(HBA_PORT *port)
         asm volatile("hlt");
     }
     puts_serial("clearing PxIS is over\n");
-    print_port_status(port);
 }
 
 static inline void clear_ghc_is(int portno)
@@ -343,6 +338,7 @@ static inline void clear_ghc_is(int portno)
 
 static inline void stop_cmd(HBA_PORT *port)
 {
+    puts_serial("stop_cmd start\n");
     // clear ST
     port->cmd &= ~0x01;
 
@@ -353,21 +349,33 @@ static inline void stop_cmd(HBA_PORT *port)
 
     // clear FRE
     port->cmd &= ~0x10;
+    puts_serial("stop_cmd end\n");
 }
 
 static inline void start_cmd(HBA_PORT *port)
 {
+    puts_serial("start_cmd start\n");
+    port->cmd &= 0xfffffffe;
     // wait until CR is cleared
     while (port->cmd & 0x8000) { asm volatile("hlt"); }
 
     // set FRE and ST
     port->cmd |= 0x10;
     port->cmd |= 0x01;
+    puts_serial("start_cmd end\n");
+}
+
+static inline void wait_pxci_clear(HBA_PORT *port)
+{
+    puts_serial("wait PxCI\n");
+    while (port->ci) {
+        asm volatile("hlt");
+    }
+    puts_serial("wait PxCI end\n");
 }
 
 int ahci_read_test(HBA_PORT *port, int portno, uint64_t start, uint16_t count, uint16_t *buf)
 {
-    //stop_cmd(port);
     start_cmd(port);
     CMD_PARAMS params;
     params.fis_type = 0x27;
@@ -381,14 +389,12 @@ int ahci_read_test(HBA_PORT *port, int portno, uint64_t start, uint16_t count, u
     wait_interrupt(port);
     clear_pxis(port);
     clear_ghc_is(portno);
+    wait_pxci_clear(port);
     return 1;
 }
 
 int ahci_write_test(HBA_PORT *port, int portno, uint64_t start, uint16_t count, uint16_t *buf)
 {
-    //puts_serial("stop_cmd\n");
-    //stop_cmd(port);
-    puts_serial("start_cmd\n");
     start_cmd(port);
     CMD_PARAMS params;
     params.fis_type = 0x27;
@@ -398,14 +404,11 @@ int ahci_write_test(HBA_PORT *port, int portno, uint64_t start, uint16_t count, 
     params.count = count;
     params.dba = (uint64_t *)buf;
     params.w = 1;
-    puts_serial("build_command\n");
     build_command(port, &params);
-    puts_serial("wait_interrupt\n");
     wait_interrupt(port);
-    puts_serial("clear_pxis\n");
     clear_pxis(port);
-    puts_serial("clear_ghc_is\n");
     clear_ghc_is(portno);
+    wait_pxci_clear(port);
     return 1;
 }
 
@@ -415,42 +418,37 @@ void check_ahci(void)
     print_hba_memory_register();
 
     HBA_PORT *port = &((HBA_MEM_REG *)abar)->ports[0];
-    print_port_status(port);
 
     uint16_t buf[512];
     for (int i = 0; i < 512; i++) {
         buf[i] = 0xbeef;
     }
-    for (int i = 0; i < 256; i++) {
-        putnum_serial((uint64_t)buf[i]);
-    }
+    //for (int i = 0; i < 256; i++) {
+    //    putnum_serial((uint64_t)buf[i]);
+    //}
 
-    print_port_status(port);
     ahci_read_test(port, 0, 0x100, 1, buf);
-    print_port_status(port);
-    for (int i = 0; i < 256; i++) {
-        putnum_serial((uint64_t)buf[i]);
-    }
+    //for (int i = 0; i < 256; i++) {
+    //    putnum_serial((uint64_t)buf[i]);
+    //}
 
-    ahci_init();    // AHCI initialization
     uint16_t buf1[512];
     for (int i = 0; i < 512; i++) {
         buf1[i] = 0xabcd;
     }
 
-    print_port_status(port);
+    //print_port_status(port);
     puts_serial("write start\n");
     ahci_write_test(port, 0, 0x0, 1, buf1);
-    //print_port_status(port);
+    puts_serial("write end\n");
 
-    //ahci_init();    // AHCI initialization
-    //print_port_status(port);
-    //ahci_read_test(port, 0, 0x100, 1, buf);
-    //print_port_status(port);
-    //for (int i = 0; i < 256; i++) {
-    //    putnum_serial((uint64_t)buf[i]);
-    //}
+    ahci_read_test(port, 0, 0x0, 1, buf);
+    for (int i = 0; i < 256; i++) {
+        putnum_serial((uint64_t)buf[i]);
+    }
+    puts_serial("\n");
 
+    puts_serial("iroiro end\n");
     while (1) {
         asm volatile("hlt");
     }
