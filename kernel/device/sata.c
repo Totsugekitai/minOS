@@ -355,7 +355,7 @@ static inline void stop_cmd(HBA_PORT *port)
 static inline void start_cmd(HBA_PORT *port)
 {
     puts_serial("start_cmd start\n");
-    port->cmd &= 0xfffffffe;
+    port->cmd &= 0xfffffffe;    // PxCMD.ST = 0
     // wait until CR is cleared
     while (port->cmd & 0x8000) { asm volatile("hlt"); }
 
