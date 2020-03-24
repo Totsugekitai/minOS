@@ -69,9 +69,9 @@ void main_routine(void)
     check_all_buses();
     check_ahci();
 
-     while (1) {
-         asm volatile("hlt");
-     }
+    while (1) {
+        asm volatile("hlt");
+    }
 
     // set task switch interval
     int pe = 1;

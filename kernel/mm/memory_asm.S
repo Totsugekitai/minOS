@@ -52,7 +52,7 @@ set_segment_register:
     push    rdi     # cs = rdi(第一引数)に設定(権限のみ見る)
     lea     rcx,main_label
     push    rcx  # rip = main_labelのアドレス
-    
+    hlt
     iretq           # pushした値をそれぞれに書き込み、main_labelにジャンプ
 
 .global             main_label
