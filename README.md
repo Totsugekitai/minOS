@@ -4,6 +4,8 @@
 ->
 [minOSv2](https://github.com/Totsugekitai/minOSv2)
 
+多分もうこっちはいじらないと思います。
+
 ## About
 
 このリポジトリはx64フルスクラッチOS「minOS」のリポジトリです。
